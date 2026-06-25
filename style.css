@@ -6,19 +6,17 @@
 }
 
 :root {
-    --preto-fundo: #050508;
-    --preto-caixa: #101018;
-    --vermelho-principal: #d60000;
-    --vermelho-brilho: #ff1a1a;
-    --dourado: #ffc107;
+    --preto-fundo: #08050f;
+    --vermelho-principal: #c20000;
+    --vermelho-brilho: #ff2020;
+    --dourado: #ffc82e;
     --branco: #ffffff;
-    --cinza-claro: #b8b8c8;
-    --cinza-escuro: #222230;
+    --cinza-input: #22222c;
+    --cinza-texto: #b0b0c0;
 }
 
 body {
     background: var(--preto-fundo);
-    color: var(--branco);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -26,35 +24,51 @@ body {
     padding: 20px;
 }
 
-/* Tela inicial */
+/* Tela Inicial */
 .caixa-splash {
     width: 100%;
     max-width: 420px;
-    background: linear-gradient(180deg, #151522 0%, #080810 100%);
+    min-height: 720px;
+    background: linear-gradient(rgba(8,5,15,0.8), rgba(8,5,15,0.8)),
+                url('https://i.ibb.co/Z6g7gFh/ptvip-tigre-completo.jpg') center/cover no-repeat;
+    border-radius: 22px;
     border: 2px solid var(--vermelho-principal);
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(214, 0, 0, 0.4), inset 0 0 12px rgba(255, 193, 7, 0.15);
-    padding: 60px 30px;
-    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.55),
+                inset 0 0 25px rgba(255, 200, 46, 0.12);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 25px;
     position: relative;
-    overflow: hidden;
+    text-align: center;
 }
 
-.logo-grande {
-    font-size: 58px;
+.logo-topo {
+    margin-bottom: 25px;
+}
+.logo-topo h1 {
+    font-size: 56px;
     font-weight: 900;
-    margin-bottom: 15px;
-    text-shadow: 0 0 12px rgba(255, 193, 7, 0.7);
+    color: var(--branco);
+    text-shadow: 0 0 18px rgba(255, 0, 0, 0.7);
 }
-.logo-grande span {
+.logo-topo span {
+    color: var(--vermelho-principal);
+}
+.logo-topo .coroa {
+    font-size: 42px;
     color: var(--dourado);
+    margin-bottom: -12px;
+    text-shadow: 0 0 12px rgba(255, 200, 46, 0.8);
 }
+
 .slogan {
-    font-size: 20px;
+    font-size: 22px;
     color: var(--dourado);
     letter-spacing: 2px;
     margin-bottom: 50px;
-    opacity: 0.9;
+    text-shadow: 0 0 8px rgba(255, 200, 46, 0.6);
 }
 
 /* Botões */
@@ -63,69 +77,92 @@ body {
     padding: 16px;
     border: none;
     border-radius: 10px;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: bold;
     margin: 12px 0;
     cursor: pointer;
     transition: all 0.25s ease;
 }
 .botao.vermelho {
-    background: linear-gradient(90deg, var(--vermelho-principal), #b00000);
+    background: linear-gradient(90deg, var(--vermelho-principal), #900000);
     color: var(--branco);
-    box-shadow: 0 4px 15px rgba(214, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(194, 0, 0, 0.55);
 }
 .botao.vermelho:hover {
-    background: linear-gradient(90deg, #ff2020, var(--vermelho-principal));
-    box-shadow: 0 0 22px rgba(255, 0, 0, 0.7);
+    background: linear-gradient(90deg, #ff2525, var(--vermelho-principal));
+    box-shadow: 0 0 28px rgba(255, 0, 0, 0.7);
 }
 .botao.branco {
-    background: linear-gradient(90deg, #f8f8f8, #e5e5e5);
-    color: #111118;
-    box-shadow: 0 3px 12px rgba(255, 255, 255, 0.25);
+    background: #ffffff;
+    color: #12121a;
+    box-shadow: 0 3px 15px rgba(255, 255, 255, 0.3);
 }
 .botao.branco:hover {
-    background: #ffffff;
-    box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
+    background: #f0f0f0;
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.5);
 }
 
-/* Container padrão para todas as telas */
+/* Container padrão */
 .container {
     width: 100%;
     max-width: 420px;
-    background: var(--preto-caixa);
+    background: linear-gradient(rgba(8,5,15,0.85), rgba(8,5,15,0.85)),
+                url('https://i.ibb.co/Z6g7gFh/ptvip-tigre-completo.jpg') center/cover no-repeat;
+    border-radius: 22px;
     border: 2px solid var(--vermelho-principal);
-    border-radius: 16px;
-    padding: 30px 25px;
-    box-shadow: 0 0 18px rgba(214, 0, 0, 0.35);
+    box-shadow: 0 0 35px rgba(255, 0, 0, 0.5);
+    padding: 35px 25px;
+    color: var(--branco);
+    text-align: center;
 }
 
 h2 {
-    text-align: center;
-    margin-bottom: 25px;
+    font-size: 28px;
     color: var(--branco);
-    font-size: 26px;
-    font-weight: 700;
+    margin-bottom: 20px;
+}
+.subtitulo {
+    color: var(--cinza-texto);
+    font-size: 16px;
+    margin-bottom: 35px;
 }
 
-h3 {
-    color: var(--dourado);
-    margin: 15px 0;
+/* Campos de código de verificação */
+.codigo-grupo {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.codigo-grupo input {
+    width: 62px;
+    height: 68px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid var(--vermelho-principal);
+    background: rgba(34, 34, 44, 0.85);
+    color: var(--branco);
 }
 
+/* Inputs gerais */
 input {
     width: 100%;
-    padding: 14px;
-    margin: 10px 0;
+    padding: 15px;
+    margin: 12px 0;
     border-radius: 8px;
-    border: 1px solid var(--cinza-escuro);
-    background: #1a1a28;
+    border: none;
+    background: var(--cinza-input);
     color: var(--branco);
     font-size: 16px;
 }
+input::placeholder {
+    color: var(--cinza-texto);
+}
 input:focus {
     outline: none;
-    border-color: var(--dourado);
-    box-shadow: 0 0 8px rgba(255, 193, 7, 0.35);
+    box-shadow: 0 0 0 2px var(--dourado);
 }
 
 /* Navegação inferior */
@@ -143,19 +180,19 @@ input:focus {
     background: #1a1a28;
     border-radius: 8px;
     font-size: 14px;
-    color: var(--cinza-claro);
+    color: var(--cinza-texto);
     cursor: pointer;
 }
 .nav-item.ativo {
     background: var(--vermelho-principal);
     color: white;
-    box-shadow: 0 0 10px rgba(214, 0, 0, 0.4);
+    box-shadow: 0 0 12px rgba(194, 0, 0, 0.45);
 }
 
-/* Estilos PIX */
+/* PIX */
 .qr-box {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     background: white;
     margin: 25px auto;
     border-radius: 12px;
@@ -164,16 +201,17 @@ input:focus {
     justify-content: center;
     color: #111;
     font-weight: bold;
-    box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+    box-shadow: 0 0 22px rgba(255, 200, 46, 0.6);
 }
 .codigo-pix {
-    background: #1a1a28;
-    padding: 14px;
+    background: rgba(34, 34, 44, 0.9);
+    padding: 16px;
     border-radius: 8px;
     margin: 15px 0;
     word-break: break-all;
     font-size: 13px;
     border: 1px solid var(--vermelho-principal);
+    color: var(--branco);
 }
 .msg-copiado {
     color: #22dd66;
@@ -192,15 +230,16 @@ input:focus {
 }
 .valor-item {
     background: #1a1a28;
-    padding: 18px;
+    padding: 20px;
     border-radius: 8px;
     text-align: center;
     border: 2px solid transparent;
     cursor: pointer;
     font-weight: bold;
+    font-size: 18px;
 }
 .valor-item.ativo {
     border-color: var(--dourado);
     background: #221f15;
-    box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
+    box-shadow: 0 0 14px rgba(255, 200, 46, 0.45);
 }
