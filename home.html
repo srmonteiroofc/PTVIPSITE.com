@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início - PT VIP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .saldo { background: linear-gradient(90deg, #D60000, #900000); padding:15px; border-radius:10px; margin:15px 0; text-align:left; }
+        .botoes-navegacao { display:flex; gap:8px; margin-top:20px; }
+        .nav-btn { flex:1; padding:10px; background:#2a2a2a; border-radius:6px; border:none; color:white; }
+        .nav-btn.ativo { background:#D60000; }
+    </style>
+</head>
+<body>
+    <div class="tela container">
+        <div class="saldo">
+            <p>Saldo disponível</p>
+            <h3>R$ 250,00</h3>
+            <button style="background:#FFBB00; color:#111; border:none; padding:6px 12px; border-radius:4px; float:right; margin-top:-30px">DEPOSITAR</button>
+        </div>
+        <div style="background:#1a1a1a; border-radius:8px; padding:12px; margin:15px 0; border:1px solid #D60000">
+            <h4>100% ATÉ R$1.000 + 200 FS</h4>
+            <p style="font-size:13px; color:#ccc">Bônus de boas-vindas</p>
+        </div>
+        <h4 style="text-align:left; margin:15px 0 8px">Jogos Populares</h4>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+            <div style="background:#222; padding:15px; border-radius:8px">Fortune Tiger</div>
+            <div style="background:#222; padding:15px; border-radius:8px">Sweet Bonanza</div>
+            <div style="background:#222; padding:15px; border-radius:8px">Gates of Olympus</div>
+            <div style="background:#222; padding:15px; border-radius:8px">Mega Wolf Gold</div>
+        </div>
+        <div class="botoes-navegacao">
+            <button class="nav-btn ativo">Início</button>
+            <button class="nav-btn" onclick="irPara('jogos.html')">Jogos</button>
+            <button class="nav-btn" onclick="irPara('carteira.html')">Carteira</button>
+            <button class="nav-btn" onclick="irPara('perfil.html')">Perfil</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
