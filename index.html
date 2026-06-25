@@ -3,151 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTVIP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #000000;
-            font-family: 'Arial', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        @keyframes neonPulse {
-            0% { box-shadow: 0 0 12px #ff2233, 0 0 25px #ff223370; }
-            50% { box-shadow: 0 0 22px #ff2233, 0 0 45px #ff223390; }
-            100% { box-shadow: 0 0 12px #ff2233, 0 0 25px #ff223370; }
-        }
-
-        @keyframes coinFall {
-            0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
-            20% { opacity: 1; }
-            100% { transform: translateY(220px) rotate(360deg); opacity: 0; }
-        }
-
-        .card {
-            width: 100%;
-            max-width: 420px;
-            background: linear-gradient(180deg, #120005 0%, #000000 100%);
-            border-radius: 20px;
-            padding: 30px 20px;
-            position: relative;
-            border: 2px solid #ff2233;
-            animation: neonPulse 3s infinite ease-in-out;
-            overflow: hidden;
-        }
-
-        .coin {
-            position: absolute;
-            width: 32px;
-            height: 32px;
-            background: radial-gradient(circle, #ffd700 0%, #b8860b 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 8px #ffd700;
-            animation: coinFall 7s infinite linear;
-        }
-
-        .crown {
-            position: absolute;
-            top: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 3rem;
-            color: #ffd700;
-            filter: drop-shadow(0 0 8px #ffd700);
-            z-index: 2;
-        }
-
-        .title {
-            font-size: 4rem;
-            font-weight: 900;
-            text-align: center;
-            color: #ffffff;
-            text-shadow: 0 0 12px #ff2233;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .title span {
-            color: #ff2233;
-        }
-
-        .slogan {
-            font-size: 1.7rem;
-            font-weight: bold;
-            text-align: center;
-            color: #ffd700;
-            margin-bottom: 25px;
-            text-shadow: 0 0 6px #ffd70070;
-        }
-
-        /* Link da imagem atualizado e estável */
-        .tiger-img {
-            width: 100%;
-            height: 320px;
-            background: url('https://i.ibb.co/4pQz7rK/ptvip-tiger.png') center/contain no-repeat;
-            margin-bottom: 30px;
-            border-radius: 8px;
-        }
-
-        .btn-entrar {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(180deg, #ff2233 0%, #b00012 100%);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 12px #ff223350;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-entrar:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 18px #ff2233;
-        }
-
-        .btn-criar {
-            width: 100%;
-            padding: 16px;
-            background: #ffffff;
-            border: none;
-            border-radius: 12px;
-            color: #000000;
-            font-size: 1.3rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .btn-criar:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 15px #ffffff80;
-        }
-    </style>
+    <title>PT VIP</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="card">
-        <div class="crown">👑</div>
-        <h1 class="title">PT<span>VIP</span></h1>
-        <p class="slogan">JOGUE. VENÇA.<br>SEJA VIP.</p>
+    <div class="caixa-splash">
+        <div class="logo-topo">
+            <div class="coroa">👑</div>
+            <h1>PT<span>VIP</span></h1>
+        </div>
+        <p class="slogan">JOGUE • VENÇA • SEJA VIP</p>
 
-        <div class="tiger-img"></div>
-
-        <button class="btn-entrar">ENTRAR</button>
-        <button class="btn-criar">CRIAR CONTA</button>
-
-        <div class="coin" style="left: 12%; animation-delay: 0s;"></div>
-        <div class="coin" style="left: 75%; animation-delay: 2.2s;"></div>
-        <div class="coin" style="left: 42%; animation-delay: 4.5s;"></div>
+        <button class="botao vermelho" onclick="irPara('login.html')">ENTRAR</button>
+        <button class="botao branco" onclick="irPara('cadastro.html')">CRIAR CONTA</button>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
