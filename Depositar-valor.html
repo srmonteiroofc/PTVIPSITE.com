@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolher Valor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .valores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 25px 0; }
+        .valor { background: #222; padding: 18px; border-radius: 8px; text-align: center; border: 2px solid transparent; cursor: pointer; }
+        .valor.ativo { border-color: #FFBB00; background: #2a2210; }
+    </style>
+</head>
+<body>
+    <div class="tela container">
+        <h2>Valor do Depósito</h2>
+        <div class="valores">
+            <div class="valor">R$ 20</div>
+            <div class="valor">R$ 50</div>
+            <div class="valor ativo">R$ 100</div>
+            <div class="valor">R$ 200</div>
+            <div class="valor">R$ 500</div>
+            <div class="valor">R$ 1.000</div>
+        </div>
+        <p style="color:#ccc; font-size:14px; margin:10px 0">Bônus de 100% no primeiro depósito</p>
+        <button class="btn vermelho" onclick="irPara('depositar-metodo.html')">CONTINUAR</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
