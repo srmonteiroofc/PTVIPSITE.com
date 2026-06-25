@@ -11,7 +11,6 @@ function copiarPix() {
     });
 }
 
-// Selecionar valor de depósito
 function selecionarValor(elemento) {
     document.querySelectorAll('.valor-item').forEach(item => item.classList.remove('ativo'));
     elemento.classList.add('ativo');
