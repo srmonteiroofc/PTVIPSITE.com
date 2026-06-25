@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogos - PT VIP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .categorias { display:flex; gap:8px; margin:15px 0; overflow-x:auto; }
+        .cat { padding:6px 12px; background:#2a2a2a; border-radius:15px; font-size:13px; }
+        .cat.ativo { background:#D60000; }
+        .grade { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:20px 0; }
+        .jogo { background:#222; padding:20px; border-radius:8px; text-align:center; }
+    </style>
+</head>
+<body>
+    <div class="tela container">
+        <h2>Casino</h2>
+        <div class="categorias">
+            <div class="cat ativo">Populares</div>
+            <div class="cat">Novos</div>
+            <div class="cat">Mesa</div>
+            <div class="cat">Ao Vivo</div>
+            <div class="cat">Slots</div>
+        </div>
+        <div class="grade">
+            <div class="jogo">Fortune Tiger</div>
+            <div class="jogo">Sweet Bonanza</div>
+            <div class="jogo">Gates of Olympus</div>
+            <div class="jogo">Mega Wolf Gold</div>
+            <div class="jogo">Rouleta VIP</div>
+            <div class="jogo">Blackjack</div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:20px;">
+            <button class="nav-btn" onclick="irPara('home.html')">Início</button>
+            <button class="nav-btn ativo">Jogos</button>
+            <button class="nav-btn" onclick="irPara('carteira.html')">Carteira</button>
+            <button class="nav-btn" onclick="irPara('perfil.html')">Perfil</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
