@@ -6,13 +6,14 @@
 }
 
 :root {
-    --preto-fundo: #0a0a0f;
-    --preto-caixa: #12121a;
+    --preto-fundo: #050508;
+    --preto-caixa: #101018;
     --vermelho-principal: #d60000;
-    --vermelho-brilho: #ff2222;
+    --vermelho-brilho: #ff1a1a;
     --dourado: #ffc107;
     --branco: #ffffff;
-    --cinza: #b0b0c0;
+    --cinza-claro: #b8b8c8;
+    --cinza-escuro: #222230;
 }
 
 body {
@@ -28,34 +29,35 @@ body {
 /* Tela inicial */
 .caixa-splash {
     width: 100%;
-    max-width: 400px;
-    background: linear-gradient(180deg, #151520 0%, #0a0a12 100%);
+    max-width: 420px;
+    background: linear-gradient(180deg, #151522 0%, #080810 100%);
     border: 2px solid var(--vermelho-principal);
     border-radius: 20px;
     box-shadow: 0 0 25px rgba(214, 0, 0, 0.4), inset 0 0 12px rgba(255, 193, 7, 0.15);
-    padding: 50px 30px;
+    padding: 60px 30px;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
 .logo-grande {
-    font-size: 56px;
+    font-size: 58px;
     font-weight: 900;
-    margin-bottom: 12px;
-    text-shadow: 0 0 10px rgba(255, 193, 7, 0.6);
+    margin-bottom: 15px;
+    text-shadow: 0 0 12px rgba(255, 193, 7, 0.7);
 }
 .logo-grande span {
     color: var(--dourado);
 }
 .slogan {
-    font-size: 19px;
+    font-size: 20px;
     color: var(--dourado);
     letter-spacing: 2px;
     margin-bottom: 50px;
     opacity: 0.9;
 }
 
+/* Botões */
 .botao {
     width: 100%;
     padding: 16px;
@@ -68,56 +70,62 @@ body {
     transition: all 0.25s ease;
 }
 .botao.vermelho {
-    background: linear-gradient(90deg, var(--vermelho-principal), #b80000);
+    background: linear-gradient(90deg, var(--vermelho-principal), #b00000);
     color: var(--branco);
     box-shadow: 0 4px 15px rgba(214, 0, 0, 0.4);
 }
 .botao.vermelho:hover {
-    background: linear-gradient(90deg, #ff1515, var(--vermelho-principal));
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    background: linear-gradient(90deg, #ff2020, var(--vermelho-principal));
+    box-shadow: 0 0 22px rgba(255, 0, 0, 0.7);
 }
 .botao.branco {
-    background: linear-gradient(90deg, #f8f8f8, #e0e0e0);
+    background: linear-gradient(90deg, #f8f8f8, #e5e5e5);
     color: #111118;
-    box-shadow: 0 3px 12px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 3px 12px rgba(255, 255, 255, 0.25);
 }
 .botao.branco:hover {
     background: #ffffff;
-    box-shadow: 0 0 18px rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
 }
 
-/* Demais telas */
+/* Container padrão para todas as telas */
 .container {
     width: 100%;
-    max-width: 400px;
+    max-width: 420px;
     background: var(--preto-caixa);
     border: 2px solid var(--vermelho-principal);
     border-radius: 16px;
     padding: 30px 25px;
-    box-shadow: 0 0 18px rgba(214, 0, 0, 0.3);
+    box-shadow: 0 0 18px rgba(214, 0, 0, 0.35);
 }
 
 h2 {
     text-align: center;
     margin-bottom: 25px;
     color: var(--branco);
-    font-size: 24px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+h3 {
+    color: var(--dourado);
+    margin: 15px 0;
 }
 
 input {
     width: 100%;
-    padding: 13px;
+    padding: 14px;
     margin: 10px 0;
     border-radius: 8px;
-    border: 1px solid #2a2a3a;
-    background: #1e1e2c;
+    border: 1px solid var(--cinza-escuro);
+    background: #1a1a28;
     color: var(--branco);
     font-size: 16px;
 }
 input:focus {
     outline: none;
     border-color: var(--dourado);
-    box-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.35);
 }
 
 /* Navegação inferior */
@@ -135,7 +143,7 @@ input:focus {
     background: #1a1a28;
     border-radius: 8px;
     font-size: 14px;
-    color: var(--cinza);
+    color: var(--cinza-claro);
     cursor: pointer;
 }
 .nav-item.ativo {
@@ -144,10 +152,10 @@ input:focus {
     box-shadow: 0 0 10px rgba(214, 0, 0, 0.4);
 }
 
-/* Estilo PIX */
+/* Estilos PIX */
 .qr-box {
-    width: 190px;
-    height: 190px;
+    width: 200px;
+    height: 200px;
     background: white;
     margin: 25px auto;
     border-radius: 12px;
@@ -172,4 +180,27 @@ input:focus {
     text-align: center;
     margin-top: 10px;
     display: none;
+    font-weight: bold;
+}
+
+/* Valores de depósito */
+.valores-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 25px 0;
+}
+.valor-item {
+    background: #1a1a28;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+.valor-item.ativo {
+    border-color: var(--dourado);
+    background: #221f15;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.3);
 }
