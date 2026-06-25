@@ -17,18 +17,16 @@
             padding: 20px;
         }
 
-        /* Animação do brilho pulsante */
         @keyframes neonPulse {
-            0% { box-shadow: 0 0 10px #ff2233, 0 0 20px #ff223380, inset 0 0 5px #ff223340; }
-            50% { box-shadow: 0 0 20px #ff2233, 0 0 40px #ff223390, inset 0 0 10px #ff223360; }
-            100% { box-shadow: 0 0 10px #ff2233, 0 0 20px #ff223380, inset 0 0 5px #ff223340; }
+            0% { box-shadow: 0 0 12px #ff2233, 0 0 25px #ff223370; }
+            50% { box-shadow: 0 0 22px #ff2233, 0 0 45px #ff223390; }
+            100% { box-shadow: 0 0 12px #ff2233, 0 0 25px #ff223370; }
         }
 
-        /* Animação das moedas caindo */
         @keyframes coinFall {
-            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            0% { transform: translateY(-30px) rotate(0deg); opacity: 0; }
             20% { opacity: 1; }
-            100% { transform: translateY(200px) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(220px) rotate(360deg); opacity: 0; }
         }
 
         .card {
@@ -45,25 +43,12 @@
 
         .coin {
             position: absolute;
-            width: 35px;
-            height: 35px;
+            width: 32px;
+            height: 32px;
             background: radial-gradient(circle, #ffd700 0%, #b8860b 100%);
             border-radius: 50%;
             box-shadow: 0 0 8px #ffd700;
-            animation: coinFall 6s infinite linear;
-        }
-
-        .title {
-            font-size: 4rem;
-            font-weight: 900;
-            text-align: center;
-            color: #ffffff;
-            text-shadow: 0 0 12px #ff2233;
-            margin-bottom: 10px;
-        }
-
-        .title span {
-            color: #ff2233;
+            animation: coinFall 7s infinite linear;
         }
 
         .crown {
@@ -74,6 +59,22 @@
             font-size: 3rem;
             color: #ffd700;
             filter: drop-shadow(0 0 8px #ffd700);
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 900;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 0 0 12px #ff2233;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title span {
+            color: #ff2233;
         }
 
         .slogan {
@@ -85,11 +86,13 @@
             text-shadow: 0 0 6px #ffd70070;
         }
 
+        /* Link da imagem atualizado e estável */
         .tiger-img {
             width: 100%;
             height: 320px;
-            background: url('https://i.imgur.com/8R9cQvY.png') center/contain no-repeat;
+            background: url('https://i.ibb.co/4pQz7rK/ptvip-tiger.png') center/contain no-repeat;
             margin-bottom: 30px;
+            border-radius: 8px;
         }
 
         .btn-entrar {
@@ -133,26 +136,18 @@
 </head>
 <body>
     <div class="card">
-        <!-- Coroa -->
         <div class="crown">👑</div>
-
-        <!-- Título -->
         <h1 class="title">PT<span>VIP</span></h1>
-
-        <!-- Frase -->
         <p class="slogan">JOGUE. VENÇA.<br>SEJA VIP.</p>
 
-        <!-- Imagem do Tigre -->
         <div class="tiger-img"></div>
 
-        <!-- Botões -->
         <button class="btn-entrar">ENTRAR</button>
         <button class="btn-criar">CRIAR CONTA</button>
 
-        <!-- Moedas animadas -->
-        <div class="coin" style="left: 15%; animation-delay: 0s;"></div>
-        <div class="coin" style="left: 70%; animation-delay: 2s;"></div>
-        <div class="coin" style="left: 40%; animation-delay: 4s;"></div>
+        <div class="coin" style="left: 12%; animation-delay: 0s;"></div>
+        <div class="coin" style="left: 75%; animation-delay: 2.2s;"></div>
+        <div class="coin" style="left: 42%; animation-delay: 4.5s;"></div>
     </div>
 </body>
 </html>
