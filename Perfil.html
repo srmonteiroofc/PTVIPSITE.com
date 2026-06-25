@@ -5,34 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - PT VIP</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .cabecalho { text-align:center; margin:20px 0; }
-        .avatar { width:70px; height:70px; border-radius:50%; background:#444; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; font-size:28px; }
-        .item-menu { background:#222; padding:14px; border-radius:8px; margin:8px 0; text-align:left; }
-    </style>
 </head>
 <body>
-    <div class="tela container">
-        <div class="cabecalho">
-            <div class="avatar">👤</div>
+    <div class="container">
+        <div style="text-align:center; margin-bottom:25px">
+            <div style="width:75px; height:75px; border-radius:50%; background:#2a2a3a; margin:0 auto 10px; display:flex; align-items:center; justify-content:center; font-size:30px">👤</div>
             <h3>João da Silva</h3>
-            <p style="color:#ccc; font-size:14px">ID: 994562 | Nível VIP</p>
+            <p style="color:var(--cinza-claro); font-size:14px">ID: 994562 | Nível VIP</p>
         </div>
-        <div class="item-menu">📄 Dados Pessoais</div>
-        <div class="item-menu">🔒 Segurança</div>
-        <div class="item-menu">💳 Métodos de Pagamento</div>
-        <div class="item-menu">📜 Histórico de Apostas</div>
-        <div class="item-menu">🎁 Indique e Ganhe</div>
-        <div class="item-menu">📞 Suporte 24/7</div>
-        <button class="btn vermelho" style="margin-top:25px">SAIR DA CONTA</button>
-        <div style="display:flex; gap:8px; margin-top:20px;">
-            <button class="nav-btn" onclick="irPara('home.html')">Início</button>
-            <button class="nav-btn" onclick="irPara('jogos.html')">Jogos</button>
-            <button class="nav-btn" onclick="irPara('carteira.html')">Carteira</button>
-            <button class="nav-btn ativo">Perfil</button>
+
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:8px 0; text-align:left">📄 Dados Pessoais</div>
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:8px 0; text-align:left">🔒 Segurança</div>
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:8px 0; text-align:left">💳 Métodos de Pagamento</div>
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:8px 0; text-align:left">📜 Histórico de Apostas</div>
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:8px 0; text-align:left">🎁 Indique e Ganhe</div>
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:8px 0; text-align:left">📞 Suporte 24h</div>
+
+        <button class="botao vermelho" style="margin-top:25px">SAIR DA CONTA</button>
+
+        <div class="menu-navegacao">
+            <div class="nav-item" onclick="irPara('home.html')">Início</div>
+            <div class="nav-item" onclick="irPara('jogos.html')">Jogos</div>
+            <div class="nav-item" onclick="irPara('carteira.html')">Carteira</div>
+            <div class="nav-item ativo">Perfil</div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
