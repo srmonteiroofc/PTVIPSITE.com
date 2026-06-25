@@ -8,18 +8,27 @@
 </head>
 <body>
     <div class="container">
-        <h2>Verifique seu número</h2>
-        <p style="text-align:center; color:var(--cinza-claro); margin:15px 0">Digite o código enviado para (11) 99999-9999</p>
-        <div style="display:flex; gap:10px; justify-content:center; margin:25px 0">
-            <input type="text" maxlength="1" style="width:55px; text-align:center; font-size:24px">
-            <input type="text" maxlength="1" style="width:55px; text-align:center; font-size:24px">
-            <input type="text" maxlength="1" style="width:55px; text-align:center; font-size:24px">
-            <input type="text" maxlength="1" style="width:55px; text-align:center; font-size:24px">
-            <input type="text" maxlength="1" style="width:55px; text-align:center; font-size:24px">
+        <div class="logo-topo">
+            <div class="coroa">👑</div>
+            <h1>PT<span>VIP</span></h1>
         </div>
-        <p style="text-align:center; margin-bottom:20px; color:var(--cinza-claro)">Não recebeu? <a href="#" style="color:var(--dourado); text-decoration:none">Reenviar código</a></p>
+
+        <h2>Verifique seu número</h2>
+        <p class="subtitulo">Digite o código que enviamos para (11) 99999-9999</p>
+
+        <div class="codigo-grupo">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+            <input type="text" maxlength="1">
+        </div>
+
+        <p style="margin-bottom:30px; color:var(--cinza-texto)">Não recebeu? <a href="#" style="color:var(--dourado); text-decoration:none">Reenviar código</a></p>
+
         <button class="botao vermelho" onclick="irPara('home.html')">VERIFICAR</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
