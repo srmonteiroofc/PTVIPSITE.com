@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Depósito Concluído</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .ok { width: 70px; height: 70px; background: #009933; border-radius: 50%; margin: 20px auto; display: flex; align-items: center; justify-content: center; font-size: 35px; color: white; }
-    </style>
 </head>
 <body>
-    <div class="tela container">
-        <div class="ok">✓</div>
-        <h2>Depósito Realizado!</h2>
-        <p style="margin:15px 0">Valor adicionado ao seu saldo</p>
-        <button class="btn vermelho" onclick="irPara('home.html')">VOLTAR AO INÍCIO</button>
+    <div class="container">
+        <div style="width:80px; height:80px; border-radius:50%; background:#009933; margin:25px auto; display:flex; align-items:center; justify-content:center; font-size:40px; color:white">✓</div>
+        <h2>Depósito realizado com sucesso!</h2>
+        <div style="background:#1a1a28; padding:15px; border-radius:8px; margin:20px 0">
+            <p>Valor: <strong>R$ 100,00</strong></p>
+            <p>Novo saldo: <strong>R$ 350,00</strong></p>
+        </div>
+        <button class="botao vermelho" onclick="irPara('home.html')">IR PARA A PÁGINA INICIAL</button>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
