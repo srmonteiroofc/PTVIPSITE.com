@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carteira - PT VIP</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .saldo-card { background: linear-gradient(90deg, #D60000, #900000); padding:20px; border-radius:12px; margin:15px 0; }
+        .opcao { background:#222; padding:12px; border-radius:8px; margin:8px 0; display:flex; justify-content:space-between; align-items:center; }
+    </style>
+</head>
+<body>
+    <div class="tela container">
+        <h2>Carteira</h2>
+        <div class="saldo-card">
+            <p>Saldo disponível</p>
+            <h3 style="font-size:28px; margin:8px 0">R$ 250,00</h3>
+            <div style="display:flex; gap:10px; margin-top:15px">
+                <button class="btn vermelho" style="flex:1; padding:8px">DEPOSITAR</button>
+                <button class="btn branco" style="flex:1; padding:8px">SACAR</button>
+            </div>
+        </div>
+        <h4 style="text-align:left; margin:20px 0 10px">Movimentações</h4>
+        <div class="opcao">
+            <span>Depósito PIX</span>
+            <span style="color:#00ff88">+ R$100,00</span>
+        </div>
+        <div class="opcao">
+            <span>Aposta - Jogos</span>
+            <span style="color:#ff6666">- R$25,00</span>
+        </div>
+        <div class="opcao">
+            <span>Ganho Bônus</span>
+            <span style="color:#00ff88">+ R$50,00</span>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:20px;">
+            <button class="nav-btn" onclick="irPara('home.html')">Início</button>
+            <button class="nav-btn" onclick="irPara('jogos.html')">Jogos</button>
+            <button class="nav-btn ativo">Carteira</button>
+            <button class="nav-btn" onclick="irPara('perfil.html')">Perfil</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
