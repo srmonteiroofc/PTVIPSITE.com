@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tela container">
+    <div class="container">
         <h2>Bem-vindo!</h2>
         <input type="text" placeholder="E-mail ou Telefone">
         <input type="password" placeholder="Senha">
-        <button class="btn vermelho" onclick="irPara('verificacao.html')">ENTRAR</button>
-        <p style="margin:15px 0">Ou entre com:</p>
-        <div style="display:flex;gap:8px;justify-content:center">
-            <button style="flex:1">G</button>
-            <button style="flex:1">Apple</button>
-            <button style="flex:1">Facebook</button>
+        <button class="botao vermelho" onclick="irPara('verificacao.html')">ENTRAR</button>
+        <p style="text-align:center; margin:15px 0; color:var(--cinza-claro)">Ou entre com:</p>
+        <div style="display:flex; gap:10px; justify-content:center">
+            <button class="botao branco" style="flex:1; padding:10px">G</button>
+            <button class="botao branco" style="flex:1; padding:10px">Apple</button>
+            <button class="botao branco" style="flex:1; padding:10px">Facebook</button>
         </div>
-        <p style="margin-top:20px; font-size:14px">Não tem conta? <a href="cadastro.html" style="color:#FFBB00">Cadastre-se</a></p>
+        <p style="text-align:center; margin-top:20px; color:var(--cinza-claro)">Não tem conta? <a href="cadastro.html" style="color:var(--dourado); text-decoration:none">Cadastre-se</a></p>
     </div>
     <script src="script.js"></script>
 </body>
