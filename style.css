@@ -2,63 +2,96 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
-    background: #121212;
-    color: #fff;
+    background: #000000;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     padding: 20px;
 }
 
-.container {
+/* Fundo com imagem e efeito */
+.tela-fundo {
     width: 100%;
-    max-width: 380px;
-    background: #1e1e1e;
+    max-width: 420px;
+    min-height: 650px;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
+                url('https://i.ibb.co/3FpXy8k/ptvip-fundo.jpg') center/cover no-repeat;
+    border-radius: 20px;
     border: 2px solid #D60000;
-    border-radius: 16px;
-    padding: 30px 20px;
-    text-align: center;
+    box-shadow: 0 0 20px rgba(214, 0, 0, 0.6), 
+                inset 0 0 15px rgba(214, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 25px;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Logo */
 .logo h1 {
-    font-size: 42px;
-    color: #FFBB00;
-    margin-bottom: 8px;
+    font-size: 52px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 0 0 8px rgba(255, 187, 0, 0.8);
+    margin-bottom: 12px;
 }
 .logo h1 span {
-    color: #D60000;
+    color: #FFBB00;
+}
+.logo p {
+    font-size: 20px;
+    color: #FFBB00;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    text-shadow: 0 0 5px rgba(255, 187, 0, 0.6);
 }
 
+/* Botões */
 .btn {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     border: none;
-    border-radius: 8px;
-    font-size: 17px;
+    border-radius: 10px;
+    font-size: 18px;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 12px 0;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 .btn.vermelho {
     background: #D60000;
-    color: white;
+    color: #FFFFFF;
+    box-shadow: 0 4px 12px rgba(214, 0, 0, 0.5);
+}
+.btn.vermelho:hover {
+    background: #FF0000;
+    box-shadow: 0 0 18px rgba(255, 0, 0, 0.7);
 }
 .btn.branco {
     background: #FFFFFF;
-    color: #121212;
+    color: #111111;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+.btn.branco:hover {
+    background: #F0F0F0;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.5);
 }
 
-input {
+/* Ajustes gerais para as outras telas */
+.container {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #2A2A2A;
-    color: white;
+    max-width: 420px;
+    background: #121212;
+    border: 2px solid #D60000;
+    border-radius: 16px;
+    padding: 30px 25px;
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(214, 0, 0, 0.4);
 }
