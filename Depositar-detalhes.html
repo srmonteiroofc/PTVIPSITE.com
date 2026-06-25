@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .qrcode { 
+            width: 180px; 
+            height: 180px; 
+            background: #ffffff; 
+            margin: 25px auto; 
+            border-radius: 10px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: #111; 
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(255,184,0,0.3);
+        }
+        .codigo-pix { 
+            background: #222; 
+            padding: 14px; 
+            border-radius: 8px; 
+            margin: 15px 0; 
+            word-break: break-all; 
+            font-size: 13px; 
+            border: 1px solid #D60000;
+        }
+        .mensagem { 
+            color: #00ff88; 
+            margin-top: 10px; 
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div class="tela container">
+        <h2>Pague via PIX</h2>
+        <p style="color:#ccc">Escaneie o QR ou copie o código abaixo</p>
+
+        <div class="qrcode">
+            QR CODE PIX
+        </div>
+
+        <p style="color:#FFBB00; font-weight:bold">Chave PIX Aleatória:</p>
+        <div class="codigo-pix" id="codigoPix">
+            bdfcfbfd-b673-4449-b46f-0787f7674904
+        </div>
+
+        <p style="font-size:12px; color:#aaa; margin:5px 0">Código Copia e Cola:</p>
+        <div class="codigo-pix" id="codigoCopiaCola">
+            00020126360014BR.GOV.BCB.PIX0136bdfcfbfd-b673-4449-b46f-0787f76749045204000053039865802BR5915SEU NOME/EMPRESA6012Itajaí62070503***6304E9A3
+        </div>
+
+        <button class="btn branco" onclick="copiarPix()">COPIAR CÓDIGO</button>
+        <div class="mensagem" id="msgCopiado">✅ Código copiado!</div>
+
+        <p style="font-size:13px; color:#ccc; margin-top:20px">Após pagar, clique abaixo:</p>
+        <button class="btn vermelho" onclick="irPara('depositar-processando.html')">JÁ EFETUEI O PAGAMENTO</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function copiarPix() {
+            const texto = document.getElementById('codigoCopiaCola').innerText;
+            navigator.clipboard.writeText(texto).then(() => {
+                const msg = document.getElementById('msgCopiado');
+                msg.style.display = 'block';
+                setTimeout(() => msg.style.display = 'none', 3000);
+            });
+        }
+    </script>
+</body>
+</html>
+
