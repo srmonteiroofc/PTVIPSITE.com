@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processando</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .carregando { width: 60px; height: 60px; border: 4px solid #333; border-top-color: #D60000; border-radius: 50%; margin: 30px auto; animation: girar 1s linear infinite; }
+        @keyframes girar { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="tela container">
+        <h2>Processando Pagamento</h2>
+        <div class="carregando"></div>
+        <p style="color:#ccc">Aguardando confirmação...</p>
+        <button class="btn vermelho" onclick="irPara('depositar-sucesso.html')">VERIFICAR STATUS</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
