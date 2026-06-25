@@ -5,20 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Método de Pagamento</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .metodo { background: #222; padding: 16px; border-radius: 8px; margin: 10px 0; text-align: left; border: 2px solid transparent; cursor: pointer; }
-        .metodo.ativo { border-color: #00ff88; background: #102a1a; }
-    </style>
 </head>
 <body>
-    <div class="tela container">
+    <div class="container">
         <h2>Forma de Pagamento</h2>
-        <div class="metodo ativo">✅ PIX - Rápido e Grátis</div>
-        <div class="metodo">💳 Cartão de Crédito</div>
-        <div class="metodo">🏦 Transferência</div>
-        <button class="btn vermelho" onclick="irPara('depositar-detalhes.html')">SELECIONAR</button>
+        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left; border:2px solid #00cc66">✅ PIX - Rápido e Grátis</div>
+        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">💳 Cartão de Crédito</div>
+        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">🏦 Transferência Bancária</div>
+        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">📄 Boleto</div>
+        <button class="botao vermelho" onclick="irPara('depositar-detalhes.html')">SELECIONAR</button>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
