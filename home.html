@@ -8,34 +8,42 @@
 </head>
 <body>
     <div class="container">
-        <div style="background: linear-gradient(90deg, var(--vermelho-principal), #900000); padding:18px; border-radius:10px; margin-bottom:20px; display:flex; justify-content:space-between; align-items:center">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; text-align:left">
             <div>
-                <p>Saldo disponível</p>
-                <h3>R$ 250,00</h3>
+                <p>Saldo Total</p>
+                <h3 style="font-size:28px">R$ 2.560,00</h3>
             </div>
-            <button class="botao" style="width:auto; padding:8px 16px; background:var(--dourado); color:#111">DEPOSITAR</button>
+            <button class="botao" style="width:auto; padding:8px 16px; background:var(--dourado); color:#111; font-size:16px" onclick="irPara('carteira.html')">+ DEPOSITAR</button>
         </div>
 
-        <div style="background:#1a1a28; border:1px solid var(--vermelho-principal); border-radius:8px; padding:12px; margin-bottom:20px">
-            <h4 style="color:var(--dourado)">100% ATÉ R$1.000 + 200 GIROS</h4>
-            <p style="font-size:13px; color:var(--cinza-claro)">Bônus de boas-vindas</p>
+        <div style="background: linear-gradient(90deg, #2a1500, #5a2500); padding:18px; border-radius:12px; margin-bottom:25px; text-align:left">
+            <h3 style="color:var(--dourado); font-size:22px">100% ATÉ R$1.000 + 200 GIROS</h3>
+            <button class="botao vermelho" style="width:auto; margin-top:12px; padding:8px 14px">DEPOSITAR AGORA</button>
         </div>
 
-        <h4 style="text-align:left; margin-bottom:10px">Jogos Populares</h4>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:20px">
-            <div style="background:#1a1a28; padding:20px; border-radius:8px; text-align:center">Fortune Tiger</div>
-            <div style="background:#1a1a28; padding:20px; border-radius:8px; text-align:center">Sweet Bonanza</div>
-            <div style="background:#1a1a28; padding:20px; border-radius:8px; text-align:center">Gates of Olympus</div>
-            <div style="background:#1a1a28; padding:20px; border-radius:8px; text-align:center">Mega Wolf Gold</div>
+        <div style="display:flex; gap:10px; margin-bottom:25px">
+            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">🎰 Casino</div>
+            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">📺 Ao Vivo</div>
+            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">⚽ Esportes</div>
+            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">🎲 Slots</div>
+        </div>
+
+        <h4 style="text-align:left; margin-bottom:15px; color:var(--branco)">Populares</h4>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:25px">
+            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Fortune Tiger</div>
+            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Fortune Rabbit</div>
+            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Gates of Olympus</div>
+            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Aviator</div>
         </div>
 
         <div class="menu-navegacao">
             <div class="nav-item ativo">Início</div>
             <div class="nav-item" onclick="irPara('jogos.html')">Jogos</div>
-            <div class="nav-item" onclick="irPara('carteira.html')">Carteira</div>
+            <div class="nav-item" onclick="irPara('carteira.html')">Depositar</div>
             <div class="nav-item" onclick="irPara('perfil.html')">Perfil</div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
