@@ -10,6 +10,8 @@
         .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
         .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .btn-gradient-red { background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%); }
+        /* Classe de seleção */
+        .btn-selected { border-color: #D4AF37 !important; background: rgba(212, 175, 55, 0.1); }
     </style>
 </head>
 <body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center p-4">
@@ -23,7 +25,7 @@
 
         <div class="mb-6">
             <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-3">Método de Pagamento</p>
-            <div class="border-2 border-amber-500 rounded-xl p-4 bg-[#1a1a1a] flex items-center justify-between cursor-pointer">
+            <div class="border-2 border-amber-500 rounded-xl p-4 bg-[#1a1a1a] flex items-center justify-between">
                 <span class="font-bold flex items-center gap-2">PIX <span class="text-[10px] bg-amber-500/20 text-amber-500 px-1.5 rounded">Rápido</span></span>
                 <span class="text-amber-500 text-lg">✓</span>
             </div>
@@ -31,26 +33,24 @@
 
         <div class="mb-6">
             <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Informe o valor</p>
-            <input type="text" value="R$ 0,00" class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 text-center font-bold text-xl text-white outline-none focus:border-amber-500/50">
+            <input type="text" id="valorInput" value="R$ 0,00" 
+                class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 text-center font-bold text-xl text-white outline-none focus:border-amber-500/50"
+                onfocus="if(this.value=='R$ 0,00') this.value=''">
             <p class="text-[9px] text-neutral-600 text-center mt-2 uppercase">Mínimo R$ 10,00 • Máximo R$ 50.000,00</p>
         </div>
 
-        <div class="grid grid-cols-3 gap-3 mb-8">
-            <button class="bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold text-gray-400">R$ 10</button>
-            <button class="bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative">
-                R$ 30
-                <span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
+        <div class="grid grid-cols-3 gap-3 mb-8" id="valorGrid">
+            <button class="valor-btn bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold" data-valor="10">R$ 10</button>
+            <button class="valor-btn bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative" data-valor="30">
+                R$ 30<span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
             </button>
-            <button class="bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold text-gray-400">R$ 50</button>
-            
-            <button class="bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative">
-                R$ 100
-                <span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
+            <button class="valor-btn bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold" data-valor="50">R$ 50</button>
+            <button class="valor-btn bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative" data-valor="100">
+                R$ 100<span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
             </button>
-            <button class="bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold text-gray-400">R$ 200</button>
-            <button class="bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative">
-                R$ 500
-                <span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
+            <button class="valor-btn bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold" data-valor="200">R$ 200</button>
+            <button class="valor-btn bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative" data-valor="500">
+                R$ 500<span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
             </button>
         </div>
 
@@ -59,5 +59,20 @@
         <p class="text-center text-[9px] text-gray-700 uppercase tracking-widest">Acesso Restrito • Transação Criptografada</p>
     </div>
 
+    <script>
+        const input = document.getElementById('valorInput');
+        const botoes = document.querySelectorAll('.valor-btn');
+
+        botoes.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove seleção de todos
+                botoes.forEach(b => b.classList.remove('btn-selected'));
+                // Adiciona seleção ao clicado
+                btn.classList.add('btn-selected');
+                // Atualiza o input
+                input.value = 'R$ ' + btn.getAttribute('data-valor') + ',00';
+            });
+        });
+    </script>
 </body>
 </html>
