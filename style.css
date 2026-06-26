@@ -6,120 +6,133 @@ font-family:Arial,sans-serif;
 }
 
 body{
-
 background:#050505;
-
 min-height:100vh;
 
 display:flex;
-
 justify-content:center;
-
 align-items:center;
 
-overflow:hidden;
-
-position:relative;
-
-}
-
-/* FUNDO */
-
-.bg{
-
-position:absolute;
-
-inset:0;
-
 background:
-
-radial-gradient(
-circle at center,
+radial-gradient(circle at center,
 rgba(255,0,0,.18),
-transparent 70%
-),
-
-linear-gradient(
-180deg,
-#050505,
-#090909
-);
-
+#050505 70%);
 }
-
-/* CONTAINER */
 
 .container{
-
 width:100%;
-
-max-width:420px;
-
-padding:30px;
-
-padding-top:20px;
-
-position:relative;
-
-z-index:10;
-
+padding:25px;
 }
-
-/* LOGO */
-
-.logo{
-
-text-align:center;
-
-margin-bottom:30px;
-
-transform:
-translateY(20px);
-
-}
-
-.logo h1{
-
-font-size:72px;
-
-font-weight:900;
-
-letter-spacing:-3px;
-
-color:#fff;
-
-}
-
-.logo span{
-
-color:#ff1414;
-
-}
-
-.logo p{
-
-margin-top:12px;
-
-font-size:15px;
-
-color:#9a9a9a;
-
-}
-
-/* CARD */
 
 .card{
 
+background:#080808;
+
+border:2px solid #ff0000;
+
+border-radius:28px;
+
+padding:35px 25px;
+
+max-width:420px;
+
+margin:auto;
+
+text-align:center;
+
+box-shadow:
+0 0 20px rgba(255,0,0,.8),
+0 0 60px rgba(255,0,0,.3);
+
+}
+
+.logo img{
 width:100%;
+max-width:320px;
 
-background:
+margin-bottom:25px;
+}
 
-linear-gradient(
-180deg,
-#111111,
-#090909
-);
+h1{
 
-padding:35px;
+color:#f3d18d;
 
-border-radius:
+font-size:20px;
+
+line-height:1.5;
+
+margin-bottom:35px;
+
+}
+
+.buttons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.btn{
+
+height:62px;
+
+border:none;
+
+border-radius:14px;
+
+font-size:20px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.entrar{
+
+background:#ff0000;
+
+color:white;
+
+}
+
+.entrar:hover{
+
+transform:scale(1.03);
+
+}
+
+.criar{
+
+background:white;
+
+color:black;
+
+}
+
+.criar:hover{
+
+transform:scale(1.03);
+
+}
+
+@media(max-width:480px){
+
+.logo img{
+
+max-width:280px;
+
+}
+
+h1{
+
+font-size:18px;
+
+}
+
+}
