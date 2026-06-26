@@ -57,7 +57,7 @@ max-width:420px;
 
 padding:30px;
 
-padding-top:40px;
+padding-top:20px;
 
 position:relative;
 
@@ -71,7 +71,10 @@ z-index:10;
 
 text-align:center;
 
-margin-bottom:50px;
+margin-bottom:30px;
+
+transform:
+translateY(20px);
 
 }
 
@@ -83,7 +86,7 @@ font-weight:900;
 
 letter-spacing:-3px;
 
-color:#ffffff;
+color:#fff;
 
 }
 
@@ -95,17 +98,19 @@ color:#ff1414;
 
 .logo p{
 
-margin-top:10px;
-
-color:#9a9a9a;
+margin-top:12px;
 
 font-size:15px;
+
+color:#9a9a9a;
 
 }
 
 /* CARD */
 
 .card{
+
+width:100%;
 
 background:
 
@@ -117,154 +122,4 @@ linear-gradient(
 
 padding:35px;
 
-border-radius:28px;
-
-border:
-
-1px solid
-rgba(255,0,0,.15);
-
-box-shadow:
-
-0 0 60px
-rgba(255,0,0,.18);
-
-backdrop-filter:
-
-blur(10px);
-
-}
-
-/* TEXTO */
-
-.card h2{
-
-color:white;
-
-font-size:28px;
-
-margin-bottom:14px;
-
-}
-
-.sub{
-
-color:#777;
-
-font-size:16px;
-
-margin-bottom:35px;
-
-line-height:1.5;
-
-}
-
-/* BOTÕES */
-
-button{
-
-width:100%;
-
-height:66px;
-
-border:none;
-
-border-radius:20px;
-
-cursor:pointer;
-
-font-size:18px;
-
-font-weight:700;
-
-transition:.25s;
-
-margin-top:16px;
-
-}
-
-/* ENTRAR */
-
-#login{
-
-background:
-
-linear-gradient(
-180deg,
-#ff2a2a,
-#d60000
-);
-
-color:white;
-
-box-shadow:
-
-0 10px 30px
-rgba(255,0,0,.35);
-
-}
-
-#login:hover{
-
-transform:
-
-translateY(-3px);
-
-}
-
-/* CRIAR CONTA */
-
-.outline{
-
-background:transparent;
-
-border:
-
-1px solid
-rgba(255,50,50,.5);
-
-color:white;
-
-}
-
-.outline:hover{
-
-background:
-
-rgba(255,0,0,.12);
-
-}
-
-/* RODAPÉ */
-
-.footer{
-
-margin-top:35px;
-
-color:#5d5d5d;
-
-text-align:center;
-
-font-size:13px;
-
-line-height:1.6;
-
-}
-
-/* MOBILE */
-
-@media(max-width:480px){
-
-.logo h1{
-
-font-size:66px;
-
-}
-
-.card{
-
-padding:30px;
-
-}
-
-}
+border-radius:
