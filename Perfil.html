@@ -6,64 +6,138 @@
     <title>PTvip - Perfil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .bg-app-dark { background-color: #0b0b0b; }
-        .gold-border { border: 1px solid rgba(212, 175, 55, 0.2); }
-        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-card { background: rgba(20, 20, 20, 0.8); backdrop-filter: blur(10px); }
+        body {
+            background-color: #0d121a;
+        }
+        .glass-card {
+            background: rgba(24, 32, 44, 0.75);
+            backdrop-filter: blur(8px);
+        }
     </style>
 </head>
-<body class="bg-app-dark text-white font-sans min-h-screen pb-24">
+<body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
 
-    <div class="max-w-md mx-auto pt-8 px-4">
-        
-        <div class="flex flex-col items-center mb-8">
-            <div class="w-20 h-20 rounded-full border-2 border-amber-500/30 flex items-center justify-center text-3xl mb-3 bg-neutral-900">
-                👤
+    <header class="bg-[#141b26] border-b border-gray-800/60 px-4 py-4 flex items-center justify-between sticky top-0 z-50">
+        <button onclick="window.location.href='home.html'" class="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <h1 class="text-md font-black uppercase tracking-widest text-gray-200">Minha Conta</h1>
+        <div class="w-6"></div> 
+    </header>
+
+    <main class="flex-1 w-full max-w-md mx-auto px-4 py-6 space-y-6">
+
+        <section class="glass-card rounded-2xl p-6 border border-gray-800/60 shadow-xl text-center space-y-4">
+            <div class="flex flex-col items-center space-y-2">
+                <div class="w-16 h-16 bg-red-600/10 border-2 border-red-600 rounded-full flex items-center justify-center text-2xl">
+                    👤
+                </div>
+                <div>
+                    <h2 id="userEmail" class="font-black text-sm tracking-wide text-gray-300">Carregando usuário...</h2>
+                    <p class="text-gray-500 text-[10px] uppercase tracking-widest mt-0.5">ID: #<span id="userId">000000</span></p>
+                </div>
             </div>
-            <h2 class="text-lg font-bold">Usuário Registrado</h2>
-        </div>
 
-        <div class="grid grid-cols-2 gap-4 mb-8">
-            <a href="Depositar-valor.html" class="glass-card gold-border p-4 rounded-2xl text-center hover:bg-neutral-900 transition">
-                <div class="text-xl mb-1">💳</div>
-                <p class="text-[10px] font-bold uppercase">Depositar</p>
-            </a>
-            <a href="#" class="glass-card gold-border p-4 rounded-2xl text-center hover:bg-neutral-900 transition">
-                <div class="text-xl mb-1">💸</div>
-                <p class="text-[10px] font-bold uppercase">Sacar</p>
-            </a>
-        </div>
-
-        <div class="glass-card gold-border rounded-2xl p-2 space-y-1">
-            <div class="w-full p-4 flex items-center justify-between rounded-xl opacity-70">
-                <span class="flex items-center gap-3 text-sm"><span class="text-lg">📋</span> Histórico de Apostas</span>
-                <span class="text-gray-500">&gt;</span>
+            <div class="space-y-2 pt-2 border-t border-gray-800/60">
+                <div class="flex justify-between text-[11px] font-black tracking-wide">
+                    <span class="text-amber-500 flex items-center gap-1">👑 INICIANTE NÍVEL 0</span>
+                    <span class="text-gray-500">0% de XP</span>
+                </div>
+                <div class="w-full bg-[#0d121a] h-2 rounded-full overflow-hidden border border-gray-800">
+                    <div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-full w-[0%] rounded-full"></div>
+                </div>
             </div>
-            
-            <button class="w-full p-4 flex items-center justify-between hover:bg-neutral-900 rounded-xl transition">
-                <span class="flex items-center gap-3 text-sm"><span class="text-lg">🛡️</span> Segurança e Conta</span>
-                <span class="text-gray-500">&gt;</span>
-            </button>
-            
-            <a href="https://www.reclameaqui.com.br/" target="_blank" class="w-full p-4 flex items-center justify-between hover:bg-neutral-900 rounded-xl transition">
-                <span class="flex items-center gap-3 text-sm"><span class="text-lg">❓</span> Suporte 24/7</span>
-                <span class="text-gray-500">&gt;</span>
-            </a>
-            
-            <a href="login.html" class="w-full p-4 flex items-center justify-between text-red-500 hover:bg-neutral-900 rounded-xl transition">
-                <span class="flex items-center gap-3 text-sm"><span class="text-lg">🚪</span> Sair da conta</span>
-            </a>
-        </div>
+        </section>
 
-    </div>
+        <section class="glass-card rounded-2xl border border-gray-800/60 overflow-hidden divide-y divide-gray-800/40 shadow-xl">
+            
+            <div class="p-4 flex items-center justify-between cursor-pointer hover:bg-[#141b26]/30 transition-colors group">
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-400 group-hover:text-red-500 transition-colors">📊</span>
+                    <span class="text-xs font-bold text-gray-300">Histórico de Transações</span>
+                </div>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+            </div>
 
-    <div class="fixed bottom-0 left-0 right-0 bg-[#121212] border-t border-neutral-800 h-20 flex justify-around items-center z-50">
-        <a href="home.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🏠</span><span class="text-[9px] font-bold">Início</span></a>
-        <a href="Jogos.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🎮</span><span class="text-[9px] font-bold">Jogos</span></a>
-        <a href="Depositar-valor.html" class="bg-red-600 w-12 h-12 rounded-full -mt-6 border-4 border-[#0b0b0b] flex items-center justify-center">💳</a>
-        <a href="Promocoes.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🎁</span><span class="text-[9px] font-bold">Promoções</span></a>
-        <a href="Perfil.html" class="flex flex-col items-center gap-1 text-red-500"><span class="text-lg">👤</span><span class="text-[9px] font-bold">Perfil</span></a>
-    </div>
+            <div class="p-4 flex items-center justify-between cursor-pointer hover:bg-[#141b26]/30 transition-colors group">
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-400 group-hover:text-red-500 transition-colors">🛡️</span>
+                    <span class="text-xs font-bold text-gray-300">Segurança da Conta</span>
+                </div>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+            </div>
 
+            <div class="p-4 flex items-center justify-between cursor-pointer hover:bg-[#141b26]/30 transition-colors group">
+                <div class="flex items-center gap-3">
+                    <span class="text-gray-400 group-hover:text-red-500 transition-colors">💬</span>
+                    <span class="text-xs font-bold text-gray-300">Suporte ao Vivo</span>
+                </div>
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+            </div>
+
+        </section>
+
+        <button id="btnLogout" class="w-full py-4 bg-[#141b26]/60 hover:bg-red-900/20 border border-gray-800 hover:border-red-600/40 text-gray-400 hover:text-red-500 rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-md">
+            Sair da Conta
+        </button>
+
+    </main>
+
+    <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
+        <button onclick="window.location.href='home.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span>Início</span>
+        </button>
+        <button onclick="window.location.href='Jogos.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Jogos</span>
+        </button>
+        <button onclick="window.location.href='promocoes.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0H8m12 3v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7m16 0H4"></path></svg>
+            <span>Promoções</span>
+        </button>
+        <button onclick="window.location.href='Perfil.html'" class="flex flex-col items-center gap-1 text-red-500 font-bold text-[10px] w-16">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+            <span>Perfil</span>
+        </button>
+    </nav>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
+            authDomain: "ptvip-teste.firebaseapp.com",
+            projectId: "ptvip-teste",
+            storageBucket: "ptvip-teste.firebasestorage.app",
+            messagingSenderId: "407028833766",
+            appId: "1:407028833766:web:79d7dbf7ee968944248a27"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Verifica se o usuário está logado e exibe o e-mail real dele na tela
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('userEmail').innerText = user.email;
+                // Gera um ID fictício estável baseado nos primeiros caracteres do UID do Firebase
+                document.getElementById('userId').innerText = user.uid.substring(0, 6).toUpperCase();
+            } else {
+                // Se não houver usuário logado, manda de volta para a tela de login inicial
+                window.location.href = "index.html";
+            }
+        });
+
+        // Evento do botão de Deslogar
+        document.getElementById('btnLogout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+                window.location.href = "index.html";
+            }).catch((error) => {
+                alert("Erro ao sair: " + error.message);
+            });
+        });
+    </script>
 </body>
 </html>
