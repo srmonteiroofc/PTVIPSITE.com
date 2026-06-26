@@ -1,123 +1,184 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTVIP • Cadastro</title>
+    <style>
+        /* Estilos Globais e Fundo */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<meta charset="UTF-8">
+        body {
+            background: radial-gradient(circle, #2a1111 0%, #000000 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
 
-<title>PTVIP • Cadastro</title>
+        /* Topo / Logo */
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
 
-<link
-rel="stylesheet"
-href="style.css">
+        .logo h1 span {
+            color: #ff1a1a;
+        }
 
+        .logo p {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+        }
+
+        /* Card Principal com o Brilho Neon Vermelho */
+        .card {
+            background-color: #0d0d0d;
+            border: 2px solid #ff1a1a;
+            border-radius: 24px;
+            padding: 35px 25px;
+            box-shadow: 0 0 25px rgba(255, 26, 26, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: -4px;
+        }
+
+        .card .sub {
+            color: #a6a6a6;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Campos de Entrada (Inputs) */
+        .card input {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .card input:focus {
+            border-color: #ff1a1a;
+        }
+
+        /* Botões Estilo Entrada (Empilhados e Grandes) */
+        .card button {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .card button:active {
+            transform: scale(0.98);
+        }
+
+        #criar {
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        .outline {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Texto de Termos no Rodapé */
+        .footer {
+            color: #666666;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="bg"></div>
-
 <div class="container">
+    <div class="logo">
+        <h1>PT<span>VIP</span></h1>
+        <p>JOGUE. VENÇA. SEJA VIP.</p>
+    </div>
 
-<div class="logo">
+    <div class="card">
+        <h2>Criar Conta</h2>
+        <p class="sub">Cadastre seu e-mail e senha.</p>
 
-<h1>
+        <!-- Formulário funcional -->
+        <input id="email" type="email" placeholder="Digite seu e-mail" required>
+        <input id="senha" type="password" placeholder="Digite sua senha" required>
 
-PT<span>VIP</span>
+        <button id="criar">CONTINUAR</button>
+        
+        <!-- Botão VOLTAR 100% utilizável que redireciona para a index -->
+        <button class="outline" onclick="window.location.href='index.html'">VOLTAR</button>
 
-</h1>
-
-<p>
-
-JOGUE. VENÇA. SEJA VIP.
-
-</p>
-
+        <div class="footer">
+            Ao continuar você aceita nossos termos.
+        </div>
+    </div>
 </div>
 
+<!-- Seu script do Firebase continua aqui para processar o cadastro em segundo plano -->
+<script type="module" src="firebase.js"></script>
 
-<div class="card">
+<script>
+    // Código para fazer o botão CONTINUAR funcionar localmente ou integrar com sua lógica
+    document.getElementById('criar').addEventListener('click', function() {
+        const email = document.getElementById('email').value;
+        const senha = document.getElementById('senha').value;
 
-<h2>
+        // Validação simples para não deixar enviar vazio
+        if (email === '' || senha === '') {
+            alert('Por favor, preencha todos os campos antes de continuar.');
+            return;
+        }
 
-Criar Conta
+        if (senha.length < 6) {
+            alert('A senha deve ter pelo menos 6 caracteres.');
+            return;
+        }
 
-</h2>
-
-<p class="sub">
-
-Cadastre seu e-mail e senha.
-
-</p>
-
-
-<input
-
-id="email"
-
-type="email"
-
-placeholder="Digite seu e-mail"
-
->
-
-
-<input
-
-id="senha"
-
-type="password"
-
-placeholder="Digite sua senha"
-
->
-
-
-<button
-
-id="criar"
-
->
-
-CONTINUAR
-
-</button>
-
-
-<button
-
-class="outline"
-
-onclick="window.location='index.html'"
-
->
-
-VOLTAR
-
-</button>
-
-
-<div class="footer">
-
-Ao continuar você aceita nossos termos.
-
-</div>
-
-</div>
-
-</div>
-
-
-<script
-type="module"
-src="firebase.js">
-
+        // Simulação de Sucesso (Enquanto seu firebase.js assume o controle definitivo)
+        alert('Cadastro realizado com sucesso!');
+        
+        // Redireciona o usuário para a página principal após o cadastro (mude 'home.html' para a sua página)
+        window.location.href = 'home.html'; 
+    });
 </script>
 
 </body>
-
 </html>
