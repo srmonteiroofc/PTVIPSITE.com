@@ -3,21 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT VIP</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="caixa-splash">
-        <div class="logo-topo">
-            <div class="coroa">👑</div>
-            <h1>PT<span>VIP</span></h1>
-        </div>
-        <p class="slogan">JOGUE • VENÇA • SEJA VIP</p>
+    <title>PTvip - Login</title>
+    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilizações personalizadas para o efeito Premium */
+        .bg-luxury-pattern {
+            background-color: #0a0a0a;
+            /* Padrão geométrico sutil de fundo (semelhante ao mesh/hexagonal) */
+            background-image: radial-gradient(rgba(218, 165, 32, 0.1) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.5);
+        }
 
-        <button class="botao vermelho" onclick="irPara('login.html')">ENTRAR</button>
-        <button class="botao branco" onclick="irPara('cadastro.html')">CRIAR CONTA</button>
+        .gold-border-gradient {
+            border: 2px solid transparent;
+            background-image: linear-gradient(#141414, #141414), linear-gradient(135deg, #FFE082, #B8860B, #8C6212);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+        }
+
+        .btn-gold {
+            background: linear-gradient(180deg, #FFE79A 0%, #D4AF37 50%, #AA7C11 100%);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2), inset 0 1px 0 rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1);
+        }
+
+        .btn-red {
+            background: linear-gradient(180deg, #A61C1C 0%, #6B0909 100%);
+            border: 1px solid #800C0C;
+            box-shadow: 0 4px 15px rgba(166, 28, 28, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-red:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body class="bg-luxury-pattern min-h-screen flex items-center justify-center p-4 font-sans text-gray-200">
+
+    <!-- Container Principal (Simulando a tela do Smartphone de luxo) -->
+    <div class="gold-border-gradient w-full max-w-md bg-[#141414]/95 rounded-3xl p-8 relative overflow-hidden shadow-2xl flex flex-col items-center">
+        
+        <!-- Detalhe decorativo de luz de fundo -->
+        <div class="absolute -top-20 -left-20 w-48 h-48 bg-red-800/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-48 h-48 bg-yellow-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- LOGO / TITULO (PTvip) -->
+        <div class="text-center mt-4 mb-2 relative">
+            <!-- Coroa Simplificada em SVG Dourado -->
+            <div class="flex justify-center mb-1">
+                <svg class="w-10 h-10 drop-shadow-md" viewBox="0 0 24 24" fill="url(#goldGradient)">
+                    <defs>
+                        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FFE082" />
+                            <stop offset="50%" stop-color="#D4AF37" />
+                            <stop offset="100%" stop-color="#8C6212" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M2 22h20v-2H2v2zm3-4h14v-2H5v2zm12-4.16l2.31-6.93-4.66 2.33L12 4l-2.65 5.24-4.66-2.33L7 13.84V15h10v-1.16z"/>
+                </svg>
+            </div>
+            
+            <!-- Texto PTvip -->
+            <h1 class="text-5xl font-extrabold tracking-tight uppercase">
+                <span class="gold-text-gradient">PT</span><span class="text-red-600 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">vip</span>
+            </h1>
+        </div>
+
+        <!-- Slogan -->
+        <p class="gold-text-gradient text-xs font-semibold tracking-widest uppercase mb-8 text-center">
+            Jogue. Vença. Seja VIP.
+        </p>
+
+        <!-- Espaço para Ilustração do Tigre / Elementos Visuais -->
+        <!-- NOTA: Substitua o 'src' abaixo pela URL da imagem real do tigre se preferir usá-la diretamente -->
+        <div class="w-full flex justify-center mb-8 relative h-40">
+            <div class="absolute inset-0 flex items-center justify-center opacity-20">
+                <!-- Círculo de luz atrás do mascote -->
+                <div class="w-32 h-32 bg-red-600 rounded-full filter blur-xl"></div>
+            </div>
+            <!-- Representação placeholder fina do Mascote/Fichas -->
+            <div class="border border-yellow-600/30 rounded-2xl w-5/6 h-full flex flex-col items-center justify-center bg-black/40 p-4 text-center">
+                <span class="text-yellow-500 font-bold text-sm tracking-wider">[ DESIGN DO TIGRE MAJESTOSO ]</span>
+                <span class="text-gray-500 text-xs mt-1">Insira o elemento gráfico ou use de fundo</span>
+            </div>
+        </div>
+
+        <!-- Formulário / Janela de Entrada -->
+        <div class="w-full space-y-4 z-10">
+            
+            <!-- Botão Entrar (Ação Principal) -->
+            <button class="btn-red w-full py-4 rounded-xl text-white font-bold text-lg tracking-wide uppercase transition shadow-lg">
+                Entrar
+            </button>
+
+            <div class="flex items-center justify-center my-4">
+                <div class="h-[1px] bg-gradient-to-r from-transparent to-yellow-600/50 w-full"></div>
+                <span class="px-3 text-xs text-gray-500 uppercase tracking-widest">ou</span>
+                <div class="h-[1px] bg-gradient-to-l from-transparent to-yellow-600/50 w-full"></div>
+            </div>
+
+            <!-- Botão Criar Conta (Estilo Ouro Escovado) -->
+            <button class="btn-gold w-full py-4 rounded-xl text-gray-950 font-extrabold text-lg tracking-wide uppercase transition shadow-lg">
+                Criar Conta
+            </button>
+
+        </div>
+
+        <!-- Rodapé do Card -->
+        <div class="mt-8 text-center text-[10px] text-gray-600 tracking-wider uppercase">
+            Acesso Restrito • Alta Classe
+        </div>
+
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
