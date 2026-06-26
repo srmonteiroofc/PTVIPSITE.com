@@ -1,68 +1,78 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Cadastro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .bg-app-dark { background-color: #070707; }
-        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
-        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-gradient-red { background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%); }
-    </style>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>Criar Conta</title>
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
-<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center justify-center p-4">
 
-    <div class="w-full max-w-sm gold-border rounded-3xl p-8 bg-[#0f0f0f] shadow-2xl">
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
-            <p class="text-gray-500 text-xs mt-2 uppercase tracking-widest">Crie sua conta</p>
-        </div>
+<body>
 
-        <form id="cadastroForm" class="space-y-4">
-            <input type="text" id="cadName" placeholder="Nome completo" required class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 outline-none focus:border-amber-500">
-            <input type="email" id="cadEmail" placeholder="E-mail" required class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 outline-none focus:border-amber-500">
-            <input type="password" id="cadPassword" placeholder="Senha" required class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 outline-none focus:border-amber-500">
-            <button type="submit" class="btn-gradient-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm">Cadastrar agora</button>
-        </form>
+<div class="bg"></div>
 
-        <p class="text-center text-gray-500 text-xs mt-6">
-            Já possui conta? <a href="login.html" class="text-amber-500 font-bold">Entrar</a>
-        </p>
-    </div>
+<div class="container">
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+<div class="card">
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
-            authDomain: "ptvip-teste.firebaseapp.com",
-            projectId: "ptvip-teste",
-            storageBucket: "ptvip-teste.firebasestorage.app",
-            messagingSenderId: "407028833766",
-            appId: "1:407028833766:web:79d7dbf7ee968944248a27"
-        };
+<h2>Criar Conta</h2>
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+<p class="sub">
 
-        // Lógica para ouvir o formulário de Cadastro
-        document.getElementById('cadastroForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('cadEmail').value;
-            const password = document.getElementById('cadPassword').value;
+Crie sua conta para começar.
 
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Conta criada com sucesso -> vai para a home
-                    window.location.href = "home.html";
-                })
-                .catch((error) => {
-                    alert("Erro ao cadastrar: " + error.message);
-                });
-        });
-    </script>
+</p>
+
+<input
+id="email"
+type="email"
+placeholder="Seu e-mail">
+
+<input
+id="senha"
+type="password"
+placeholder="Sua senha">
+
+<button
+id="criar">
+
+CONTINUAR
+
+</button>
+
+<div
+class="footer">
+
+Já possui conta?
+
+<a
+href="index.html">
+
+Entrar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script
+type="module"
+src="firebase.js">
+
+</script>
+
 </body>
+
 </html>
