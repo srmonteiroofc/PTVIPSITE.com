@@ -1,81 +1,10 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Depósito</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .bg-app-dark { background-color: #070707; }
-        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
-        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-gradient-red { background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%); }
-        .btn-selected { border-color: #D4AF37 !important; background: rgba(212, 175, 55, 0.1); }
-    </style>
-</head>
-<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center p-4">
+<button type="button" onclick="irParaPagamento()" class="btn-gradient-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm mb-6">Continuar</button>
 
-    <div class="w-full max-w-sm gold-border rounded-3xl p-6 bg-[#0f0f0f] shadow-2xl mt-4">
-        
-        <div class="flex items-center justify-between mb-8">
-            <button type="button" onclick="history.back()" class="p-2 bg-neutral-900 rounded-full hover:bg-neutral-800 transition">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-            </button>
-            <div class="text-center flex-1 -ml-10">
-                <h1 class="text-2xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
-                <h2 class="text-[10px] font-bold mt-1 text-gray-500 uppercase tracking-widest">Depósito Premium</h2>
-            </div>
-        </div>
-
-        <div class="mb-6">
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-3">Método de Pagamento</p>
-            <div class="border-2 border-amber-500 rounded-xl p-4 bg-[#1a1a1a] flex items-center justify-between">
-                <span class="font-bold flex items-center gap-2">PIX <span class="text-[10px] bg-amber-500/20 text-amber-500 px-1.5 rounded">Rápido</span></span>
-                <span class="text-amber-500 text-lg">✓</span>
-            </div>
-        </div>
-
-        <div class="mb-6">
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Informe o valor</p>
-            <input type="text" id="valorInput" value="R$ 0,00" 
-                class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 text-center font-bold text-xl text-white outline-none focus:border-amber-500/50"
-                onfocus="if(this.value=='R$ 0,00') this.value=''">
-            <p class="text-[9px] text-neutral-600 text-center mt-2 uppercase">Mínimo R$ 10,00 • Máximo R$ 50.000,00</p>
-        </div>
-
-        <div class="grid grid-cols-3 gap-3 mb-8" id="valorGrid">
-            <button type="button" class="valor-btn bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold text-gray-400" data-valor="10">R$ 10</button>
-            <button type="button" class="valor-btn bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative" data-valor="30">
-                R$ 30<span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
-            </button>
-            <button type="button" class="valor-btn bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold text-gray-400" data-valor="50">R$ 50</button>
-            <button type="button" class="valor-btn bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative" data-valor="100">
-                R$ 100<span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
-            </button>
-            <button type="button" class="valor-btn bg-[#1a1a1a] border border-neutral-800 py-3 rounded-lg text-sm font-bold text-gray-400" data-valor="200">R$ 200</button>
-            <button type="button" class="valor-btn bg-[#1a1a1a] border border-amber-500/50 py-3 rounded-lg text-sm font-bold relative" data-valor="500">
-                R$ 500<span class="absolute -top-2 -right-1 bg-red-600 text-[8px] px-1 rounded uppercase font-black">Quente🔥</span>
-            </button>
-        </div>
-
-        <button type="button" class="btn-gradient-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm mb-6">Continuar</button>
-        
-        <p class="text-center text-[9px] text-gray-700 uppercase tracking-widest">Acesso Restrito • Transação Criptografada</p>
-    </div>
-
-    <script>
-        const input = document.getElementById('valorInput');
-        const botoes = document.querySelectorAll('.valor-btn');
-
-        botoes.forEach(btn => {
-            btn.addEventListener('click', () => {
-                botoes.forEach(b => b.classList.remove('btn-selected'));
-                btn.classList.add('btn-selected');
-                input.value = 'R$ ' + btn.getAttribute('data-valor') + ',00';
-            });
-        });
-    </script>
-</body>
-</html>
+<script>
+    function irParaPagamento() {
+        const valorInput = document.getElementById('valorInput').value;
+        // Extrai apenas os números do input (ex: "R$ 50,00" vira "50")
+        const valorNumerico = valorInput.replace(/[^\d]/g, '').slice(0, -2) || "10";
+        window.location.href = `Depositar-processando.html?valor=${valorNumerico}`;
+    }
+</script>
