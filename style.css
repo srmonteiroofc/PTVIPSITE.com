@@ -2,14 +2,14 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial,sans-serif;
 }
 
 body{
 
-background:#070707;
+background:#050505;
 
-height:100vh;
+min-height:100vh;
 
 display:flex;
 
@@ -19,93 +19,131 @@ align-items:center;
 
 overflow:hidden;
 
+position:relative;
+
 }
+
+/* FUNDO */
 
 .bg{
 
 position:absolute;
 
-width:100%;
-
-height:100%;
+inset:0;
 
 background:
 
 radial-gradient(
-circle,
+circle at center,
 rgba(255,0,0,.18),
-transparent
+transparent 70%
+),
+
+linear-gradient(
+180deg,
+#050505,
+#090909
 );
 
 }
+
+/* CONTAINER */
 
 .container{
 
 width:100%;
 
-max-width:400px;
+max-width:420px;
 
-padding:25px;
+padding:30px;
+
+padding-top:40px;
 
 position:relative;
 
-z-index:2;
+z-index:10;
 
 }
+
+/* LOGO */
 
 .logo{
 
 text-align:center;
 
-margin-bottom:40px;
+margin-bottom:50px;
 
 }
 
 .logo h1{
 
-font-size:60px;
+font-size:72px;
 
-color:white;
+font-weight:900;
+
+letter-spacing:-3px;
+
+color:#ffffff;
 
 }
 
 .logo span{
 
-color:#ff1616;
+color:#ff1414;
 
 }
 
 .logo p{
 
-margin-top:8px;
+margin-top:10px;
 
-color:#aaa;
+color:#9a9a9a;
 
-font-size:14px;
+font-size:15px;
 
 }
+
+/* CARD */
 
 .card{
 
-background:#121212;
+background:
 
-padding:30px;
+linear-gradient(
+180deg,
+#111111,
+#090909
+);
 
-border-radius:25px;
+padding:35px;
 
-border:1px solid #2d2d2d;
+border-radius:28px;
+
+border:
+
+1px solid
+rgba(255,0,0,.15);
 
 box-shadow:
 
-0 0 60px rgba(255,0,0,.15);
+0 0 60px
+rgba(255,0,0,.18);
+
+backdrop-filter:
+
+blur(10px);
 
 }
+
+/* TEXTO */
 
 .card h2{
 
 color:white;
 
-margin-bottom:10px;
+font-size:28px;
+
+margin-bottom:14px;
 
 }
 
@@ -113,76 +151,120 @@ margin-bottom:10px;
 
 color:#777;
 
-margin-bottom:25px;
+font-size:16px;
+
+margin-bottom:35px;
+
+line-height:1.5;
 
 }
+
+/* BOTÕES */
 
 button{
 
 width:100%;
 
-height:60px;
+height:66px;
 
 border:none;
 
-border-radius:18px;
-
-font-size:18px;
+border-radius:20px;
 
 cursor:pointer;
 
-margin-top:14px;
+font-size:18px;
 
-transition:.3s;
+font-weight:700;
+
+transition:.25s;
+
+margin-top:16px;
 
 }
+
+/* ENTRAR */
 
 #login{
 
 background:
 
 linear-gradient(
-90deg,
-#ff0000,
-#b90000
+180deg,
+#ff2a2a,
+#d60000
 );
 
 color:white;
+
+box-shadow:
+
+0 10px 30px
+rgba(255,0,0,.35);
 
 }
 
 #login:hover{
 
-transform:translateY(-2px);
+transform:
+
+translateY(-3px);
 
 }
+
+/* CRIAR CONTA */
 
 .outline{
 
 background:transparent;
 
-color:white;
-
 border:
 
-1px solid #ff1b1b;
+1px solid
+rgba(255,50,50,.5);
+
+color:white;
 
 }
 
 .outline:hover{
 
-background:#ff1616;
+background:
+
+rgba(255,0,0,.12);
 
 }
 
+/* RODAPÉ */
+
 .footer{
 
-margin-top:25px;
+margin-top:35px;
 
-color:#666;
-
-font-size:12px;
+color:#5d5d5d;
 
 text-align:center;
+
+font-size:13px;
+
+line-height:1.6;
+
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+.logo h1{
+
+font-size:66px;
+
+}
+
+.card{
+
+padding:30px;
+
+}
 
 }
