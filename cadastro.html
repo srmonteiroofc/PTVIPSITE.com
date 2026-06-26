@@ -91,7 +91,26 @@
             border-color: #ff1a1a;
         }
 
-        /* Botões Estilo Entrada (Empilhados e Grandes) */
+        /* Link Esqueceu a Senha */
+        .forgot-password {
+            text-align: right;
+            margin-top: -4px;
+            margin-bottom: 4px;
+        }
+
+        .forgot-password a {
+            color: #a6a6a6;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .forgot-password a:hover {
+            color: #ff1a1a;
+            text-decoration: underline;
+        }
+
+        /* Botões */
         .card button {
             width: 100%;
             padding: 16px;
@@ -137,48 +156,5 @@
         <h2>Criar Conta</h2>
         <p class="sub">Cadastre seu e-mail e senha.</p>
 
-        <!-- Formulário funcional -->
         <input id="email" type="email" placeholder="Digite seu e-mail" required>
-        <input id="senha" type="password" placeholder="Digite sua senha" required>
-
-        <button id="criar">CONTINUAR</button>
-        
-        <!-- Botão VOLTAR 100% utilizável que redireciona para a index -->
-        <button class="outline" onclick="window.location.href='index.html'">VOLTAR</button>
-
-        <div class="footer">
-            Ao continuar você aceita nossos termos.
-        </div>
-    </div>
-</div>
-
-<!-- Seu script do Firebase continua aqui para processar o cadastro em segundo plano -->
-<script type="module" src="firebase.js"></script>
-
-<script>
-    // Código para fazer o botão CONTINUAR funcionar localmente ou integrar com sua lógica
-    document.getElementById('criar').addEventListener('click', function() {
-        const email = document.getElementById('email').value;
-        const senha = document.getElementById('senha').value;
-
-        // Validação simples para não deixar enviar vazio
-        if (email === '' || senha === '') {
-            alert('Por favor, preencha todos os campos antes de continuar.');
-            return;
-        }
-
-        if (senha.length < 6) {
-            alert('A senha deve ter pelo menos 6 caracteres.');
-            return;
-        }
-
-        // Simulação de Sucesso (Enquanto seu firebase.js assume o controle definitivo)
-        alert('Cadastro realizado com sucesso!');
-        
-        // Redireciona o usuário para a página principal após o cadastro (mude 'home.html' para a sua página)
-        window.location.href = 'home.html'; 
-    });
-</script>
-
-</body>
-</html>
+        <input id="senha" type="password" placeholder="Digite sua
