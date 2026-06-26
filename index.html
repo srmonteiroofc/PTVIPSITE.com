@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Login Premium</title>
+    <title>PTvip - Premium Portal</title>
+    <!-- Tailwind CSS para agilidade e responsividade -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Fundo escuro premium com textura sutil */
@@ -13,14 +14,14 @@
             background-size: 20px 20px;
         }
         
-        /* Efeito de degradê dourado para textos e detalhes */
+        /* Efeito de degradê dourado */
         .gold-text-gradient {
             background: linear-gradient(135deg, #FFF3B0 0%, #D4AF37 40%, #AA7C11 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Borda fina dourada com efeito metálico em volta do card */
+        /* Borda fina dourada com efeito metálico */
         .gold-border-gradient {
             border: 1px solid transparent;
             background-image: linear-gradient(#0d0d0d, #0d0d0d), linear-gradient(135deg, #FFF3B0, #D4AF37, #593e10);
@@ -28,10 +29,10 @@
             background-clip: padding-box, border-box;
         }
 
-        /* Estilização dos campos de input focados em alta classe */
+        /* Estilização dos campos de input baseados na imagem 3560.png */
         .luxury-input {
-            background: rgba(20, 20, 20, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            background: rgba(25, 25, 25, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             color: #ffffff;
             transition: all 0.3s ease;
         }
@@ -41,11 +42,10 @@
             outline: none;
         }
 
-        /* Botão Entrar - Vermelho rubi acetinado */
+        /* Botão Vermelho Rubi Acetinado */
         .btn-red {
-            background: linear-gradient(180deg, #9b1111 0%, #5f0707 100%);
-            border: 1px solid #7a0c0c;
-            box-shadow: 0 4px 20px rgba(155, 17, 17, 0.25);
+            background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.25);
             transition: all 0.3s ease;
         }
         .btn-red:hover {
@@ -53,7 +53,7 @@
             filter: brightness(1.15);
         }
 
-        /* Botão Criar Conta - Ouro nobre escovado */
+        /* Botão Ouro Nobre Escovado */
         .btn-gold {
             background: linear-gradient(180deg, #FFF3B0 0%, #D4AF37 50%, #966e12 100%);
             box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
@@ -63,17 +63,31 @@
             transform: translateY(-1px);
             filter: brightness(1.1);
         }
+
+        /* Classes utilitárias para transição suave de telas */
+        .screen-hidden {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="bg-luxury-pattern min-h-screen flex items-center justify-center p-4 font-sans antialiased">
 
-    <div class="gold-border-gradient w-full max-w-sm bg-[#0d0d0d]/95 rounded-3xl p-8 relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.9)] flex flex-col items-center">
+    <!-- Container Principal (Formato de Aplicativo Móvel) -->
+    <div class="gold-border-gradient w-full max-w-sm bg-[#0d0d0d]/95 rounded-3xl p-8 relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.9)] flex flex-col items-center min-h-[580px] justify-between">
         
+        <!-- Luzes difusas de ambiente ao fundo -->
         <div class="absolute -top-24 -left-24 w-52 h-52 bg-red-900/15 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -bottom-24 -right-24 w-52 h-52 bg-yellow-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="text-center mt-2 mb-1 relative">
-            <div class="flex justify-center mb-2">
+        <!-- Botão Voltar (Surgirá apenas quando uma tela interna estiver aberta) -->
+        <button id="btn-back" onclick="showScreen('main')" class="absolute top-5 left-5 text-gray-500 hover:text-white transition text-xs flex items-center gap-1 screen-hidden z-20">
+            ✕ Voltar
+        </button>
+
+        <!-- ================= CADEÇALHO FIXO ================= -->
+        <div class="text-center mt-2 w-full relative z-10 flex flex-col items-center">
+            <!-- Ícone da Coroa Dourada -->
+            <div class="mb-1">
                 <svg class="w-8 h-8 drop-shadow-md" viewBox="0 0 24 24" fill="url(#luxuryGold)">
                     <defs>
                         <linearGradient id="luxuryGold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -86,53 +100,110 @@
                 </svg>
             </div>
             
+            <!-- Título PTvip -->
             <h1 class="text-4xl font-black tracking-tight uppercase">
                 <span class="gold-text-gradient">PT</span><span class="text-[#dc2626] drop-shadow-[0_2px_8px_rgba(220,38,38,0.3)]">vip</span>
             </h1>
+
+            <!-- Slogan Fixo -->
+            <p class="gold-text-gradient text-[9px] font-bold tracking-[0.3em] uppercase mt-2 opacity-90">
+                ★ Jogue. Vença. Seja VIP. ★
+            </p>
         </div>
 
-        <p class="gold-text-gradient text-[10px] font-bold tracking-[0.25em] uppercase mb-8 opacity-90">
-            Jogue. Vença. Seja VIP.
-        </p>
 
-        <form class="w-full space-y-5 z-10" onsubmit="event.preventDefault();">
-            
-            <div class="space-y-1.5">
-                <label class="text-[11px] font-semibold tracking-wider text-gray-400 uppercase block pl-1">Usuário ou E-mail</label>
-                <input type="text" placeholder="Digite seu acesso" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-600 tracking-wide">
-            </div>
+        <!-- ================= TELA 1: HOME PRINCIPAL ================= -->
+        <div id="screen-main" class="w-full space-y-4 my-auto z-10 pt-6">
+            <!-- Botão Entrar -->
+            <button onclick="showScreen('login')" class="btn-red w-full py-4 rounded-xl text-white font-bold text-base tracking-widest uppercase text-center cursor-pointer">
+                Entrar
+            </button>
 
-            <div class="space-y-1.5">
-                <div class="flex justify-between items-center px-1">
-                    <label class="text-[11px] font-semibold tracking-wider text-gray-400 uppercase block">Senha</label>
-                    <a href="#" class="text-[10px] text-yellow-600/80 hover:text-yellow-500 transition">Esqueceu?</a>
-                </div>
-                <input type="password" placeholder="••••••••" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-600 tracking-wide">
-            </div>
-
-            <div class="pt-2">
-                <button type="submit" class="btn-red w-full py-4 rounded-xl text-white font-bold text-base tracking-widest uppercase text-center cursor-pointer">
-                    Entrar
-                </button>
-            </div>
-
+            <!-- Divisor Sutil -->
             <div class="flex items-center justify-center my-4 opacity-40">
                 <div class="h-[1px] bg-gradient-to-r from-transparent to-yellow-600 w-full"></div>
                 <span class="px-3 text-[10px] text-gray-500 uppercase tracking-widest font-medium">ou</span>
                 <div class="h-[1px] bg-gradient-to-l from-transparent to-yellow-600 w-full"></div>
             </div>
 
-            <button type="button" class="btn-gold w-full py-4 rounded-xl text-black font-black text-base tracking-widest uppercase text-center cursor-pointer">
+            <!-- Botão Criar Conta -->
+            <button onclick="showScreen('register')" class="btn-gold w-full py-4 rounded-xl text-black font-black text-base tracking-widest uppercase text-center cursor-pointer">
                 Criar Conta
             </button>
+        </div>
 
-        </form>
 
-        <div class="mt-8 text-center text-[9px] text-gray-600 tracking-[0.2em] uppercase">
-            Acesso Restrito • Membros Selecionados
+        <!-- ================= TELA 2: FORMULÁRIO ENTRAR ================= -->
+        <div id="screen-login" class="w-full space-y-4 my-auto z-10 pt-4 screen-hidden">
+            <h2 class="text-center text-xl font-bold text-white mb-2">Bem-vindo!</h2>
+            
+            <form class="space-y-4" onsubmit="event.preventDefault();">
+                <div>
+                    <input type="text" placeholder="Usuário ou E-mail" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-500 tracking-wide text-center">
+                </div>
+                <div>
+                    <input type="password" placeholder="Senha" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-500 tracking-wide text-center">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="btn-red w-full py-3.5 rounded-xl text-white font-bold text-sm tracking-widest uppercase text-center">
+                        ENTRAR
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- ================= TELA 3: FORMULÁRIO CRIAR CONTA ================= -->
+        <div id="screen-register" class="w-full space-y-4 my-auto z-10 pt-4 screen-hidden">
+            <h2 class="text-center text-xl font-bold text-white mb-2">Criar Conta VIP</h2>
+            
+            <form class="space-y-3" onsubmit="event.preventDefault();">
+                <div>
+                    <input type="text" placeholder="Usuário ou E-mail" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-500 tracking-wide text-center">
+                </div>
+                <div>
+                    <input type="password" placeholder="Crie sua Senha" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-500 tracking-wide text-center">
+                </div>
+                <div>
+                    <input type="password" placeholder="Confirme sua Senha" class="luxury-input w-full px-4 py-3.5 rounded-xl text-sm placeholder-gray-500 tracking-wide text-center">
+                </div>
+                <div class="pt-2">
+                    <button type="submit" class="btn-gold w-full py-3.5 rounded-xl text-black font-black text-sm tracking-widest uppercase text-center">
+                        CADASTRAR
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- ================= RODAPÉ EXCLUSIVO ================= -->
+        <div class="w-full text-center text-[9px] text-gray-600 tracking-[0.2em] uppercase mt-4 z-10">
+            Acesso Restrito • Alta Classe
         </div>
 
     </div>
+
+    <!-- Lógica JavaScript para alternar telas dinamicamente -->
+    <script>
+        function showScreen(screenType) {
+            // Esconde todas as telas primeiro
+            document.getElementById('screen-main').classList.add('screen-hidden');
+            document.getElementById('screen-login').classList.add('screen-hidden');
+            document.getElementById('screen-register').classList.add('screen-hidden');
+            document.getElementById('btn-back').classList.add('screen-hidden');
+
+            // Mostra a tela selecionada
+            if (screenType === 'main') {
+                document.getElementById('screen-main').classList.remove('screen-hidden');
+            } else if (screenType === 'login') {
+                document.getElementById('screen-login').classList.remove('screen-hidden');
+                document.getElementById('btn-back').classList.remove('screen-hidden');
+            } else if (screenType === 'register') {
+                document.getElementById('screen-register').classList.remove('screen-hidden');
+                document.getElementById('btn-back').classList.remove('screen-hidden');
+            }
+        }
+    </script>
 
 </body>
 </html>
