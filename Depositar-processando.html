@@ -3,18 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processando Pagamento</title>
-    <link rel="stylesheet" href="style.css">
+    <title>PTvip - Processando PIX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-app-dark { background-color: #070707; }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
+        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-gradient-gold { background: linear-gradient(180deg, #D4AF37 0%, #AA7C11 100%); }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Processando</h2>
-        <div style="width:70px; height:70px; border:4px solid #2a2a3a; border-top-color:var(--vermelho-principal); border-radius:50%; margin:30px auto; animation: girar 1s linear infinite"></div>
-        <style>@keyframes girar { to { transform: rotate(360deg); } }</style>
-        <p style="text-align:center; margin:15px 0">Aguardando confirmação do pagamento...</p>
-        <p style="text-align:center; font-size:14px; color:var(--cinza-claro)">Prazo estimado: até 15 minutos</p>
-        <button class="botao vermelho" onclick="irPara('depositar-sucesso.html')">VERIFICAR STATUS</button>
+<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center p-4">
+
+    <div class="w-full max-w-sm gold-border rounded-3xl p-6 bg-[#0f0f0f] shadow-2xl mt-4 text-center">
+        
+        <div class="flex items-center justify-between mb-6">
+            <button type="button" onclick="history.back()" class="p-2 bg-neutral-900 rounded-full hover:bg-neutral-800 transition">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <div class="flex-1 -ml-10">
+                <h1 class="text-xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
+            </div>
+        </div>
+
+        <p class="text-xs text-gray-400 uppercase tracking-widest mb-1">Aguardando Pagamento</p>
+        <div class="text-2xl font-black text-amber-500 mb-4" id="exibirValor">R$ 0,00</div>
+
+        <div class="bg-white p-3 rounded-2xl inline-block border-2 border-amber-500/50 mb-4">
+            <img id="qrCodeImg" src="" alt="QR Code PIX" class="w-48 h-48">
+        </div>
+
+        <div class="text-xs text-gray-500 mb-6">
+            O QR Code expira em: <span class="text-red-500 font-bold font-mono" id="timer">05:00</span>
+        </div>
+
+        <div class="mb-6 text-left">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Código PIX Copia e Cola</p>
+            <div class="bg-[#161616] border border-neutral-800 rounded-xl p-3 flex items-center justify-between gap-2">
+                <p class="text-xs font-mono text-gray-400 truncate flex-1" id="pixCodeText"></p>
+                <button type="button" onclick="copiarPix()" class="text-sm bg-neutral-800 hover:bg-neutral-700 px-3 py-1.5 rounded-lg font-bold text-amber-500 shrink-0">Copiar</button>
+            </div>
+        </div>
+
+        <button type="button" onclick="window.location.href='Depositar-sucesso.html'" class="btn-gradient-gold w-full py-4 rounded-xl font-black uppercase tracking-widest text-xs text-black shadow-lg shadow-amber-500/10 mb-4">
+            Já realizei o pagamento
+        </button>
+
+        <p class="text-[9px] text-gray-700 uppercase tracking-widest">Processamento Instantâneo via Banco Central</p>
     </div>
-    <script src="script.js"></script>
+
+    <script>
+        // Pega o valor da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const valor = urlParams.get('valor') || '20';
+        document.getElementById('exibirValor').innerText = `R$ ${valor},00`;
+
+        const chavePix = "bdfcfbfd-b673-4449-b46f-0787f7674904";
+        
+        // Monta uma string padrão para simular o payload de Copia e Cola
+        const payloadPix = `00020101021126580014br.gov.bcb.pix0136${chavePix}5204000053039865405${valor}.005802BR5905PTVIP6009SAO PAULO62070503***6304`;
+        document.getElementById('pixCodeText').innerText = payloadPix;
+
+        // Gera o QR Code visual dinâmico usando o payload estruturado
+        document.getElementById('qrCodeImg').src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(payloadPix)}`;
+
+        // Função do botão copiar
+        function copiarPix() {
+            navigator.clipboard.writeText(payloadPix);
+            alert("Código PIX copiado com sucesso!");
+        }
+
+        // Contador Regressivo de 5 minutos
+        let tempo = 300; 
+        const timerElement = document.getElementById('timer');
+        
+        const cronometro = setInterval(() => {
+            const minutos = Math.floor(tempo / 60).toString().padStart(2, '0');
+            const segundos = (tempo % 60).toString().padStart(2, '0');
+            timerElement.innerText = `${minutos}:${segundos}`;
+            
+            if (tempo <= 0) {
+                clearInterval(cronometro);
+                timerElement.innerText = "EXPIRADO";
+            }
+            tempo--;
+        }, 1000);
+    </script>
 </body>
 </html>
