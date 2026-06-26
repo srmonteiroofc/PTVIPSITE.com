@@ -1,41 +1,20 @@
-// Importa os módulos do Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+// firebase.js
 
-// Configuração do Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-analytics.js";
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
-  authDomain: "ptvip-teste.firebaseapp.com",
-  projectId: "ptvip-teste",
-  storageBucket: "ptvip-teste.firebasestorage.app",
-  messagingSenderId: "407028833766",
-  appId: "1:407028833766:web:79d7dbf7ee968944248a27"
+apiKey: "SUA_API_KEY",
+authDomain: "ptvip-teste.firebaseapp.com",
+projectId: "ptvip-teste",
+storageBucket: "ptvip-teste.firebasestorage.app",
+messagingSenderId: "407028833766",
+appId: "1:407028833766:web:79d7dbf7ee968944248a27",
+measurementId: "G-1XXWV7S8YH"
 };
 
-// Inicializa o Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-// Função para criar a conta
-function criarConta() {
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
+getAnalytics(app);
 
-  if (!email || !senha) {
-    alert("Preencha todos os campos.");
-    return;
-  }
-
-  createUserWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      // Conta criada com sucesso
-      alert("Conta criada com sucesso!");
-      window.location = "home.html"; // ou redirecione para onde quiser
-    })
-    .catch((error) => {
-      alert("Erro: " + error.message);
-    });
-}
-
-// Liga o botão ao evento
-document.getElementById("criar").addEventListener("click", criarConta);
+export { app };
