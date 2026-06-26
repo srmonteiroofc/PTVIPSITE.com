@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTvip - Solicitar Saque</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-app-dark { background-color: #070707; }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
+        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-gradient-gold { background: linear-gradient(180deg, #D4AF37 0%, #AA7C11 100%); }
+    </style>
+</head>
+<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center p-4 pb-24">
+
+    <div class="w-full max-w-sm gold-border rounded-3xl p-6 bg-[#0f0f0f] shadow-2xl mt-4">
+        
+        <div class="flex items-center justify-between mb-8">
+            <button type="button" onclick="history.back()" class="p-2 bg-neutral-900 rounded-full hover:bg-neutral-800 transition">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <div class="text-center flex-1 -ml-10">
+                <h1 class="text-2xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
+                <h2 class="text-[10px] font-bold mt-1 text-gray-500 uppercase tracking-widest">Retirada de Saldo</h2>
+            </div>
+        </div>
+
+        <div class="bg-[#141414] border border-neutral-900 rounded-xl p-3 flex justify-between items-center mb-6 text-xs">
+            <span class="text-gray-500 uppercase tracking-wider">Seu Saldo Disponível:</span>
+            <span class="font-bold text-amber-500 text-sm" id="saldoDisponivel">R$ 0,00</span>
+        </div>
+
+        <form id="saqueForm" class="space-y-5">
+            <div>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Tipo de Chave PIX</p>
+                <select class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 text-sm text-white outline-none focus:border-amber-500/50">
+                    <option value="cpf">CPF</option>
+                    <option value="email">E-mail</option>
+                    <option value="telefone">Telefone</option>
+                    <option value="chave-aleatoria">Chave Aleatória</option>
+                </select>
+            </div>
+
+            <div>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Insira sua Chave PIX</p>
+                <input type="text" placeholder="Digite sua chave aqui" required 
+                    class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 text-sm text-white outline-none focus:border-amber-500/50">
+            </div>
+
+            <div>
+                <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">Valor do Saque</p>
+                <input type="number" id="valorSaque" placeholder="0.00" min="20" step="0.01" required 
+                    class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 font-bold text-lg text-white outline-none focus:border-amber-500/50">
+                <p class="text-[9px] text-neutral-600 text-center mt-2 uppercase">Mínimo para retirada: R$ 20,00</p>
+            </div>
+
+            <button type="submit" class="btn-gradient-gold w-full py-4 rounded-xl font-black uppercase tracking-widest text-xs text-black shadow-lg shadow-amber-500/10">
+                Confirmar Saque Instantâneo
+            </button>
+        </form>
+
+        <p class="text-center text-[9px] text-gray-700 uppercase tracking-widest mt-6">Pagamentos processados via Pix em até 5 minutos</p>
+    </div>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-neutral-900 h-16 flex justify-around items-center z-50">
+        <a href="home.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">🏠</span></a>
+        <a href="Jogos.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">🎮</span></a>
+        <a href="Depositar-valor.html" class="bg-red-600 p-3 rounded-full -mt-8 border-4 border-[#070707] shadow-lg">💳</a>
+        <a href="Promocoes.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">🎁</span></a>
+        <a href="Perfil.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">👤</span></a>
+    </div>
+
+    <script>
+        // Puxa e formata o saldo atual
+        const saldoSalvo = parseFloat(localStorage.getItem('saldoUsuario') || '0.00');
+        document.getElementById('saldoDisponivel').innerText = saldoSalvo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+
+        // Lógica para processar o saque
+        document.getElementById('saqueForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const valorSaque = parseFloat(document.getElementById('valorSaque').value);
+
+            if (valorSaque > saldoSalvo) {
+                alert("Saldo insuficiente para realizar esta retirada.");
+            } else {
+                // Deduz o valor sacado do saldo global
+                const novoSaldo = saldoSalvo - valorSaque;
+                localStorage.setItem('saldoUsuario', novoSaldo.toFixed(2));
+                
+                alert("Solicitação de saque enviada com sucesso! O valor cairá na sua conta PIX em breve.");
+                window.location.href = 'Carteira.html';
+            }
+        });
+    </script>
+</body>
+</html>
