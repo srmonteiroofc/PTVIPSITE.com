@@ -3,28 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil - PT VIP</title>
-    <link rel="stylesheet" href="style.css">
+    <title>PTvip - Perfil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-app-dark { background-color: #0b0b0b; }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.2); }
+        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-card { background: rgba(20, 20, 20, 0.8); backdrop-filter: blur(10px); }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <div style="text-align:center; margin-bottom:30px">
-            <div style="width:85px; height:85px; border-radius:50%; background:#2a2a3a; margin:0 auto 12px; display:flex; align-items:center; justify-content:center; font-size:35px">👤</div>
-            <h3>Meu Perfil</h3>
-            <p style="color:var(--cinza-texto)">ID: 994562 | Nível VIP</p>
+<body class="bg-app-dark text-white font-sans min-h-screen pb-24">
+
+    <div class="max-w-md mx-auto pt-8 px-4">
+        
+        <div class="flex flex-col items-center mb-8">
+            <div class="w-24 h-24 rounded-full border-4 border-amber-500/30 flex items-center justify-center text-4xl mb-4 bg-neutral-900">
+                👤
+            </div>
+            <h2 class="text-xl font-black">Usuário VIP</h2>
+            <p class="text-amber-500 text-sm font-bold tracking-widest uppercase">Nível: Gold 👑</p>
         </div>
-        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">📄 Dados Pessoais</div>
-        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">🔒 Segurança</div>
-        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">💳 Métodos de Pagamento</div>
-        <div style="background:#1a1a28; padding:16px; border-radius:8px; margin:10px 0; text-align:left">📞 Suporte 24h</div>
-        <button class="botao vermelho" style="margin-top:25px" onclick="irPara('index.html')">SAIR DA CONTA</button>
-        <div class="menu-navegacao">
-            <div class="nav-item" onclick="irPara('home.html')">Início</div>
-            <div class="nav-item" onclick="irPara('jogos.html')">Jogos</div>
-            <div class="nav-item" onclick="irPara('carteira.html')">Carteira</div>
-            <div class="nav-item ativo">Perfil</div>
+
+        <div class="grid grid-cols-2 gap-4 mb-8">
+            <a href="Depositar-valor.html" class="glass-card gold-border p-4 rounded-2xl text-center hover:bg-neutral-900 transition">
+                <div class="text-2xl mb-2">💳</div>
+                <p class="text-xs font-bold uppercase">Depositar</p>
+            </a>
+            <div class="glass-card gold-border p-4 rounded-2xl text-center opacity-50">
+                <div class="text-2xl mb-2">💸</div>
+                <p class="text-xs font-bold uppercase">Sacar</p>
+            </div>
         </div>
+
+        <div class="glass-card gold-border rounded-2xl p-2 space-y-1">
+            <button class="w-full p-4 flex items-center justify-between hover:bg-neutral-900 rounded-xl transition">
+                <span class="flex items-center gap-3"><span class="text-lg">📋</span> Histórico de Apostas</span>
+                <span class="text-gray-500">&gt;</span>
+            </button>
+            <button class="w-full p-4 flex items-center justify-between hover:bg-neutral-900 rounded-xl transition">
+                <span class="flex items-center gap-3"><span class="text-lg">🛡️</span> Segurança e Conta</span>
+                <span class="text-gray-500">&gt;</span>
+            </button>
+            <button class="w-full p-4 flex items-center justify-between hover:bg-neutral-900 rounded-xl transition">
+                <span class="flex items-center gap-3"><span class="text-lg">❓</span> Suporte 24/7</span>
+                <span class="text-gray-500">&gt;</span>
+            </button>
+            <button class="w-full p-4 flex items-center justify-between text-red-500 hover:bg-neutral-900 rounded-xl transition">
+                <span class="flex items-center gap-3"><span class="text-lg">🚪</span> Sair</span>
+            </button>
+        </div>
+
     </div>
-    <script src="script.js"></script>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-[#121212] border-t border-neutral-800 h-20 flex justify-around items-center z-50">
+        <a href="home.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-xl">🏠</span><span class="text-[10px] font-bold">Início</span></a>
+        <a href="Jogos.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-xl">🎮</span><span class="text-[10px] font-bold">Jogos</span></a>
+        <a href="Depositar-valor.html" class="bg-red-600 w-14 h-14 rounded-full -mt-7 border-4 border-[#0b0b0b] flex items-center justify-center">💳</a>
+        <a href="Promocoes.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-xl">🎁</span><span class="text-[10px] font-bold">Promoções</span></a>
+        <a href="Perfil.html" class="flex flex-col items-center gap-1 text-red-500"><span class="text-xl">👤</span><span class="text-[10px] font-bold">Perfil</span></a>
+    </div>
+
 </body>
 </html>
