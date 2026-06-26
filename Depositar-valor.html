@@ -3,23 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valor do Depósito</title>
-    <link rel="stylesheet" href="style.css">
+    <title>PTvip - Depósito Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-app-dark { background-color: #0b0b0b; }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.4); }
+        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-gradient-red { background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%); }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Escolha o Valor</h2>
-        <div class="valores-grid">
-            <div class="valor-item" onclick="selecionarValor(this)">R$ 20</div>
-            <div class="valor-item" onclick="selecionarValor(this)">R$ 50</div>
-            <div class="valor-item ativo" onclick="selecionarValor(this)">R$ 100</div>
-            <div class="valor-item" onclick="selecionarValor(this)">R$ 200</div>
-            <div class="valor-item" onclick="selecionarValor(this)">R$ 500</div>
-            <div class="valor-item" onclick="selecionarValor(this)">R$ 1.000</div>
+<body class="bg-app-dark text-white font-sans min-h-screen flex items-center justify-center p-4">
+
+    <div class="w-full max-w-sm gold-border rounded-3xl p-6 bg-gradient-to-b from-[#141414] to-[#070707] shadow-2xl">
+        
+        <div class="text-center mb-6">
+            <h1 class="text-2xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
+            <h2 class="text-lg font-bold mt-2">Depósito Premium</h2>
         </div>
-        <p style="margin:15px 0; color:var(--dourado)">Bônus: 100% até R$1.000 + 200 giros grátis</p>
-        <button class="botao vermelho" onclick="irPara('depositar-detalhes.html')">CONTINUAR</button>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+
+        <div class="mb-5">
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-3 text-center">Método de Pagamento</p>
+            <div class="border-2 border-amber-500 rounded-xl p-4 bg-[#1a1a1a] flex items-center justify-between">
+                <span class="font-bold">Pix</span>
+                <span class="text-amber-500 text-lg">✓</span>
+            </div>
+        </div>
+
+        <div class="mb-4">
+            <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-2">Informe o valor</p>
+            <input type="text" value="R$ 0,00" class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 text-center font-bold text-xl">
+            
+            <p class="text-
