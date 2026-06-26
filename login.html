@@ -6,28 +6,45 @@
     <title>PTvip - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .bg-app-dark { background-color: #070707; }
-        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
-        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-gradient-red { background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%); }
+        /* Fundo gradiente radial premium idêntico às telas anteriores */
+        .bg-app-dark { 
+            background: radial-gradient(circle, #2a1111 0%, #000000 100%); 
+        }
+        .gold-text-gradient { 
+            background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        /* Botão vermelho vibrante puro para manter o padrão visual do app */
+        .btn-red { 
+            background-color: #ff0000; 
+        }
     </style>
 </head>
 <body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center justify-center p-4">
 
-    <div class="w-full max-w-sm gold-border rounded-3xl p-8 bg-[#0f0f0f] shadow-2xl">
+    <div class="w-full max-w-sm border-2 border-red-600 rounded-[24px] p-8 bg-[#0d0d0d] shadow-[0_0_25px_rgba(255,26,26,0.6)]">
         <div class="text-center mb-8">
             <h1 class="text-4xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
             <p class="text-gray-500 text-xs mt-2 uppercase tracking-widest">Entre na sua conta</p>
         </div>
 
         <form id="loginForm" class="space-y-4">
-            <input type="email" id="loginEmail" placeholder="E-mail" required class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 outline-none focus:border-amber-500">
-            <input type="password" id="loginPassword" placeholder="Senha" required class="w-full bg-[#1c1c1c] border border-neutral-800 rounded-xl p-4 outline-none focus:border-amber-500">
-            <button type="submit" class="btn-gradient-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm">Entrar</button>
+            <input type="email" id="loginEmail" placeholder="E-mail" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+            
+            <div class="space-y-2">
+                <input type="password" id="loginPassword" placeholder="Senha" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+                
+                <div class="text-right">
+                    <a href="recuperar.html" class="text-xs text-gray-400 hover:text-red-500 hover:underline transition-colors">Esqueceu a senha?</a>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm text-white active:scale-[0.98] transition-transform">Entrar</button>
         </form>
 
-        <p class="text-center text-gray-500 text-xs mt-6">
-            Ainda não tem conta? <a href="cadastro.html" class="text-amber-500 font-bold">Cadastrar-se</a>
+        <p class="text-center text-gray-400 text-sm mt-6">
+            Ainda não tem conta? <a href="cadastro.html" class="text-amber-500 font-bold hover:text-red-500 hover:underline transition-colors">Cadastrar-se</a>
         </p>
     </div>
 
@@ -47,7 +64,7 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
-        // Lógica para ouvir o formulário de Login
+        // Lógica para ouvir o formulário de Login com Firebase
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
