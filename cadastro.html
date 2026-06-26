@@ -4,157 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PTVIP • Cadastro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Estilos Globais e Fundo */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Fundo gradiente radial premium igual ao do Login */
+        .bg-app-dark { 
+            background: radial-gradient(circle, #2a1111 0%, #000000 100%); 
         }
-
-        body {
-            background: radial-gradient(circle, #2a1111 0%, #000000 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #ffffff;
-            overflow: hidden;
+        .gold-text-gradient { 
+            background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
         }
-
-        .container {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Topo / Logo */
-        .logo h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
-
-        .logo h1 span {
-            color: #ff1a1a;
-        }
-
-        .logo p {
-            color: #d4af37;
-            font-weight: bold;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-        }
-
-        /* Card Principal com o Brilho Neon Vermelho */
-        .card {
-            background-color: #0d0d0d;
-            border: 2px solid #ff1a1a;
-            border-radius: 24px;
-            padding: 35px 25px;
-            box-shadow: 0 0 25px rgba(255, 26, 26, 0.6);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .card h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: -4px;
-        }
-
-        .card .sub {
-            color: #a6a6a6;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        /* Campos de Entrada (Inputs) */
-        .card input {
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px solid #333;
-            background-color: #1a1a1a;
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        .card input:focus {
-            border-color: #ff1a1a;
-        }
-
-        /* Link Esqueceu a Senha */
-        .forgot-password {
-            text-align: right;
-            margin-top: -4px;
-            margin-bottom: 4px;
-        }
-
-        .forgot-password a {
-            color: #a6a6a6;
-            font-size: 0.85rem;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .forgot-password a:hover {
-            color: #ff1a1a;
-            text-decoration: underline;
-        }
-
-        /* Botões */
-        .card button {
-            width: 100%;
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.1s, opacity 0.2s;
-        }
-
-        .card button:active {
-            transform: scale(0.98);
-        }
-
-        #criar {
-            background-color: #ff0000;
-            color: #ffffff;
-        }
-
-        .outline {
-            background-color: #ffffff;
-            color: #000000;
-        }
-
-        /* Texto de Termos no Rodapé */
-        .footer {
-            color: #666666;
-            font-size: 0.8rem;
-            margin-top: 10px;
+        /* Botão vermelho vibrante puro */
+        .btn-red { 
+            background-color: #ff0000; 
         }
     </style>
 </head>
-<body>
+<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center justify-center p-4">
 
-<div class="container">
-    <div class="logo">
-        <h1>PT<span>VIP</span></h1>
-        <p>JOGUE. VENÇA. SEJA VIP.</p>
+    <div class="w-full max-w-sm text-center">
+        
+        <div class="mb-6">
+            <h1 class="text-4xl font-black uppercase tracking-wider">PT<span class="text-red-600">VIP</span></h1>
+            <p class="text-amber-500 font-bold text-xs mt-2 uppercase tracking-widest">Jogue. Vença. Seja VIP.</p>
+        </div>
+
+        <div class="w-full border-2 border-red-600 rounded-[24px] p-8 bg-[#0d0d0d] shadow-[0_0_25px_rgba(255,26,26,0.6)] text-left flex flex-col gap-4 h-auto">
+            
+            <div class="text-center mb-2">
+                <h2 class="text-2xl font-bold">Criar Conta</h2>
+                <p class="text-gray-400 text-sm mt-1">Cadastre seu e-mail e senha.</p>
+            </div>
+
+            <form id="cadastroForm" class="space-y-4">
+                <input type="email" id="email" placeholder="Digite seu e-mail" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+                
+                <div class="space-y-2">
+                    <input type="password" id="senha" placeholder="Digite sua senha" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+                    
+                    <div class="text-right">
+                        <a href="recuperar.html" class="text-xs text-gray-400 hover:text-red-500 hover:underline transition-colors">Esqueceu a senha?</a>
+                    </div>
+                </div>
+
+                <button type="submit" id="criar" class="btn-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm text-white active:scale-[0.98] transition-transform">Continuar</button>
+                
+                <button type="button" onclick="window.location.href='index.html'" class="w-full py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-sm active:scale-[0.98] transition-transform">Voltar</button>
+            </form>
+
+            <div class="text-center text-gray-500 text-xs mt-2">
+                Ao continuar você aceita nossos termos.
+            </div>
+        </div>
     </div>
 
-    <div class="card">
-        <h2>Criar Conta</h2>
-        <p class="sub">Cadastre seu e-mail e senha.</p>
+    <script type="module" src="firebase.js"></script>
 
-        <input id="email" type="email" placeholder="Digite seu e-mail" required>
-        <input id="senha" type="password" placeholder="Digite sua
+    <script>
+        // Lógica local para validar os campos antes de prosseguir
+        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            if (senha.length < 6) {
+                alert('A senha deve ter pelo menos 6 caracteres.');
+                return;
+            }
+
+            // Aqui o seu firebase.js entra em ação para criar o usuário de fato
+            alert('Enviando dados para o cadastro...');
+        });
+    </script>
+</body>
+</html>
