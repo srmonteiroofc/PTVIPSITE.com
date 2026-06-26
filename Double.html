@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTvip - Double</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #ffffff; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+        }
+        .numero {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin: 0 8px;
+        }
+        .vermelho { background-color: #dc2626; color: white; }
+        .preto { background-color: #1f2937; color: white; border: 1px solid #374151; }
+        .branco { background-color: #ffffff; color: #000000; }
+        #faixaNumeros {
+            transition: transform 0.05s linear;
+        }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.2); }
+    </style>
+</head>
+<body class="pb-24">
+
+    <div class="max-w-md mx-auto pt-6 px-4">
+        <!-- Cabeçalho -->
+        <div class="flex justify-between items-center mb-6">
+            <a href="Jogos.html" class="text-gray-400 text-xl">⬅️</a>
+            <h1 class="text-xl font-bold text-amber-400">🎯 Double</h1>
+            <div></div>
+        </div>
+
+        <!-- Saldo -->
+        <div class="bg-[#111] rounded-xl p-4 gold-border mb-6">
+            <p class="text-sm text-gray-400">Saldo disponível</p>
+            <p id="saldo" class="text-2xl font-bold text-green-400">R$ 1.000,00</p>
+        </div>
+
+        <!-- Área do Jogo -->
+        <div id="areaJogo" class="bg-[#111] rounded-xl p-6 gold-border mb-6 relative overflow-hidden h-40 flex items-center justify-center">
+            <p id="status" class="text-center text-lg text-gray-300">Clique em Girar para começar</p>
+            <div id="faixaNumeros" class="flex absolute"></div>
+            <div class="absolute top-0 bottom-0 left-1/2 w-1 bg-amber-400 z-10"></div>
+        </div>
+
+        <!-- Controles -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+            <div>
+                <label class="text-xs text-gray-400 mb-1 block">Valor da Aposta</label>
+                <input type="number" id="valorAposta" min="0.50" step="0.50" value="10" class="w-full bg-[#1a1a1a] border border-neutral-700 rounded-lg p-3 text-white outline-none focus:border-amber-500">
+            </div>
+            <div>
+                <label class="text-xs text-gray-400 mb-1 block">Escolher Cor</label>
+                <select id="corEscolhida" class="w-full bg-[#1a1a1a] border border-neutral-700 rounded-lg p-3 text-white outline-none focus:border-amber-500">
+                    <option value="vermelho">Vermelho (x2)</option>
+                    <option value="preto">Preto (x2)</option>
+                    <option value="branco">Branco (x14)</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="botaoGirar" class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-4 rounded-xl text-lg transition shadow-lg shadow-red-900/20">
+            Girar
+        </button>
+
+        <p id="resultado" class="mt-6 text-center text-lg font-medium"></p>
+    </div>
+
+    <!-- Barra de navegação inferior -->
+    <div class="fixed bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-neutral-900 h-16 flex justify-around items-center z-50">
+        <a href="home.html" class="flex flex-col items-center text-gray-500 hover:text-white transition">
+            <span class="text-xl">🏠</span>
+            <span class="text-[9px] mt-1">Início</span>
+        </a>
+        <a href="Jogos.html" class="flex flex-col items-center text-red-500 hover:text-red-400 transition">
+            <span class="text-xl">🎮</span>
+            <span class="text-[9px] mt-1">Jogos</span>
+        </a>
+        <a href="Depositar-valor.html" class="bg-red-600 p-3 rounded-full -mt-8 border-4 border-[#050505] shadow-lg shadow-red-900/40 hover:bg-red-700 transition">
+            💳
+        </a>
+        <a href="Promocoes.html" class="flex flex-col items-center text-gray-500 hover:text-white transition">
+            <span class="text-xl">🎁</span>
+            <span class="text-[9px] mt-1">Promos</span>
+        </a>
+        <a href="Perfil.html" class="flex flex-col items-center text-gray-500 hover:text-white transition">
+            <span class="text-xl">👤</span>
+            <span class="text-[9px] mt-1">Perfil</span>
+        </a>
+    </div>
+
+    <script>
+        // Configurações do jogo
+        let saldo = 1000;
+        const numeros = [1,2,3,4,5,6,7,8,9,10,11,12];
+        const cores = {
+            1: 'branco', 2: 'vermelho', 3: 'preto',
+            4: 'vermelho', 5: 'vermelho', 6: 'preto',
+            7: 'vermelho', 8: 'preto', 9: 'vermelho',
+            10: 'preto', 11: 'vermelho', 12: 'preto'
+        };
+        const multiplicadores = { vermelho: 2, preto: 2, branco: 14 };
+
+        // Elementos da tela
+        const saldoEl = document.getElementById('saldo');
+        const faixaEl = document.getElementById('faixaNumeros');
+        const statusEl = document.getElementById('status');
+        const botaoGirar = document.getElementById('botaoGirar');
+        const valorInput = document.getElementById('valorAposta');
+        const corSelect = document.getElementById('corEscolhida');
+        const resultadoEl = document.getElementById('resultado');
+
+        // Atualiza o saldo na tela
+        function atualizarSaldo() {
+            saldoEl.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
+        }
+
+        // Monta a faixa de números
+        function montarFaixa() {
+            faixaEl.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                numeros.forEach(num => {
+                    const div = document.createElement('div');
+                    div.className = `numero ${cores[num]}`;
+                    div.textContent = num;
+                    faixaEl.appendChild(div);
+                });
+            }
+            faixaEl.style.transform = `translateX(-${12 * 96}px)`;
+        }
+
+        // Função principal de girar
+        function girar() {
+            const valor = Number(valorInput.value);
+            const corEscolhida = corSelect.value;
+
+            if (valor <= 0 || valor > saldo) {
+                resultadoEl.textContent = '❌ Valor inválido ou saldo insuficiente!';
+                resultadoEl.className = 'text-red-400';
+                return;
+            }
+
+            saldo -= valor;
+            atualizarSaldo();
+            resultadoEl.textContent = '';
+            statusEl.textContent = 'Girando...';
+            botaoGirar.disabled = true;
+            botaoGirar.classList.add('opacity-50');
+
+            const resultadoFinal = numeros[Math.floor(Math.random() * numeros.length)];
+            const corResultado = cores[resultadoFinal];
+
+            let posicao = 12 * 96;
+            const duracao = 2800;
+            const inicio = Date.now();
+
+            const animar = setInterval(() => {
+                const decorrido = Date.now() - inicio;
+                const progresso = Math.min(decorrido / duracao, 1);
+                const velocidade = 1 - Math.pow(progresso, 3);
+                posicao += 10 * velocidade;
+                faixaEl.style.transform = `translateX(-${posicao}px)`;
+
+                if (progresso === 1) {
+                    clearInterval(animar);
+                    finalizar(resultadoFinal, corResultado, corEscolhida, valor);
+                }
+            }, 16);
+        }
+
+        // Finaliza e mostra o resultado
+        function finalizar(numero, cor, escolha, valor) {
+            statusEl.textContent = `Resultado: ${numero} • ${cor.toUpperCase()}`;
+            let mensagem = '';
+
+            if (cor === escolha) {
+                const ganho = valor * multiplicadores[cor];
+                saldo += ganho;
+                mensagem = `✅ Você ganhou R$ ${ganho.toFixed(2).replace('.', ',')}!`;
+                resultadoEl.className = 'text-green-400';
+            } else {
+                mensagem = `❌ Você perdeu R$ ${valor.toFixed(2).replace('.', ',')}`;
+                resultadoEl.className = 'text-red-400';
+            }
+
+            atualizarSaldo();
+            resultadoEl.textContent = mensagem;
+            botaoGirar.disabled = false;
+            botaoGirar.classList.remove('opacity-50');
+        }
+
+        // Inicializa o jogo
+        window.addEventListener('load', () => {
+            montarFaixa();
+            atualizarSaldo();
+            botaoGirar.addEventListener('click', girar);
+        });
+    </script>
+</body>
+</html>
