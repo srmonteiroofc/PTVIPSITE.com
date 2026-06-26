@@ -3,47 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - PT VIP</title>
-    <link rel="stylesheet" href="style.css">
+    <title>PTvip - Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Fundo escuro premium baseado no design do app */
+        .bg-app-dark {
+            background-color: #0b0b0b;
+        }
+        
+        /* Gradiente dourado metálico para textos selecionados */
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gradiente vermelho para botões principais */
+        .btn-gradient-red {
+            background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+        }
+
+        /* Barra de navegação inferior fixa */
+        .bottom-nav {
+            background-color: #121212;
+            border-top: 1px solid #1f1f1f;
+        }
+
+        /* Ocultar barra de rolagem lateral para estética mais limpa */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; text-align:left">
-            <div>
-                <p>Saldo Total</p>
-                <h3 style="font-size:28px">R$ 2.560,00</h3>
+<body class="bg-app-dark text-white font-sans antialiased pb-24 flex justify-center">
+
+    <div class="w-full max-w-md min-h-screen bg-[#070707] relative flex flex-col px-4 pt-4 shadow-2xl">
+        
+        <div class="flex justify-between items-center mb-5">
+            <div class="flex items-center gap-1">
+                <h1 class="text-2xl font-black tracking-tight uppercase">
+                    <span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span>
+                </h1>
+                <span class="text-xs -mt-3">👑</span>
             </div>
-            <button class="botao" style="width:auto; padding:8px 16px; background:var(--dourado); color:#111; font-size:16px" onclick="irPara('carteira.html')">+ DEPOSITAR</button>
+
+            <div class="flex items-center gap-3">
+                <button class="relative p-1.5 bg-neutral-900 rounded-full border border-neutral-800 text-gray-400 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                    </svg>
+                    <span class="absolute top-1 right-1 w-2 h-2 bg-red-600 rounded-full"></span>
+                </button>
+                <div class="w-8 h-8 rounded-full border border-amber-500/40 bg-neutral-800 overflow-hidden flex items-center justify-center font-bold text-xs text-amber-500">
+                    VIP
+                </div>
+            </div>
         </div>
 
-        <div style="background: linear-gradient(90deg, #2a1500, #5a2500); padding:18px; border-radius:12px; margin-bottom:25px; text-align:left">
-            <h3 style="color:var(--dourado); font-size:22px">100% ATÉ R$1.000 + 200 GIROS</h3>
-            <button class="botao vermelho" style="width:auto; margin-top:12px; padding:8px 14px">DEPOSITAR AGORA</button>
+        <div class="bg-[#121212] border border-neutral-900 rounded-2xl p-4 flex justify-between items-center mb-5 shadow-lg">
+            <div>
+                <p class="text-[11px] text-gray-500 uppercase tracking-wider mb-1">Saldo Total</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-xl font-black tracking-tight">R$ 2.560,00</span>
+                    <button class="text-gray-500 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </button>
+                </div>
+            </div>
+            <a href="Depositar-valor.html" class="btn-gradient-red px-4 py-2.5 rounded-xl font-bold text-xs tracking-wider uppercase flex items-center gap-1.5 transition hover:brightness-110">
+                <span class="text-sm">+</span> Depositar
+            </a>
         </div>
 
-        <div style="display:flex; gap:10px; margin-bottom:25px">
-            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">🎰 Casino</div>
-            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">📺 Ao Vivo</div>
-            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">⚽ Esportes</div>
-            <div style="flex:1; background:#1a1a28; padding:12px; border-radius:8px; text-align:center">🎲 Slots</div>
+        <div class="bg-gradient-to-r from-red-950/40 via-neutral-900 to-neutral-950 border border-neutral-900 rounded-2xl p-6 relative overflow-hidden mb-6 flex justify-between items-center min-h-[150px] shadow-lg">
+            <div class="space-y-2 max-w-[65%] z-10">
+                <h3 class="text-base font-black tracking-tight leading-snug uppercase">
+                    A sorte favorece <br>
+                    <span class="gold-text-gradient text-xl block my-0.5">Os Corajosos.</span> 
+                    Acredite no seu instinto e jogue agora.
+                </h3>
+                <p class="text-[10px] font-semibold text-red-500/90 tracking-widest uppercase">
+                    ➔ Destino dos Grandes Vencedores
+                </p>
+            </div>
+            <div class="absolute right-3 bottom-0 top-0 w-[35%] opacity-50 flex items-center justify-center select-none pointer-events-none text-6xl">
+                🐅
+            </div>
         </div>
 
-        <h4 style="text-align:left; margin-bottom:15px; color:var(--branco)">Populares</h4>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:25px">
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Fortune Tiger</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Fortune Rabbit</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Gates of Olympus</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Aviator</div>
+        <div class="flex gap-2.5 overflow-x-auto no-scrollbar mb-6 pb-1">
+            <button class="bg-[#121212] border border-amber-500/20 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1">
+                <span class="text-lg">♠️</span>
+                <span class="text-[10px] font-bold text-amber-500">Cassino</span>
+            </button>
+            <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
+                <span class="text-lg">🔴</span>
+                <span class="text-[10px] font-bold text-gray-400">Ao Vivo</span>
+            </button>
+            <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
+                <span class="text-lg">⚽</span>
+                <span class="text-[10px] font-bold text-gray-400">Esportes</span>
+            </button>
+            <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
+                <span class="text-lg">🎰</span>
+                <span class="text-[10px] font-bold text-gray-400">Slots</span>
+            </button>
+            <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
+                <span class="text-lg">⚙️</span>
+                <span class="text-[10px] font-bold text-gray-400">Mais</span>
+            </button>
         </div>
 
-        <div class="menu-navegacao">
-            <div class="nav-item ativo">Início</div>
-            <div class="nav-item" onclick="irPara('jogos.html')">Jogos</div>
-            <div class="nav-item" onclick="irPara('carteira.html')">Depositar</div>
-            <div class="nav-item" onclick="irPara('perfil.html')">Perfil</div>
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-3">
+                <h4 class="text-sm font-black uppercase tracking-wider text-gray-200">Populares</h4>
+                <a href="Jogos.html" class="text-[11px] text-gray-500 hover:text-white transition">Ver todos &gt;</a>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-neutral-900 border border-neutral-800/60 rounded-xl overflow-hidden shadow-md relative min-h-[100px] flex flex-col justify-end p-3 group cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <span class="absolute top-2 left-2 bg-red-600 text-[8px] font-extrabold uppercase px-1.5 py-0.5 rounded z-20">HOT</span>
+                    <span class="text-3xl absolute top-4 left-0 right-0 text-center opacity-30 group-hover:scale-110 transition duration-300">🐅</span>
+                    <p class="text-xs font-bold text-white z-20 tracking-wide">Fortune Tiger</p>
+                </div>
+
+                <div class="bg-neutral-900 border border-neutral-800/60 rounded-xl overflow-hidden shadow-md relative min-h-[100px] flex flex-col justify-end p-3 group cursor-pointer">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
+                    <span class="text-3xl absolute top-4 left-0 right-0 text-center opacity-30 group-hover:scale-110 transition duration-300">🐇</span>
+                    <p class="text-xs font-bold text-white z-20 tracking-wide">Fortune Rabbit</p>
+                </div>
+            </div>
         </div>
+
+        <div class="mb-6">
+            <div class="flex justify-between items-center mb-3">
+                <h4 class="text-sm font-black uppercase tracking-wider text-gray-200">⚽ Ao Vivo Agora</h4>
+                <a href="#" class="text-[11px] text-gray-500 hover:text-white transition">Ver todos &gt;</a>
+            </div>
+
+            <div class="bg-[#121212] border border-neutral-900 rounded-xl p-3.5 shadow-md">
+                <div class="flex justify-between items-center mb-2.5">
+                    <span class="text-[10px] text-gray-500 font-medium">Copa do Mundo FIFA</span>
+                    <span class="bg-red-600/10 border border-red-600/30 text-red-500 text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                        Ao Vivo
+                    </span>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="font-bold text-gray-300">🇧🇷 Brasil</span>
+                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-lg font-mono text-amber-500 font-bold">1.55</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="font-bold text-gray-300">🇦🇷 Argentina</span>
+                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-lg font-mono text-amber-500 font-bold">6.80</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-nav fixed bottom-0 left-0 right-0 flex justify-center z-50">
+            <div class="w-full max-w-md h-20 flex justify-around items-center px-2">
+                
+                <a href="home.html" class="flex flex-col items-center gap-1 text-red-500">
+                    <span class="text-xl">🏠</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Início</span>
+                </a>
+
+                <a href="Jogos.html" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                    <span class="text-xl">🎮</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Jogos</span>
+                </a>
+
+                <a href="Depositar-valor.html" class="flex flex-col items-center justify-center bg-red-600 w-14 h-14 rounded-full -mt-7 border-4 border-[#070707] shadow-lg transition hover:scale-105">
+                    <span class="text-white text-xl font-bold">💳</span>
+                </a>
+
+                <a href="Promocoes.html" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                    <span class="text-xl">🎁</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Promoções</span>
+                </a>
+
+                <a href="Perfil.html" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
+                    <span class="text-xl">👤</span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Perfil</span>
+                </a>
+
+            </div>
+        </div>
+
     </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
