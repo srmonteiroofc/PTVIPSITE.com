@@ -24,15 +24,24 @@
             box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
         }
 
-        /* Estilo dos Cards das Provedoras de Jogos */
+        /* Estilo dos Cards das Provedoras com Imagem de Fundo */
         .provider-card {
-            background: linear-gradient(180deg, #181818 0%, #0f0f0f 100%);
-            border: 1px solid rgba(255, 224, 130, 0.08);
+            background-size: cover;
+            background-position: center;
+            position: relative;
             transition: all 0.25s ease;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+        
+        /* Camada escura por cima da imagem para dar leitura ao texto */
+        .provider-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(7,7,7,0.85) 100%);
+        }
+
         .provider-card:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-2px);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-3px);
         }
 
         /* Barra de navegação inferior fixa */
@@ -121,63 +130,63 @@
             </div>
             
             <div class="grid grid-cols-2 gap-3">
-                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                    <span class="text-2xl mb-1">👑</span>
-                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-amber-400 transition">Pragmatic Play</p>
-                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Premium Slots</span>
+                
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl cursor-pointer" style="background-image: url('https://img.释.com/or-link-premium/pragmatic-bg.jpg'), url('https://images.unsplash.com/photo-1606167668584-78701c57f13d?q=80&w=400');">
+                    <div class="provider-overlay absolute inset-0 p-4 flex flex-col items-center justify-center rounded-2xl">
+                        <span class="text-xl mb-1">👑</span>
+                        <p class="text-xs font-black tracking-wider uppercase text-center text-amber-400">Pragmatic Play</p>
+                        <span class="text-[8px] text-gray-400 uppercase tracking-widest mt-0.5">Premium Slots</span>
+                    </div>
                 </div>
 
-                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                    <span class="text-2xl mb-1">⚡</span>
-                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-red-500 transition">Evolution</p>
-                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Live Casino</span>
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl cursor-pointer" style="background-image: url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?q=80&w=400');">
+                    <div class="provider-overlay absolute inset-0 p-4 flex flex-col items-center justify-center rounded-2xl">
+                        <span class="text-xl mb-1">⚡</span>
+                        <p class="text-xs font-black tracking-wider uppercase text-center text-red-500">Evolution</p>
+                        <span class="text-[8px] text-gray-400 uppercase tracking-widest mt-0.5">Live Casino</span>
+                    </div>
                 </div>
 
-                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                    <span class="text-2xl mb-1">🐅</span>
-                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-purple-400 transition">PG Soft</p>
-                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Fortune Series</span>
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl cursor-pointer" style="background-image: url('https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=400');">
+                    <div class="provider-overlay absolute inset-0 p-4 flex flex-col items-center justify-center rounded-2xl">
+                        <span class="text-xl mb-1">🐅</span>
+                        <p class="text-xs font-black tracking-wider uppercase text-center text-purple-400">PG Soft</p>
+                        <span class="text-[8px] text-gray-400 uppercase tracking-widest mt-0.5">Fortune Series</span>
+                    </div>
                 </div>
 
-                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
-                    <span class="text-2xl mb-1">🎰</span>
-                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-green-400 transition">NetEnt</p>
-                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Classic Games</span>
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl cursor-pointer" style="background-image: url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=400');">
+                    <div class="provider-overlay absolute inset-0 p-4 flex flex-col items-center justify-center rounded-2xl">
+                        <span class="text-xl mb-1">🎰</span>
+                        <p class="text-xs font-black tracking-wider uppercase text-center text-green-400">NetEnt</p>
+                        <span class="text-[8px] text-gray-400 uppercase tracking-widest mt-0.5">Classic Games</span>
+                    </div>
                 </div>
+
             </div>
         </div>
 
         <div class="bottom-nav fixed bottom-0 left-0 right-0 flex justify-center z-50">
             <div class="w-full max-w-md h-20 flex justify-around items-center px-2">
-                
                 <a href="home.html" class="flex flex-col items-center gap-1 text-red-500">
                     <span class="text-xl">🏠</span>
                     <span class="text-[10px] font-bold uppercase tracking-wider">Início</span>
                 </a>
-
                 <a href="Jogos.html" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
                     <span class="text-xl">🎮</span>
                     <span class="text-[10px] font-bold uppercase tracking-wider">Jogos</span>
                 </a>
-
                 <a href="Depositar-valor.html" class="flex flex-col items-center justify-center bg-red-600 w-14 h-14 rounded-full -mt-7 border-4 border-[#070707] shadow-lg transition hover:scale-105">
                     <span class="text-white text-xl font-bold">💳</span>
                 </a>
-
                 <a href="Promocoes.html" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
                     <span class="text-xl">🎁</span>
                     <span class="text-[10px] font-bold uppercase tracking-wider">Promoções</span>
                 </a>
-
                 <a href="Perfil.html" class="flex flex-col items-center gap-1 text-gray-500 hover:text-white transition">
                     <span class="text-xl">👤</span>
                     <span class="text-[10px] font-bold uppercase tracking-wider">Perfil</span>
                 </a>
-
             </div>
         </div>
 
