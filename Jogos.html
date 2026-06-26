@@ -3,65 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Jogos</title>
+    <title>PTvip - Jogos Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .bg-app-dark { background-color: #070707; }
+        body { background-color: #050505; color: white; font-family: sans-serif; }
         .gold-border { border: 1px solid rgba(212, 175, 55, 0.2); }
-        .game-card { transition: transform 0.2s; }
-        .game-card:hover { transform: scale(1.05); }
-        .active-provider { border-left: 3px solid #D4AF37; background: #1a1a1a; }
+        .game-card { transition: all 0.3s ease; }
+        .game-card:hover { transform: translateY(-5px); border-color: #D4AF37; }
+        .sidebar-item { border-left: 3px solid transparent; opacity: 0.6; transition: 0.3s; }
+        .sidebar-item.active { opacity: 1; border-color: #D4AF37; background: rgba(212, 175, 55, 0.05); }
     </style>
 </head>
-<body class="bg-app-dark text-white font-sans min-h-screen pb-24">
+<body class="pb-24">
 
-    <div class="max-w-md mx-auto pt-4 px-4">
-        <div class="mb-4">
-            <input type="text" placeholder="Pesquisar..." class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-3 text-sm focus:border-amber-500 outline-none">
+    <div class="max-w-md mx-auto pt-4 px-3">
+        <div class="mb-5">
+            <input type="text" placeholder="Buscar por nome do jogo..." class="w-full bg-[#111] border border-neutral-800 rounded-xl p-3 text-sm focus:border-amber-500 outline-none">
         </div>
 
-        <div class="flex gap-2 overflow-x-auto pb-4 text-[10px] uppercase font-bold text-gray-400">
-            <button class="bg-amber-500 text-black px-4 py-1.5 rounded-lg">Popular</button>
-            <button class="bg-[#1a1a1a] px-4 py-1.5 rounded-lg border border-neutral-800">Marcas</button>
-            <button class="bg-[#1a1a1a] px-4 py-1.5 rounded-lg border border-neutral-800">Recente</button>
-        </div>
-
-        <div class="flex gap-4">
-            <div class="w-20 space-y-2">
-                <button class="active-provider w-full py-3 rounded-lg text-[10px] font-bold text-center">PG</button>
-                <button class="bg-[#1a1a1a] w-full py-3 rounded-lg text-[10px] font-bold text-center opacity-60">WG</button>
-                <button class="bg-[#1a1a1a] w-full py-3 rounded-lg text-[10px] font-bold text-center opacity-60">PP</button>
-                <button class="bg-[#1a1a1a] w-full py-3 rounded-lg text-[10px] font-bold text-center opacity-60">JDB</button>
+        <div class="flex gap-3 items-start">
+            <div class="w-20 flex flex-col gap-2 shrink-0">
+                <button class="sidebar-item active w-full py-3 rounded-lg text-[10px] font-bold text-center">PG</button>
+                <button class="sidebar-item w-full py-3 rounded-lg text-[10px] font-bold text-center">WG</button>
+                <button class="sidebar-item w-full py-3 rounded-lg text-[10px] font-bold text-center">PP</button>
+                <button class="sidebar-item w-full py-3 rounded-lg text-[10px] font-bold text-center">JDB</button>
+                <button class="sidebar-item w-full py-3 rounded-lg text-[10px] font-bold text-center">FC</button>
             </div>
 
-            <div class="flex-1 grid grid-cols-2 gap-3">
-                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
-                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
-                    <p class="p-2 text-[10px] text-center font-bold">Fortune Tiger</p>
+            <div id="gameGrid" class="flex-1 grid grid-cols-2 gap-3">
                 </div>
-                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
-                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
-                    <p class="p-2 text-[10px] text-center font-bold">Fortune Rabbit</p>
-                </div>
-                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
-                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
-                    <p class="p-2 text-[10px] text-center font-bold">Fortune Ox</p>
-                </div>
-                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
-                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
-                    <p class="p-2 text-[10px] text-center font-bold">Fortune Dragon</p>
-                </div>
-            </div>
         </div>
     </div>
 
-    <div class="fixed bottom-0 left-0 right-0 bg-[#121212] border-t border-neutral-800 h-20 flex justify-around items-center z-50">
-        <a href="home.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🏠</span><span class="text-[9px] font-bold">Início</span></a>
-        <a href="Jogos.html" class="flex flex-col items-center gap-1 text-red-500"><span class="text-lg">🎮</span><span class="text-[9px] font-bold">Jogos</span></a>
-        <a href="Depositar-valor.html" class="bg-red-600 w-12 h-12 rounded-full -mt-6 border-4 border-[#0b0b0b] flex items-center justify-center">💳</a>
-        <a href="Promocoes.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🎁</span><span class="text-[9px] font-bold">Promoções</span></a>
-        <a href="Perfil.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">👤</span><span class="text-[9px] font-bold">Perfil</span></a>
+    <div class="fixed bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-neutral-900 h-16 flex justify-around items-center z-50">
+        <a href="home.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">🏠</span></a>
+        <a href="Jogos.html" class="flex flex-col items-center text-red-500"><span class="text-xl">🎮</span></a>
+        <a href="Depositar-valor.html" class="bg-red-600 p-3 rounded-full -mt-8 border-4 border-[#050505] shadow-lg shadow-red-900/50">💳</a>
+        <a href="Promocoes.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">🎁</span></a>
+        <a href="Perfil.html" class="flex flex-col items-center text-gray-500"><span class="text-xl">👤</span></a>
     </div>
 
+    <script>
+        const gameGrid = document.getElementById('gameGrid');
+        const jogos = [
+            "Fortune Tiger", "Fortune Rabbit", "Fortune Ox", "Fortune Dragon", "Gates of Olympus",
+            "Dragon Hatch", "Joker's Jewels", "Anubis Wrath", "Mega Fishing", "Fortune Gems",
+            "Wild Bandito", "Ganesha Fortune", "Aviator", "Money Coming", "Lucky Jaguar",
+            "Treasures of Aztec", "Midas Fortune", "Cocktail Nights", "Lucky Neko", "Cash Mania",
+            "Prosperity Ox", "Ways of Qilin", "Golden City", "Dragon of Fortune", "World Cup",
+            "Magic Scroll", "Rico DJ", "Legend Perseus", "Resurrecting Riches", "Wild Ape",
+            "Fortune Mouse", "Fortune Hook", "Pinata Wins", "Fortune Snake", "Yo Dragon",
+            "Wild Hop", "Rabbit's Grace", "Treasure Fortune", "DJ Boom Boom", "Fortune Sheep",
+            "Cai Shen 2", "Supernova", "Wealthy Frog", "Lucky 8", "Ninja Crash",
+            "Candy Bonanza", "Safari Wilds", "Dragon Legend", "Spirit Wonder", "Piggy Gold"
+        ];
+
+        jogos.forEach((nome, index) => {
+            gameGrid.innerHTML += `
+                <div class="game-card bg-[#111] rounded-xl overflow-hidden gold-border">
+                    <img src="https://picsum.photos/200/150?random=${index + 1}" class="h-24 w-full object-cover">
+                    <div class="p-2">
+                        <p class="text-[10px] font-bold truncate">${nome}</p>
+                        <p class="text-[8px] text-gray-500 uppercase">PG Soft</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
 </body>
 </html>
