@@ -1,17 +1,21 @@
-function irPara(pagina) {
-    window.location.href = pagina;
-}
+const login=
+document
+.getElementById("login");
 
-function copiarPix() {
-    const codigo = document.getElementById('codigoCopiaCola').innerText;
-    navigator.clipboard.writeText(codigo).then(() => {
-        const msg = document.getElementById('msgCopiado');
-        msg.style.display = 'block';
-        setTimeout(() => msg.style.display = 'none', 3000);
-    });
-}
+const cadastro=
+document
+.getElementById("cadastro");
 
-function selecionarValor(elemento) {
-    document.querySelectorAll('.valor-item').forEach(item => item.classList.remove('ativo'));
-    elemento.classList.add('ativo');
-}
+login.onclick=()=>{
+
+window.location=
+"home.html";
+
+};
+
+cadastro.onclick=()=>{
+
+window.location=
+"cadastro.html";
+
+};
