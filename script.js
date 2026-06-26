@@ -1,21 +1,19 @@
-const login=
-document
-.getElementById("login");
+const login =
+document.querySelector(".entrar");
 
-const cadastro=
-document
-.getElementById("cadastro");
+const cadastro =
+document.querySelector(".criar");
 
-login.onclick=()=>{
+login.onclick = () => {
 
-window.location=
-"home.html";
+window.location =
+"login.html";
 
 };
 
-cadastro.onclick=()=>{
+cadastro.onclick = () => {
 
-window.location=
+window.location =
 "cadastro.html";
 
 };
