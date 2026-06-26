@@ -11,7 +11,7 @@
             background-color: #0b0b0b;
         }
         
-        /* Gradiente dourado metálico para textos selecionados */
+        /* Gradiente dourado metálico para logos e detalhes VIP */
         .gold-text-gradient {
             background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%);
             -webkit-background-clip: text;
@@ -24,13 +24,24 @@
             box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
         }
 
+        /* Estilo dos Cards das Provedoras de Jogos */
+        .provider-card {
+            background: linear-gradient(180deg, #181818 0%, #0f0f0f 100%);
+            border: 1px solid rgba(255, 224, 130, 0.08);
+            transition: all 0.25s ease;
+        }
+        .provider-card:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
         /* Barra de navegação inferior fixa */
         .bottom-nav {
             background-color: #121212;
             border-top: 1px solid #1f1f1f;
         }
 
-        /* Ocultar barra de rolagem lateral para estética mais limpa */
+        /* Ocultar barra de rolagem lateral */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -65,13 +76,13 @@
             </div>
         </div>
 
-        <div class="bg-[#121212] border border-neutral-900 rounded-2xl p-4 flex justify-between items-center mb-5 shadow-lg">
+        <div class="bg-[#121212] border border-neutral-900 rounded-2xl p-4 flex justify-between items-center mb-6 shadow-lg">
             <div>
                 <p class="text-[11px] text-gray-500 uppercase tracking-wider mb-1">Saldo Total</p>
                 <div class="flex items-center gap-2">
-                    <span class="text-xl font-black tracking-tight">R$ 2.560,00</span>
-                    <button class="text-gray-500 hover:text-white transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    <span class="text-xl font-black tracking-tight text-gray-100">R$ 0,00</span>
+                    <button class="text-gray-600 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18"></path></svg>
                     </button>
                 </div>
             </div>
@@ -80,38 +91,22 @@
             </a>
         </div>
 
-        <div class="bg-gradient-to-r from-red-950/40 via-neutral-900 to-neutral-950 border border-neutral-900 rounded-2xl p-6 relative overflow-hidden mb-6 flex justify-between items-center min-h-[150px] shadow-lg">
-            <div class="space-y-2 max-w-[65%] z-10">
-                <h3 class="text-base font-black tracking-tight leading-snug uppercase">
-                    A sorte favorece <br>
-                    <span class="gold-text-gradient text-xl block my-0.5">Os Corajosos.</span> 
-                    Acredite no seu instinto e jogue agora.
-                </h3>
-                <p class="text-[10px] font-semibold text-red-500/90 tracking-widest uppercase">
-                    ➔ Destino dos Grandes Vencedores
-                </p>
-            </div>
-            <div class="absolute right-3 bottom-0 top-0 w-[35%] opacity-50 flex items-center justify-center select-none pointer-events-none text-6xl">
-                🐅
-            </div>
-        </div>
-
         <div class="flex gap-2.5 overflow-x-auto no-scrollbar mb-6 pb-1">
             <button class="bg-[#121212] border border-amber-500/20 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1">
                 <span class="text-lg">♠️</span>
                 <span class="text-[10px] font-bold text-amber-500">Cassino</span>
             </button>
             <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
-                <span class="text-lg">🔴</span>
-                <span class="text-[10px] font-bold text-gray-400">Ao Vivo</span>
+                <span class="text-lg">🎰</span>
+                <span class="text-[10px] font-bold text-gray-400">Slots</span>
             </button>
             <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
                 <span class="text-lg">⚽</span>
                 <span class="text-[10px] font-bold text-gray-400">Esportes</span>
             </button>
             <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
-                <span class="text-lg">🎰</span>
-                <span class="text-[10px] font-bold text-gray-400">Slots</span>
+                <span class="text-lg">🔴</span>
+                <span class="text-[10px] font-bold text-gray-400">Ao Vivo</span>
             </button>
             <button class="bg-[#121212] border border-neutral-900 px-4 py-3 rounded-xl flex flex-col items-center min-w-[76px] text-center gap-1 opacity-70 hover:opacity-100">
                 <span class="text-lg">⚙️</span>
@@ -119,50 +114,39 @@
             </button>
         </div>
 
-        <div class="mb-6">
-            <div class="flex justify-between items-center mb-3">
-                <h4 class="text-sm font-black uppercase tracking-wider text-gray-200">Populares</h4>
-                <a href="Jogos.html" class="text-[11px] text-gray-500 hover:text-white transition">Ver todos &gt;</a>
+        <div class="mb-6 flex-1">
+            <div class="flex justify-between items-center mb-4">
+                <h4 class="text-xs font-black uppercase tracking-widest text-gray-400">Provedoras Principais</h4>
+                <a href="Jogos.html" class="text-[10px] text-amber-500/80 font-bold uppercase tracking-wider hover:underline">Ver todas &gt;</a>
             </div>
             
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-neutral-900 border border-neutral-800/60 rounded-xl overflow-hidden shadow-md relative min-h-[100px] flex flex-col justify-end p-3 group cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-                    <span class="absolute top-2 left-2 bg-red-600 text-[8px] font-extrabold uppercase px-1.5 py-0.5 rounded z-20">HOT</span>
-                    <span class="text-3xl absolute top-4 left-0 right-0 text-center opacity-30 group-hover:scale-110 transition duration-300">🐅</span>
-                    <p class="text-xs font-bold text-white z-20 tracking-wide">Fortune Tiger</p>
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <span class="text-2xl mb-1">👑</span>
+                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-amber-400 transition">Pragmatic Play</p>
+                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Premium Slots</span>
                 </div>
 
-                <div class="bg-neutral-900 border border-neutral-800/60 rounded-xl overflow-hidden shadow-md relative min-h-[100px] flex flex-col justify-end p-3 group cursor-pointer">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent z-10"></div>
-                    <span class="text-3xl absolute top-4 left-0 right-0 text-center opacity-30 group-hover:scale-110 transition duration-300">🐇</span>
-                    <p class="text-xs font-bold text-white z-20 tracking-wide">Fortune Rabbit</p>
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <span class="text-2xl mb-1">⚡</span>
+                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-red-500 transition">Evolution</p>
+                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Live Casino</span>
                 </div>
-            </div>
-        </div>
 
-        <div class="mb-6">
-            <div class="flex justify-between items-center mb-3">
-                <h4 class="text-sm font-black uppercase tracking-wider text-gray-200">⚽ Ao Vivo Agora</h4>
-                <a href="#" class="text-[11px] text-gray-500 hover:text-white transition">Ver todos &gt;</a>
-            </div>
-
-            <div class="bg-[#121212] border border-neutral-900 rounded-xl p-3.5 shadow-md">
-                <div class="flex justify-between items-center mb-2.5">
-                    <span class="text-[10px] text-gray-500 font-medium">Copa do Mundo FIFA</span>
-                    <span class="bg-red-600/10 border border-red-600/30 text-red-500 text-[9px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                        Ao Vivo
-                    </span>
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <span class="text-2xl mb-1">🐅</span>
+                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-purple-400 transition">PG Soft</p>
+                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Fortune Series</span>
                 </div>
-                <div class="space-y-2">
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="font-bold text-gray-300">🇧🇷 Brasil</span>
-                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-lg font-mono text-amber-500 font-bold">1.55</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs">
-                        <span class="font-bold text-gray-300">🇦🇷 Argentina</span>
-                        <span class="bg-neutral-900 border border-neutral-800 px-3 py-1 rounded-lg font-mono text-amber-500 font-bold">6.80</span>
-                    </div>
+
+                <div onclick="window.location.href='Jogos.html'" class="provider-card h-28 rounded-2xl flex flex-col items-center justify-center p-4 relative group cursor-pointer overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-300"></div>
+                    <span class="text-2xl mb-1">🎰</span>
+                    <p class="text-xs font-black tracking-wider uppercase text-center group-hover:text-green-400 transition">NetEnt</p>
+                    <span class="text-[8px] text-gray-600 uppercase tracking-widest mt-1">Classic Games</span>
                 </div>
             </div>
         </div>
@@ -199,5 +183,22 @@
 
     </div>
 
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.15.0/firebase-analytics.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
+        authDomain: "ptvip-teste.firebaseapp.com",
+        projectId: "ptvip-teste",
+        storageBucket: "ptvip-teste.firebasestorage.app",
+        messagingSenderId: "407028833766",
+        appId: "1:407028833766:web:79d7dbf7ee968944248a27",
+        measurementId: "G-1XXWV7S8YH"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+    </script>
 </body>
 </html>
