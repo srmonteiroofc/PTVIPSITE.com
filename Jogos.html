@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogos - PT VIP</title>
-    <link rel="stylesheet" href="style.css">
+    <title>PTvip - Jogos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-app-dark { background-color: #070707; }
+        .gold-border { border: 1px solid rgba(212, 175, 55, 0.2); }
+        .game-card { transition: transform 0.2s; }
+        .game-card:hover { transform: scale(1.05); }
+        .active-provider { border-left: 3px solid #D4AF37; background: #1a1a1a; }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Casino</h2>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:25px 0">
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Fortune Tiger</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Fortune Rabbit</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Gates of Olympus</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Roleta VIP</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Blackjack</div>
-            <div style="background:#1a1a28; padding:25px; border-radius:8px; text-align:center">Aviator</div>
+<body class="bg-app-dark text-white font-sans min-h-screen pb-24">
+
+    <div class="max-w-md mx-auto pt-4 px-4">
+        <div class="mb-4">
+            <input type="text" placeholder="Pesquisar..." class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-3 text-sm focus:border-amber-500 outline-none">
         </div>
-        <div class="menu-navegacao">
-            <div class="nav-item" onclick="irPara('home.html')">Início</div>
-            <div class="nav-item ativo">Jogos</div>
-            <div class="nav-item" onclick="irPara('carteira.html')">Carteira</div>
-            <div class="nav-item" onclick="irPara('perfil.html')">Perfil</div>
+
+        <div class="flex gap-2 overflow-x-auto pb-4 text-[10px] uppercase font-bold text-gray-400">
+            <button class="bg-amber-500 text-black px-4 py-1.5 rounded-lg">Popular</button>
+            <button class="bg-[#1a1a1a] px-4 py-1.5 rounded-lg border border-neutral-800">Marcas</button>
+            <button class="bg-[#1a1a1a] px-4 py-1.5 rounded-lg border border-neutral-800">Recente</button>
+        </div>
+
+        <div class="flex gap-4">
+            <div class="w-20 space-y-2">
+                <button class="active-provider w-full py-3 rounded-lg text-[10px] font-bold text-center">PG</button>
+                <button class="bg-[#1a1a1a] w-full py-3 rounded-lg text-[10px] font-bold text-center opacity-60">WG</button>
+                <button class="bg-[#1a1a1a] w-full py-3 rounded-lg text-[10px] font-bold text-center opacity-60">PP</button>
+                <button class="bg-[#1a1a1a] w-full py-3 rounded-lg text-[10px] font-bold text-center opacity-60">JDB</button>
+            </div>
+
+            <div class="flex-1 grid grid-cols-2 gap-3">
+                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
+                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
+                    <p class="p-2 text-[10px] text-center font-bold">Fortune Tiger</p>
+                </div>
+                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
+                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
+                    <p class="p-2 text-[10px] text-center font-bold">Fortune Rabbit</p>
+                </div>
+                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
+                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
+                    <p class="p-2 text-[10px] text-center font-bold">Fortune Ox</p>
+                </div>
+                <div class="game-card bg-[#141414] rounded-xl overflow-hidden gold-border">
+                    <img src="https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=200" class="h-24 w-full object-cover">
+                    <p class="p-2 text-[10px] text-center font-bold">Fortune Dragon</p>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <div class="fixed bottom-0 left-0 right-0 bg-[#121212] border-t border-neutral-800 h-20 flex justify-around items-center z-50">
+        <a href="home.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🏠</span><span class="text-[9px] font-bold">Início</span></a>
+        <a href="Jogos.html" class="flex flex-col items-center gap-1 text-red-500"><span class="text-lg">🎮</span><span class="text-[9px] font-bold">Jogos</span></a>
+        <a href="Depositar-valor.html" class="bg-red-600 w-12 h-12 rounded-full -mt-6 border-4 border-[#0b0b0b] flex items-center justify-center">💳</a>
+        <a href="Promocoes.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">🎁</span><span class="text-[9px] font-bold">Promoções</span></a>
+        <a href="Perfil.html" class="flex flex-col items-center gap-1 text-gray-500"><span class="text-lg">👤</span><span class="text-[9px] font-bold">Perfil</span></a>
+    </div>
+
 </body>
 </html>
