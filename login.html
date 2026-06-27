@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTVIP • Cadastro</title>
+    <title>PTVIP • Entrar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { 
-            background-color: #0f141a; /* Cor de fundo da referência */
+            background-color: #0f141a;
             min-height: 100vh;
         }
         .glass-container { 
-            background: #1a2027; /* Fundo do card da referência */
+            background: #1a2027;
             border-radius: 16px;
         }
         .btn-primary {
-            background: #e68a00; /* Cor laranja/dourado da referência */
+            background: #e68a00;
             color: #000;
         }
         .btn-primary:hover { background: #d47e00; }
@@ -26,27 +26,26 @@
     <div class="w-full max-w-sm text-center">
         
         <div class="mb-6 flex justify-center">
-            <!-- Certifique-se que logo.png é a imagem do topo da referência -->
             <img src="logo.png" alt="PTVIP" class="h-20 w-auto object-contain">
         </div>
 
         <div class="glass-container w-full p-6 text-left flex flex-col gap-6">
             
             <div class="text-center">
-                <h2 class="text-xl font-bold uppercase text-white">Criar Nova Conta</h2>
-                <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Preencha os dados abaixo.</p>
+                <h2 class="text-xl font-bold uppercase text-white">Entrar na Conta</h2>
+                <p class="text-gray-400 text-xs mt-2 uppercase tracking-widest">Insira seus dados para acessar.</p>
             </div>
 
-            <form id="cadastroForm" class="space-y-4">
+            <form id="loginForm" class="space-y-4">
                 <input type="email" id="email" placeholder="E-mail" required 
                     class="w-full bg-[#0f141a] border border-gray-700 rounded-lg p-3 outline-none focus:border-[#e68a00] transition-all text-white placeholder-gray-500">
                 
                 <input type="password" id="senha" placeholder="Senha" required 
                     class="w-full bg-[#0f141a] border border-gray-700 rounded-lg p-3 outline-none focus:border-[#e68a00] transition-all text-white placeholder-gray-500">
                 
-                <button type="submit" id="criar" 
+                <button type="submit" id="entrar" 
                     class="w-full py-3 btn-primary font-bold uppercase tracking-widest text-sm rounded-lg active:scale-[0.98] transition-all">
-                    Criar Conta
+                    Entrar
                 </button>
                 
                 <button type="button" onclick="window.location.href='index.html'" 
@@ -63,16 +62,11 @@
 
     <script type="module" src="firebase.js"></script>
     <script>
-        document.getElementById('cadastroForm').addEventListener('submit', function(e) {
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const senha = document.getElementById('senha').value;
-            if (senha.length < 6) {
-                alert('A senha deve ter pelo menos 6 caracteres.');
-                return;
-            }
-            alert('Enviando dados para o cadastro...');
+            // Lógica de login aqui
+            alert('Validando acesso...');
         });
     </script>
 </body>
 </html>
-
