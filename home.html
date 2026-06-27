@@ -7,85 +7,71 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0d121a; }
-        .glass-card { background: rgba(24, 32, 44, 0.75); backdrop-filter: blur(8px); }
-        .carousel-slide { display: none; }
-        .carousel-slide.active { display: block; }
+        .glass-card { background: rgba(24, 32, 44, 0.75); }
     </style>
 </head>
-<body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
+<body class="text-white font-sans min-h-screen pb-20">
 
-    <!-- HEADER SUPERIOR -->
+    <!-- HEADER ORIGINAL -->
     <header class="bg-[#141b26] border-b border-gray-800/60 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
-        <!-- LOGO NO TOPO -->
-        <img src="logo.png" alt="PTVIP" class="h-8 object-contain">
-        
-        <div class="flex items-center gap-2.5">
-            <div class="bg-[#0d121a] border border-gray-800 rounded-xl px-3 py-2 flex items-center gap-1.5">
-                <span class="text-[10px] font-black text-gray-500 uppercase">BR</span>
-                <span class="text-sm font-black text-gray-200">R$ 0,00</span>
-            </div>
-            <button onclick="window.location.href='depositar-metodo.html'" class="bg-amber-600 hover:bg-amber-500 active:scale-95 text-black font-black text-xs px-4 py-2.5 rounded-xl uppercase tracking-wider transition-all shadow-lg shadow-amber-900/20">
-                Depositar
-            </button>
+        <img src="logo.png" alt="PTVIP" class="h-8">
+        <div class="flex items-center gap-2">
+            <span class="text-sm font-bold">R$ 0,00</span>
+            <button class="bg-red-600 px-4 py-1.5 rounded text-xs font-black uppercase">Depositar</button>
         </div>
     </header>
 
-    <main class="flex-1 w-full max-w-md mx-auto px-4 py-4 space-y-5">
+    <main class="p-4 space-y-4">
+        <!-- BANNER DE DESTAQUE -->
+        <div class="bg-gradient-to-r from-red-900 to-black p-4 rounded-lg border border-red-500/20">
+            <p class="text-[10px] text-red-500 font-bold uppercase">Destaque</p>
+            <h2 class="text-lg font-black">MINES PTVIP</h2>
+            <p class="text-[10px] opacity-70">Abra os campos certos e multiplique sua banca!</p>
+        </div>
 
-        <!-- CARROSSEL (USANDO AS MESMAS IMAGENS) -->
-        <section class="relative w-full rounded-2xl overflow-hidden aspect-[16/9] shadow-2xl border border-gray-800/40">
-            <div class="carousel-slide active h-full w-full relative">
-                <img src="mines.png" class="w-full h-full object-cover">
-            </div>
-            <div class="carousel-slide h-full w-full relative">
-                <img src="double.png" class="w-full h-full object-cover">
-            </div>
-            <div class="carousel-slide h-full w-full relative">
-                <img src="crash.png" class="w-full h-full object-cover">
-            </div>
-        </section>
+        <!-- SEÇÃO JOGOS -->
+        <h3 class="text-xs font-black uppercase flex items-center gap-2">🕹️ Originais da PTVIP</h3>
 
-        <!-- SEÇÃO: ORIGINAIS -->
-        <section class="space-y-3">
-            <h3 class="text-sm font-black uppercase tracking-wider text-gray-200">🕹️ Originais da PTVIP</h3>
-
-            <!-- GRID DOS JOGOS -->
-            <div class="grid grid-cols-2 gap-3">
-                <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden cursor-pointer active:scale-95 transition-all group">
-                    <img src="mines.png" class="w-full h-32 object-cover">
-                    <div class="p-3 bg-[#141b26]/80"><p class="font-black text-xs">Mines</p></div>
-                </div>
-                <div onclick="window.location.href='double.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden cursor-pointer active:scale-95 transition-all group">
-                    <img src="double.png" class="w-full h-32 object-cover">
-                    <div class="p-3 bg-[#141b26]/80"><p class="font-black text-xs">Double</p></div>
-                </div>
-                <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden cursor-pointer active:scale-95 transition-all group col-span-2">
-                    <img src="crash.png" class="w-full h-40 object-cover">
-                    <div class="p-3 bg-[#141b26]/80"><p class="font-black text-xs">Crash Multiplier</p></div>
+        <div class="grid grid-cols-2 gap-3">
+            <!-- MINES -->
+            <div onclick="window.location.href='jogos.html'" class="bg-[#1b222d] rounded-lg overflow-hidden border border-gray-700 cursor-pointer">
+                <img src="mines.png" class="w-full h-32 object-cover">
+                <div class="p-2">
+                    <p class="text-xs font-bold">Mines</p>
+                    <p class="text-[9px] opacity-50">PTvip Studio</p>
                 </div>
             </div>
-        </section>
+
+            <!-- DOUBLE -->
+            <div onclick="window.location.href='double.html'" class="bg-[#1b222d] rounded-lg overflow-hidden border border-gray-700 cursor-pointer">
+                <img src="double.png" class="w-full h-32 object-cover">
+                <div class="p-2">
+                    <p class="text-xs font-bold">Double</p>
+                    <p class="text-[9px] opacity-50">PTvip Studio</p>
+                </div>
+            </div>
+
+            <!-- CRASH -->
+            <div onclick="window.location.href='jogos.html'" class="bg-[#1b222d] rounded-lg overflow-hidden border border-gray-700 cursor-pointer col-span-2">
+                <img src="crash.png" class="w-full h-40 object-cover">
+                <div class="p-2 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs font-bold">Crash</p>
+                        <p class="text-[9px] opacity-50">PTvip Studio</p>
+                    </div>
+                    <button class="bg-blue-600 px-3 py-1 rounded text-[10px] font-bold">JOGAR</button>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <!-- NAVEGAÇÃO -->
-    <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
-        <button onclick="window.location.href='home.html'" class="text-amber-500 flex flex-col items-center gap-1 font-bold text-[10px]">
-            <span>Início</span>
-        </button>
-        <button onclick="window.location.href='perfil.html'" class="text-gray-400 hover:text-white flex flex-col items-center gap-1 font-bold text-[10px]">
-            <span>Perfil</span>
-        </button>
+    <!-- NAVEGAÇÃO INFERIOR ORIGINAL -->
+    <nav class="bg-[#141b26] border-t border-gray-800 fixed bottom-0 w-full py-3 flex justify-around items-center text-[10px] font-bold">
+        <button class="text-red-500 flex flex-col items-center"><span>Começar</span></button>
+        <button class="text-gray-500 flex flex-col items-center"><span>Ofertas</span></button>
+        <button class="text-gray-500 flex flex-col items-center"><span>Depósito</span></button>
+        <button class="text-gray-500 flex flex-col items-center"><span>Saques</span></button>
+        <button class="text-gray-500 flex flex-col items-center"><span>Perfil</span></button>
     </nav>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        function changeSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-        setInterval(changeSlide, 3000);
-    </script>
 </body>
 </html>
