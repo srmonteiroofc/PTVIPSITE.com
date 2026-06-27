@@ -62,10 +62,10 @@
                 <!-- ZROBANK -->
                 <div id="gate-zrobank" onclick="selecionarGateway('zrobank')" class="border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center cursor-pointer relative transition-all opacity-60">
                     <div id="check-zrobank" class="absolute top-2 right-2 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center text-[9px] font-black text-gray-950 hidden">✓</div>
-                    <div class="text-gray-400 font-black text-xs tracking-wider flex items-center justify-center gap-1 mb-1 id-txt-pix">
+                    <div class="text-gray-400 font-black text-xs tracking-wider flex items-center justify-center gap-1 mb-1">
                         <span>❖</span> PIX
                     </div>
-                    <p class="text-sm font-black text-gray-400 id-txt-name">Zrobank</p>
+                    <p class="text-sm font-black text-gray-400">Zrobank</p>
                 </div>
 
             </div>
@@ -111,7 +111,7 @@
         </div>
 
         <!-- BOTÃO CONTINUAR PREMIUM -->
-        <button onclick="processarDeposito()" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99]">
+        <button type="button" onclick="processarDeposito()" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99]">
             Continuar para o Pagamento
         </button>
 
@@ -125,7 +125,6 @@
             inputValor.value = valor;
         }
 
-        // Sistema dinâmico para alternar entre os dois Pix
         function selecionarGateway(gateway) {
             gatewaySelecionado = gateway;
             
@@ -135,19 +134,13 @@
             const checkZro = document.getElementById('check-zrobank');
 
             if (gateway === 'paybrokers') {
-                // Ativa Paybrokers
                 cardPay.className = "border-2 border-amber-500 bg-amber-500/5 rounded-2xl p-4 text-center relative cursor-pointer transition-all";
                 checkPay.classList.remove('hidden');
-                
-                // Desativa Zrobank
                 cardZro.className = "border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center cursor-pointer relative transition-all opacity-60";
                 checkZro.classList.add('hidden');
             } else {
-                // Ativa Zrobank
                 cardZro.className = "border-2 border-amber-500 bg-amber-500/5 rounded-2xl p-4 text-center relative cursor-pointer transition-all";
                 checkZro.classList.remove('hidden');
-                
-                // Desativa Paybrokers
                 cardPay.className = "border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center cursor-pointer relative transition-all opacity-60";
                 checkPay.classList.add('hidden');
             }
@@ -168,12 +161,16 @@
                 return;
             }
 
-            // Salva o valor e o gateway escolhido
-            localStorage.setItem('valor_deposito', valor);
-            localStorage.setItem('gateway_selecionado', gatewaySelecionado);
+            try {
+                // Força salvar os dados
+                localStorage.setItem('valor_deposito', valor);
+                localStorage.setItem('gateway_selecionado', gatewaySelecionado);
+            } catch(e) {
+                console.log("Erro no LocalStorage", e);
+            }
             
-            // Vai direto para os detalhes com a sua chave pix de teste
-            window.location.href = 'depositar-detalhes.html';
+            // Força a mudança de página limpando qualquer possível travamento do navegador
+            window.location.assign('depositar-detalhes.html');
         }
     </script>
 </body>
