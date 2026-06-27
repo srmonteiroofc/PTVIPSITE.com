@@ -45,24 +45,29 @@
             <img src="logo.png" alt="PTvip" class="h-14 object-contain">
         </div>
 
-        <!-- MÉTODOS DE GATEWAY -->
+        <!-- MÉTODOS DE GATEWAY SELECIONÁVEIS -->
         <div class="space-y-3 mb-6">
-            <p class="text-[11px] font-black text-gray-500 uppercase tracking-wider text-center">Gateway de Pagamento Ativo</p>
+            <p class="text-[11px] font-black text-gray-500 uppercase tracking-wider text-center">Selecione o Gateway de Pagamento</p>
             <div class="grid grid-cols-2 gap-3">
-                <div class="border-2 border-amber-500 bg-amber-500/5 rounded-2xl p-4 text-center relative cursor-pointer transition-all">
-                    <div class="absolute top-2 right-2 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center text-[9px] font-black text-gray-950">✓</div>
+                
+                <!-- PAYBROKERS -->
+                <div id="gate-paybrokers" onclick="selecionarGateway('paybrokers')" class="border-2 border-amber-500 bg-amber-500/5 rounded-2xl p-4 text-center relative cursor-pointer transition-all">
+                    <div id="check-paybrokers" class="absolute top-2 right-2 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center text-[9px] font-black text-gray-950">✓</div>
                     <div class="text-amber-500 font-black text-xs tracking-wider flex items-center justify-center gap-1 mb-1">
                         <span>❖</span> PIX
                     </div>
                     <p class="text-sm font-black text-white">Paybrokers</p>
                 </div>
 
-                <div class="border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center opacity-40 cursor-not-allowed relative">
-                    <div class="text-gray-500 font-black text-xs tracking-wider flex items-center justify-center gap-1 mb-1">
+                <!-- ZROBANK -->
+                <div id="gate-zrobank" onclick="selecionarGateway('zrobank')" class="border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center cursor-pointer relative transition-all opacity-60">
+                    <div id="check-zrobank" class="absolute top-2 right-2 w-4 h-4 bg-amber-500 rounded-full flex items-center justify-center text-[9px] font-black text-gray-950 hidden">✓</div>
+                    <div class="text-gray-400 font-black text-xs tracking-wider flex items-center justify-center gap-1 mb-1 id-txt-pix">
                         <span>❖</span> PIX
                     </div>
-                    <p class="text-sm font-black text-gray-500">Zrobank</p>
+                    <p class="text-sm font-black text-gray-400 id-txt-name">Zrobank</p>
                 </div>
+
             </div>
         </div>
 
@@ -114,9 +119,38 @@
 
     <script>
         const inputValor = document.getElementById('valorDeposito');
+        let gatewaySelecionado = 'paybrokers';
 
         function definirValor(valor) {
             inputValor.value = valor;
+        }
+
+        // Sistema dinâmico para alternar entre os dois Pix
+        function selecionarGateway(gateway) {
+            gatewaySelecionado = gateway;
+            
+            const cardPay = document.getElementById('gate-paybrokers');
+            const cardZro = document.getElementById('gate-zrobank');
+            const checkPay = document.getElementById('check-paybrokers');
+            const checkZro = document.getElementById('check-zrobank');
+
+            if (gateway === 'paybrokers') {
+                // Ativa Paybrokers
+                cardPay.className = "border-2 border-amber-500 bg-amber-500/5 rounded-2xl p-4 text-center relative cursor-pointer transition-all";
+                checkPay.classList.remove('hidden');
+                
+                // Desativa Zrobank
+                cardZro.className = "border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center cursor-pointer relative transition-all opacity-60";
+                checkZro.classList.add('hidden');
+            } else {
+                // Ativa Zrobank
+                cardZro.className = "border-2 border-amber-500 bg-amber-500/5 rounded-2xl p-4 text-center relative cursor-pointer transition-all";
+                checkZro.classList.remove('hidden');
+                
+                // Desativa Paybrokers
+                cardPay.className = "border border-gray-800/60 bg-[#141b26]/20 rounded-2xl p-4 text-center cursor-pointer relative transition-all opacity-60";
+                checkPay.classList.add('hidden');
+            }
         }
 
         function processarDeposito() {
@@ -134,8 +168,12 @@
                 return;
             }
 
+            // Salva o valor e o gateway escolhido
             localStorage.setItem('valor_deposito', valor);
-            window.location.href = 'depositar-processando.html';
+            localStorage.setItem('gateway_selecionado', gatewaySelecionado);
+            
+            // Vai direto para os detalhes com a sua chave pix de teste
+            window.location.href = 'depositar-detalhes.html';
         }
     </script>
 </body>
