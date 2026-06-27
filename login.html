@@ -74,12 +74,16 @@
         const emailInput = document.getElementById('loginEmail');
         const lembrarCheckbox = document.getElementById('lembrarUsuario');
 
-        // Verifica no carregamento da página se há um usuário salvo
+        // Proteção para o carregamento do LocalStorage
         document.addEventListener("DOMContentLoaded", () => {
-            const emailSalvo = localStorage.getItem('ptvip_usuario_salvo');
-            if (emailSalvo) {
-                emailInput.value = emailSalvo;
-                lembrarCheckbox.checked = true;
+            try {
+                const emailSalvo = localStorage.getItem('ptvip_usuario_salvo');
+                if (emailSalvo) {
+                    emailInput.value = emailSalvo;
+                    lembrarCheckbox.checked = true;
+                }
+            } catch (e) {
+                console.warn("Acesso ao localStorage bloqueado pelo navegador.");
             }
         });
 
@@ -91,11 +95,15 @@
 
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
-                    // Se a caixinha "Lembrar usuário" estiver marcada, salva o e-mail
-                    if (lembrarCheckbox.checked) {
-                        localStorage.setItem('ptvip_usuario_salvo', email);
-                    } else {
-                        localStorage.removeItem('ptvip_usuario_salvo');
+                    // Proteção contra bloqueios de segurança do 'setItem'
+                    try {
+                        if (lembrarCheckbox.checked) {
+                            localStorage.setItem('ptvip_usuario_salvo', email);
+                        } else {
+                            localStorage.removeItem('ptvip_usuario_salvo');
+                        }
+                    } catch (e) {
+                        console.warn("Não foi possível salvar a preferência 'Lembrar usuário' neste navegador.");
                     }
 
                     // Login efetuado com sucesso -> vai para a home
