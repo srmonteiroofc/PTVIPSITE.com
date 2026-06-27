@@ -23,6 +23,7 @@
 </head>
 <body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
 
+    <!-- HEADER SUPERIOR -->
     <header class="bg-[#141b26] border-b border-gray-800/60 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
         <div class="flex items-center gap-1.5">
             <h1 class="text-xl font-black uppercase tracking-wider">PT<span class="text-red-600">vip</span>👑</h1>
@@ -31,7 +32,7 @@
         <div class="flex items-center gap-2.5">
             <div class="bg-[#0d121a] border border-gray-800 rounded-xl px-3 py-2 flex items-center gap-1.5">
                 <span class="text-[10px] font-black text-gray-500 uppercase">BR</span>
-                <span id="balance-amount" class="text-sm font-black text-gray-200">R$ 0,00</span>
+                <span class="text-sm font-black text-gray-200">R$ 0,00</span>
             </div>
             <button onclick="window.location.href='depositar-metodo.html'" class="bg-[#ff0000] hover:bg-red-700 active:scale-95 text-white font-black text-xs px-4 py-2.5 rounded-xl uppercase tracking-wider transition-all shadow-lg shadow-red-600/20">
                 Depositar
@@ -39,9 +40,12 @@
         </div>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="flex-1 w-full max-w-md mx-auto px-4 py-4 space-y-5">
 
+        <!-- CARROSSEL SUPERIOR (3 IMAGENS RODANDO AUTOMÁTICO) -->
         <section class="relative w-full rounded-2xl overflow-hidden aspect-[16/9] shadow-2xl border border-gray-800/40">
+            <!-- Slide 1: Mines -->
             <div class="carousel-slide active h-full w-full relative bg-gradient-to-r from-red-950 to-black">
                 <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/mines-banner.png'); flex-direction: column;"></div>
                 <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
@@ -51,6 +55,7 @@
                 </div>
             </div>
 
+            <!-- Slide 2: Double -->
             <div class="carousel-slide h-full w-full relative bg-gradient-to-r from-amber-950 to-black">
                 <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/double-banner.png');"></div>
                 <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
@@ -60,6 +65,7 @@
                 </div>
             </div>
 
+            <!-- Slide 3: Crash -->
             <div class="carousel-slide h-full w-full relative bg-gradient-to-r from-blue-950 to-black">
                 <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/crash-banner.png');"></div>
                 <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
@@ -69,6 +75,7 @@
                 </div>
             </div>
 
+            <!-- Indicadores do Carrossel -->
             <div class="absolute top-3 right-3 flex gap-1 z-20">
                 <div class="dot w-1.5 h-1.5 rounded-full bg-white transition-all duration-300"></div>
                 <div class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"></div>
@@ -76,6 +83,7 @@
             </div>
         </section>
 
+        <!-- SEÇÃO: ORIGINAIS DA PTVIP (ESTILO PROPOSTO EM AZUL) -->
         <section class="space-y-3">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-black uppercase tracking-wider text-gray-200 flex items-center gap-1.5">
@@ -84,7 +92,9 @@
                 <span class="text-[11px] font-bold text-red-500 cursor-pointer hover:underline">Ver todos ❯</span>
             </div>
 
+            <!-- GRID COM OS 3 JOGOS -->
             <div class="grid grid-cols-2 gap-3">
+                <!-- JOGO: MINES -->
                 <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group">
                     <div class="aspect-[4/3] bg-gradient-to-br from-red-600/20 to-gray-900 relative flex items-center justify-center text-4xl">
                         💣
@@ -96,6 +106,7 @@
                     </div>
                 </div>
 
+                <!-- JOGO: DOUBLE -->
                 <div onclick="window.location.href='double.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group">
                     <div class="aspect-[4/3] bg-gradient-to-br from-amber-500/20 to-gray-900 relative flex items-center justify-center text-4xl">
                         🎲
@@ -107,6 +118,7 @@
                     </div>
                 </div>
 
+                <!-- JOGO: CRASH -->
                 <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group col-span-2">
                     <div class="aspect-[21/9] bg-gradient-to-br from-blue-600/20 to-gray-900 relative flex items-center justify-center text-4xl">
                         🚀
@@ -123,6 +135,7 @@
             </div>
         </section>
 
+        <!-- LIVE: GRANDES VITÓRIAS -->
         <section class="glass-card rounded-2xl border border-gray-800/60 overflow-hidden shadow-xl">
             <div class="border-b border-gray-800/60 px-4 py-3 bg-[#141b26]/50">
                 <h3 class="text-[10px] font-black uppercase tracking-widest text-gray-400 flex items-center gap-1.5">
@@ -136,4 +149,152 @@
                         <p class="text-[10px] text-gray-500">Usuário: Rafa***</p>
                     </div>
                     <div class="text-right">
-                        <p class="text-emerald-400 font-black">
+                        <p class="text-emerald-400 font-black">R$ 340,00</p>
+                        <p class="text-[9px] text-gray-500">Agora mesmo</p>
+                    </div>
+                </div>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="font-bold text-gray-200">Double</p>
+                        <p class="text-[10px] text-gray-500">Usuário: Bruno_vip</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-emerald-400 font-black">R$ 1.850,00</p>
+                        <p class="text-[9px] text-gray-500">Há 1 min</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR LIMPA -->
+    <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
+        <button onclick="window.location.href='home.html'" class="flex flex-col items-center gap-1 text-red-500 font-bold text-[10px] w-16">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span>Começar</span>
+        </button>
+        
+        <button onclick="window.location.href='promocoes.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0H8m12 3v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7m16 0H4"></path></svg>
+            <span>Ofertas</span>
+        </button>
+
+        <button onclick="window.location.href='depositar-metodo.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            <span>Depósito</span>
+        </button>
+
+        <button onclick="window.location.href='sacar.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Saques</span>
+        </button>
+
+        <button onclick="window.location.href='perfil.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 01-8 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            <span>Perfil</span>
+        </button>
+    </nav>
+
+        <!-- SCRIPT DO CARROSSEL AUTOMÁTICO E VITÓRIAS EM TEMPO REAL -->
+    <script>
+        // --- CONFIGURAÇÃO DO CARROSSEL ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        let carouselInterval;
+
+        function showSlide(index) {
+            // Remove o estado ativo do slide e dot atual
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.replace('bg-white', 'bg-white/40');
+            
+            // Atualiza para o novo índice
+            currentSlide = index;
+            
+            // Ativa o novo slide e dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.replace('bg-white/40', 'bg-white');
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        // Inicia o autoplay
+        function startCarousel() {
+            carouselInterval = setInterval(nextSlide, 4000); // 4 segundos por slide
+        }
+
+        // Permite clicar nos dots para mudar de slide
+        dots.forEach((dot, index) => {
+            dot.style.cursor = 'pointer'; // Deixa o ponteiro visível
+            dot.addEventListener('click', () => {
+                clearInterval(carouselInterval); // Pausa o automático ao clicar
+                showSlide(index);
+                startCarousel(); // Retoma o contador
+            });
+        });
+
+        // Inicializa o carrossel
+        startCarousel();
+
+
+        // --- CONFIGURAÇÃO DE VITÓRIAS EM TEMPO REAL (LIVE FEED) ---
+        const listaVitorias = document.querySelector('.divide-y'); // Seleciona o container de vitórias
+        
+        // Dados para simulação
+        const usuarios = ['Rafa***', 'Bruno_vip', 'Gabi_tx', 'Pedro_ok', 'Lucas***', 'Ana_poker', 'Vini_gold', 'Mel_win', 'Kaka99', 'Denis_os'];
+        const jogos = [
+            { nome: 'Mines', link: 'jogos.html' },
+            { nome: 'Double', link: 'double.html' },
+            { nome: 'Crash', link: 'jogos.html' }
+        ];
+
+        function gerarNovaVitoria() {
+            if (!listaVitorias) return;
+
+            // Escolhe dados aleatórios
+            const usuarioAleatorio = usuarios[Math.floor(Math.random() * usuarios.length)];
+            const jogoAleatorio = jogos[Math.floor(Math.random() * jogos.length)];
+            // Gera um valor que parece real (entre R$ 20 e R$ 2500)
+            const valorAleatorio = (Math.random() * (2500 - 20) + 20).toFixed(2); 
+
+            // Cria o elemento HTML da nova vitória
+            const novoItem = document.createElement('div');
+            novoItem.className = "px-4 py-3 flex justify-between items-center bg-[#141b26]/20 opacity-0 transition-opacity duration-500";
+            novoItem.innerHTML = `
+                <div>
+                    <p class="font-bold text-gray-200">${jogoAleatorio.nome}</p>
+                    <p class="text-[10px] text-gray-500">Usuário: ${usuarioAleatorio}</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-emerald-400 font-black">R$ ${parseFloat(valorAleatorio).toLocaleString('pt-BR')}</p>
+                    <p class="text-[9px] text-gray-500">Agora mesmo</p>
+                </div>
+            `;
+
+            // Insere no topo da lista
+            listaVitorias.insertBefore(novoItem, listaVitorias.firstChild);
+
+            // Efeito de fade-in suave
+            setTimeout(() => {
+                novoItem.classList.remove('opacity-0');
+            }, 50);
+
+            // Mantém apenas as 4 últimas vitórias na tela para não esticar a página infinitamente
+            if (listaVitorias.children.length > 4) {
+                listaVitorias.removeChild(listaVitorias.lastChild);
+            }
+        }
+
+        // Gera uma nova vitória a cada intervalo de tempo aleatório (entre 3 e 6 segundos)
+        function rodarFeedVivo() {
+            gerarNovaVitoria();
+            const tempoAleatorio = Math.random() * (6000 - 3000) + 3000;
+            setTimeout(rodarFeedVivo, tempoAleatorio);
+        }
+
+        // Inicia o feed dinâmico após 2 segundos da página aberta
+        setTimeout(rodarFeedVivo, 2000);
+            </script>
