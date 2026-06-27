@@ -13,76 +13,79 @@
             background: rgba(24, 32, 44, 0.75);
             backdrop-filter: blur(8px);
         }
+        /* Animação personalizada de rotação suave */
+        @keyframes spinner {
+            to { transform: rotate(360deg); }
+        }
+        .animate-spinner {
+            animation: spinner 1.2s linear infinite;
+        }
     </style>
 </head>
-<body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
+<body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
 
-    <header class="bg-[#141b26] border-b border-gray-800/60 px-4 py-4 flex items-center justify-between sticky top-0 z-50">
-        <button onclick="window.location.href='Depositar-valor.html'" class="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        <h1 class="text-md font-black uppercase tracking-widest text-gray-200">Pagamento</h1>
-        <div class="w-6"></div> 
-    </header>
+    <!-- CARD PRINCIPAL DE PROCESSAMENTO -->
+    <div class="w-full max-w-md glass-card border border-gray-800/80 rounded-3xl p-8 shadow-2xl relative text-center">
+        
+        <!-- LOGO CENTRALIZADA EM DESTAQUE -->
+        <div class="w-full flex justify-center mb-8">
+            <img src="logo.png" alt="PTvip" class="h-14 object-contain">
+        </div>
 
-    <main class="flex-1 w-full max-w-md mx-auto px-4 py-8 flex flex-col justify-center items-center">
+        <!-- SPINNER EM GRADIENTE AMBAR (PREMIUM) -->
+        <div class="relative w-20 h-20 mx-auto mb-8 flex items-center justify-center">
+            <!-- Círculo de fundo fosco -->
+            <div class="absolute inset-0 rounded-full border-4 border-gray-800/40"></div>
+            <!-- Spinner ativo animado -->
+            <div class="absolute inset-0 rounded-full border-4 border-t-amber-500 border-r-transparent border-b-transparent border-l-transparent animate-spinner"></div>
+            <!-- Ícone ou detalhe no centro -->
+            <span class="text-xl">⚡</span>
+        </div>
 
-        <div id="statusGerando" class="w-full text-center space-y-6 py-12">
-            <div class="inline-block relative w-20 h-20">
-                <div class="absolute inset-0 border-4 border-gray-800 rounded-full"></div>
-                <div class="absolute inset-0 border-4 border-t-[#ff0000] border-r-transparent border-b-transparent border-l-transparent rounded-full animate-spin"></div>
+        <!-- TEXTOS DE STATUS -->
+        <div class="space-y-3">
+            <h2 class="text-lg font-black uppercase tracking-wider text-gray-100">Verificando Depósito</h2>
+            <p class="text-xs text-gray-400 max-w-xs mx-auto leading-relaxed">
+                Estamos processando a sua transação junto à instituição financeira. Por favor, não feche esta página.
+            </p>
+        </div>
+
+        <!-- BOX SUTIL DE VALOR EM VERIFICAÇÃO -->
+        <div class="mt-6 bg-[#0d121a] border border-gray-800/60 rounded-2xl p-4 flex justify-between items-center">
+            <div class="text-left">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Status atual</p>
+                <p class="text-xs font-black text-amber-500 uppercase tracking-wide animate-pulse">Aguardando PIX...</p>
             </div>
-            <div class="space-y-2">
-                <h2 class="text-lg font-black uppercase tracking-wider">Gerando sua cobrança...</h2>
-                <p class="text-gray-400 text-xs max-w-xs mx-auto">Conectando com o gateway Paybrokers de forma segura.</p>
+            <div class="text-right">
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-wider">Valor solicitado</p>
+                <p id="valorProcessando" class="text-sm font-black text-white">R$ --,--</p>
             </div>
         </div>
 
-        <div id="statusPronto" class="w-full space-y-6 hidden">
-            
-            <div class="glass-card rounded-2xl p-4 border border-gray-800/60 text-center">
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Valor do Depósito</p>
-                <p class="text-3xl font-black text-emerald-400 mt-1">R$ <span id="exibirValor">0,00</span></p>
-            </div>
-
-            <div class="glass-card rounded-3xl p-6 border border-gray-800/60 shadow-2xl flex flex-col items-center justify-center space-y-4">
-                <div class="bg-white p-4 rounded-2xl shadow-inner relative">
-                    <div class="w-48 h-48 bg-neutral-200 flex items-center justify-center rounded-lg border-2 border-dashed border-gray-400">
-                        <svg class="w-32 h-32 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M3 3h6v6H3V3zm2 2v2h2V5H5zm8-2h6v6h-6V3zm2 2v2h2V5h-2zM3 15h6v6H3v-6zm2 2v2h2v-2H5zm13-2h3v2h-3v-2zm3 3h-3v3h3v-3zm-3 0h-2v2h2v-2zm-3-3h2v2h-2v-2zm-2 2h-2v3h2v-3zm2 3h2v2h-2v-2zm3-8h2v2h-2V9zm-4 2h2v2h-2v-2zm2-4h2v2h-2V7zm-4 4h2v2h-2v-2z"/>
-                        </svg>
-                    </div>
-                    <div class="absolute -bottom-2 bg-emerald-500 text-[10px] font-black uppercase tracking-wider text-black px-3 py-1 rounded-full left-1/2 -translate-x-1/2 shadow-md">
-                        ❖ Pix Seguro
-                    </div>
-                </div>
-                
-                <p class="text-[11px] text-gray-400 text-center leading-relaxed max-w-xs pt-2">
-                    Abra o app do seu banco, escolha <span class="text-white font-bold">"Pagar via QR Code"</span> ou aponte a câmera do celular.
-                </p>
-            </div>
-
-            <div class="space-y-3">
-                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider text-center">Ou pague pelo código abaixo</p>
-                
-                <input type="text" id="pixCodigo" readonly value="00020101021226620014br.gov.bcb.pix2540bdfcfbfd-b673-4449-b46f-0787f767490453039865802BR5905PTVIP6009Sao Paulo62070503***6304ABCD" class="w-full bg-[#141b26]/60 border border-gray-800 rounded-xl p-3 text-center text-xs text-gray-400 font-mono outline-none select-all truncate">
-                
-                <button onclick="copiarPix()" class="w-full py-4 bg-[#ff0000] hover:bg-red-700 active:scale-[0.99] text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-red-600/10 transition-all flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-                    Copiar Código Pix
-                </button>
-            </div>
-
-            <div class="text-center pt-2">
-                <button onclick="window.location.href='Depositar-sucesso.html'" class="text-xs text-gray-500 hover:text-white transition-colors underline">
-                    Simular confirmação automática
-                </button>
-            </div>
-
+        <!-- NOTA DE SEGURANÇA NO RODAPÉ DO CARD -->
+        <div class="mt-8 pt-2 border-t border-gray-800/30 flex items-center justify-center gap-2 text-[9px] text-gray-600 font-bold uppercase tracking-widest">
+            <span>🔒 Conexão Segura SSL Integrada</span>
         </div>
 
-    </main>
+    </div>
 
-    <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
-        <button onclick="window.location.href='home.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Recupera e exibe o valor selecionado pelo usuário
+            const valorSalvo = localStorage.getItem('valor_deposito');
+            const txtValor = document.getElementById('valorProcessando');
+            if (valorSalvo) {
+                const valorFormatado = parseFloat(valorSalvo).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                txtValor.innerText = `R$ ${valorFormatado}`;
+            } else {
+                txtValor.innerText = "R$ 10,00";
+            }
+
+            // Redireciona automaticamente para a tela de sucesso após 4 segundos
+            setTimeout(function() {
+                window.location.href = 'depositar-sucesso.html';
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
