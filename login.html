@@ -1,352 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>PTVIP • Entrar</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-
-body{
-background:
-linear-gradient(
-180deg,
-#0b1117,
-#111923,
-#0b1117
-);
-
-min-height:100vh;
-}
-
-.glass-container{
-
-background:
-rgba(26,32,39,.96);
-
-border:
-1px solid rgba(230,138,0,.15);
-
-backdrop-filter:
-blur(16px);
-
-border-radius:24px;
-
-box-shadow:
-0 20px 50px rgba(0,0,0,.45);
-
-}
-
-.input{
-
-background:#111821;
-
-border:1px solid #2a3138;
-
-transition:.3s;
-
-}
-
-.input:focus{
-
-border-color:#e68a00;
-
-box-shadow:
-0 0 0 3px rgba(230,138,0,.15);
-
-}
-
-.btn-primary{
-
-background:
-linear-gradient(
-135deg,
-#ffb547,
-#e68a00
-);
-
-color:#000;
-
-}
-
-.btn-primary:hover{
-
-transform:
-translateY(-2px);
-
-box-shadow:
-0 12px 24px rgba(230,138,0,.25);
-
-}
-
-.btn-secondary{
-
-border:
-1px solid #323b45;
-
-}
-
-.btn-secondary:hover{
-
-background:#1c242d;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTVIP • Entrar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: linear-gradient(180deg, #0b1117, #111923, #0b1117); min-height: 100vh; }
+        .glass-container { background: rgba(26,32,39,.96); border: 1px solid rgba(230,138,0,.15); backdrop-filter: blur(16px); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+        .input { background: #111821; border: 1px solid #2a3138; transition: .3s; }
+        .input:focus { border-color: #e68a00; box-shadow: 0 0 0 3px rgba(230,138,0,.15); }
+        .btn-primary { background: linear-gradient(135deg, #ffb547, #e68a00); color: #000; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(230,138,0,.25); }
+        .btn-secondary { border: 1px solid #323b45; }
+        .btn-secondary:hover { background: #1c242d; }
+    </style>
 </head>
-
-<body
-class="
-text-white
-font-sans
-flex
-items-center
-justify-center
-p-6">
+<body class="text-white font-sans flex items-center justify-center p-6">
 
 <div class="w-full max-w-sm">
+    <div class="text-center mb-8">
+        <img src="logo.png" class="h-20 mx-auto">
+        <h1 class="mt-5 text-2xl font-black tracking-wide">ENTRAR</h1>
+        <p class="text-gray-400 text-xs uppercase tracking-widest">Acesse sua conta</p>
+    </div>
 
-<div class="text-center mb-8">
-
-<img
-src="logo.png"
-class="h-20 mx-auto">
-
-<h1
-class="
-mt-5
-text-2xl
-font-black
-tracking-wide">
-
-ENTRAR
-
-</h1>
-
-<p
-class="
-text-gray-400
-text-xs
-uppercase
-tracking-widest">
-
-Acesse sua conta
-
-</p>
-
-</div>
-
-<div
-class="
-glass-container
-p-7">
-
-<form
-id="loginForm"
-
-class="
-space-y-5">
-
-<input
-
-type="email"
-
-id="email"
-
-required
-
-placeholder="Digite seu e-mail"
-
-class="
-input
-w-full
-p-4
-rounded-xl
-outline-none">
-
-<div>
-
-<input
-
-type="password"
-
-id="senha"
-
-required
-
-placeholder="Digite sua senha"
-
-class="
-input
-w-full
-p-4
-rounded-xl
-outline-none">
-
-<div class="text-right mt-2">
-
-<a
-
-href="recuperar.html"
-
-class="
-text-xs
-text-[#e68a00]
-hover:opacity-80">
-
-Esqueceu a senha?
-
-</a>
-
-</div>
-
-</div>
-
-<button
-
-id="entrar"
-
-type="submit"
-
-class="
-btn-primary
-w-full
-py-4
-rounded-xl
-font-black
-uppercase">
-
-Entrar
-
-</button>
-
-<button
-
-type="button"
-
-onclick="
-window.location.href='index.html'
-"
-
-class="
-btn-secondary
-w-full
-py-4
-rounded-xl
-uppercase">
-
-Voltar
-
-</button>
-
-</form>
-
-<p
-class="
-text-center
-text-gray-500
-text-[10px]
-mt-6">
-
-ACESSO RESTRITO • +18
-
-</p>
-
-</div>
-
+    <div class="glass-container p-7">
+        <form id="loginForm" class="space-y-5">
+            <input type="email" id="email" required placeholder="Digite seu e-mail" class="input w-full p-4 rounded-xl outline-none">
+            <input type="password" id="senha" required placeholder="Digite sua senha" class="input w-full p-4 rounded-xl outline-none">
+            
+            <button id="entrar" type="submit" class="btn-primary w-full py-4 rounded-xl font-black uppercase">Entrar</button>
+            <button type="button" onclick="window.location.href='index.html'" class="btn-secondary w-full py-4 rounded-xl uppercase">Voltar</button>
+        </form>
+    </div>
 </div>
 
 <script type="module">
+    import { auth } from "./firebase.js";
+    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-import {
-auth
-}
-from "./firebase.js";
+    const form = document.getElementById("loginForm");
+    const botao = document.getElementById("entrar");
 
-import {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
 
-signInWithEmailAndPassword
+        botao.innerHTML = "VALIDANDO...";
+        botao.disabled = true;
 
-}
-from
-"https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
-const form=
-document
-.getElementById(
-"loginForm"
-);
-
-const botao=
-document
-.getElementById(
-"entrar"
-);
-
-form
-.addEventListener(
-"submit",
-
-async(e)=>{
-
-e.preventDefault();
-
-const email=
-document
-.getElementById(
-"email"
-)
-.value;
-
-const senha=
-document
-.getElementById(
-"senha"
-)
-.value;
-
-botao.innerHTML=
-"VALIDANDO...";
-
-botao.disabled=
-true;
-
-try{
-
-await
-signInWithEmailAndPassword(
-auth,
-email,
-senha
-);
-
-window.location.href=
-"home.html";
-
-}catch(error){
-
-alert(
-"Email ou senha inválidos."
-);
-
-botao.innerHTML=
-"ENTRAR";
-
-botao.disabled=
-false;
-
-}
-
-});
-
+        try {
+            await signInWithEmailAndPassword(auth, email, senha);
+            window.location.href = "home.html";
+        } catch (error) {
+            alert("E-mail ou senha inválidos.");
+            botao.innerHTML = "ENTRAR";
+            botao.disabled = false;
+        }
+    });
 </script>
-
 </body>
-
 </html>
