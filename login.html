@@ -6,45 +6,52 @@
     <title>PTvip - Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Fundo gradiente radial premium idêntico às telas anteriores */
-        .bg-app-dark { 
-            background: radial-gradient(circle, #2a1111 0%, #000000 100%); 
+        body {
+            background-color: #0d121a;
         }
-        .gold-text-gradient { 
-            background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        /* Botão vermelho vibrante puro para manter o padrão visual do app */
-        .btn-red { 
-            background-color: #ff0000; 
+        .glass-card {
+            background: rgba(24, 32, 44, 0.75);
+            backdrop-filter: blur(8px);
         }
     </style>
 </head>
-<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center justify-center p-4">
+<body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
 
-    <div class="w-full max-w-sm border-2 border-red-600 rounded-[24px] p-8 bg-[#0d0d0d] shadow-[0_0_25px_rgba(255,26,26,0.6)]">
-        <div class="text-center mb-8">
-            <h1 class="text-4xl font-black uppercase"><span class="gold-text-gradient">PT</span><span class="text-red-600">vip</span></h1>
-            <p class="text-gray-500 text-xs mt-2 uppercase tracking-widest">Entre na sua conta</p>
+    <div class="w-full max-w-sm glass-card border border-gray-800/80 rounded-3xl p-8 shadow-2xl relative">
+        
+        <div class="w-full flex justify-center mb-6">
+            <img src="logo.png" alt="PTvip" class="h-16 object-contain">
+        </div>
+
+        <div class="text-center mb-6">
+            <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Entre na sua conta</p>
         </div>
 
         <form id="loginForm" class="space-y-4">
-            <input type="email" id="loginEmail" placeholder="E-mail" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
             
-            <div class="space-y-2">
-                <input type="password" id="loginPassword" placeholder="Senha" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+            <div class="relative">
+                <input type="email" id="loginEmail" placeholder="E-mail" required class="w-full bg-[#0d121a] border border-gray-800/80 rounded-xl p-4 outline-none focus:border-amber-500/50 text-white placeholder-gray-600 text-sm transition-colors">
+            </div>
+            
+            <div class="space-y-3">
+                <input type="password" id="loginPassword" placeholder="Senha" required class="w-full bg-[#0d121a] border border-gray-800/80 rounded-xl p-4 outline-none focus:border-amber-500/50 text-white placeholder-gray-600 text-sm transition-colors">
                 
-                <div class="text-right">
-                    <a href="recuperar.html" class="text-xs text-gray-400 hover:text-red-500 hover:underline transition-colors">Esqueceu a senha?</a>
+                <div class="flex items-center justify-between px-1 text-xs">
+                    <label class="flex items-center gap-2 cursor-pointer text-gray-400 select-none">
+                        <input type="checkbox" id="lembrarUsuario" class="w-4 h-4 rounded border-gray-800 bg-[#0d121a] text-amber-500 accent-amber-500 focus:ring-0 focus:ring-offset-0">
+                        <span>Lembrar usuário</span>
+                    </label>
+                    <a href="recuperar.html" class="text-gray-400 hover:text-amber-500 transition-colors font-medium">Esqueceu a senha?</a>
                 </div>
             </div>
 
-            <button type="submit" class="btn-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm text-white active:scale-[0.98] transition-transform">Entrar</button>
+            <button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99] mt-2">
+                Entrar
+            </button>
         </form>
 
-        <p class="text-center text-gray-400 text-sm mt-6">
-            Ainda não tem conta? <a href="cadastro.html" class="text-amber-500 font-bold hover:text-red-500 hover:underline transition-colors">Cadastrar-se</a>
+        <p class="text-center text-gray-500 text-xs mt-6 font-medium uppercase tracking-wider">
+            Ainda não tem conta? <a href="cadastro.html" class="text-amber-500 font-black hover:underline tracking-normal normal-case ml-1 transition-colors">Cadastrar-se</a>
         </p>
     </div>
 
@@ -64,14 +71,33 @@
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
 
+        const emailInput = document.getElementById('loginEmail');
+        const lembrarCheckbox = document.getElementById('lembrarUsuario');
+
+        // Verifica no carregamento da página se há um usuário salvo
+        document.addEventListener("DOMContentLoaded", () => {
+            const emailSalvo = localStorage.getItem('ptvip_usuario_salvo');
+            if (emailSalvo) {
+                emailInput.value = emailSalvo;
+                lembrarCheckbox.checked = true;
+            }
+        });
+
         // Lógica para ouvir o formulário de Login com Firebase
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
+            const email = emailInput.value;
             const password = document.getElementById('loginPassword').value;
 
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
+                    // Se a caixinha "Lembrar usuário" estiver marcada, salva o e-mail
+                    if (lembrarCheckbox.checked) {
+                        localStorage.setItem('ptvip_usuario_salvo', email);
+                    } else {
+                        localStorage.removeItem('ptvip_usuario_salvo');
+                    }
+
                     // Login efetuado com sucesso -> vai para a home
                     window.location.href = "home.html";
                 })
