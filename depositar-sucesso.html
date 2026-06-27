@@ -6,10 +6,13 @@
     <title>PTvip - Depósito Confirmado</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .bg-app-dark { background-color: #070707; }
-        .gold-border { border: 1px solid rgba(212, 175, 55, 0.3); }
-        .gold-text-gradient { background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-gradient-green { background: linear-gradient(180deg, #10b981 0%, #047857 100%); }
+        body {
+            background-color: #0d121a;
+        }
+        .glass-card {
+            background: rgba(24, 32, 44, 0.75);
+            backdrop-filter: blur(8px);
+        }
         
         /* Animação simples do checkmark */
         @keyframes scaleUp {
@@ -19,50 +22,69 @@
         .animate-scale { animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
     </style>
 </head>
-<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center justify-center p-4">
+<body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
 
-    <div class="w-full max-w-sm gold-border rounded-3xl p-8 bg-[#0f0f0f] shadow-2xl text-center">
+    <!-- CARD PRINCIPAL DE SUCESSO -->
+    <div class="w-full max-w-md glass-card border border-gray-800/80 rounded-3xl p-6 shadow-2xl text-center">
         
-        <div class="mb-6 flex justify-center">
-            <div class="animate-scale w-20 h-20 bg-emerald-500/10 border-2 border-emerald-500 rounded-full flex items-center justify-center text-emerald-500 text-4xl shadow-lg shadow-emerald-500/20">
+        <!-- LOGO CENTRALIZADA EM DESTAQUE -->
+        <div class="w-full flex justify-center mb-6">
+            <img src="logo.png" alt="PTvip" class="h-14 object-contain">
+        </div>
+
+        <!-- ÍCONE DE CHECKMARK SUTIL -->
+        <div class="mb-5 flex justify-center">
+            <div class="animate-scale w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center text-emerald-400 text-3xl shadow-xl shadow-emerald-950/20">
                 ✓
             </div>
         </div>
 
-        <h1 class="text-2xl font-black uppercase mb-1"><span class="gold-text-gradient">Pagamento</span> Recebido</h1>
-        <p class="text-xs text-gray-400 uppercase tracking-widest mb-6">Seu saldo já foi atualizado</p>
+        <h1 class="text-xl font-black uppercase tracking-wide text-gray-100">Pagamento Recebido</h1>
+        <p class="text-[11px] text-gray-500 uppercase tracking-widest mb-6">Seu saldo já foi atualizado com sucesso</p>
 
-        <div class="bg-[#141414] border border-neutral-900 rounded-2xl p-4 text-left space-y-3 mb-8 text-xs">
-            <div class="flex justify-between border-b border-neutral-800 pb-2">
-                <span class="text-gray-500 uppercase tracking-wider">Método:</span>
-                <span class="font-bold text-emerald-400">PIX Instantâneo</span>
+        <!-- COMPROVANTE SUTIL INTEGRADO -->
+        <div class="bg-[#0d121a] border border-gray-800/60 rounded-2xl p-4 text-left space-y-3 mb-6 text-xs font-medium">
+            <div class="flex justify-between border-b border-gray-800/40 pb-2.5">
+                <span class="text-gray-500 uppercase tracking-wider text-[10px] font-bold">Método:</span>
+                <span class="font-black text-gray-300">PIX Instantâneo</span>
             </div>
-            <div class="flex justify-between border-b border-neutral-800 pb-2">
-                <span class="text-gray-500 uppercase tracking-wider">Status:</span>
-                <span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px] font-bold uppercase">Aprovado</span>
+            <div class="flex justify-between border-b border-gray-800/40 pb-2.5">
+                <span class="text-gray-500 uppercase tracking-wider text-[10px] font-bold">Status:</span>
+                <span class="bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-wider">Aprovado</span>
             </div>
-            <div class="flex justify-between pt-1">
-                <span class="text-gray-500 uppercase tracking-wider">Valor Creditado:</span>
-                <span class="font-bold text-amber-500 text-sm" id="valorSucesso">R$ 0,00</span>
+            <div class="flex justify-between pt-0.5 items-center">
+                <span class="text-gray-500 uppercase tracking-wider text-[10px] font-bold">Valor Creditado:</span>
+                <span class="font-black text-amber-500 text-base" id="valorSucesso">R$ --,--</span>
             </div>
         </div>
 
-        <button type="button" onclick="window.location.href='home.html'" class="btn-gradient-green w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm shadow-lg shadow-emerald-900/40 transition active:scale-95">
+        <!-- BOTÃO DE RETORNO À HOME PREMIUM -->
+        <button type="button" onclick="window.location.href='home.html'" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99]">
             Começar a Jogar 🎮
         </button>
 
     </div>
 
     <script>
-        // Pega o valor da URL (caso queira exibir o valor exato que o usuário depositou)
-        const urlParams = new URLSearchParams(window.location.search);
-        const valor = urlParams.get('valor') || '20';
-        document.getElementById('valorSucesso').innerText = `R$ ${valor},00`;
-        
-        // Simulação prática: Salva o saldo no localStorage para usar na Home/Header depois
-        let saldoAtual = parseFloat(localStorage.getItem('saldoUsuario') || '0.00');
-        saldoAtual += parseFloat(valor);
-        localStorage.setItem('saldoUsuario', saldoAtual.toFixed(2));
+        document.addEventListener("DOMContentLoaded", function() {
+            // Recupera o valor que foi armazenado globalmente no localStorage nas telas anteriores
+            const valorSalvo = localStorage.getItem('valor_deposito');
+            const txtValor = document.getElementById('valorSucesso');
+            
+            let valorFinal = 20.00; // Valor padrão de fallback caso não encontre
+            
+            if (valorSalvo) {
+                valorFinal = parseFloat(valorSalvo);
+            }
+            
+            // Exibe o valor formatado bonitinho na interface
+            txtValor.innerText = `R$ ${valorFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            
+            // Atualiza o saldo global do usuário de forma simulada para persistir no cabeçalho do site
+            let saldoAtual = parseFloat(localStorage.getItem('saldoUsuario') || '0.03');
+            saldoAtual += valorFinal;
+            localStorage.setItem('saldoUsuario', saldoAtual.toFixed(2));
+        });
     </script>
 
 </body>
