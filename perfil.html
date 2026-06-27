@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>PTvip - Perfil</title>
 
@@ -25,16 +23,32 @@ linear-gradient(
 }
 
 .glass{
+background:rgba(18,28,40,.95);
+border:1px solid rgba(255,255,255,.06);
+backdrop-filter:blur(14px);
+}
 
+.card{
+transition:.25s;
+}
+
+.card:active{
+transform:scale(.97);
+}
+
+.vip{
 background:
-rgba(18,28,40,.95);
+linear-gradient(
+90deg,
+#ffcc33,
+#ffd966
+);
 
-border:
-1px solid rgba(255,255,255,.05);
+color:black;
 
-backdrop-filter:
-blur(12px);
-
+box-shadow:
+0 0 25px
+rgba(255,200,0,.35);
 }
 
 </style>
@@ -48,22 +62,15 @@ class="
 sticky
 top-0
 z-50
-
 bg-[#111827]
-
 border-b
-
 border-gray-800">
 
 <div class="p-5 flex items-center">
 
 <button
-onclick="
-window.location.href='home.html'
-"
-
-class="
-text-gray-400">
+onclick="window.location.href='home.html'"
+class="text-gray-400">
 
 ✕
 
@@ -72,9 +79,7 @@ text-gray-400">
 <h1
 class="
 flex-1
-
 text-center
-
 font-black">
 
 CENTRO PESSOAL
@@ -89,49 +94,33 @@ CENTRO PESSOAL
 <main
 class="
 max-w-md
-
 mx-auto
-
 p-5
-
 space-y-5">
 
 <!-- PERFIL -->
 
-<div
-class="
-glass
+<div class="glass rounded-3xl p-5">
 
-rounded-3xl
-
-p-5">
-
-<div
-class="
-flex
-
-justify-between
-
-items-center">
+<div class="flex justify-between items-center">
 
 <div class="flex gap-4">
 
 <div
-
 class="
 w-16
-
 h-16
-
 rounded-2xl
 
-bg-amber-500/10
+bg-gradient-to-br
+from-yellow-500
+to-amber-300
 
 flex
-
 items-center
+justify-center
 
-justify-center">
+text-3xl">
 
 👑
 
@@ -140,49 +129,34 @@ justify-center">
 <div>
 
 <h2
-
 id="userEmail"
-
-class="
-font-black
-
-text-xl">
+class="font-black text-xl">
 
 Carregando
 
 </h2>
 
-<p
+</div>
+
+</div>
+
+
+<button
+
+onclick="
+window.location.href='promocoes.html'
+"
+
 class="
-text-gray-500">
+vip
+px-5
+py-3
+rounded-2xl
+font-black">
 
-ID #
+👑 VIP 0
 
-<span id="userId">
-
-000000
-
-</span>
-
-</p>
-
-</div>
-
-</div>
-
-<div
-class="
-px-4
-
-py-2
-
-rounded-xl
-
-bg-[#141b26]">
-
-VIP 0
-
-</div>
+</button>
 
 </div>
 
@@ -194,9 +168,7 @@ VIP 0
 <div
 class="
 glass
-
 rounded-3xl
-
 p-5">
 
 <p class="text-gray-500">
@@ -206,15 +178,11 @@ Saldo Disponível
 </p>
 
 <h2
-
 id="saldo"
-
 class="
-text-4xl
-
+text-5xl
 font-black
-
-text-amber-500">
+text-amber-400">
 
 R$ 0,00
 
@@ -227,6 +195,7 @@ R$ 0,00
 
 <div class="grid grid-cols-2 gap-4">
 
+
 <button
 
 onclick="
@@ -235,20 +204,25 @@ window.location.href='sacar.html'
 
 class="
 glass
-
+card
 rounded-3xl
-
 p-6">
 
-🎫
+<div class="text-5xl">
 
-<p class="mt-2">
+🏧
+
+</div>
+
+<p class="mt-4 text-lg">
 
 Solicitar Saque
 
 </p>
 
 </button>
+
+
 
 <button
 
@@ -258,14 +232,17 @@ window.location.href='depositar-metodo.html'
 
 class="
 glass
-
+card
 rounded-3xl
-
 p-6">
 
-👛
+<div class="text-5xl">
 
-<p class="mt-2">
+💎
+
+</div>
+
+<p class="mt-4 text-lg">
 
 Efetuar Depósito
 
@@ -281,24 +258,32 @@ Efetuar Depósito
 <div
 class="
 rounded-3xl
-
 overflow-hidden">
 
 <img
-src="logo.png">
+src="logo.png"
+
+class="
+w-full">
 
 </div>
+
 
 
 <!-- VIP -->
 
 <div
+
+onclick="
+window.location.href='promocoes.html'
+"
+
 class="
 glass
-
 rounded-3xl
-
-p-5">
+p-5
+card
+cursor-pointer">
 
 <div class="flex justify-between">
 
@@ -326,7 +311,7 @@ BÔNUS
 
 </p>
 
-<p class="text-emerald-400">
+<p class="text-emerald-400 text-2xl">
 
 R$10
 
@@ -339,21 +324,18 @@ R$10
 <div
 class="
 mt-5
-
 h-2
-
 rounded-full
-
 bg-black">
 
 <div
-
 class="
-w-0
-
+w-[10%]
 h-full
 
-bg-red-500">
+bg-gradient-to-r
+from-red-500
+to-yellow-500">
 
 </div>
 
@@ -362,17 +344,15 @@ bg-red-500">
 <p
 class="
 mt-3
-
 text-gray-500">
 
-Conta nova
+Toque para ver promoções
 
 </p>
 
 </div>
 
 
-<!-- SAIR -->
 
 <button
 
@@ -380,13 +360,9 @@ onclick="logout()"
 
 class="
 w-full
-
 bg-red-600
-
 py-4
-
 rounded-3xl
-
 font-black">
 
 SAIR DA CONTA
@@ -396,16 +372,12 @@ SAIR DA CONTA
 </main>
 
 
-
 <nav
 
 class="
 fixed
-
 bottom-0
-
 left-0
-
 right-0
 
 bg-[#111827]
@@ -445,32 +417,27 @@ mx-auto">
 </nav>
 
 
-
 <script type="module">
 
 import {
 initializeApp
 }
-
 from
 "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
 import {
-
 getAuth,
-
 onAuthStateChanged,
-
 signOut
-
 }
-
 from
 "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 
-const firebaseConfig = {
-apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
+const firebaseConfig={
+
+apiKey:
+"AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
 
 authDomain:
 "ptvip-teste.firebaseapp.com",
@@ -486,18 +453,14 @@ messagingSenderId:
 
 appId:
 "1:407028833766:web:79d7dbf7ee968944248a27"
+
 };
 
-
 const app=
-initializeApp(
-firebaseConfig
-);
+initializeApp(firebaseConfig);
 
 const auth=
-getAuth(
-app
-);
+getAuth(app);
 
 
 onAuthStateChanged(
@@ -515,30 +478,8 @@ document
 
 .innerHTML=
 
-user
-.email
-
-.split(
-"@"
-)
-
-[0];
-
-
-document
-.getElementById(
-"userId"
-)
-
-.innerHTML=
-
-user
-.uid
-
-.substring(
-0,
-8
-);
+user.email
+.split("@")[0];
 
 }else{
 
@@ -555,9 +496,7 @@ window.location=
 window.logout=
 async()=>{
 
-await signOut(
-auth
-);
+await signOut(auth);
 
 window.location=
 "index.html";
