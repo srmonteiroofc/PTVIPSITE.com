@@ -6,10 +6,19 @@
     <title>PTvip - Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0d121a; }
-        .glass-card { background: rgba(24, 32, 44, 0.75); backdrop-filter: blur(8px); }
-        .carousel-slide { display: none; }
-        .carousel-slide.active { display: block; }
+        body {
+            background-color: #0d121a;
+        }
+        .glass-card {
+            background: rgba(24, 32, 44, 0.75);
+            backdrop-filter: blur(8px);
+        }
+        .carousel-slide {
+            display: none;
+        }
+        .carousel-slide.active {
+            display: block;
+        }
     </style>
 </head>
 <body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
@@ -31,64 +40,178 @@
         </div>
     </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="flex-1 w-full max-w-md mx-auto px-4 py-4 space-y-5">
 
-        <!-- CARROSSEL COM IMAGENS -->
+        <!-- CARROSSEL SUPERIOR (3 IMAGENS RODANDO AUTOMÁTICO) -->
         <section class="relative w-full rounded-2xl overflow-hidden aspect-[16/9] shadow-2xl border border-gray-800/40">
-            <div class="carousel-slide active h-full w-full relative">
-                <img src="assets/mines-banner.png" onerror="this.src='https://via.placeholder.com/400x225?text=Mines'" class="w-full h-full object-cover">
+            <!-- Slide 1: Mines -->
+            <div class="carousel-slide active h-full w-full relative bg-gradient-to-r from-red-950 to-black">
+                <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/mines-banner.png'); flex-direction: column;"></div>
+                <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
+                    <span class="bg-red-600 text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest">Destaque</span>
+                    <h2 class="text-xl font-black tracking-tight">MINES PTVIP</h2>
+                    <p class="text-gray-300 text-xs">Abra os campos certos e multiplique sua banca!</p>
+                </div>
             </div>
-            <div class="carousel-slide h-full w-full relative">
-                <img src="assets/double-banner.png" onerror="this.src='https://via.placeholder.com/400x225?text=Double'" class="w-full h-full object-cover">
+
+            <!-- Slide 2: Double -->
+            <div class="carousel-slide h-full w-full relative bg-gradient-to-r from-amber-950 to-black">
+                <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/double-banner.png');"></div>
+                <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
+                    <span class="bg-amber-500 text-black text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest">🔥 Mais Jogado</span>
+                    <h2 class="text-xl font-black tracking-tight">DOUBLE</h2>
+                    <p class="text-gray-300 text-xs">Escolha sua cor favorita e dobre seus lucros.</p>
+                </div>
             </div>
-            <div class="carousel-slide h-full w-full relative">
-                <img src="assets/crash-banner.png" onerror="this.src='https://via.placeholder.com/400x225?text=Crash'" class="w-full h-full object-cover">
+
+            <!-- Slide 3: Crash -->
+            <div class="carousel-slide h-full w-full relative bg-gradient-to-r from-blue-950 to-black">
+                <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/crash-banner.png');"></div>
+                <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
+                    <span class="bg-blue-600 text-white text-[9px] font-black uppercase px-2 py-0.5 rounded-full tracking-widest">🚀 Crash Game</span>
+                    <h2 class="text-xl font-black tracking-tight">CRASH MULTIPLIER</h2>
+                    <p class="text-gray-300 text-xs">Suba o foguete e saque antes do estrondo!</p>
+                </div>
             </div>
+
+            <!-- Indicadores do Carrossel -->
             <div class="absolute top-3 right-3 flex gap-1 z-20">
-                <div class="dot w-1.5 h-1.5 rounded-full bg-white transition-all"></div>
-                <div class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></div>
-                <div class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all"></div>
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white transition-all duration-300"></div>
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"></div>
+                <div class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO: ORIGINAIS -->
+        <!-- SEÇÃO: ORIGINAIS DA PTVIP (ESTILO PROPOSTO EM AZUL) -->
         <section class="space-y-3">
-            <h3 class="text-sm font-black uppercase tracking-wider text-gray-200">🕹️ Originais da PTVIP</h3>
+            <div class="flex items-center justify-between">
+                <h3 class="text-sm font-black uppercase tracking-wider text-gray-200 flex items-center gap-1.5">
+                    🕹️ Originais da PTVIP
+                </h3>
+                <span class="text-[11px] font-bold text-red-500 cursor-pointer hover:underline">Ver todos ❯</span>
+            </div>
 
+            <!-- GRID COM OS 3 JOGOS -->
             <div class="grid grid-cols-2 gap-3">
-                <!-- MINES -->
-                <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden cursor-pointer active:scale-95 transition-all">
-                    <img src="mines.png" onerror="this.style.display='none'" class="w-full aspect-[4/3] object-cover bg-gray-900">
-                    <div class="p-3"><p class="font-black text-xs text-gray-200">Mines</p></div>
+                <!-- JOGO: MINES -->
+                <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-red-600/20 to-gray-900 relative flex items-center justify-center text-4xl">
+                        💣
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div class="p-3 bg-[#141b26]/60">
+                        <p class="font-black text-xs text-gray-200 tracking-wide">Mines</p>
+                        <p class="text-[10px] text-gray-500 font-medium">PTvip Studio</p>
+                    </div>
                 </div>
-                <!-- DOUBLE -->
-                <div onclick="window.location.href='double.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden cursor-pointer active:scale-95 transition-all">
-                    <img src="double.png" onerror="this.style.display='none'" class="w-full aspect-[4/3] object-cover bg-gray-900">
-                    <div class="p-3"><p class="font-black text-xs text-gray-200">Double</p></div>
+
+                <!-- JOGO: DOUBLE -->
+                <div onclick="window.location.href='double.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group">
+                    <div class="aspect-[4/3] bg-gradient-to-br from-amber-500/20 to-gray-900 relative flex items-center justify-center text-4xl">
+                        🎲
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div class="p-3 bg-[#141b26]/60">
+                        <p class="font-black text-xs text-gray-200 tracking-wide">Double</p>
+                        <p class="text-[10px] text-gray-500 font-medium">PTvip Studio</p>
+                    </div>
                 </div>
-                <!-- CRASH -->
-                <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden cursor-pointer active:scale-95 transition-all col-span-2">
-                    <img src="crash.png" onerror="this.style.display='none'" class="w-full aspect-[21/9] object-cover bg-gray-900">
-                    <div class="p-3 flex justify-between items-center"><p class="font-black text-xs">Crash</p><span class="bg-blue-500/20 text-blue-400 text-[10px] px-2 py-1 rounded-lg font-black uppercase">Jogar</span></div>
+
+                <!-- JOGO: CRASH -->
+                <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group col-span-2">
+                    <div class="aspect-[21/9] bg-gradient-to-br from-blue-600/20 to-gray-900 relative flex items-center justify-center text-4xl">
+                        🚀
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+                    </div>
+                    <div class="p-3 bg-[#141b26]/60 flex justify-between items-center">
+                        <div>
+                            <p class="font-black text-xs text-gray-200 tracking-wide">Crash</p>
+                            <p class="text-[10px] text-gray-500 font-medium">PTvip Studio</p>
+                        </div>
+                        <span class="bg-blue-500/20 text-blue-400 text-[10px] px-2.5 py-1 rounded-lg font-black uppercase">Jogar</span>
+                    </div>
                 </div>
             </div>
         </section>
-        
-        <!-- (Restante do conteúdo mantém igual...) -->
+
+        <!-- LIVE: GRANDES VITÓRIAS -->
+        <section class="glass-card rounded-2xl border border-gray-800/60 overflow-hidden shadow-xl">
+            <div class="border-b border-gray-800/60 px-4 py-3 bg-[#141b26]/50">
+                <h3 class="text-[10px] font-black uppercase tracking-widest text-gray-400 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Grandes Vitórias
+                </h3>
+            </div>
+            <div class="divide-y divide-gray-800/40 text-xs">
+                <div class="px-4 py-3 flex justify-between items-center bg-[#141b26]/20">
+                    <div>
+                        <p class="font-bold text-gray-200">Mines</p>
+                        <p class="text-[10px] text-gray-500">Usuário: Rafa***</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-emerald-400 font-black">R$ 340,00</p>
+                        <p class="text-[9px] text-gray-500">Agora mesmo</p>
+                    </div>
+                </div>
+                <div class="px-4 py-3 flex justify-between items-center">
+                    <div>
+                        <p class="font-bold text-gray-200">Double</p>
+                        <p class="text-[10px] text-gray-500">Usuário: Bruno_vip</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-emerald-400 font-black">R$ 1.850,00</p>
+                        <p class="text-[9px] text-gray-500">Há 1 min</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR LIMPA -->
+    <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
+        <button onclick="window.location.href='home.html'" class="flex flex-col items-center gap-1 text-red-500 font-bold text-[10px] w-16">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+            <span>Começar</span>
+        </button>
+        
+        <button onclick="window.location.href='promocoes.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0H8m12 3v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7m16 0H4"></path></svg>
+            <span>Ofertas</span>
+        </button>
+
+        <button onclick="window.location.href='depositar-metodo.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            <span>Depósito</span>
+        </button>
+
+        <button onclick="window.location.href='sacar.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Saques</span>
+        </button>
+
+        <button onclick="window.location.href='perfil.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 01-8 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+            <span>Perfil</span>
+        </button>
+    </nav>
+
+    <!-- SCRIPT DO CARROSSEL AUTOMÁTICO -->
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.dot');
+
         function changeSlide() {
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.replace('bg-white', 'bg-white/40');
+            
             currentSlide = (currentSlide + 1) % slides.length;
+            
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.replace('bg-white/40', 'bg-white');
         }
-        setInterval(changeSlide, 3000);
+
+        setInterval(changeSlide, 3000); // Roda a cada 3 segundos
     </script>
 </body>
 </html>
