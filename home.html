@@ -23,7 +23,6 @@
 </head>
 <body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
 
-    <!-- HEADER SUPERIOR -->
     <header class="bg-[#141b26] border-b border-gray-800/60 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
         <div class="flex items-center gap-1.5">
             <h1 class="text-xl font-black uppercase tracking-wider">PT<span class="text-red-600">vip</span>👑</h1>
@@ -40,12 +39,9 @@
         </div>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="flex-1 w-full max-w-md mx-auto px-4 py-4 space-y-5">
 
-        <!-- CARROSSEL SUPERIOR (3 IMAGENS RODANDO AUTOMÁTICO) -->
         <section class="relative w-full rounded-2xl overflow-hidden aspect-[16/9] shadow-2xl border border-gray-800/40">
-            <!-- Slide 1: Mines -->
             <div class="carousel-slide active h-full w-full relative bg-gradient-to-r from-red-950 to-black">
                 <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/mines-banner.png'); flex-direction: column;"></div>
                 <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
@@ -55,7 +51,6 @@
                 </div>
             </div>
 
-            <!-- Slide 2: Double -->
             <div class="carousel-slide h-full w-full relative bg-gradient-to-r from-amber-950 to-black">
                 <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/double-banner.png');"></div>
                 <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
@@ -65,7 +60,6 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Crash -->
             <div class="carousel-slide h-full w-full relative bg-gradient-to-r from-blue-950 to-black">
                 <div class="absolute inset-0 bg-cover bg-center mix-blend-overlay opacity-60" style="background-image: url('assets/crash-banner.png');"></div>
                 <div class="absolute bottom-4 left-4 right-4 z-10 space-y-1">
@@ -75,7 +69,6 @@
                 </div>
             </div>
 
-            <!-- Indicadores do Carrossel -->
             <div class="absolute top-3 right-3 flex gap-1 z-20">
                 <div class="dot w-1.5 h-1.5 rounded-full bg-white transition-all duration-300"></div>
                 <div class="dot w-1.5 h-1.5 rounded-full bg-white/40 transition-all duration-300"></div>
@@ -83,7 +76,6 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: ORIGINAIS DA PTVIP (ESTILO PROPOSTO EM AZUL) -->
         <section class="space-y-3">
             <div class="flex items-center justify-between">
                 <h3 class="text-sm font-black uppercase tracking-wider text-gray-200 flex items-center gap-1.5">
@@ -92,39 +84,35 @@
                 <span class="text-[11px] font-bold text-red-500 cursor-pointer hover:underline">Ver todos ❯</span>
             </div>
 
-            <!-- GRID COM OS 3 JOGOS -->
             <div class="grid grid-cols-2 gap-3">
-                <!-- JOGO: MINES -->
                 <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group">
-                    <div class="aspect-[4/3] bg-gradient-to-br from-red-600/20 to-gray-900 relative flex items-center justify-center text-4xl">
-                        💣
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+                    <div class="aspect-[4/3] bg-gradient-to-br from-red-600/20 to-gray-900 relative flex items-center justify-center">
+                        <img src="assets/icon-bomba.png" alt="Ícone 3D Mines" class="w-12 h-12 object-contain z-10 drop-shadow-md transition-transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-0"></div>
                     </div>
-                    <div class="p-3 bg-[#141b26]/60">
+                    <div class="p-3 bg-[#141b26]/60 relative z-10">
                         <p class="font-black text-xs text-gray-200 tracking-wide">Mines</p>
                         <p class="text-[10px] text-gray-500 font-medium">PTvip Studio</p>
                     </div>
                 </div>
 
-                <!-- JOGO: DOUBLE -->
                 <div onclick="window.location.href='double.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group">
-                    <div class="aspect-[4/3] bg-gradient-to-br from-amber-500/20 to-gray-900 relative flex items-center justify-center text-4xl">
-                        🎲
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+                    <div class="aspect-[4/3] bg-gradient-to-br from-amber-500/20 to-gray-900 relative flex items-center justify-center">
+                        <img src="assets/icon-dado.png" alt="Ícone 3D Double" class="w-12 h-12 object-contain z-10 drop-shadow-md transition-transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-0"></div>
                     </div>
-                    <div class="p-3 bg-[#141b26]/60">
+                    <div class="p-3 bg-[#141b26]/60 relative z-10">
                         <p class="font-black text-xs text-gray-200 tracking-wide">Double</p>
                         <p class="text-[10px] text-gray-500 font-medium">PTvip Studio</p>
                     </div>
                 </div>
 
-                <!-- JOGO: CRASH -->
                 <div onclick="window.location.href='jogos.html'" class="glass-card border border-gray-800/60 rounded-2xl overflow-hidden shadow-lg cursor-pointer active:scale-95 transition-all group col-span-2">
-                    <div class="aspect-[21/9] bg-gradient-to-br from-blue-600/20 to-gray-900 relative flex items-center justify-center text-4xl">
-                        🚀
-                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors"></div>
+                    <div class="aspect-[21/9] bg-gradient-to-br from-blue-600/20 to-gray-900 relative flex items-center justify-center">
+                        <img src="assets/icon-foguete.png" alt="Ícone 3D Crash" class="w-14 h-14 object-contain z-10 drop-shadow-md transition-transform group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-0"></div>
                     </div>
-                    <div class="p-3 bg-[#141b26]/60 flex justify-between items-center">
+                    <div class="p-3 bg-[#141b26]/60 flex justify-between items-center relative z-10">
                         <div>
                             <p class="font-black text-xs text-gray-200 tracking-wide">Crash</p>
                             <p class="text-[10px] text-gray-500 font-medium">PTvip Studio</p>
@@ -135,7 +123,6 @@
             </div>
         </section>
 
-        <!-- LIVE: GRANDES VITÓRIAS -->
         <section class="glass-card rounded-2xl border border-gray-800/60 overflow-hidden shadow-xl">
             <div class="border-b border-gray-800/60 px-4 py-3 bg-[#141b26]/50">
                 <h3 class="text-[10px] font-black uppercase tracking-widest text-gray-400 flex items-center gap-1.5">
@@ -167,7 +154,6 @@
         </section>
     </main>
 
-    <!-- BARRA DE NAVEGAÇÃO INFERIOR LIMPA -->
     <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
         <button onclick="window.location.href='home.html'" class="flex flex-col items-center gap-1 text-red-500 font-bold text-[10px] w-16">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
@@ -195,23 +181,18 @@
         </button>
     </nav>
 
-        <!-- SCRIPT DO CARROSSEL AUTOMÁTICO E VITÓRIAS EM TEMPO REAL -->
     <script>
-        // --- CONFIGURAÇÃO DO CARROSSEL ---
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.dot');
         let carouselInterval;
 
         function showSlide(index) {
-            // Remove o estado ativo do slide e dot atual
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.replace('bg-white', 'bg-white/40');
             
-            // Atualiza para o novo índice
             currentSlide = index;
             
-            // Ativa o novo slide e dot
             slides[currentSlide].classList.add('active');
             dots[currentSlide].classList.replace('bg-white/40', 'bg-white');
         }
@@ -221,29 +202,23 @@
             showSlide(next);
         }
 
-        // Inicia o autoplay
         function startCarousel() {
-            carouselInterval = setInterval(nextSlide, 4000); // 4 segundos por slide
+            carouselInterval = setInterval(nextSlide, 4000); 
         }
 
-        // Permite clicar nos dots para mudar de slide
         dots.forEach((dot, index) => {
-            dot.style.cursor = 'pointer'; // Deixa o ponteiro visível
+            dot.style.cursor = 'pointer'; 
             dot.addEventListener('click', () => {
-                clearInterval(carouselInterval); // Pausa o automático ao clicar
+                clearInterval(carouselInterval); 
                 showSlide(index);
-                startCarousel(); // Retoma o contador
+                startCarousel(); 
             });
         });
 
-        // Inicializa o carrossel
         startCarousel();
 
-
-        // --- CONFIGURAÇÃO DE VITÓRIAS EM TEMPO REAL (LIVE FEED) ---
-        const listaVitorias = document.querySelector('.divide-y'); // Seleciona o container de vitórias
+        const listaVitorias = document.querySelector('.divide-y'); 
         
-        // Dados para simulação
         const usuarios = ['Rafa***', 'Bruno_vip', 'Gabi_tx', 'Pedro_ok', 'Lucas***', 'Ana_poker', 'Vini_gold', 'Mel_win', 'Kaka99', 'Denis_os'];
         const jogos = [
             { nome: 'Mines', link: 'jogos.html' },
@@ -254,13 +229,10 @@
         function gerarNovaVitoria() {
             if (!listaVitorias) return;
 
-            // Escolhe dados aleatórios
             const usuarioAleatorio = usuarios[Math.floor(Math.random() * usuarios.length)];
             const jogoAleatorio = jogos[Math.floor(Math.random() * jogos.length)];
-            // Gera um valor que parece real (entre R$ 20 e R$ 2500)
             const valorAleatorio = (Math.random() * (2500 - 20) + 20).toFixed(2); 
 
-            // Cria o elemento HTML da nova vitória
             const novoItem = document.createElement('div');
             novoItem.className = "px-4 py-3 flex justify-between items-center bg-[#141b26]/20 opacity-0 transition-opacity duration-500";
             novoItem.innerHTML = `
@@ -274,27 +246,24 @@
                 </div>
             `;
 
-            // Insere no topo da lista
             listaVitorias.insertBefore(novoItem, listaVitorias.firstChild);
 
-            // Efeito de fade-in suave
             setTimeout(() => {
                 novoItem.classList.remove('opacity-0');
             }, 50);
 
-            // Mantém apenas as 4 últimas vitórias na tela para não esticar a página infinitamente
             if (listaVitorias.children.length > 4) {
                 listaVitorias.removeChild(listaVitorias.lastChild);
             }
         }
 
-        // Gera uma nova vitória a cada intervalo de tempo aleatório (entre 3 e 6 segundos)
         function rodarFeedVivo() {
             gerarNovaVitoria();
             const tempoAleatorio = Math.random() * (6000 - 3000) + 3000;
             setTimeout(rodarFeedVivo, tempoAleatorio);
         }
 
-        // Inicia o feed dinâmico após 2 segundos da página aberta
         setTimeout(rodarFeedVivo, 2000);
-            </script>
+    </script>
+</body>
+</html>
