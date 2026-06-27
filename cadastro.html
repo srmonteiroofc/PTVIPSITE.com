@@ -6,74 +6,70 @@
     <title>PTVIP • Cadastro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Fundo gradiente radial premium igual ao do Login */
-        .bg-app-dark { 
-            background: radial-gradient(circle, #2a1111 0%, #000000 100%); 
+        body { 
+            background: radial-gradient(circle, #1a1111 0%, #000000 100%);
+            min-height: 100vh;
         }
-        .gold-text-gradient { 
-            background: linear-gradient(135deg, #FFE082 0%, #D4AF37 50%, #8C6212 100%); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        /* Botão vermelho vibrante puro */
-        .btn-red { 
-            background-color: #ff0000; 
+        .glass-container { 
+            background: #0d0d0d;
+            box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
         }
     </style>
 </head>
-<body class="bg-app-dark text-white font-sans min-h-screen flex flex-col items-center justify-center p-4">
+<body class="text-white font-sans flex flex-col items-center justify-center p-4">
 
     <div class="w-full max-w-sm text-center">
         
-        <div class="mb-6">
-            <h1 class="text-4xl font-black uppercase tracking-wider">PT<span class="text-red-600">VIP</span></h1>
-            <p class="text-amber-500 font-bold text-xs mt-2 uppercase tracking-widest">Jogue. Vença. Seja VIP.</p>
+        <div class="mb-8 flex justify-center">
+            <img src="logo.png" alt="PTVIP" class="h-14 w-auto object-contain">
         </div>
 
-        <div class="w-full border-2 border-red-600 rounded-[24px] p-8 bg-[#0d0d0d] shadow-[0_0_25px_rgba(255,26,26,0.6)] text-left flex flex-col gap-4 h-auto">
+        <div class="glass-container w-full border border-red-900/50 rounded-[24px] p-8 text-left flex flex-col gap-5">
             
             <div class="text-center mb-2">
-                <h2 class="text-2xl font-bold">Criar Conta</h2>
-                <p class="text-gray-400 text-sm mt-1">Cadastre seu e-mail e senha.</p>
+                <h2 class="text-2xl font-black uppercase text-white">Criar Conta</h2>
+                <p class="text-gray-400 text-xs mt-1 uppercase tracking-widest">Cadastre seu e-mail e senha.</p>
             </div>
 
             <form id="cadastroForm" class="space-y-4">
-                <input type="email" id="email" placeholder="Digite seu e-mail" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+                <input type="email" id="email" placeholder="Digite seu e-mail" required 
+                    class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all text-white placeholder-gray-500">
                 
                 <div class="space-y-2">
-                    <input type="password" id="senha" placeholder="Digite sua senha" required class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-500 text-white placeholder-gray-500">
+                    <input type="password" id="senha" placeholder="Digite sua senha" required 
+                        class="w-full bg-[#1a1a1a] border border-neutral-800 rounded-xl p-4 outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all text-white placeholder-gray-500">
                     
                     <div class="text-right">
-                        <a href="recuperar.html" class="text-xs text-gray-400 hover:text-red-500 hover:underline transition-colors">Esqueceu a senha?</a>
+                        <a href="recuperar.html" class="text-[10px] text-gray-500 hover:text-red-500 transition-colors uppercase">Esqueceu a senha?</a>
                     </div>
                 </div>
 
-                <button type="submit" id="criar" class="btn-red w-full py-4 rounded-xl font-black uppercase tracking-widest text-sm text-white active:scale-[0.98] transition-transform">Continuar</button>
+                <button type="submit" id="criar" 
+                    class="w-full py-4 bg-[#ff0000] hover:bg-red-700 rounded-xl font-black uppercase tracking-widest text-sm shadow-lg shadow-red-900/20 active:scale-[0.98] transition-all">
+                    Continuar
+                </button>
                 
-                <button type="button" onclick="window.location.href='index.html'" class="w-full py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-sm active:scale-[0.98] transition-transform">Voltar</button>
+                <button type="button" onclick="window.location.href='index.html'" 
+                    class="w-full py-4 bg-white text-black rounded-xl font-black uppercase tracking-widest text-sm active:scale-[0.98] transition-all">
+                    Voltar
+                </button>
             </form>
 
-            <div class="text-center text-gray-500 text-xs mt-2">
+            <div class="text-center text-gray-600 text-[10px] mt-2 uppercase">
                 Ao continuar você aceita nossos termos.
             </div>
         </div>
     </div>
 
     <script type="module" src="firebase.js"></script>
-
     <script>
-        // Lógica local para validar os campos antes de prosseguir
         document.getElementById('cadastroForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = document.getElementById('email').value;
             const senha = document.getElementById('senha').value;
-
             if (senha.length < 6) {
                 alert('A senha deve ter pelo menos 6 caracteres.');
                 return;
             }
-
-            // Aqui o seu firebase.js entra em ação para criar o usuário de fato
             alert('Enviando dados para o cadastro...');
         });
     </script>
