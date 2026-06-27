@@ -1,52 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>PTVIP</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PTvip - Boas-vindas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #0d121a;
+        }
+        .glass-card {
+            background: rgba(24, 32, 44, 0.75);
+            backdrop-filter: blur(8px);
+        }
+    </style>
 </head>
+<body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
 
-<body>
+    <!-- CARD PRINCIPAL DE ENTRADA -->
+    <div class="w-full max-w-sm glass-card border border-gray-800/80 rounded-3xl p-8 shadow-2xl text-center relative">
+        
+        <!-- LOGO CENTRALIZADA - MAIOR E MAIS CHAMATIVA COM BRILHO DOURADO -->
+        <div class="w-full flex justify-center mb-8">
+            <img src="logo.png" alt="PTvip" class="h-28 w-auto object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.3)] transform scale-110 transition-transform">
+        </div>
 
-<div class="container">
+        <!-- SLOGAN PREMIUM -->
+        <div class="space-y-1 mb-8">
+            <h1 class="text-sm font-black uppercase tracking-[0.25em] text-amber-500">Jogue. Vença.</h1>
+            <p class="text-gray-400 text-[11px] font-bold uppercase tracking-widest">Seja VIP na nossa plataforma</p>
+        </div>
 
-<div class="card">
+        <!-- BOTÕES DE ACESSO -->
+        <div class="space-y-4">
+            
+            <!-- BOTÃO ENTRAR (GRADIENTE PREMIUM) -->
+            <button onclick="window.location.href='login.html'" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99]">
+                Entrar na Conta
+            </button>
 
-<div class="logo">
-<img src="logo.png" alt="PTVIP">
-</div>
+            <!-- BOTÃO CRIAR CONTA (FUNDO ESCURO COM BORDA) -->
+            <button onclick="window.location.href='cadastro.html'" class="w-full py-4 bg-[#0d121a]/80 hover:bg-[#0d121a] border border-gray-800 hover:border-gray-700 text-gray-300 rounded-xl font-black uppercase tracking-wider text-xs transition-all active:scale-[0.99]">
+                Criar Nova Conta
+            </button>
 
-<h1>
-JOGUE. VENÇA.
-<br>
-SEJA VIP.
-</h1>
+        </div>
 
-<div class="buttons">
+        <!-- RODAPÉ DISCRETO -->
+        <div class="mt-8 pt-2 border-t border-gray-800/40">
+            <p class="text-[9px] font-bold text-gray-600 uppercase tracking-widest">Acesso Restrito para Maiores de 18 Anos</p>
+        </div>
 
-<button class="btn entrar" onclick="window.location.href='login.html'">
-ENTRAR
-</button>
+    </div>
 
-<button class="btn criar" onclick="window.location.href='cadastro.html'">
-CRIAR CONTA
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<script type="module" src="Firebase.js"></script>
-
-<script src="script.js"></script>
+    <!-- SCRIPTS ORIGINAIS PRESERVADOS -->
+    <script type="module" src="Firebase.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
