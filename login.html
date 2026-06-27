@@ -3,116 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Login</title>
+    <title>PTVIP • Perfil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            background-color: #0d121a;
+        body { 
+            background-color: #0f141a;
+            min-height: 100vh;
+            color: white;
+            font-family: sans-serif;
         }
-        .glass-card {
-            background: rgba(24, 32, 44, 0.75);
-            backdrop-filter: blur(8px);
+        .card { 
+            background: #1a2027; 
+            border: 1px solid #374151;
+            border-radius: 16px;
         }
+        .btn-deposit {
+            background: #e68a00;
+            color: #000;
+            transition: all 0.3s;
+        }
+        .btn-deposit:hover { background: #d47e00; }
+        .btn-withdraw {
+            background: #2d3748;
+            color: white;
+            transition: all 0.3s;
+        }
+        .btn-withdraw:hover { background: #3d4b5e; }
     </style>
 </head>
-<body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
+<body class="p-4 flex flex-col items-center">
 
-    <div class="w-full max-w-sm glass-card border border-gray-800/80 rounded-3xl p-8 shadow-2xl relative">
-        
-        <div class="w-full flex justify-center mb-6">
-            <img src="logo.png" alt="PTvip" class="h-16 object-contain">
+    <div class="w-full max-w-sm">
+        <!-- Logo -->
+        <div class="mb-6 flex justify-center">
+            <img src="logo.png" alt="PTVIP" class="h-16 w-auto">
         </div>
 
-        <div class="text-center mb-6">
-            <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Entre na sua conta</p>
+        <!-- Header: Nome e Saldo -->
+        <div class="card p-4 flex justify-between items-center mb-4">
+            <div>
+                <p class="text-gray-400 text-[10px] uppercase tracking-widest">Olá,</p>
+                <h3 class="font-bold text-lg">Usuário</h3>
+            </div>
+            <div class="text-right">
+                <p class="text-gray-400 text-[10px] uppercase tracking-widest">Saldo Atual</p>
+                <h3 class="text-[#e68a00] font-bold text-xl">R$ 0,00</h3>
+            </div>
         </div>
 
-        <form id="loginForm" class="space-y-4">
-            
-            <div class="relative">
-                <input type="email" id="loginEmail" placeholder="E-mail" required class="w-full bg-[#0d121a] border border-gray-800/80 rounded-xl p-4 outline-none focus:border-amber-500/50 text-white placeholder-gray-600 text-sm transition-colors">
+        <!-- Área de Nível VIP -->
+        <div class="card p-5">
+            <div class="flex justify-between items-center mb-3">
+                <h3 class="font-black uppercase text-sm">Nível VIP 0</h3>
+                <span class="text-[#e68a00] text-[9px] font-bold uppercase bg-[#e68a00]/10 px-2 py-1 rounded">
+                    +10$ Recompensa
+                </span>
             </div>
             
-            <div class="space-y-3">
-                <input type="password" id="loginPassword" placeholder="Senha" required class="w-full bg-[#0d121a] border border-gray-800/80 rounded-xl p-4 outline-none focus:border-amber-500/50 text-white placeholder-gray-600 text-sm transition-colors">
-                
-                <div class="flex items-center justify-between px-1 text-xs">
-                    <label class="flex items-center gap-2 cursor-pointer text-gray-400 select-none">
-                        <input type="checkbox" id="lembrarUsuario" class="w-4 h-4 rounded border-gray-800 bg-[#0d121a] text-amber-500 accent-amber-500 focus:ring-0 focus:ring-offset-0">
-                        <span>Lembrar usuário</span>
-                    </label>
-                    <a href="recuperar.html" class="text-gray-400 hover:text-amber-500 transition-colors font-medium">Esqueceu a senha?</a>
-                </div>
+            <!-- Barra de Progresso -->
+            <div class="w-full bg-[#0f141a] h-3 rounded-full border border-gray-700 overflow-hidden">
+                <div class="bg-[#e68a00] h-full w-[0%] transition-all duration-500"></div>
             </div>
+            <p class="text-gray-400 text-[10px] mt-2 font-medium">0 / 200 até o próximo nível</p>
+        </div>
 
-            <button type="submit" class="w-full py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99] mt-2">
-                Entrar
+        <!-- Botões de Ação -->
+        <div class="grid grid-cols-2 gap-3 mt-4">
+            <button class="btn-deposit py-4 font-black uppercase text-xs rounded-xl shadow-lg active:scale-[0.98]">
+                Depósito
             </button>
-        </form>
-
-        <p class="text-center text-gray-500 text-xs mt-6 font-medium uppercase tracking-wider">
-            Ainda não tem conta? <a href="cadastro.html" class="text-amber-500 font-black hover:underline tracking-normal normal-case ml-1 transition-colors">Cadastrar-se</a>
-        </p>
+            <button class="btn-withdraw py-4 font-black uppercase text-xs rounded-xl active:scale-[0.98]">
+                Saque
+            </button>
+        </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
-            authDomain: "ptvip-teste.firebaseapp.com",
-            projectId: "ptvip-teste",
-            storageBucket: "ptvip-teste.firebasestorage.app",
-            messagingSenderId: "407028833766",
-            appId: "1:407028833766:web:79d7dbf7ee968944248a27"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
-        const emailInput = document.getElementById('loginEmail');
-        const lembrarCheckbox = document.getElementById('lembrarUsuario');
-
-        // Proteção para o carregamento do LocalStorage
-        document.addEventListener("DOMContentLoaded", () => {
-            try {
-                const emailSalvo = localStorage.getItem('ptvip_usuario_salvo');
-                if (emailSalvo) {
-                    emailInput.value = emailSalvo;
-                    lembrarCheckbox.checked = true;
-                }
-            } catch (e) {
-                console.warn("Acesso ao localStorage bloqueado pelo navegador.");
-            }
-        });
-
-        // Lógica para ouvir o formulário de Login com Firebase
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = emailInput.value;
-            const password = document.getElementById('loginPassword').value;
-
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    // Proteção contra bloqueios de segurança do 'setItem'
-                    try {
-                        if (lembrarCheckbox.checked) {
-                            localStorage.setItem('ptvip_usuario_salvo', email);
-                        } else {
-                            localStorage.removeItem('ptvip_usuario_salvo');
-                        }
-                    } catch (e) {
-                        console.warn("Não foi possível salvar a preferência 'Lembrar usuário' neste navegador.");
-                    }
-
-                    // Login efetuado com sucesso -> vai para a home
-                    window.location.href = "home.html";
-                })
-                .catch((error) => {
-                    alert("Erro ao entrar: " + error.message);
-                });
-        });
-    </script>
 </body>
 </html>
