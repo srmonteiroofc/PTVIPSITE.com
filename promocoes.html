@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
-
-<title>PTvip • Promoções</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
+<!-- MANTENHA TODO O SEU HTML ATUAL -->
+<!-- SÓ TROQUE O <style> PELO ABAIXO -->
 
 <style>
 
@@ -18,34 +7,209 @@ body{
 background:
 linear-gradient(
 180deg,
-#09131d,
-#0c1825,
-#09131d
+#08111b,
+#101a28,
+#08111b
 );
 }
 
 .card{
+
 background:
-rgba(18,28,40,.92);
+linear-gradient(
+180deg,
+rgba(22,31,44,.96),
+rgba(15,22,31,.96)
+);
+
+border:
+1px solid rgba(255,255,255,.06);
+
+backdrop-filter:
+blur(14px);
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.35);
+
+transition:.25s;
+
+}
+
+.card:active{
+
+transform:
+scale(.985);
+
+}
+
+.modal{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+align-items:end;
+
+opacity:0;
+
+pointer-events:none;
+
+background:
+
+rgba(0,0,0,.2);
+
+backdrop-filter:
+
+blur(0px);
+
+transition:.35s;
+
+z-index:100;
+
+}
+
+.modal.show{
+
+opacity:1;
+
+pointer-events:auto;
 
 backdrop-filter:
 blur(10px);
 
-border:
-1px solid rgba(255,255,255,.06);
 }
 
-.modal{
-display:none;
-}
+.sheet{
 
-.modal.show{
-display:flex;
-}
+width:100%;
 
-.premium{
+max-width:430px;
+
+margin:auto;
+
+padding:28px;
+
+border-radius:
+
+34px 34px 0 0;
 
 background:
+
+linear-gradient(
+180deg,
+#1b2737,
+#101722
+);
+
+border-top:
+
+1px solid rgba(255,180,0,.15);
+
+transform:
+
+translateY(100%);
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.modal.show .sheet{
+
+transform:
+translateY(0);
+
+}
+
+.sheet::before{
+
+content:"";
+
+position:absolute;
+
+top:-140px;
+
+right:-80px;
+
+width:260px;
+
+height:260px;
+
+border-radius:999px;
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,180,0,.18),
+transparent
+);
+
+}
+
+.drag{
+
+width:70px;
+
+height:6px;
+
+border-radius:999px;
+
+background:#3b4554;
+
+margin:auto;
+
+margin-bottom:24px;
+
+}
+
+.action{
+
+width:100%;
+
+padding:18px;
+
+border-radius:18px;
+
+font-weight:900;
+
+background:
+
+linear-gradient(
+135deg,
+#ffb000,
+#ff7900
+);
+
+color:black;
+
+box-shadow:
+
+0 15px 40px rgba(255,150,0,.2);
+
+}
+
+.action:active{
+
+transform:scale(.98);
+
+}
+
+.reward{
+
+padding:20px;
+
+border-radius:22px;
+
+margin-top:20px;
+
+background:
+
 linear-gradient(
 135deg,
 #ffb000,
@@ -54,303 +218,86 @@ linear-gradient(
 
 color:black;
 
+font-weight:900;
+
+}
+
+.close{
+
+margin-top:16px;
+
+color:#8893a5;
+
 }
 
 </style>
+<div id="bau" class="modal">
 
-</head>
+<div class="sheet">
 
-<body
-class="
-text-white
-pb-28">
+<div class="drag"></div>
 
-<!-- HEADER -->
+<h2 class="text-3xl font-black">
 
-<header
-class="
-sticky
-top-0
-z-40
+🧰 Baú Diário
 
-bg-[#101722]
+</h2>
 
-border-b
+<p class="text-gray-400 mt-2">
 
-border-gray-800">
+Abra um baú por dia e receba bônus.
 
-<div
-class="
-max-w-md
+</p>
 
-mx-auto
+<div class="reward">
 
-p-5">
+🎁 Recompensa disponível
 
-<img
-src="logo.png"
+<div class="text-4xl mt-2">
 
-class="
-h-14
-mx-auto">
+R$ 3,00
 
 </div>
 
-</header>
+</div>
 
+<div class="mt-5">
 
-
-<!-- CONTEÚDO -->
-
-<main
-class="
-max-w-md
-
-mx-auto
-
-p-5
-
-space-y-4">
+<div class="h-3 bg-black rounded-full">
 
 <div
 class="
-text-center">
+h-full
+w-[45%]
 
-<h1
-class="
-text-3xl
+bg-gradient-to-r
 
-font-black">
+from-yellow-500
 
-PROMOÇÕES
+to-orange-500">
 
-</h1>
+</div>
 
-<p
-class="
-text-gray-500">
+</div>
 
-Ganhe bônus e recompensas
+<p class="text-xs text-gray-500 mt-2">
+
+45% para o próximo prêmio
 
 </p>
 
 </div>
 
-
-
-<button
-
-onclick="openModal('bau')"
-
-class="
-card
-
-w-full
-
-rounded-3xl
-
-p-6
-
-flex
-
-justify-between">
-
-<div>
-
-<div class="text-xl">
-🧰
-</div>
-
-<h2 class="font-black">
-Baú Diário
-</h2>
-
-</div>
-
-<div>
-›
-</div>
-
-</button>
-
-
-
-<button
-
-onclick="openModal('convite')"
-
-class="
-card
-
-w-full
-
-rounded-3xl
-
-p-6
-
-flex
-
-justify-between">
-
-<div>
-
-🎁
-
-<h2 class="font-black">
-
-Convide e Ganhe
-
-</h2>
-
-</div>
-
-<div>
-›
-</div>
-
-</button>
-
-
-
-<button
-
-onclick="openModal('vip')"
-
-class="
-card
-
-w-full
-
-rounded-3xl
-
-p-6
-
-flex
-
-justify-between">
-
-<div>
-
-🏆
-
-<h2 class="font-black">
-
-Programa VIP
-
-</h2>
-
-</div>
-
-<div>
-›
-</div>
-
-</button>
-
-
-
-<button
-
-onclick="openModal('historico')"
-
-class="
-card
-
-w-full
-
-rounded-3xl
-
-p-6
-
-flex
-
-justify-between">
-
-<div>
-
-📜
-
-<h2 class="font-black">
-
-Histórico
-
-</h2>
-
-</div>
-
-<div>
-›
-</div>
-
-</button>
-
-</main>
-
-
-
-<!-- MODAIS -->
-
-<div
-id="bau"
-
-class="
-modal
-
-fixed
-
-inset-0
-
-bg-black/80
-
-items-end">
-
-<div
-class="
-card
-
-rounded-t-[40px]
-
-w-full
-
-p-6">
-
-<h2 class="text-2xl font-black">
-
-🧰 BAÚ DIÁRIO
-
-</h2>
-
-<p class="text-gray-400 mt-3">
-
-Abra um baú por dia.
-
-</p>
-
-<button
-
-class="
-premium
-
-w-full
-
-mt-6
-
-py-4
-
-rounded-2xl">
+<button class="action">
 
 ABRIR BAÚ
 
 </button>
 
 <button
-
 onclick="closeModal()"
 
-class="
-w-full
-
-mt-3">
+class="close">
 
 Fechar
 
@@ -359,384 +306,3 @@ Fechar
 </div>
 
 </div>
-
-
-
-<div
-id="convite"
-
-class="
-modal
-
-fixed
-
-inset-0
-
-bg-black/80
-
-items-end">
-
-<div
-class="
-card
-
-rounded-t-[40px]
-
-w-full
-
-p-6">
-
-<h2 class="text-2xl font-black">
-
-🎁 CONVIDE
-
-</h2>
-
-<div
-class="
-mt-5
-
-bg-black
-
-rounded-3xl
-
-p-8
-
-text-center">
-
-QR
-
-</div>
-
-<div
-class="
-mt-4
-
-card
-
-rounded-2xl
-
-p-4">
-
-PTVIP2026
-
-</div>
-
-<button
-
-class="
-premium
-
-w-full
-
-mt-5
-
-py-4
-
-rounded-2xl">
-
-COPIAR CÓDIGO
-
-</button>
-
-<button
-onclick="closeModal()"
-
-class="
-w-full
-
-mt-3">
-
-Fechar
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<div
-id="vip"
-
-class="
-modal
-
-fixed
-
-inset-0
-
-bg-black/80
-
-items-end">
-
-<div
-class="
-card
-
-rounded-t-[40px]
-
-w-full
-
-p-6">
-
-<h2 class="text-2xl font-black">
-
-🏆 VIP 0
-
-</h2>
-
-<p class="mt-3 text-gray-400">
-
-Conta nova.
-
-</p>
-
-<div
-class="
-h-3
-
-bg-black
-
-rounded-full
-
-mt-5">
-
-<div
-class="
-h-full
-
-w-0
-
-bg-red-500">
-
-</div>
-
-</div>
-
-<button
-onclick="closeModal()"
-
-class="
-w-full
-
-mt-6">
-
-Fechar
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<div
-id="historico"
-
-class="
-modal
-
-fixed
-
-inset-0
-
-bg-black/80
-
-items-end">
-
-<div
-class="
-card
-
-rounded-t-[40px]
-
-w-full
-
-p-6">
-
-<h2 class="text-2xl font-black">
-
-📜 HISTÓRICO
-
-</h2>
-
-<div
-class="
-mt-5
-
-space-y-3">
-
-<div class="card p-4 rounded-2xl">
-
-Nenhuma recompensa
-
-</div>
-
-</div>
-
-<button
-onclick="closeModal()"
-
-class="
-w-full
-
-mt-5">
-
-Fechar
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- NAV -->
-
-<nav
-
-class="
-fixed
-
-bottom-0
-
-left-0
-
-right-0
-
-bg-[#101722]
-
-border-t
-
-border-gray-800">
-
-<div
-class="
-max-w-md
-
-mx-auto
-
-flex
-
-justify-around
-
-py-3">
-
-<button onclick="window.location='home.html'">
-🏠
-</button>
-
-<button class="text-red-500">
-🎁
-</button>
-
-<button onclick="window.location='depositar-metodo.html'">
-💳
-</button>
-
-<button onclick="window.location='sacar.html'">
-💰
-</button>
-
-<button onclick="window.location='perfil.html'">
-👤
-</button>
-
-</div>
-
-</nav>
-
-
-
-<script type="module">
-
-import{
-initializeApp
-}
-
-from
-"https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-
-import{
-getAuth
-}
-
-from
-"https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-
-const firebaseConfig={
-
-apiKey:"AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
-
-authDomain:
-"ptvip-teste.firebaseapp.com",
-
-projectId:
-"ptvip-teste",
-
-storageBucket:
-"ptvip-teste.firebasestorage.app",
-
-messagingSenderId:
-"407028833766",
-
-appId:
-"1:407028833766:web:79d7dbf7ee968944248a27"
-
-};
-
-
-initializeApp(
-firebaseConfig
-);
-
-getAuth();
-
-</script>
-
-
-<script>
-
-function openModal(id){
-
-document
-.getElementById(id)
-
-.classList
-
-.add(
-"show"
-);
-
-}
-
-function closeModal(){
-
-document
-
-.querySelectorAll(
-".modal"
-)
-
-.forEach(
-
-m=>
-
-m.classList.remove(
-"show"
-)
-
-);
-
-}
-
-</script>
-
-</body>
-
-</html>
