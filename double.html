@@ -7,29 +7,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { 
-            background-color: #050505; 
+            background-color: #0d0d0d; 
             color: #ffffff; 
             font-family: 'Segoe UI', Roboto, sans-serif; 
         }
+        /* Estilização Premium para os Quadrados dos Números */
         .numero {
-            width: 80px;
-            height: 80px;
-            border-radius: 10px;
+            width: 70px;
+            height: 70px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 800;
             flex-shrink: 0;
-            margin: 0 8px;
+            margin: 0 5px; /* Espaçamento fixo e controlado */
+            box-shadow: inset 0 2px 4px rgba(255,255,255,0.1), 0 4px 10px rgba(0,0,0,0.4);
+            transition: transform 0.2s;
         }
-        .vermelho { background-color: #dc2626; color: white; }
-        .preto { background-color: #1f2937; color: white; border: 1px solid #374151; }
-        .branco { background-color: #ffffff; color: #000000; }
-        #faixaNumeros {
-            transition: transform 0.05s linear;
+        .vermelho { background: linear-gradient(135deg, #ef4444, #b91c1c); color: white; }
+        .preto { background: linear-gradient(135deg, #374151, #1f2937); color: white; border: 1px solid #4b5563; }
+        .branco { background: linear-gradient(135deg, #ffffff, #e5e7eb); color: #000000; }
+        
+        /* Borda dourada sutil para elementos VIP */
+        .gold-border { 
+            border: 1px solid rgba(245, 158, 11, 0.15); 
+            background: #141414;
         }
-        .gold-border { border: 1px solid rgba(212, 175, 55, 0.2); }
     </style>
 </head>
 <body class="pb-24">
@@ -37,58 +42,86 @@
     <div class="max-w-md mx-auto pt-6 px-4">
         <!-- Cabeçalho -->
         <div class="flex justify-between items-center mb-6">
-            <a href="Jogos.html" class="text-gray-400 text-xl">⬅️</a>
-            <h1 class="text-xl font-bold text-amber-400">🎯 Double</h1>
+            <a href="Jogos.html" class="text-gray-400 text-xl hover:text-white transition">⬅️</a>
+            <h1 class="text-xl font-black uppercase tracking-wider text-amber-500 flex items-center gap-2">
+                <span class="animate-pulse">🎯</span> Double VIP
+            </h1>
             <div></div>
         </div>
 
         <!-- Saldo -->
-        <div class="bg-[#111] rounded-xl p-4 gold-border mb-6">
-            <p class="text-sm text-gray-400">Saldo disponível</p>
-            <p id="saldo" class="text-2xl font-bold text-green-400">R$ 1.000,00</p>
+        <div class="rounded-2xl p-4 gold-border mb-6 flex justify-between items-center shadow-2xl">
+            <div>
+                <p class="text-xs uppercase tracking-wider text-gray-500 font-bold">Saldo disponível</p>
+                <p id="saldo" class="text-2xl font-black text-emerald-400 mt-0.5">R$ 1.000,00</p>
+            </div>
+            <div class="bg-emerald-500/10 text-emerald-400 p-2 rounded-lg text-sm font-bold">
+                BRL 🇧🇷
+            </div>
         </div>
 
-        <!-- Área do Jogo -->
-        <div id="areaJogo" class="bg-[#111] rounded-xl p-6 gold-border mb-6 relative overflow-hidden h-40 flex items-center justify-center">
-            <p id="status" class="text-center text-lg text-gray-300">Clique em Girar para começar</p>
-            <div id="faixaNumeros" class="flex absolute"></div>
-            <div class="absolute top-0 bottom-0 left-1/2 w-1 bg-amber-400 z-10"></div>
+        <!-- Área do Jogo (Roleta Estilizada) -->
+        <div class="relative mb-6">
+            <!-- Marcador/Ponteiro Central Superior -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[12px] border-t-amber-400 z-20 drop-shadow-[0_2px_5px_rgba(245,158,11,0.5)]"></div>
+            
+            <!-- Janela de Visualização da Roleta -->
+            <div id="areaJogo" class="rounded-2xl p-0 gold-border h-32 flex items-center relative overflow-hidden shadow-inner border-2 border-neutral-800">
+                
+                <!-- Faixa que vai correr (Alinhada perfeitamente ao centro vertical) -->
+                <div id="faixaNumeros" class="flex items-center absolute left-0 wrapper"></div>
+                
+                <!-- Linha de Alvo Central Vertical -->
+                <div class="absolute top-0 bottom-0 left-1/2 w-0.5 bg-amber-400/80 z-10 shadow-[0_0_8px_#f59e0b]"></div>
+            </div>
+            
+            <!-- Marcador/Ponteiro Central Inferior -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[12px] border-b-amber-400 z-20 drop-shadow-[0_-2px_5px_rgba(245,158,11,0.5)]"></div>
         </div>
+
+        <!-- Status do Jogo -->
+        <p id="status" class="text-center text-sm font-semibold tracking-wide text-gray-400 uppercase mb-4">Aguardando sua aposta...</p>
 
         <!-- Controles -->
         <div class="grid grid-cols-2 gap-4 mb-6">
-            <div>
-                <label class="text-xs text-gray-400 mb-1 block">Valor da Aposta</label>
-                <input type="number" id="valorAposta" min="0.50" step="0.50" value="10" class="w-full bg-[#1a1a1a] border border-neutral-700 rounded-lg p-3 text-white outline-none focus:border-amber-500">
+            <div class="bg-[#141414] p-3 rounded-xl border border-neutral-800">
+                <label class="text-[10px] uppercase font-bold tracking-wider text-gray-400 mb-1 block">Quantia</label>
+                <div class="flex items-center">
+                    <span class="text-gray-500 font-bold mr-1 text-sm">R$</span>
+                    <input type="number" id="valorAposta" min="0.50" step="0.50" value="10.00" class="w-full bg-transparent text-white font-bold text-lg outline-none">
+                </div>
             </div>
-            <div>
-                <label class="text-xs text-gray-400 mb-1 block">Escolher Cor</label>
-                <select id="corEscolhida" class="w-full bg-[#1a1a1a] border border-neutral-700 rounded-lg p-3 text-white outline-none focus:border-amber-500">
-                    <option value="vermelho">Vermelho (x2)</option>
-                    <option value="preto">Preto (x2)</option>
-                    <option value="branco">Branco (x14)</option>
+            <div class="bg-[#141414] p-3 rounded-xl border border-neutral-800">
+                <label class="text-[10px] uppercase font-bold tracking-wider text-gray-400 mb-1 block">Selecione a Cor</label>
+                <select id="corEscolhida" class="w-full bg-transparent text-white font-bold text-sm outline-none cursor-pointer">
+                    <option value="vermelho" class="bg-neutral-900 text-red-400">🔴 Vermelho (x2)</option>
+                    <option value="preto" class="bg-neutral-900 text-gray-400">⚫ Preto (x2)</option>
+                    <option value="branco" class="bg-neutral-900 text-amber-400">⚪ Branco (x14)</option>
                 </select>
             </div>
         </div>
 
-        <button id="botaoGirar" class="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-4 rounded-xl text-lg transition shadow-lg shadow-red-900/20">
-            Girar
+        <button id="botaoGirar" class="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-neutral-950 font-black py-4 rounded-xl text-lg uppercase tracking-wider transition-all transform active:scale-95 shadow-lg shadow-amber-500/10">
+            Começar Giro
         </button>
 
-        <p id="resultado" class="mt-6 text-center text-lg font-medium"></p>
+        <!-- Resultado -->
+        <div class="h-12 flex items-center justify-center mt-4">
+            <p id="resultado" class="text-center text-lg font-bold tracking-wide"></p>
+        </div>
     </div>
 
     <!-- Barra de navegação inferior -->
-    <div class="fixed bottom-0 left-0 right-0 bg-[#0a0a0a] border-t border-neutral-900 h-16 flex justify-around items-center z-50">
+    <div class="fixed bottom-0 left-0 right-0 bg-[#0a0a0a]/90 backdrop-blur-md border-t border-neutral-900 h-16 flex justify-around items-center z-50">
         <a href="home.html" class="flex flex-col items-center text-gray-500 hover:text-white transition">
             <span class="text-xl">🏠</span>
             <span class="text-[9px] mt-1">Início</span>
         </a>
-        <a href="Jogos.html" class="flex flex-col items-center text-red-500 hover:text-red-400 transition">
+        <a href="Jogos.html" class="flex flex-col items-center text-amber-500 transition">
             <span class="text-xl">🎮</span>
             <span class="text-[9px] mt-1">Jogos</span>
         </a>
-        <a href="Depositar-valor.html" class="bg-red-600 p-3 rounded-full -mt-8 border-4 border-[#050505] shadow-lg shadow-red-900/40 hover:bg-red-700 transition">
+        <a href="Depositar-valor.html" class="bg-amber-500 p-3 rounded-full -mt-8 border-4 border-[#0d0d0d] shadow-lg shadow-amber-500/20 hover:bg-amber-600 transition text-neutral-950 font-bold">
             💳
         </a>
         <a href="Promocoes.html" class="flex flex-col items-center text-gray-500 hover:text-white transition">
@@ -102,7 +135,6 @@
     </div>
 
     <script>
-        // Configurações do jogo
         let saldo = 1000;
         const numeros = [1,2,3,4,5,6,7,8,9,10,11,12];
         const cores = {
@@ -111,9 +143,8 @@
             7: 'vermelho', 8: 'preto', 9: 'vermelho',
             10: 'preto', 11: 'vermelho', 12: 'preto'
         };
-        const multiplicadores = { vermelho: 2, preto: 2, branco: 14 };
+        const multiplicadores = { vermelho: 2, preto: 2, white: 14, branco: 14 };
 
-        // Elementos da tela
         const saldoEl = document.getElementById('saldo');
         const faixaEl = document.getElementById('faixaNumeros');
         const statusEl = document.getElementById('status');
@@ -121,16 +152,19 @@
         const valorInput = document.getElementById('valorAposta');
         const corSelect = document.getElementById('corEscolhida');
         const resultadoEl = document.getElementById('resultado');
+        const areaJogoEl = document.getElementById('areaJogo');
 
-        // Atualiza o saldo na tela
+        // TAMANHO MATEMÁTICO REAL DO QUADRADO: 70px de largura + 10px de margens laterais totais (5px de cada lado) = 80px
+        const LARGURA_ITEM = 80; 
+
         function atualizarSaldo() {
-            saldoEl.textContent = `R$ ${saldo.toFixed(2).replace('.', ',')}`;
+            saldoEl.textContent = `R$ ${saldo.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
         }
 
-        // Monta a faixa de números
         function montarFaixa() {
             faixaEl.innerHTML = '';
-            for (let i = 0; i < 3; i++) {
+            // Geramos 40 blocos de repetição para dar bastante espaço de rolagem fluida
+            for (let i = 0; i < 40; i++) {
                 numeros.forEach(num => {
                     const div = document.createElement('div');
                     div.className = `numero ${cores[num]}`;
@@ -138,75 +172,95 @@
                     faixaEl.appendChild(div);
                 });
             }
-            faixaEl.style.transform = `translateX(-${12 * 96}px)`;
+            // Centraliza no primeiro item de um bloco do meio
+            const meioInicial = 15 * numeros.length * LARGURA_ITEM;
+            faixaEl.style.transform = `translateX(${(areaJogoEl.offsetWidth / 2) - (LARGURA_ITEM / 2) - meioInicial}px)`;
         }
 
-        // Função principal de girar
         function girar() {
             const valor = Number(valorInput.value);
             const corEscolhida = corSelect.value;
 
             if (valor <= 0 || valor > saldo) {
-                resultadoEl.textContent = '❌ Valor inválido ou saldo insuficiente!';
-                resultadoEl.className = 'text-red-400';
+                resultadoEl.textContent = '❌ Saldo insuficiente ou valor inválido!';
+                resultadoEl.className = 'text-red-400 font-bold';
                 return;
             }
 
             saldo -= valor;
             atualizarSaldo();
             resultadoEl.textContent = '';
-            statusEl.textContent = 'Girando...';
+            statusEl.textContent = '🎰 Roleta girando...';
             botaoGirar.disabled = true;
-            botaoGirar.classList.add('opacity-50');
+            botaoGirar.classList.add('opacity-40', 'cursor-not-allowed');
 
-            const resultadoFinal = numeros[Math.floor(Math.random() * numeros.length)];
+            const indiceSorteado = Math.floor(Math.random() * numeros.length);
+            const resultadoFinal = numeros[indiceSorteado];
             const corResultado = cores[resultadoFinal];
 
-            let posicao = 12 * 96;
-            const duracao = 2800;
+            // Rola até a repetição de número 25 para criar o efeito visual de velocidade
+            const blocoDestino = 25;
+            const totalItensAtras = (blocoDestino * numeros.length) + indiceSorteado;
+            
+            // Centralização milimétrica baseada no tamanho dinâmico do container do usuário
+            const centroDoAlvo = areaJogoEl.offsetWidth / 2;
+            const metadeDoQuadrado = LARGURA_ITEM / 2;
+            const destinoFinalX = (totalItensAtras * LARGURA_ITEM) - centroDoAlvo + metadeDoQuadrado;
+
+            let posicaoAtual = 15 * numeros.length * LARGURA_ITEM; // Começa de onde estava antes
+            const duracao = 5000; // 5 segundos de pura adrenalina cinematográfica
             const inicio = Date.now();
 
             const animar = setInterval(() => {
                 const decorrido = Date.now() - inicio;
                 const progresso = Math.min(decorrido / duracao, 1);
-                const velocidade = 1 - Math.pow(progresso, 3);
-                posicao += 10 * velocidade;
-                faixaEl.style.transform = `translateX(-${posicao}px)`;
+                
+                // Suavização ultra realista de frenagem (Quintic Ease Out)
+                const suavizacao = 1 - Math.pow(1 - progresso, 5);
+                const frameX = posicaoAtual + (destinoFinalX - posicaoAtual) * suavizacao;
+                
+                faixaEl.style.transform = `translateX(${-frameX}px)`;
 
                 if (progresso === 1) {
                     clearInterval(animar);
-                    finalizar(resultadoFinal, corResultado, corEscolhida, valor);
+                    finalizar(resultadoFinal, corResultado, corEscolhida, valor, destinoFinalX);
                 }
             }, 16);
         }
 
-        // Finaliza e mostra o resultado
-        function finalizar(numero, cor, escolha, valor) {
-            statusEl.textContent = `Resultado: ${numero} • ${cor.toUpperCase()}`;
-            let mensagem = '';
-
+        function finalizar(numero, cor, escolha, valor, ultimaPosicaoX) {
+            statusEl.textContent = `Sorteado: Número ${numero} (${cor.toUpperCase()})`;
+            
             if (cor === escolha) {
                 const ganho = valor * multiplicadores[cor];
                 saldo += ganho;
-                mensagem = `✅ Você ganhou R$ ${ganho.toFixed(2).replace('.', ',')}!`;
-                resultadoEl.className = 'text-green-400';
+                resultadoEl.textContent = `🎉 VITÓRIA! Ganhou R$ ${ganho.toFixed(2).replace('.', ',')}`;
+                resultadoEl.className = 'text-emerald-400 font-black tracking-wider animate-bounce';
             } else {
-                mensagem = `❌ Você perdeu R$ ${valor.toFixed(2).replace('.', ',')}`;
-                resultadoEl.className = 'text-red-400';
+                resultadoEl.textContent = `💥 Perdeu R$ ${valor.toFixed(2).replace('.', ',')}. Tente novamente!`;
+                resultadoEl.className = 'text-rose-500 font-bold';
             }
 
             atualizarSaldo();
-            resultadoEl.textContent = mensagem;
             botaoGirar.disabled = false;
-            botaoGirar.classList.remove('opacity-50');
+            botaoGirar.classList.remove('opacity-40', 'cursor-not-allowed');
+
+            // Prepara a roleta matematicamente para o próximo giro sem dar pulos bruscos na tela
+            setTimeout(() => {
+                const indiceSimples = numeros.indexOf(numero);
+                const resetX = (15 * numeros.length + indiceSimples) * LARGURA_ITEM - (areaJogoEl.offsetWidth / 2) + (LARGURA_ITEM / 2);
+                faixaEl.style.transform = `translateX(${-resetX}px)`;
+            }, 600);
         }
 
-        // Inicializa o jogo
         window.addEventListener('load', () => {
             montarFaixa();
             atualizarSaldo();
             botaoGirar.addEventListener('click', girar);
         });
+        
+        // Garante que se o usuário girar o celular ou mudar o tamanho da janela, os números se reajustem
+        window.addEventListener('resize', montarFaixa);
     </script>
 </body>
 </html>
