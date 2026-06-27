@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Método de Depósito</title>
+    <title>PTvip - Selecionar Método</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
@@ -15,77 +15,53 @@
         }
     </style>
 </head>
-<body class="text-white font-sans min-h-screen flex flex-col pb-24 select-none">
+<body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
 
-    <header class="bg-[#141b26] border-b border-gray-800/60 px-4 py-4 flex items-center justify-between sticky top-0 z-50">
-        <button onclick="window.location.href='home.html'" class="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
-        </button>
-        <h1 class="text-md font-black uppercase tracking-widest text-gray-200">Depositar</h1>
-        <div class="w-6"></div> 
-    </header>
-
-    <main class="flex-1 w-full max-w-md mx-auto px-4 py-6 space-y-4">
+    <!-- CARD PRINCIPAL DE DEPÓSITO -->
+    <div class="w-full max-w-md glass-card border border-gray-800/80 rounded-3xl p-6 shadow-2xl relative">
         
-        <div class="space-y-1">
-            <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Escolha uma opção de depósito</p>
-            <p class="text-[11px] text-gray-500">Selecione o provedor para continuar para os valores.</p>
+        <!-- HEADER DO CARD COM SETA PARA HOME -->
+        <div class="flex items-center justify-between mb-6">
+            <button onclick="window.location.href='home.html'" class="w-9 h-9 rounded-full bg-[#141b26] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <span class="text-[10px] font-black uppercase tracking-widest text-gray-500">Forma de Depósito</span>
+            <div class="w-9"></div>
         </div>
 
-        <div class="space-y-3">
-            
-            <div onclick="window.location.href='Depositar-valor.html'" class="glass-card border border-red-600/40 hover:border-red-600 rounded-2xl p-5 flex items-center justify-between cursor-pointer transition-all active:scale-[0.99] group shadow-xl">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-red-600/10 border border-red-600/30 rounded-xl flex items-center justify-center text-emerald-400 font-black text-xl">
-                        ❖
-                    </div>
-                    <div>
-                        <h3 class="font-black text-sm tracking-wide group-hover:text-red-500 transition-colors">PIX - Paybrokers</h3>
-                        <p class="text-gray-400 text-[11px] mt-0.5">Depósito instantâneo • Mínimo R$ 10</p>
-                    </div>
-                </div>
-                <div class="text-gray-500 group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
-                </div>
-            </div>
-
-            <div class="glass-card border border-gray-800/60 rounded-2xl p-5 flex items-center justify-between opacity-40 cursor-not-allowed">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 bg-gray-800 border border-gray-700 rounded-xl flex items-center justify-center text-gray-500 font-black text-xl">
-                        ❖
-                    </div>
-                    <div>
-                        <h3 class="font-black text-sm tracking-wide text-gray-400">PIX - Zrobank</h3>
-                        <p class="text-gray-500 text-[11px] mt-0.5">Em manutenção temporária</p>
-                    </div>
-                </div>
-                <div class="text-gray-600 text-xs font-bold uppercase tracking-wider">
-                    Off
-                </div>
-            </div>
-
+        <!-- LOGO CENTRALIZADA -->
+        <div class="w-full flex justify-center mb-8">
+            <img src="logo.png" alt="PTvip" class="h-14 object-contain">
         </div>
 
-    </main>
+        <p class="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider text-center">Selecione o método de pagamento</p>
 
-    <nav class="bg-[#141b26] border-t border-gray-800/80 fixed bottom-0 left-0 right-0 py-2 px-4 flex justify-around items-center z-50 max-w-md mx-auto shadow-2xl">
-        <button onclick="window.location.href='home.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
-            <span>Início</span>
-        </button>
-        <button onclick="window.location.href='Jogos.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span>Jogos</span>
-        </button>
-        <button onclick="window.location.href='promocoes.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0H8m12 3v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7m16 0H4"></path></svg>
-            <span>Promoções</span>
-        </button>
-        <button onclick="window.location.href='Perfil.html'" class="flex flex-col items-center gap-1 text-gray-400 hover:text-gray-200 text-[10px] w-16 transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 01-8 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-            <span>Perfil</span>
-        </button>
-    </nav>
+        <!-- OPÇÃO PIX DISPONÍVEL (ESTILO PREMIUM CLARO/ESCURO) -->
+        <div onclick="window.location.href='depositar-valor.html'" class="w-full bg-[#0d121a] border border-amber-500/30 hover:border-amber-500 rounded-2xl p-4 flex items-center justify-between cursor-pointer transition-all shadow-lg shadow-amber-950/5 group">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-amber-500/10 border border-amber-500/20 rounded-xl flex items-center justify-center text-xl">
+                    ⚡
+                </div>
+                <div class="text-left">
+                    <h3 class="text-sm font-black text-gray-200 uppercase tracking-wide">Pix Instantâneo</h3>
+                    <p class="text-[11px] text-gray-500 font-medium">Aprovação imediata • Sem taxas</p>
+                </div>
+            </div>
+            <div class="text-amber-500 group-hover:translate-x-1 transition-transform">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- NOTA DE SEGURANÇA -->
+        <div class="mt-8 flex items-center justify-center gap-2 text-[10px] text-gray-600 font-bold uppercase tracking-wider">
+            <span>🛡️ Ambiente 100% Criptografado e Seguro</span>
+        </div>
+
+    </div>
 
 </body>
 </html>
