@@ -1,100 +1,150 @@
-<!-- PERFIL -->
-<div class="space-y-4">
+<style>
 
-<!-- USUÁRIO -->
-<div class="glass-card rounded-3xl p-5 border border-gray-800">
+@keyframes glow{
 
-<div class="flex items-center gap-4">
+0%{
+box-shadow:
+0 0 0 rgba(245,158,11,.15);
+}
 
-<div
-class="
-w-16
-h-16
-rounded-2xl
+50%{
+box-shadow:
+0 0 40px rgba(245,158,11,.22);
+}
 
-bg-gradient-to-br
-from-amber-500
-to-amber-700
+100%{
+box-shadow:
+0 0 0 rgba(245,158,11,.15);
+}
 
-flex
-items-center
-justify-center
+}
 
-text-3xl
+@keyframes shine{
 
-shadow-[0_0_30px_rgba(245,158,11,.25)]">
+0%{
+transform:
+translateX(-140%);
+}
 
-👑
+100%{
+transform:
+translateX(220%);
+}
 
-</div>
+}
 
-<div class="flex-1">
+@keyframes loadBar{
 
-<p class="text-gray-500 text-[11px] uppercase">
-Usuário
-</p>
+from{
+width:0%;
+}
 
-<h2
-id="userEmail"
+to{
+width:0%;
+}
 
-class="
-text-xl
-font-black
-text-white">
+}
 
-Carregando...
+@keyframes rotate{
 
-</h2>
+100%{
+transform:
+rotate(360deg);
+}
 
-<p
-class="
-text-xs
-text-gray-500">
+}
 
-ID #
+.saldo-card{
 
-<span id="userId">
+animation:
+glow 3s infinite;
 
-000000
+position:relative;
 
-</span>
+overflow:hidden;
 
-</p>
+}
 
-</div>
+.saldo-card::before{
 
-<div
-class="
-px-3
-py-1
+content:"";
 
-rounded-full
+position:absolute;
 
-bg-amber-500/10
+top:0;
 
-border
-border-amber-500/30">
+left:0;
 
-<span
-class="
-text-[11px]
-font-black
-text-amber-400">
+width:80px;
 
-VIP 0
+height:100%;
 
-</span>
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.05),
+transparent
+);
 
-</div>
+animation:
+shine 4s linear infinite;
 
-</div>
+}
 
-</div>
+.vip-banner{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.vip-banner::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(
+130deg,
+transparent,
+rgba(245,158,11,.08),
+transparent
+);
+
+animation:
+shine 6s linear infinite;
+
+}
+
+.vip-progress{
+
+animation:
+loadBar 1.5s ease;
+
+}
+
+.reload:hover{
+
+animation:
+rotate .8s linear;
+
+}
+
+</style>
 
 
 <!-- SALDO -->
 <div
+
 class="
+saldo-card
+
 glass-card
 
 rounded-3xl
@@ -102,9 +152,10 @@ rounded-3xl
 p-5
 
 border
-border-gray-800">
 
-<div class="flex justify-between">
+border-amber-700/20">
+
+<div class="flex justify-between items-center">
 
 <div>
 
@@ -114,39 +165,57 @@ text-gray-500
 uppercase
 text-[11px]">
 
-Saldo disponível
+Saldo Disponível
 
 </p>
 
 <h2
+
 id="saldo"
 
 class="
-text-3xl
+text-4xl
+
 font-black
 
-text-amber-500">
+bg-gradient-to-r
+
+from-amber-300
+
+to-amber-500
+
+bg-clip-text
+
+text-transparent">
 
 R$ 0,00
 
 </h2>
+
+<p class="text-xs text-gray-600 mt-1">
+
+Atualizado agora
+
+</p>
 
 </div>
 
 <button
 
 class="
+reload
+
 w-12
+
 h-12
 
 rounded-2xl
 
-bg-[#141b26]
+bg-[#161f29]
 
 border
-border-gray-700
 
-hover:border-amber-500">
+border-amber-700/20">
 
 🔄
 
@@ -157,24 +226,28 @@ hover:border-amber-500">
 </div>
 
 
+
 <!-- VIP -->
 <div
+
 class="
+vip-banner
+
 rounded-3xl
 
-overflow-hidden
+p-6
 
 border
 
-border-amber-900/40
+border-amber-800/30
 
 bg-gradient-to-br
 
-from-[#141b26]
+from-[#131c26]
 
-to-[#0b1117]
+via-[#11161f]
 
-p-5">
+to-black">
 
 <div class="flex justify-between">
 
@@ -182,23 +255,26 @@ p-5">
 
 <p
 class="
-text-[11px]
-
 uppercase
 
-text-gray-500">
+text-[10px]
 
-Nível Atual
+tracking-widest
+
+text-amber-500">
+
+Programa VIP
 
 </p>
 
 <h2
+
 class="
-text-4xl
+text-5xl
 
 font-black
 
-text-amber-500">
+text-white">
 
 VIP 0
 
@@ -206,52 +282,66 @@ VIP 0
 
 </div>
 
-<div class="text-right">
+<div>
 
-<p
+<div
+
 class="
-text-gray-500
-text-[10px]">
+px-3
 
-Próximo nível
+py-2
 
-</p>
+rounded-xl
 
-<p
-class="
-font-black
-text-white">
+bg-amber-500/10">
 
-VIP 1
-
-</p>
+🔒
 
 </div>
 
 </div>
+
+</div>
+
+
+<p
+class="
+mt-4
+
+text-sm
+
+text-gray-400">
+
+Faça depósitos e aumente seu nível para desbloquear recompensas exclusivas.
+
+</p>
+
 
 <div class="mt-5">
 
 <div
+
 class="
 h-3
 
 rounded-full
 
-bg-black/40">
+bg-black/50
+
+overflow-hidden">
 
 <div
 
 class="
+vip-progress
+
 h-full
 
 w-[0%]
 
-rounded-full
-
 bg-gradient-to-r
 
-from-amber-600
+from-amber-500
 
 to-yellow-300">
 
@@ -259,21 +349,15 @@ to-yellow-300">
 
 </div>
 
-<div
-class="
-flex
-
-justify-between
-
-mt-2">
+<div class="flex justify-between mt-2">
 
 <span class="text-xs text-gray-500">
 
-0 / 100
+0 / 100 pontos
 
 </span>
 
-<span class="text-xs text-amber-400">
+<span class="text-xs text-amber-500">
 
 0%
 
@@ -282,6 +366,30 @@ mt-2">
 </div>
 
 </div>
+
+
+<div
+
+class="
+mt-5
+
+rounded-2xl
+
+bg-black/25
+
+p-4">
+
+<p class="text-xs text-gray-500">
+
+Próximo desbloqueio
+
+</p>
+
+<p class="font-black text-white">
+
+Bônus VIP 1 • R$10
+
+</p>
 
 </div>
 
