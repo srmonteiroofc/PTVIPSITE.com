@@ -18,6 +18,13 @@
         .no-scrollbar { scrollbar-width: none; }
         .game-card:hover img { transform: scale(1.06) translateY(-4px); }
         img { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        
+        /* Animação suave para novas vitórias surgindo */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .new-row { animation: slideIn 0.4s ease-out forwards; }
     </style>
 </head>
 <body class="text-white min-h-screen pb-28 font-sans antialiased">
@@ -49,7 +56,7 @@
                     <h2 class="text-2xl font-black tracking-tight text-white">BEM-VINDO À PTVIP</h2>
                     <p class="text-xs text-gray-400 leading-relaxed">A melhor experiência em jogos originais e lucros.</p>
                 </div>
-                <div class="w-24 h-24 flex items-center justify-center bg-gradient-to-tr from-red-600 to-amber-500 rounded-2xl shadow-xl shadow-red-600/20">
+                <div class="w-24 h-24 flex items-center justify-center bg-gradient-to-tr from-red-600 to-amber-500 rounded-2xl shadow-xl">
                     <span class="font-black text-2xl text-white">PTVIP</span>
                 </div>
             </div>
@@ -84,8 +91,19 @@
                 <img src="assets/icon-foguete.png" alt="Crash" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(59,130,246,0.4)]">
             </div>
 
+            <div class="carousel-slide absolute inset-0 hidden flex items-center justify-between bg-gradient-to-br from-purple-950 via-purple-900/30 to-[#070d14] p-6">
+                <div class="space-y-2 z-10 max-w-[60%]">
+                    <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Novidade</span>
+                    <h2 class="text-3xl font-black tracking-tight text-white">SLOTS</h2>
+                    <p class="text-xs text-gray-300 leading-relaxed">Gire as bobinas e alinhe os símbolos da fortuna!</p>
+                    <a href="slots.html" class="inline-block bg-white text-black font-black text-xs px-4 py-2 rounded-xl mt-2 active:scale-95 transition-transform shadow-md">JOGAR AGORA</a>
+                </div>
+                <div class="w-24 h-24 flex items-center justify-center bg-purple-600/20 rounded-full border border-purple-500/30 text-4xl drop-shadow-[0_10px_20px_rgba(168,85,247,0.4)]">🎰</div>
+            </div>
+
             <div class="absolute bottom-4 right-6 flex gap-1.5 z-20">
                 <div class="dot w-5 h-1.5 bg-white rounded-full cursor-pointer transition-all duration-300"></div>
+                <div class="dot w-1.5 h-1.5 bg-white/30 rounded-full cursor-pointer transition-all duration-300"></div>
                 <div class="dot w-1.5 h-1.5 bg-white/30 rounded-full cursor-pointer transition-all duration-300"></div>
                 <div class="dot w-1.5 h-1.5 bg-white/30 rounded-full cursor-pointer transition-all duration-300"></div>
                 <div class="dot w-1.5 h-1.5 bg-white/30 rounded-full cursor-pointer transition-all duration-300"></div>
@@ -94,10 +112,11 @@
 
         <section class="overflow-x-auto no-scrollbar -mx-4 px-4">
             <div class="flex gap-2 min-w-max pb-1">
-                <button class="bg-red-600 text-white rounded-2xl px-5 py-2.5 text-xs font-black shadow-lg shadow-red-600/10 active:scale-95 transition-all">Todos</button>
-                <button class="glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">💣 Mines</button>
-                <button class="glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">🎲 Double</button>
-                <button class="glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">🚀 Crash</button>
+                <button onclick="filtrarJogos('todos')" class="filtro-btn bg-red-600 text-white rounded-2xl px-5 py-2.5 text-xs font-black shadow-lg shadow-red-600/10 active:scale-95 transition-all">Todos</button>
+                <button onclick="filtrarJogos('mines')" class="filtro-btn glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">💣 Mines</button>
+                <button onclick="filtrarJogos('double')" class="filtro-btn glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">🎲 Double</button>
+                <button onclick="filtrarJogos('crash')" class="filtro-btn glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">🚀 Crash</button>
+                <button onclick="filtrarJogos('slots')" class="filtro-btn glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all">🎰 Slots</button>
             </div>
         </section>
 
@@ -106,11 +125,11 @@
                 <h3 class="font-black tracking-tight text-base flex items-center gap-1.5">
                     <span class="text-red-500">🕹️</span> Originais PTVIP
                 </h3>
-                <a href="#" class="text-red-500 hover:text-red-400 text-xs font-bold transition-colors">Ver todos</a>
+                <a href="jogos.html" class="text-red-500 hover:text-red-400 text-xs font-bold transition-colors">Ver todos</a>
             </div>
 
             <div class="grid grid-cols-2 gap-3">
-                <a href="jogos.html" class="game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-red-500/30">
+                <a href="jogos.html" data-game="mines" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-red-500/30">
                     <div class="h-36 flex items-center justify-center bg-gradient-to-br from-red-600/10 via-transparent to-black/40 relative">
                         <img src="assets/icon-bomba.png" alt="Mines" class="w-20 h-20 object-contain">
                     </div>
@@ -120,7 +139,7 @@
                     </div>
                 </a>
 
-                <a href="double.html" class="game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-amber-500/30">
+                <a href="double.html" data-game="double" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-amber-500/30">
                     <div class="h-36 flex items-center justify-center bg-gradient-to-br from-amber-600/10 via-transparent to-black/40 relative">
                         <img src="assets/icon-dado.png" alt="Double" class="w-20 h-20 object-contain" onerror="this.src='assets/icon-dado.PNG'">
                     </div>
@@ -130,18 +149,23 @@
                     </div>
                 </a>
 
-                <a href="jogos.html" class="game-card glass rounded-3xl overflow-hidden col-span-2 block group transition-all duration-300 hover:border-blue-500/30">
-                    <div class="h-40 flex items-center justify-center bg-gradient-to-r from-blue-900/20 via-transparent to-black/60 relative">
-                        <img src="assets/icon-foguete.png" alt="Crash" class="w-24 h-24 object-contain">
+                <a href="jogos.html" data-game="crash" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-blue-500/30">
+                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-blue-600/10 via-transparent to-black/40 relative">
+                        <img src="assets/icon-foguete.png" alt="Crash" class="w-20 h-20 object-contain">
                     </div>
-                    <div class="p-4 bg-[#111924]/60 flex justify-between items-center">
-                        <div>
-                            <h4 class="font-black text-base">Crash</h4>
-                            <p class="text-xs text-gray-500 font-medium">PTVIP Studio</p>
-                        </div>
-                        <span class="bg-gradient-to-r from-blue-600 to-blue-500 group-hover:from-blue-500 group-hover:to-blue-400 px-5 py-2 rounded-xl text-xs font-black tracking-wider shadow-md shadow-blue-600/10 transition-all">
-                            JOGAR
-                        </span>
+                    <div class="p-3 bg-[#111924]/60">
+                        <h4 class="font-black text-sm">Crash</h4>
+                        <p class="text-[10px] text-gray-500 font-medium">PTVIP Studio</p>
+                    </div>
+                </a>
+
+                <a href="slots.html" data-game="slots" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-purple-500/30">
+                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-purple-600/10 via-transparent to-black/40 relative text-3xl">
+                        🎰
+                    </div>
+                    <div class="p-3 bg-[#111924]/60">
+                        <h4 class="font-black text-sm">Slots</h4>
+                        <p class="text-[10px] text-gray-500 font-medium">PTVIP Studio</p>
                     </div>
                 </a>
             </div>
@@ -156,77 +180,8 @@
                 <span class="text-[10px] font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md">ONLINE</span>
             </div>
             
-            <div class="divide-y divide-gray-800/40">
-                <div class="p-3.5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-red-500/20 to-red-950 flex items-center justify-center border border-red-500/20 text-red-400 font-black text-xs">R</div>
-                        <div>
-                            <p class="font-bold text-sm text-gray-200">Rafa***</p>
-                            <p class="text-[10px] text-gray-500 flex items-center gap-1">💣 Mines • <span class="text-amber-500 font-bold">x3.40</span></p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-emerald-400 font-black text-sm">+ R$ 340,00</p>
-                        <p class="text-[10px] text-gray-500 font-medium">Agora</p>
-                    </div>
+            <div id="vitorias-container" class="divide-y divide-gray-800/40">
                 </div>
-
-                <div class="p-3.5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-950 flex items-center justify-center border border-amber-500/20 text-amber-400 font-black text-xs">B</div>
-                        <div>
-                            <p class="font-bold text-sm text-gray-200">Bruno_vip</p>
-                            <p class="text-[10px] text-gray-500 flex items-center gap-1">🎲 Double • <span class="text-amber-500 font-bold">x14.0</span></p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-emerald-400 font-black text-sm">+ R$ 1.850,00</p>
-                        <p class="text-[10px] text-gray-500 font-medium">1 min atrás</p>
-                    </div>
-                </div>
-
-                <div class="p-3.5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-950 flex items-center justify-center border border-blue-500/20 text-blue-400 font-black text-xs">M</div>
-                        <div>
-                            <p class="font-bold text-sm text-gray-200">Marcos_G</p>
-                            <p class="text-[10px] text-gray-500 flex items-center gap-1">🚀 Crash • <span class="text-amber-500 font-bold">x5.20</span></p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-emerald-400 font-black text-sm">+ R$ 520,00</p>
-                        <p class="text-[10px] text-gray-500 font-medium">2 min atrás</p>
-                    </div>
-                </div>
-
-                <div class="p-3.5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-950 flex items-center justify-center border border-emerald-500/20 text-emerald-400 font-black text-xs">A</div>
-                        <div>
-                            <p class="font-bold text-sm text-gray-200">Ana_Slots</p>
-                            <p class="text-[10px] text-gray-500 flex items-center gap-1">💣 Mines • <span class="text-amber-500 font-bold">x8.50</span></p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-emerald-400 font-black text-sm">+ R$ 850,00</p>
-                        <p class="text-[10px] text-gray-500 font-medium">3 min atrás</p>
-                    </div>
-                </div>
-
-                <div class="p-3.5 flex items-center justify-between hover:bg-white/[0.02] transition-colors">
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-950 flex items-center justify-center border border-purple-500/20 text-purple-400 font-black text-xs">P</div>
-                        <div>
-                            <p class="font-bold text-sm text-gray-200">Pedro_Px</p>
-                            <p class="text-[10px] text-gray-500 flex items-center gap-1">🎲 Double • <span class="text-amber-500 font-bold">x2.00</span></p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <p class="text-emerald-400 font-black text-sm">+ R$ 200,00</p>
-                        <p class="text-[10px] text-gray-500 font-medium">5 min atrás</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
     </main>
@@ -255,12 +210,12 @@
     </nav>
 
     <script>
+        /* 1. LÓGICA DO CARROSSEL (5 TELAS) */
         let current = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.dot');
 
         function trocar(i) {
-            // Esconde o slide antigo usando classes do Tailwind
             slides[current].classList.add('hidden');
             slides[current].classList.remove('flex');
             dots[current].classList.remove('bg-white', 'w-5');
@@ -268,7 +223,6 @@
             
             current = i;
             
-            // Mostra o novo slide de forma limpa
             slides[current].classList.remove('hidden');
             slides[current].classList.add('flex');
             dots[current].classList.remove('bg-white/30', 'w-1.5');
@@ -288,6 +242,89 @@
                 timer = setInterval(proximo, 4000);
             };
         });
+
+        /* 2. LÓGICA DOS FILTROS DE JOGOS FUNCIONAIS */
+        function filtrarJogos(categoria) {
+            const itens = document.querySelectorAll('.game-item');
+            const botoes = document.querySelectorAll('.filtro-btn');
+
+            // Atualiza os estilos visuais dos botões de filtro
+            botoes.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(categoria)) {
+                    btn.className = "filtro-btn bg-red-600 text-white rounded-2xl px-5 py-2.5 text-xs font-black shadow-lg shadow-red-600/10 active:scale-95 transition-all";
+                } else {
+                    btn.className = "filtro-btn glass text-gray-300 hover:text-white rounded-2xl px-4 py-2.5 text-xs font-bold flex items-center gap-1.5 active:scale-95 transition-all";
+                }
+            });
+
+            // Mostra ou oculta os cards de acordo com o filtro
+            itens.forEach(item => {
+                if (categoria === 'todos' || item.getAttribute('data-game') === categoria) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        /* 3. SISTEMA DE VITÓRIAS EM LOOPING INFINITO (SIMULAÇÃO AO VIVO) */
+        const nomes = ['Gabriel***', 'Ana_v***', 'Lucas_X', 'Pri***', 'Rafael_vip', 'Bruno***', 'Mari_S', 'Rodrigo***', 'Beatriz_p', 'Kev***'];
+        const jogosConfig = [
+            { nome: 'Mines', icone: '💣', cor: 'from-red-500/20 to-red-950', textoCor: 'text-red-400', multiMax: 8 },
+            { nome: 'Double', icone: '🎲', cor: 'from-amber-500/20 to-amber-950', textoCor: 'text-amber-400', multiMax: 14 },
+            { nome: 'Crash', icone: '🚀', cor: 'from-blue-500/20 to-blue-950', textoCor: 'text-blue-400', multiMax: 25 },
+            { nome: 'Slots', icone: '🎰', cor: 'from-purple-500/20 to-purple-950', textoCor: 'text-purple-400', multiMax: 50 }
+        ];
+
+        const container = document.getElementById('vitorias-container');
+
+        function gerarVitoriaAleatoria() {
+            const jogador = nomes[Math.floor(Math.random() * nomes.length)];
+            const jogo = jogosConfig[Math.floor(Math.random() * jogosConfig.length)];
+            
+            // Cálculos realistas de valores de apostas de cassinos
+            const multiplicador = (1.2 + (Math.random() * jogo.multiMax)).toFixed(2);
+            const apostaBase = [10, 20, 50, 100, 200][Math.floor(Math.random() * 5)];
+            const valorGanho = (apostaBase * multiplicador).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            const novaLinha = document.createElement('div');
+            novaLinha.className = "p-3.5 flex items-center justify-between hover:bg-white/[0.02] transition-colors new-row";
+            novaLinha.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br ${jogo.cor} flex items-center justify-center border border-white/5 ${jogo.textoCor} font-black text-xs">
+                        ${jogador.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-200">${jogador}</p>
+                        <p class="text-[10px] text-gray-500 flex items-center gap-1">${jogo.icone} ${jogo.nome} • <span class="text-amber-500 font-bold">x${multiplicador}</span></p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-emerald-400 font-black text-sm">+ R$ ${valorGanho}</p>
+                    <p class="text-[10px] text-gray-500 font-medium">Agora</p>
+                </div>
+            `;
+
+            // Coloca no topo da lista
+            container.insertBefore(novaLinha, container.firstChild);
+
+            // Mantém sempre apenas as 5 vitórias mais recentes visíveis na lista
+            if (container.children.length > 5) {
+                container.removeChild(container.lastChild);
+            }
+        }
+
+        // Gera as primeiras 5 de forma imediata ao abrir o site
+        for(let i=0; i<5; i++) { gerarVitoriaAleatoria(); }
+
+        // Cria novos ganhadores dinamicamente em intervalos aleatórios contínuos (de 2 a 4 segundos)
+        function loopVitorias() {
+            setTimeout(() => {
+                gerarVitoriaAleatoria();
+                loopVitorias();
+            }, 2000 + Math.random() * 2000);
+        }
+        loopVitorias();
     </script>
 </body>
 </html>
