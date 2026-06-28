@@ -2,120 +2,132 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTvip - Centro Pessoal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>PTvip - Perfil</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             background: linear-gradient(180deg, #07111d, #091625, #07111d);
         }
         .glass {
-            background: rgba(18,28,40,.95);
-            border: 1px solid rgba(255,255,255,.06);
+            background: rgba(18, 28, 40, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             backdrop-filter: blur(14px);
         }
         .card {
-            transition: .25s;
+            transition: 0.25s;
         }
         .card:active {
-            transform: scale(.97);
-        }
-        /* Estilos para gradientes de botão */
-        .btn-sacar {
-            background: linear-gradient(135deg, #0f2d57, #07111d);
-            border-color: #1e3a8a;
-        }
-        .btn-depositar {
-            background: linear-gradient(135deg, #064e3b, #042f22);
-            border-color: #059669;
+            transform: scale(0.97);
         }
     </style>
 </head>
-<body class="text-white font-sans min-h-screen pb-28">
+<body class="text-white min-h-screen pb-28">
 
     <header class="sticky top-0 z-50 bg-[#111827] border-b border-gray-800">
         <div class="p-5 flex items-center">
-            <button onclick="window.location.href='home.html'" class="text-gray-400">✕</button>
-            <h1 class="flex-1 text-center font-black text-lg tracking-wide">CENTRO PESSOAL</h1>
+            <button onclick="window.location.href='home.html'" class="text-gray-400 text-xl">✕</button>
+            <h1 class="flex-1 text-center font-black tracking-wide">CENTRO PESSOAL</h1>
         </div>
     </header>
 
     <main class="max-w-md mx-auto p-5 space-y-5">
         
         <div class="glass rounded-3xl p-6 text-center">
-            <div class="flex flex-col items-center gap-2">
-                <h2 id="userDisplay" class="font-black text-2xl tracking-wide">miguelmonteiro.300701</h2>
-                <div class="flex items-center gap-1.5 text-xs text-amber-300">
-                    <div class="w-6 h-6 rounded-md bg-gradient-to-br from-yellow-500 to-amber-300 flex items-center justify-center text-sm">👑</div>
-                    <span>V0 VIP</span>
-                </div>
-            </div>
+            <h2 id="userEmail" class="font-black text-2xl tracking-wide text-gray-100">
+                Carregando...
+            </h2>
         </div>
 
-        <div class="glass rounded-3xl p-6">
-            <p class="text-gray-500 text-sm">Saldo Disponível</p>
-            <h2 id="saldoDisplay" class="text-6xl font-black text-amber-400">R$ 0,00</h2>
+        <div class="glass rounded-3xl p-5">
+            <p class="text-gray-500 text-sm font-medium">Saldo Disponível</p>
+            <h2 id="saldo" class="text-5xl font-black text-amber-400 mt-1">R$ 0,00</h2>
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-            <button onclick="window.location.href='sacar.html'" class="glass card btn-sacar rounded-3xl p-6 border flex flex-col items-center">
-                <div class="w-20 h-20 rounded-2xl bg-[#1e40af] flex items-center justify-center text-5xl mb-4 shadow-inner">💵</div>
-                <p class="text-center font-semibold text-lg">Solicitar Saque</p>
+            <button onclick="window.location.href='sacar.html'" class="glass card rounded-3xl p-6 flex flex-col items-center justify-center border border-blue-900/40">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center text-3xl shadow-lg">
+                    💵
+                </div>
+                <p class="mt-4 text-center font-bold tracking-wide">Solicitar Saque</p>
             </button>
 
-            <button onclick="window.location.href='depositar-metodo.html'" class="glass card btn-depositar rounded-3xl p-6 border flex flex-col items-center">
-                <div class="w-20 h-20 rounded-2xl bg-[#15803d] flex items-center justify-center text-5xl mb-4 shadow-inner">💰</div>
-                <p class="text-center font-semibold text-lg">Efetuar Depósito</p>
+            <button onclick="window.location.href='depositar-metodo.html'" class="glass card rounded-3xl p-6 flex flex-col items-center justify-center border border-emerald-900/40">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-400 flex items-center justify-center text-3xl shadow-lg">
+                    💰
+                </div>
+                <p class="mt-4 text-center font-bold tracking-wide">Efetuar Depósito</p>
             </button>
         </div>
 
-        <div class="rounded-3xl overflow-hidden glass p-1 shadow-2xl">
-            <img src="banner-perfil.png" alt="PTvip Premium - Jogue. Vença. Seja VIP." class="w-full h-auto object-cover">
+        <div class="rounded-3xl overflow-hidden shadow-xl">
+            <img src="logo.png" class="w-full h-auto display-block">
         </div>
 
-        <div onclick="window.location.href='promocoes.html'" class="glass rounded-3xl p-6 card cursor-pointer">
+        <div onclick="window.location.href='promocoes.html'" class="glass rounded-3xl p-5 card cursor-pointer">
             <div class="flex justify-between items-start">
                 <div>
-                    <p class="text-red-500 text-sm font-semibold">NÍVEL VIP</p>
-                    <h2 class="text-6xl font-black">V0</h2>
+                    <p class="text-red-500 font-bold text-sm tracking-wider">NÍVEL VIP</p>
+                    <h2 class="text-5xl font-black mt-1">V0</h2>
                 </div>
-                <div>
-                    <p class="text-gray-500 text-sm font-semibold">BÔNUS</p>
-                    <p class="text-emerald-400 text-3xl font-black">R$10</p>
+                <div class="text-right">
+                    <p class="text-gray-500 font-bold text-sm tracking-wider">BÔNUS</p>
+                    <p class="text-emerald-400 text-2xl font-black mt-1">R$10</p>
                 </div>
             </div>
-            <div class="mt-6 h-2 rounded-full bg-black overflow-hidden relative">
-                <div id="progressoVip" class="absolute inset-y-0 left-0 h-full bg-gradient-to-r from-red-600 to-yellow-500" style="width: 10%;"></div>
+
+            <div class="mt-5 h-2 rounded-full bg-black/50 overflow-hidden">
+                <div class="w-[10%] h-full bg-gradient-to-r from-red-500 to-yellow-500"></div>
             </div>
-            <p class="mt-4 text-gray-400 text-sm">Toque para ver promoções</p>
+            <p class="mt-3 text-gray-400 text-xs font-medium">Toque para ver promoções</p>
         </div>
 
-        <button onclick="logout()" class="w-full glass card rounded-2xl py-4 border border-red-900 flex items-center justify-center gap-2 group hover:bg-red-950/20 transition duration-300">
-            <span class="text-red-500 text-lg group-hover:scale-110 transition">⍈</span>
-            <span class="text-red-500 font-bold uppercase tracking-widest text-sm">Sair da Conta</span>
+        <button onclick="logout()" class="w-full bg-red-600/20 hover:bg-red-600/30 border border-red-600 text-red-500 py-4 rounded-3xl font-black tracking-widest transition duration-200 card">
+            SAIR DA CONTA
         </button>
+
     </main>
 
     <nav class="fixed bottom-0 left-0 right-0 bg-[#111827] border-t border-gray-800 max-w-md mx-auto z-50">
-        <div class="flex justify-around py-4">
-            <button onclick="window.location.href='home.html'" class="p-3 text-gray-600 hover:text-white">🏠</button>
-            <button onclick="window.location.href='promocoes.html'" class="p-3 text-gray-600 hover:text-white">🎁</button>
-            <button onclick="window.location.href='depositar.html'" class="p-3 text-gray-600 hover:text-white">📦</button>
-            <button onclick="window.location.href='sacar.html'" class="p-3 text-gray-600 hover:text-white">💰</button>
-            <button class="p-3 text-blue-500 flex items-center gap-1.5 font-bold">
-                <div class="w-5 h-5 rounded-full bg-blue-500"></div>
-                👤
-            </button>
+        <div class="flex justify-around py-4 text-xl">
+            <button onclick="window.location.href='home.html'" class="opacity-70 hover:opacity-100">🏠</button>
+            <button onclick="window.location.href='promocoes.html'" class="opacity-70 hover:opacity-100">🎁</button>
+            <button onclick="window.location.href='depositar-metodo.html'" class="opacity-70 hover:opacity-100">📦</button>
+            <button onclick="window.location.href='sacar.html'" class="opacity-70 hover:opacity-100">💰</button>
+            <button class="text-blue-500 drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">👤</button>
         </div>
     </nav>
 
-    <script type="module" src="firebase-perfil.js"></script>
-    <script>
-        // Função de logout simulada (deve ser tratada no firebase-perfil.js real)
-        function logout() {
-            window.alert("Saindo... (Funcionalidade simulada)");
-            window.location = "index.html"; // Redireciona para o login
-        }
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
+            authDomain: "ptvip-teste.firebaseapp.com",
+            projectId: "ptvip-teste",
+            storageBucket: "ptvip-teste.firebasestorage.app",
+            messagingSenderId: "407028833766",
+            appId: "1:407028833766:web:79d7dbf7ee968944248a27"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Mantive o ID original 'userEmail' que o script procura
+                document.getElementById("userEmail").innerHTML = user.email.split("@")[0];
+            } else {
+                window.location = "index.html";
+            }
+        });
+
+        window.logout = async () => {
+            await signOut(auth);
+            window.location = "index.html";
+        };
     </script>
+
 </body>
 </html>
