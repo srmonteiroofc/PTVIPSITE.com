@@ -61,7 +61,7 @@
         </div>
 
         <div class="rounded-3xl overflow-hidden shadow-xl">
-            <img src="logo.png" class="w-full h-auto block">
+            <img src="banner.png" alt="PTvip Premium" class="w-full h-auto block" onerror="this.src='logo.png'">
         </div>
 
         <div onclick="window.location.href='promocoes.html'" class="glass rounded-3xl p-5 card cursor-pointer">
@@ -99,26 +99,29 @@
     </nav>
 
     <script type="module">
-        // Importando a conexão direta do seu arquivo local para não perder o login
         import { auth } from "./firebase.js";
         import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-        // Verifica se o usuário está logado na mesma sessão do index.html
+        // Monitor do estado do usuário
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // Usuário reconhecido! Injeta o nome na tela
+                // Se encontrar o usuário, bota o nome na tela e para o carregamento
                 document.getElementById("userEmail").innerHTML = user.email.split("@")[0];
             } else {
-                // Se perder o login por algum motivo, volta pro começo
-                window.location = "index.html";
+                // Damos 3 segundos de tolerância para o Firebase validar o token no servidor externo.
+                // Se passar disso e ele zerar, o usuário realmente não está logado.
+                setTimeout(() => {
+                    if (!auth.currentUser) {
+                        window.location.href = "index.html";
+                    }
+                }, 3000);
             }
         });
 
-        // Função de Sair corrigida
         window.logout = async () => {
             try {
                 await signOut(auth);
-                window.location = "index.html";
+                window.location.href = "index.html";
             } catch (error) {
                 console.error("Erro ao deslogar:", error);
             }
