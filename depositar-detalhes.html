@@ -46,13 +46,6 @@
             </div>
 
             <div class="space-y-1 pt-2">
-                <p class="text-[11px] font-black uppercase tracking-wider text-amber-500/80">Chave PIX Aleatória</p>
-                <div class="w-full bg-[#0d121a] border border-gray-800 rounded-xl px-4 py-3 text-xs font-mono text-gray-400 break-all select-all">
-                    12484988958
-                </div>
-            </div>
-
-            <div class="space-y-1">
                 <p class="text-[11px] font-black uppercase tracking-wider text-gray-500">Código Copia e Cola:</p>
                 <div class="w-full bg-[#0d121a] border border-gray-800 rounded-xl px-4 py-3 text-[11px] font-mono text-gray-500 break-all max-h-20 overflow-y-auto" id="codigoCopiaCola">00020126760014BR.GOV.BCB.PIX0136bdfcfbfd-b673-4449-b46f-0787f76749040214deposito PTVIP5204000053039865802BR5925Miguel Eduardo Gomes Mont6009Sao Paulo62290525REC6A41AC6B0FB6F3083427686304A35F</div>
             </div>
@@ -90,6 +83,7 @@
             }
         });
 
+        // Lembra de ajustar para "qrcode.png" se este HTML estiver na mesma pasta que a imagem
         function copiarPix() {
             const textoCopia = document.getElementById('codigoCopiaCola').innerText;
             
