@@ -1,1059 +1,216 @@
-[28/06, 12:11] Miguel Monteiro: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
-
-<title>Home</title>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<style>
-
-body{
-background:
-linear-gradient(
-180deg,
-#09131d,
-#0c1825,
-#09131d
-);
-}
-
-.glass{
-background:
-rgba(20,27,38,.72);
-
-backdrop-filter:
-blur(10px);
-}
-
-.carousel-slide{
-display:none;
-}
-
-.carousel-slide.active{
-display:block;
-}
-
-.no-scrollbar::-webkit-scrollbar{
-display:none;
-}
-
-.no-scrollbar{
-scrollbar-width:none;
-}
-
-.game:hover img{
-transform:
-scale(1.08);
-}
-
-img{
-transition:.3s;
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(180deg, #09131d, #0c1825, #09131d);
+        }
+        .glass {
+            background: rgba(20, 27, 38, 0.72);
+            backdrop-filter: blur(10px);
+        }
+        .carousel-slide { display: none; }
+        .carousel-slide.active { display: block; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { scrollbar-width: none; }
+        .game:hover img { transform: scale(1.08); }
+        img { transition: 0.3s; }
+    </style>
 </head>
-
-<body
-class="
-text-white
-min-h-screen
-pb-24
-font-sans">
-
-<header
-class="
-sticky
-top-0
-z-50
-bg-[#141b26]
-border-b
-border-gray-800">
-
-<div
-class="
-max-w-md
-mx-auto
-px-4
-py-3
-flex
-items-center
-justify-between">
-
-<div>
-
-<img
-src="assets/logo.png"
-class="h-10 object-contain">
-
-</div>
-
-<div
-class="
-flex
-items-center
-gap-2">
-
-<div
-class="
-bg-[#0b1118]
-rounded-xl
-px-3
-py-2">
-
-<p
-class="
-text-[10px]
-text-gray-500">
-
-SALDO
-
-</p>
-
-<p
-class="
-font-black
-text-sm">
-
-R$ 0,00
-
-</p>
-
-</div>
-
-<button
-onclick="
-window.location=
-'depositar-metodo.html'
-"
-
-class="
-bg-red-600
-px-4
-py-2
-rounded-xl
-font-black
-text-xs">
-
-Depositar
-
-</button>
-
-</div>
-
-</div>
-
-</header>
-
-<main
-class="
-max-w-md
-mx-auto
-px-4
-py-4
-space-y-4">
-
-<section
-class="
-relative
-rounded-3xl
-overflow-hidden
-aspect-[16/9]">
-
-<div
-class="
-carousel-slide
-active
-absolute
-inset-0">
-
-<img
-src="assets/mines-banner.png"
-class="
-w-full
-h-full
-object-cover">
-
-<div
-class="
-absolute
-inset-0
-bg-gradient-to-r
-from-black
-to-transparent">
-
-</div>
-
-<div
-class="
-absolute
-bottom-5
-left-5">
-
-<span
-class="
-bg-red-600
-px-2
-py-1
-rounded-full
-text-[10px]
-font-black">
-
-DESTAQUE
-
-</span>
-
-<h2
-class="
-text-3xl
-font-black">
-
-MINES
-
-</h2>
-
-<p
-class="
-text-xs
-text-gray-300">
-
-Multiplique sua banca
-
-</p>
-
-</div>
-
-</div>
-[28/06, 12:12] Miguel Monteiro: <div
-class="
-carousel-slide
-absolute
-inset-0">
-
-<img
-src="assets/double-banner.png"
-class="
-w-full
-h-full
-object-cover">
-
-<div
-class="
-absolute
-inset-0
-bg-gradient-to-r
-from-black
-to-transparent">
-
-</div>
-
-<div
-class="
-absolute
-bottom-5
-left-5">
-
-<span
-class="
-bg-yellow-500
-text-black
-px-2
-py-1
-rounded-full
-text-[10px]
-font-black">
-
-MAIS JOGADO
-
-</span>
-
-<h2
-class="
-text-3xl
-font-black">
-
-DOUBLE
-
-</h2>
-
-<p
-class="
-text-xs
-text-gray-300">
-
-Escolha sua cor
-
-</p>
-
-</div>
-
-</div>
-
-<div
-class="
-carousel-slide
-absolute
-inset-0">
-
-<img
-src="assets/crash-banner.png"
-class="
-w-full
-h-full
-object-cover">
-
-<div
-class="
-absolute
-inset-0
-bg-gradient-to-r
-from-black
-to-transparent">
-
-</div>
-
-<div
-class="
-absolute
-bottom-5
-left-5">
-
-<span
-class="
-bg-blue-600
-px-2
-py-1
-rounded-full
-text-[10px]
-font-black">
-
-EM ALTA
-
-</span>
-
-<h2
-class="
-text-3xl
-font-black">
-
-CRASH
-
-</h2>
-
-<p
-class="
-text-xs
-text-gray-300">
-
-Saque antes de explodir
-
-</p>
-
-</div>
-
-</div>
-
-<div
-class="
-absolute
-top-3
-right-3
-flex
-gap-2">
-
-<div
-class="
-dot
-w-2
-h-2
-bg-white
-rounded-full">
-</div>
-
-<div
-class="
-dot
-w-2
-h-2
-bg-white/40
-rounded-full">
-</div>
-
-<div
-class="
-dot
-w-2
-h-2
-bg-white/40
-rounded-full">
-</div>
-
-</div>
-
-</section>
-
-<section
-class="
-overflow-x-auto
-no-scrollbar">
-
-<div
-class="
-flex
-gap-2">
-
-<button
-class="
-bg-red-600
-rounded-full
-px-4
-py-2
-text-xs
-font-black">
-
-Todos
-
-</button>
-
-<button
-class="
-glass
-rounded-full
-px-4
-py-2
-text-xs">
-
-💣 Mines
-
-</button>
-
-<button
-class="
-glass
-rounded-full
-px-4
-py-2
-text-xs">
-
-🎲 Double
-
-</button>
-
-<button
-class="
-glass
-rounded-full
-px-4
-py-2
-text-xs">
-
-🚀 Crash
-
-</button>
-
-</div>
-
-</section>
-
-<section
-class="
-space-y-3">
-
-<div
-class="
-flex
-justify-between">
-
-<h3
-class="
-font-black">
-
-🕹️ Originais
-
-</h3>
-
-<span
-class="
-text-red-500
-text-xs">
-
-Ver todos
-
-</span>
-
-</div>
-
-<div
-class="
-grid
-grid-cols-2
-gap-3">
-
-<div
-onclick="
-window.location=
-'jogos.html'
-"
-
-class="
-game
-glass
-rounded-3xl
-overflow-hidden">
-
-<div
-class="
-h-40
-flex
-items-center
-justify-center
-bg-gradient-to-br
-from-red-700/30
-to-black">
-
-<img
-src="assets/icon-bomba.png"
-class="
-w-24">
-
-</div>
-
-<div
-class="
-p-4">
-
-<h4
-class="
-font-black">
-
-Mines
-
-</h4>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-PTVIP Studio
-
-</p>
-
-</div>
-
-</div>
-[28/06, 12:12] Miguel Monteiro: <div
-onclick="
-window.location=
-'double.html'
-"
-
-class="
-game
-glass
-rounded-3xl
-overflow-hidden">
-
-<div
-class="
-h-40
-flex
-items-center
-justify-center
-bg-gradient-to-br
-from-yellow-700/30
-to-black">
-
-<img
-src="assets/icon-dado.png"
-class="
-w-24">
-
-</div>
-
-<div
-class="
-p-4">
-
-<h4
-class="
-font-black">
-
-Double
-
-</h4>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-PTVIP Studio
-
-</p>
-
-</div>
-
-</div>
-
-<div
-onclick="
-window.location=
-'jogos.html'
-"
-
-class="
-game
-glass
-rounded-3xl
-overflow-hidden
-col-span-2">
-
-<div
-class="
-h-44
-flex
-items-center
-justify-center
-bg-gradient-to-r
-from-blue-900
-to-black">
-
-<img
-src="
-assets/icon-foguete.png
-"
-
-class="
-w-28">
-
-</div>
-
-<div
-class="
-p-4
-flex
-justify-between
-items-center">
-
-<div>
-
-<h4
-class="
-font-black
-text-lg">
-
-Crash
-
-</h4>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-PTVIP Studio
-
-</p>
-
-</div>
-
-<button
-class="
-bg-blue-600
-px-4
-py-2
-rounded-xl
-text-xs
-font-black">
-
-JOGAR
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section
-class="
-glass
-rounded-3xl
-overflow-hidden">
-
-<div
-class="
-p-4
-border-b
-border-gray-800">
-
-<h3
-class="
-text-xs
-uppercase
-font-black
-text-gray-400">
-
-🟢 Grandes Vitórias
-
-</h3>
-
-</div>
-
-<div
-class="
-divide-y
-divide-gray-800">
-
-<div
-class="
-p-4
-flex
-justify-between">
-
-<div>
-
-<p
-class="
-font-bold">
-
-Mines
-
-</p>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-Rafa***
-
-</p>
-
-</div>
-
-<div
-class="
-text-right">
-
-<p
-class="
-text-emerald-400
-font-black">
-
-R$340
-
-</p>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-Agora
-
-</p>
-
-</div>
-
-</div>
-
-<div
-class="
-p-4
-flex
-justify-between">
-
-<div>
-
-<p
-class="
-font-bold">
-
-Double
-
-</p>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-Bruno_vip
-
-</p>
-
-</div>
-
-<div
-class="
-text-right">
-
-<p
-class="
-text-emerald-400
-font-black">
-
-R$1850
-
-</p>
-
-<p
-class="
-text-xs
-text-gray-500">
-
-1 min
-
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-[28/06, 12:12] Miguel Monteiro: <nav
-class="
-fixed
-bottom-0
-left-0
-right-0
-max-w-md
-mx-auto
-bg-[#141b26]
-border-t
-border-gray-800
-flex
-justify-around
-py-3">
-
-<button
-onclick="
-window.location=
-'home.html'
-"
-
-class="
-flex
-flex-col
-items-center
-text-red-500
-text-[10px]
-font-black">
-
-🏠
-<span>
-Começar
-</span>
-
-</button>
-
-<button
-onclick="
-window.location=
-'promocoes.html'
-"
-
-class="
-flex
-flex-col
-items-center
-text-gray-400
-text-[10px]">
-
-🎁
-
-<span>
-Ofertas
-</span>
-
-</button>
-
-<button
-onclick="
-window.location=
-'depositar-metodo.html'
-"
-
-class="
-flex
-flex-col
-items-center
-text-gray-400
-text-[10px]">
-
-💳
-
-<span>
-Depósito
-</span>
-
-</button>
-
-<button
-onclick="
-window.location=
-'sacar.html'
-"
-
-class="
-flex
-flex-col
-items-center
-text-gray-400
-text-[10px]">
-
-💰
-
-<span>
-Saques
-</span>
-
-</button>
-
-<button
-onclick="
-window.location=
-'perfil.html'
-"
-
-class="
-flex
-flex-col
-items-center
-text-gray-400
-text-[10px]">
-
-👤
-
-<span>
-Perfil
-</span>
-
-</button>
-
-</nav>
-
-<script>
-
-let current=0;
-
-const slides=
-document
-.querySelectorAll(
-'.carousel-slide'
-);
-
-const dots=
-document
-.querySelectorAll(
-'.dot'
-);
-
-function trocar(i){
-
-slides[
-current
-]
-.classList
-.remove(
-'active'
-);
-
-dots[
-current
-]
-.classList
-.remove(
-'bg-white'
-);
-
-dots[
-current
-]
-.classList
-.add(
-'bg-white/40'
-);
-
-current=i;
-
-slides[
-current
-]
-.classList
-.add(
-'active'
-);
-
-dots[
-current
-]
-.classList
-.remove(
-'bg-white/40'
-);
-
-dots[
-current
-]
-.classList
-.add(
-'bg-white'
-);
-
-}
-
-function proximo(){
-
-trocar(
-(
-current+1
-)
-%
-slides.length
-);
-
-}
-
-setInterval(
-proximo,
-4500
-);
-
-dots.forEach(
-(
-dot,
-index
-)=>
-{
-
-dot.onclick=
-()=>
-trocar(
-index
-);
-
-}
-);
-
-</script>
-
+<body class="text-white min-h-screen pb-24 font-sans">
+
+    <header class="sticky top-0 z-50 bg-[#141b26] border-b border-gray-800">
+        <div class="max-w-md mx-auto px-4 py-3 flex items-center justify-between">
+            <div>
+                <img src="assets/logo.png" alt="Logo do Site" class="h-10 object-contain">
+            </div>
+            <div class="flex items-center gap-2">
+                <div class="bg-[#0b1118] rounded-xl px-3 py-2">
+                    <p class="text-[10px] text-gray-500">SALDO</p>
+                    <p class="font-black text-sm">R$ 0,00</p>
+                </div>
+                <a href="depositar-metodo.html" class="bg-red-600 px-4 py-2 rounded-xl font-black text-xs inline-block">
+                    Depositar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-md mx-auto px-4 py-4 space-y-4">
+        
+        <section class="relative rounded-3xl overflow-hidden aspect-[16/9]">
+            
+            <div class="carousel-slide active absolute inset-0">
+                <img src="assets/mines-banner.png" alt="Banner Mines" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
+                <div class="absolute bottom-5 left-5">
+                    <span class="bg-red-600 px-2 py-1 rounded-full text-[10px] font-black">DESTAQUE</span>
+                    <h2 class="text-3xl font-black">MINES</h2>
+                    <p class="text-xs text-gray-300">Multiplique sua banca</p>
+                </div>
+            </div>
+
+            <div class="carousel-slide absolute inset-0">
+                <img src="assets/double-banner.png" alt="Banner Double" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
+                <div class="absolute bottom-5 left-5">
+                    <span class="bg-yellow-500 text-black px-2 py-1 rounded-full text-[10px] font-black">MAIS JOGADO</span>
+                    <h2 class="text-3xl font-black">DOUBLE</h2>
+                    <p class="text-xs text-gray-300">Escolha sua cor</p>
+                </div>
+            </div>
+
+            <div class="carousel-slide absolute inset-0">
+                <img src="assets/crash-banner.png" alt="Banner Crash" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black to-transparent"></div>
+                <div class="absolute bottom-5 left-5">
+                    <span class="bg-blue-600 px-2 py-1 rounded-full text-[10px] font-black">EM ALTA</span>
+                    <h2 class="text-3xl font-black">CRASH</h2>
+                    <p class="text-xs text-gray-300">Saque antes de explodir</p>
+                </div>
+            </div>
+
+            <div class="absolute top-3 right-3 flex gap-2">
+                <div class="dot w-2 h-2 bg-white rounded-full cursor-pointer"></div>
+                <div class="dot w-2 h-2 bg-white/40 rounded-full cursor-pointer"></div>
+                <div class="dot w-2 h-2 bg-white/40 rounded-full cursor-pointer"></div>
+            </div>
+        </section>
+
+        <section class="overflow-x-auto no-scrollbar">
+            <div class="flex gap-2">
+                <button class="bg-red-600 rounded-full px-4 py-2 text-xs font-black">Todos</button>
+                <button class="glass rounded-full px-4 py-2 text-xs">💣 Mines</button>
+                <button class="glass rounded-full px-4 py-2 text-xs">🎲 Double</button>
+                <button class="glass rounded-full px-4 py-2 text-xs">🚀 Crash</button>
+            </div>
+        </section>
+
+        <section class="space-y-3">
+            <div class="flex justify-between items-center">
+                <h3 class="font-black">🕹️ Originais</h3>
+                <a href="#" class="text-red-500 text-xs">Ver todos</a>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <a href="jogos.html" class="game glass rounded-3xl overflow-hidden block">
+                    <div class="h-40 flex items-center justify-center bg-gradient-to-br from-red-700/30 to-black">
+                        <img src="assets/icon-bomba.png" alt="Ícone Mines" class="w-24">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-black">Mines</h4>
+                        <p class="text-xs text-gray-500">PTVIP Studio</p>
+                    </div>
+                </a>
+
+                <a href="double.html" class="game glass rounded-3xl overflow-hidden block">
+                    <div class="h-40 flex items-center justify-center bg-gradient-to-br from-yellow-700/30 to-black">
+                        <img src="assets/icon-dado.png" alt="Ícone Double" class="w-24">
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-black">Double</h4>
+                        <p class="text-xs text-gray-500">PTVIP Studio</p>
+                    </div>
+                </a>
+
+                <a href="jogos.html" class="game glass rounded-3xl overflow-hidden col-span-2 block">
+                    <div class="h-44 flex items-center justify-center bg-gradient-to-r from-blue-900 to-black">
+                        <img src="assets/icon-foguete.png" alt="Ícone Crash" class="w-28">
+                    </div>
+                    <div class="p-4 flex justify-between items-center">
+                        <div>
+                            <h4 class="font-black text-lg">Crash</h4>
+                            <p class="text-xs text-gray-500">PTVIP Studio</p>
+                        </div>
+                        <span class="bg-blue-600 px-4 py-2 rounded-xl text-xs font-black">JOGAR</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="glass rounded-3xl overflow-hidden">
+            <div class="p-4 border-b border-gray-800">
+                <h3 class="text-xs uppercase font-black text-gray-400">🟢 Grandes Vitórias</h3>
+            </div>
+            <div class="divide-y divide-gray-800">
+                <div class="p-4 flex justify-between">
+                    <div>
+                        <p class="font-bold">Mines</p>
+                        <p class="text-xs text-gray-500">Rafa***</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-emerald-400 font-black">R$340</p>
+                        <p class="text-xs text-gray-500">Agora</p>
+                    </div>
+                </div>
+                <div class="p-4 flex justify-between">
+                    <div>
+                        <p class="font-bold">Double</p>
+                        <p class="text-xs text-gray-500">Bruno_vip</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-emerald-400 font-black">R$1850</p>
+                        <p class="text-xs text-gray-500">1 min</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-[#141b26] border-t border-gray-800 flex justify-around py-3 z-50">
+        <a href="home.html" class="flex flex-col items-center text-red-500 text-[10px] font-black">
+            <span class="text-lg mb-1">🏠</span>
+            <span>Começar</span>
+        </a>
+        <a href="promocoes.html" class="flex flex-col items-center text-gray-400 text-[10px]">
+            <span class="text-lg mb-1">🎁</span>
+            <span>Ofertas</span>
+        </a>
+        <a href="depositar-metodo.html" class="flex flex-col items-center text-gray-400 text-[10px]">
+            <span class="text-lg mb-1">💳</span>
+            <span>Depósito</span>
+        </a>
+        <a href="sacar.html" class="flex flex-col items-center text-gray-400 text-[10px]">
+            <span class="text-lg mb-1">💰</span>
+            <span>Saques</span>
+        </a>
+        <a href="perfil.html" class="flex flex-col items-center text-gray-400 text-[10px]">
+            <span class="text-lg mb-1">👤</span>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+    <script>
+        let current = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function trocar(i) {
+            slides[current].classList.remove('active');
+            dots[current].classList.remove('bg-white');
+            dots[current].classList.add('bg-white/40');
+            
+            current = i;
+            
+            slides[current].classList.add('active');
+            dots[current].classList.remove('bg-white/40');
+            dots[current].classList.add('bg-white');
+        }
+
+        function proximo() {
+            trocar((current + 1) % slides.length);
+        }
+
+        setInterval(proximo, 4500);
+
+        dots.forEach((dot, index) => {
+            dot.onclick = () => trocar(index);
+        });
+    </script>
 </body>
-
 </html>
