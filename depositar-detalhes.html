@@ -41,16 +41,14 @@
         <div class="space-y-4 text-center">
             <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Escaneie o QR ou copie o código abaixo</p>
             
-            <div class="w-44 h-44 bg-white rounded-2xl mx-auto flex flex-col items-center justify-center border-4 border-amber-500/10 shadow-inner p-2">
-                <div class="w-full h-full bg-[#141b26] rounded-xl flex items-center justify-center p-3 text-center">
-                    <span class="text-[10px] font-black text-amber-500 uppercase tracking-widest">QR CODE DISPONÍVEL NO COPIA E COLA</span>
-                </div>
+            <div class="w-44 h-44 bg-white rounded-2xl mx-auto flex flex-col items-center justify-center border-4 border-amber-500/10 shadow-inner p-2 overflow-hidden">
+                <img src="assets/qrcode.png" alt="QR Code Pix" class="w-full h-full object-cover rounded-xl bg-white">
             </div>
 
             <div class="space-y-1 pt-2">
-                <p class="text-[11px] font-black uppercase tracking-wider text-amber-500/80">Chave PIX Aleatória para Teste</p>
+                <p class="text-[11px] font-black uppercase tracking-wider text-amber-500/80">Chave PIX Aleatória</p>
                 <div class="w-full bg-[#0d121a] border border-gray-800 rounded-xl px-4 py-3 text-xs font-mono text-gray-400 break-all select-all">
-                    bdfcfbfd-b673-4449-b46f-0787f7674904
+                    12484988958
                 </div>
             </div>
 
@@ -81,7 +79,6 @@
     </div>
 
     <script>
-        // Carrega o valor vindo do localStorage da tela anterior
         document.addEventListener("DOMContentLoaded", function() {
             const valorSalvo = localStorage.getItem('valor_deposito');
             const txtValor = document.getElementById('valorExibido');
@@ -93,7 +90,6 @@
             }
         });
 
-        // Função nativa para copiar o conteúdo PIX para a área de transferência
         function copiarPix() {
             const textoCopia = document.getElementById('codigoCopiaCola').innerText;
             
