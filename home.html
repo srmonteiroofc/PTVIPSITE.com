@@ -35,17 +35,20 @@
 
     <main class="max-w-md mx-auto px-4 py-4 space-y-5">
         
-        <!-- CARROSSEL -->
+        <!-- CARROSSEL CORRIGIDO COM AS 5 IMAGENS -->
         <section class="relative rounded-3xl overflow-hidden aspect-[16/10] shadow-2xl border border-gray-800/50 bg-[#09111a]">
+            
+            <!-- SLIDE 1: LOGO -->
             <div class="carousel-slide absolute inset-0 flex items-center justify-between bg-gradient-to-br from-slate-950 via-slate-900/50 to-[#070d14] p-6">
                 <div class="space-y-2 z-10 max-w-[60%]">
                     <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Plataforma</span>
                     <h2 class="text-2xl font-black tracking-tight text-white">BEM-VINDO À PTVIP</h2>
                     <p class="text-xs text-gray-400 leading-relaxed">A melhor experiência em jogos originais e lucros.</p>
                 </div>
-                <div class="w-24 h-24 flex items-center justify-center bg-gradient-to-tr from-red-600 to-amber-500 rounded-2xl shadow-xl"><span class="font-black text-2xl text-white">PTVIP</span></div>
+                <img src="logo.png" alt="PTVIP Logo" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(255,255,255,0.1)]">
             </div>
 
+            <!-- SLIDE 2: MINES (BOMBA) -->
             <div class="carousel-slide absolute inset-0 hidden flex items-center justify-between bg-gradient-to-br from-red-950 via-red-900/30 to-[#070d14] p-6">
                 <div class="space-y-2 z-10 max-w-[60%]">
                     <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Destaque</span>
@@ -53,19 +56,21 @@
                     <p class="text-xs text-gray-300 leading-relaxed">Desvie das bombas ocultas e multiplique sua banca!</p>
                     <a href="jogos.html" class="inline-block bg-white text-black font-black text-xs px-4 py-2 rounded-xl mt-2 active:scale-95 transition-transform shadow-md">JOGAR AGORA</a>
                 </div>
-                <img src="assets/icon-bomba.png" alt="Mines" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(239,68,68,0.4)]">
+                <img src="icon-bomba.png" alt="Mines" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(239,68,68,0.4)]">
             </div>
 
+            <!-- SLIDE 3: DOUBLE (DADO) -->
             <div class="carousel-slide absolute inset-0 hidden flex items-center justify-between bg-gradient-to-br from-amber-950 via-amber-900/30 to-[#070d14] p-6">
                 <div class="space-y-2 z-10 max-w-[60%]">
-                    <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Mais Jogado</span>
+                    <span class="bg-amber-500/20 text-amber-400 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Mais Jocado</span>
                     <h2 class="text-3xl font-black tracking-tight text-white">DOUBLE</h2>
                     <p class="text-xs text-gray-300 leading-relaxed">Escolha a cor certa e dobre os seus investimentos.</p>
                     <a href="double.html" class="inline-block bg-white text-black font-black text-xs px-4 py-2 rounded-xl mt-2 active:scale-95 transition-transform shadow-md">JOGAR AGORA</a>
                 </div>
-                <img src="assets/icon-dado.png" alt="Double" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(245,158,11,0.4)]" onerror="this.src='assets/icon-dado.PNG'">
+                <img src="icon-dado.png" alt="Double" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(245,158,11,0.4)]">
             </div>
 
+            <!-- SLIDE 4: CRASH (FOGUETE) -->
             <div class="carousel-slide absolute inset-0 hidden flex items-center justify-between bg-gradient-to-br from-blue-950 via-blue-900/30 to-[#070d14] p-6">
                 <div class="space-y-2 z-10 max-w-[60%]">
                     <span class="bg-blue-500/20 text-blue-400 border border-blue-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Em Alta</span>
@@ -73,9 +78,10 @@
                     <p class="text-xs text-gray-300 leading-relaxed">Suba o multiplicador e retire antes do foguete explodir!</p>
                     <a href="jogos.html" class="inline-block bg-white text-black font-black text-xs px-4 py-2 rounded-xl mt-2 active:scale-95 transition-transform shadow-md">JOGAR AGORA</a>
                 </div>
-                <img src="assets/icon-foguete.png" alt="Crash" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(59,130,246,0.4)]">
+                <img src="icon-foguete.png" alt="Crash" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(59,130,246,0.4)]">
             </div>
 
+            <!-- SLIDE 5: SLOTS (SLOT) -->
             <div class="carousel-slide absolute inset-0 hidden flex items-center justify-between bg-gradient-to-br from-purple-950 via-purple-900/30 to-[#070d14] p-6">
                 <div class="space-y-2 z-10 max-w-[60%]">
                     <span class="bg-purple-500/20 text-purple-400 border border-purple-500/30 px-2.5 py-0.5 rounded-full text-[9px] font-black tracking-widest uppercase">Novidade</span>
@@ -83,9 +89,10 @@
                     <p class="text-xs text-gray-300 leading-relaxed">Gire as bobinas e alinhe os símbolos da fortuna!</p>
                     <a href="slots.html" class="inline-block bg-white text-black font-black text-xs px-4 py-2 rounded-xl mt-2 active:scale-95 transition-transform shadow-md">JOGAR AGORA</a>
                 </div>
-                <div class="w-24 h-24 flex items-center justify-center bg-purple-600/20 rounded-full border border-purple-500/30 text-4xl drop-shadow-[0_10px_20px_rgba(168,85,247,0.4)]">🎰</div>
+                <img src="icon-slot.png" alt="Slots" class="w-24 h-24 object-contain drop-shadow-[0_10px_20px_rgba(168,85,247,0.4)]">
             </div>
 
+            <!-- PONTOS DO CARROSSEL -->
             <div class="absolute bottom-4 right-6 flex gap-1.5 z-20">
                 <div class="dot w-5 h-1.5 bg-white rounded-full cursor-pointer transition-all duration-300"></div>
                 <div class="dot w-1.5 h-1.5 bg-white/30 rounded-full cursor-pointer transition-all duration-300"></div>
@@ -106,7 +113,7 @@
             </div>
         </section>
 
-        <!-- GRID DE JOGOS -->
+        <!-- GRID DE JOGOS CORRIGIDO -->
         <section class="space-y-3">
             <div class="flex justify-between items-center">
                 <h3 class="font-black tracking-tight text-base flex items-center gap-1.5"><span class="text-red-500">🕹️</span> Originais PTVIP</h3>
@@ -114,23 +121,35 @@
             </div>
 
             <div class="grid grid-cols-2 gap-3">
+                <!-- MINES -->
                 <a href="jogos.html" data-game="mines" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-red-500/30">
-                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-red-600/10 via-transparent to-black/40 relative"><img src="assets/icon-bomba.png" alt="Mines" class="w-20 h-20 object-contain"></div>
+                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-red-600/10 via-transparent to-black/40 relative">
+                        <img src="icon-bomba.png" alt="Mines" class="w-20 h-20 object-contain">
+                    </div>
                     <div class="p-3 bg-[#111924]/60"><h4 class="font-black text-sm">Mines</h4><p class="text-[10px] text-gray-500 font-medium">PTVIP Studio</p></div>
                 </a>
 
+                <!-- DOUBLE -->
                 <a href="double.html" data-game="double" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-amber-500/30">
-                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-amber-600/10 via-transparent to-black/40 relative"><img src="assets/icon-dado.png" alt="Double" class="w-20 h-20 object-contain" onerror="this.src='assets/icon-dado.PNG'"></div>
+                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-amber-600/10 via-transparent to-black/40 relative">
+                        <img src="icon-dado.png" alt="Double" class="w-20 h-20 object-contain">
+                    </div>
                     <div class="p-3 bg-[#111924]/60"><h4 class="font-black text-sm">Double</h4><p class="text-[10px] text-gray-500 font-medium">PTVIP Studio</p></div>
                 </a>
 
+                <!-- CRASH -->
                 <a href="jogos.html" data-game="crash" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-blue-500/30">
-                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-blue-600/10 via-transparent to-black/40 relative"><img src="assets/icon-foguete.png" alt="Crash" class="w-20 h-20 object-contain"></div>
+                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-blue-600/10 via-transparent to-black/40 relative">
+                        <img src="icon-foguete.png" alt="Crash" class="w-20 h-20 object-contain">
+                    </div>
                     <div class="p-3 bg-[#111924]/60"><h4 class="font-black text-sm">Crash</h4><p class="text-[10px] text-gray-500 font-medium">PTVIP Studio</p></div>
                 </a>
 
+                <!-- SLOTS -->
                 <a href="slots.html" data-game="slots" class="game-item game-card glass rounded-3xl overflow-hidden block group transition-all duration-300 hover:border-purple-500/30">
-                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-purple-600/10 via-transparent to-black/40 relative text-3xl">🎰</div>
+                    <div class="h-36 flex items-center justify-center bg-gradient-to-br from-purple-600/10 via-transparent to-black/40 relative">
+                        <img src="icon-slot.png" alt="Slots" class="w-20 h-20 object-contain">
+                    </div>
                     <div class="p-3 bg-[#111924]/60"><h4 class="font-black text-sm">Slots</h4><p class="text-[10px] text-gray-500 font-medium">PTVIP Studio</p></div>
                 </a>
             </div>
