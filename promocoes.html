@@ -2,8 +2,9 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Promoções</title>
 
@@ -11,89 +12,113 @@
 
 <style>
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
+
 background:
 linear-gradient(
 180deg,
-#08111c,
-#0c1825,
-#09131d
+#1c2437,
+#1a2234,
+#151c2c
 );
-color:white;
-}
 
-.glow{
-box-shadow:
-0 0 25px rgba(255,190,40,.35);
+color:white;
+
 }
 
 .card{
+
 background:
-rgba(255,255,255,.05);
-
-backdrop-filter:
-blur(10px);
-
-border:
-1px solid rgba(255,255,255,.08);
+#252f45;
 
 border-radius:22px;
+
 }
 
 .gold{
+
+color:#ffcb55;
+
+}
+
+.progress{
+
+height:10px;
+
+background:#45506c;
+
+border-radius:20px;
+
+overflow:hidden;
+
+}
+
+.progress div{
+
+width:75%;
+
+height:100%;
+
 background:
 linear-gradient(
 90deg,
-#ffcb52,
-#ffea9d
+#ffd65c,
+#ffe8a1
 );
 
--webkit-background-clip:text;
-color:transparent;
 }
 
-.carousel{
-overflow:hidden;
-position:relative;
+.btn{
+
+background:
+
+linear-gradient(
+90deg,
+#ffd35b,
+#ffbe31
+);
+
+color:black;
+
+padding:14px;
+
+border-radius:16px;
+
+font-weight:700;
+
+display:block;
+
+text-align:center;
+
 }
 
-.slides{
-display:flex;
-width:200%;
-animation:slide 10s infinite;
+.chest{
+
+background:#2b3449;
+
+border-radius:16px;
+
+padding:20px;
+
+text-align:center;
+
 }
 
-.slide{
-width:100%;
-flex-shrink:0;
-}
+.vipCard{
 
-@keyframes slide{
+background:
 
-0%{
-transform:
-translateX(0%);
-}
+linear-gradient(
+145deg,
+#eef2ff,
+#dde6ff
+);
 
-45%{
-transform:
-translateX(0%);
-}
-
-50%{
-transform:
-translateX(-50%);
-}
-
-95%{
-transform:
-translateX(-50%);
-}
-
-100%{
-transform:
-translateX(0%);
-}
+color:#314b8a;
 
 }
 
@@ -107,34 +132,321 @@ translateX(0%);
 
 <!-- TOPO -->
 
-<div class="pt-10 text-center">
+<div class="pt-8 text-center">
 
 <img
 src="logo.png"
-class="w-28 mx-auto"
->
+class="w-28 mx-auto">
 
 <h1
 class="
-text-4xl
+text-5xl
 font-black
 gold
-mt-5
+mt-4
 ">
-Promoções
-</h1>
 
-<p
-class="
-text-gray-400
-mt-2
-">
-Ofertas exclusivas para membros
-</p>
+Promoções
+
+</h1>
 
 </div>
 
-<!-- BANNER -->
+<!-- MENU -->
+
+<div class="p-4 grid gap-3">
+
+<a href="#vip" class="btn">
+👑 Área VIP
+</a>
+
+<a href="#cash" class="btn">
+💸 Crash Back
+</a>
+
+<a href="#bau" class="btn">
+🎁 Baú por Indicação
+</a>
+
+</div>
+
+<!-- VIP -->
+
+<section
+id="vip"
+class="p-4">
+
+<div
+class="
+vipCard
+p-5
+rounded-3xl
+">
+
+<div
+class="
+flex
+justify-between
+items-center
+">
+
+<div>
+
+<p>Nível Atual</p>
+
+<h2
+class="
+text-6xl
+font-black
+">
+
+VIP 2
+
+</h2>
+
+</div>
+
+<div
+class="
+text-6xl
+">
+
+👑
+
+</div>
+
+</div>
+
+<div class="progress mt-3">
+
+<div></div>
+
+</div>
+
+<p class="mt-2">
+
+75%
+
+</p>
+
+<p class="mt-5">
+
+Aposte mais
+<b>R$ 9.716</b>
+
+</p>
+
+<button
+class="
+mt-5
+bg-white
+rounded-xl
+px-5
+py-3
+">
+
+Fazer upgrade →
+
+</button>
+
+</div>
+
+<div
+class="
+card
+mt-5
+p-5
+">
+
+<h2
+class="
+text-center
+text-3xl
+gold
+">
+
+Lista VIP
+
+</h2>
+
+<div
+class="
+grid
+grid-cols-2
+gap-3
+mt-5
+">
+
+<div class="chest">VIP 1</div>
+<div class="chest">VIP 2</div>
+<div class="chest">VIP 3</div>
+<div class="chest">VIP 4</div>
+<div class="chest">VIP 5</div>
+<div class="chest">VIP 6</div>
+<div class="chest">VIP 7</div>
+<div class="chest">VIP 8</div>
+<div class="chest">VIP 9</div>
+<div class="chest">VIP 10 👑</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CASH -->
+
+<section
+id="cash"
+class="p-4">
+
+<div
+class="
+card
+p-5
+">
+
+<h2
+class="
+text-3xl
+gold
+">
+
+💸 Crash Back
+
+</h2>
+
+<div
+class="
+text-center
+mt-6
+">
+
+<p>
+
+Valor disponível
+
+</p>
+
+<div
+class="
+text-5xl
+font-black
+gold
+">
+
+R$0,00
+
+</div>
+
+</div>
+
+<div
+class="
+mt-6
+p-4
+bg-black/20
+rounded-xl
+">
+
+Receba valores de volta.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BAU -->
+
+<section
+id="bau"
+class="p-4">
+
+<div
+class="
+card
+p-5
+">
+
+<h2
+class="
+text-center
+text-3xl
+gold
+">
+
+🎁 Abrir Baú
+
+</h2>
+
+<p
+class="
+text-center
+text-gray-300
+mt-3
+">
+
+Indique amigos para abrir.
+
+</p>
+
+<div
+class="
+grid
+grid-cols-2
+gap-4
+mt-6
+">
+
+<div class="chest">
+🔒
+<p>1 amigo</p>
+</div>
+
+<div class="chest">
+🔒
+<p>2 amigos</p>
+</div>
+
+<div class="chest">
+🔒
+<p>3 amigos</p>
+</div>
+
+<div class="chest">
+🔒
+<p>5 amigos</p>
+</div>
+
+<div class="chest">
+🔒
+<p>10 amigos</p>
+</div>
+
+<div class="chest">
+🔒
+<p>20 amigos</p>
+</div>
+
+</div>
+
+<button
+class="
+btn
+mt-6
+w-full
+">
+
+Convidar Amigos
+
+</button>
+
+</div>
+
+</section>
+
+<!-- CARROSSEL -->
 
 <div class="p-4">
 
@@ -142,201 +454,37 @@ Ofertas exclusivas para membros
 class="
 card
 overflow-hidden
-glow
 ">
-
-<img
-src="https://picsum.photos/900/500"
-class="w-full h-56 object-cover"
->
-
-<div class="p-5">
-
-<h2
-class="
-text-2xl
-font-bold
-">
-🔥 Oferta Especial
-</h2>
-
-<p
-class="
-text-gray-400
-mt-2
-">
-Receba bônus exclusivos e participe das promoções VIP.
-</p>
-
-<button
-class="
-mt-5
-w-full
-bg-yellow-500
-text-black
-font-bold
-py-3
-rounded-xl
-">
-Participar
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- AREA VIP -->
-
-<div class="px-4">
-
-<div class="card p-5">
-
-<div class="text-3xl">
-👑
-</div>
-
-<h2
-class="
-text-xl
-font-bold
-mt-3
-">
-Área VIP
-</h2>
-
-<p
-class="
-text-gray-400
-mt-2
-">
-Desbloqueie benefícios e promoções exclusivas.
-</p>
-
-</div>
-
-</div>
-
-<!-- CRASH BACK -->
-
-<div class="p-4">
-
-<div class="card p-5">
-
-<div class="text-3xl">
-💸
-</div>
-
-<h2
-class="
-text-xl
-font-bold
-mt-3
-">
-Crash Back
-</h2>
-
-<p
-class="
-text-gray-400
-mt-2
-">
-Receba parte do valor de volta em eventos especiais.
-</p>
-
-</div>
-
-</div>
-
-<!-- BAU -->
-
-<div class="px-4">
-
-<div class="card p-5">
-
-<div class="text-3xl">
-🎁
-</div>
-
-<h2
-class="
-text-xl
-font-bold
-mt-3
-">
-Baú por Indicação
-</h2>
-
-<p
-class="
-text-gray-400
-mt-2
-">
-Convide amigos e desbloqueie recompensas.
-</p>
-
-<button
-class="
-mt-4
-w-full
-bg-yellow-500
-text-black
-font-bold
-py-3
-rounded-xl
-">
-Abrir Baú
-</button>
-
-</div>
-
-</div>
-
-<!-- CARROSSEL -->
-
-<div class="p-4">
-
-<div class="carousel card">
-
-<div class="slides">
-
-<div class="slide">
 
 <img
 src="https://picsum.photos/900/450"
-class="w-full"
->
+class="w-full">
 
 </div>
 
-<div class="slide">
+<div
+class="
+card
+overflow-hidden
+mt-3
+">
 
 <img
 src="https://picsum.photos/901/450"
-class="w-full"
->
+class="w-full">
 
 </div>
 
 </div>
-
-</div>
-
-</div>
-
-<!-- RODAPE -->
 
 <footer
 class="
-mt-8
 text-center
-text-gray-500
-text-sm
+text-gray-400
 pb-10
 ">
 
-Promoções exclusivas • VIP 👑
+Promoções • VIP 👑
 
 </footer>
 
