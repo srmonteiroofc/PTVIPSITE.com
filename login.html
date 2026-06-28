@@ -3,63 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTVIP • Entrar</title>
+    <title>PTvip - Centro Pessoal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: linear-gradient(180deg, #0b1117, #111923, #0b1117); min-height: 100vh; }
-        .glass-container { background: rgba(26,32,39,.96); border: 1px solid rgba(230,138,0,.15); backdrop-filter: blur(16px); border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,.45); }
-        .input { background: #111821; border: 1px solid #2a3138; transition: .3s; }
-        .input:focus { border-color: #e68a00; box-shadow: 0 0 0 3px rgba(230,138,0,.15); }
-        .btn-primary { background: linear-gradient(135deg, #ffb547, #e68a00); color: #000; }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(230,138,0,.25); }
-        .btn-secondary { border: 1px solid #323b45; }
-        .btn-secondary:hover { background: #1c242d; }
+        body {
+            background: linear-gradient(180deg, #07111d, #091625, #07111d);
+        }
+        .glass {
+            background: rgba(18,28,40,.95);
+            border: 1px solid rgba(255,255,255,.06);
+            backdrop-filter: blur(14px);
+        }
+        .card {
+            transition: .25s;
+        }
+        .card:active {
+            transform: scale(.97);
+        }
+        /* Estilos para gradientes de botão */
+        .btn-sacar {
+            background: linear-gradient(135deg, #0f2d57, #07111d);
+            border-color: #1e3a8a;
+        }
+        .btn-depositar {
+            background: linear-gradient(135deg, #064e3b, #042f22);
+            border-color: #059669;
+        }
     </style>
 </head>
-<body class="text-white font-sans flex items-center justify-center p-6">
+<body class="text-white font-sans min-h-screen pb-28">
 
-<div class="w-full max-w-sm">
-    <div class="text-center mb-8">
-        <img src="logo.png" class="h-20 mx-auto">
-        <h1 class="mt-5 text-2xl font-black tracking-wide">ENTRAR</h1>
-        <p class="text-gray-400 text-xs uppercase tracking-widest">Acesse sua conta</p>
-    </div>
+    <header class="sticky top-0 z-50 bg-[#111827] border-b border-gray-800">
+        <div class="p-5 flex items-center">
+            <button onclick="window.location.href='home.html'" class="text-gray-400">✕</button>
+            <h1 class="flex-1 text-center font-black text-lg tracking-wide">CENTRO PESSOAL</h1>
+        </div>
+    </header>
 
-    <div class="glass-container p-7">
-        <form id="loginForm" class="space-y-5">
-            <input type="email" id="email" required placeholder="Digite seu e-mail" class="input w-full p-4 rounded-xl outline-none">
-            <input type="password" id="senha" required placeholder="Digite sua senha" class="input w-full p-4 rounded-xl outline-none">
-            
-            <button id="entrar" type="submit" class="btn-primary w-full py-4 rounded-xl font-black uppercase">Entrar</button>
-            <button type="button" onclick="window.location.href='index.html'" class="btn-secondary w-full py-4 rounded-xl uppercase">Voltar</button>
-        </form>
-    </div>
-</div>
+    <main class="max-w-md mx-auto p-5 space-y-5">
+        
+        <div class="glass rounded-3xl p-6 text-center">
+            <div class="flex flex-col items-center gap-2">
+                <h2 id="userDisplay" class="font-black text-2xl tracking-wide">miguelmonteiro.300701</h2>
+                <div class="flex items-center gap-1.5 text-xs text-amber-300">
+                    <div class="w-6 h-6 rounded-md bg-gradient-to-br from-yellow-500 to-amber-300 flex items-center justify-center text-sm">👑</div>
+                    <span>V0 VIP</span>
+                </div>
+            </div>
+        </div>
 
-<script type="module">
-    import { auth } from "./firebase.js";
-    import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        <div class="glass rounded-3xl p-6">
+            <p class="text-gray-500 text-sm">Saldo Disponível</p>
+            <h2 id="saldoDisplay" class="text-6xl font-black text-amber-400">R$ 0,00</h2>
+        </div>
 
-    const form = document.getElementById("loginForm");
-    const botao = document.getElementById("entrar");
+        <div class="grid grid-cols-2 gap-4">
+            <button onclick="window.location.href='sacar.html'" class="glass card btn-sacar rounded-3xl p-6 border flex flex-col items-center">
+                <div class="w-20 h-20 rounded-2xl bg-[#1e40af] flex items-center justify-center text-5xl mb-4 shadow-inner">💵</div>
+                <p class="text-center font-semibold text-lg">Solicitar Saque</p>
+            </button>
 
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value;
-        const senha = document.getElementById("senha").value;
+            <button onclick="window.location.href='depositar-metodo.html'" class="glass card btn-depositar rounded-3xl p-6 border flex flex-col items-center">
+                <div class="w-20 h-20 rounded-2xl bg-[#15803d] flex items-center justify-center text-5xl mb-4 shadow-inner">💰</div>
+                <p class="text-center font-semibold text-lg">Efetuar Depósito</p>
+            </button>
+        </div>
 
-        botao.innerHTML = "VALIDANDO...";
-        botao.disabled = true;
+        <div class="rounded-3xl overflow-hidden glass p-1 shadow-2xl">
+            <img src="banner-perfil.png" alt="PTvip Premium - Jogue. Vença. Seja VIP." class="w-full h-auto object-cover">
+        </div>
 
-        try {
-            await signInWithEmailAndPassword(auth, email, senha);
-            window.location.href = "home.html";
-        } catch (error) {
-            alert("E-mail ou senha inválidos.");
-            botao.innerHTML = "ENTRAR";
-            botao.disabled = false;
+        <div onclick="window.location.href='promocoes.html'" class="glass rounded-3xl p-6 card cursor-pointer">
+            <div class="flex justify-between items-start">
+                <div>
+                    <p class="text-red-500 text-sm font-semibold">NÍVEL VIP</p>
+                    <h2 class="text-6xl font-black">V0</h2>
+                </div>
+                <div>
+                    <p class="text-gray-500 text-sm font-semibold">BÔNUS</p>
+                    <p class="text-emerald-400 text-3xl font-black">R$10</p>
+                </div>
+            </div>
+            <div class="mt-6 h-2 rounded-full bg-black overflow-hidden relative">
+                <div id="progressoVip" class="absolute inset-y-0 left-0 h-full bg-gradient-to-r from-red-600 to-yellow-500" style="width: 10%;"></div>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Toque para ver promoções</p>
+        </div>
+
+        <button onclick="logout()" class="w-full glass card rounded-2xl py-4 border border-red-900 flex items-center justify-center gap-2 group hover:bg-red-950/20 transition duration-300">
+            <span class="text-red-500 text-lg group-hover:scale-110 transition">⍈</span>
+            <span class="text-red-500 font-bold uppercase tracking-widest text-sm">Sair da Conta</span>
+        </button>
+    </main>
+
+    <nav class="fixed bottom-0 left-0 right-0 bg-[#111827] border-t border-gray-800 max-w-md mx-auto z-50">
+        <div class="flex justify-around py-4">
+            <button onclick="window.location.href='home.html'" class="p-3 text-gray-600 hover:text-white">🏠</button>
+            <button onclick="window.location.href='promocoes.html'" class="p-3 text-gray-600 hover:text-white">🎁</button>
+            <button onclick="window.location.href='depositar.html'" class="p-3 text-gray-600 hover:text-white">📦</button>
+            <button onclick="window.location.href='sacar.html'" class="p-3 text-gray-600 hover:text-white">💰</button>
+            <button class="p-3 text-blue-500 flex items-center gap-1.5 font-bold">
+                <div class="w-5 h-5 rounded-full bg-blue-500"></div>
+                👤
+            </button>
+        </div>
+    </nav>
+
+    <script type="module" src="firebase-perfil.js"></script>
+    <script>
+        // Função de logout simulada (deve ser tratada no firebase-perfil.js real)
+        function logout() {
+            window.alert("Saindo... (Funcionalidade simulada)");
+            window.location = "index.html"; // Redireciona para o login
         }
-    });
-</script>
+    </script>
 </body>
 </html>
