@@ -99,37 +99,28 @@
     </nav>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        // Importando a conexão direta do seu arquivo local para não perder o login
+        import { auth } from "./firebase.js";
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
-            authDomain: "ptvip-teste.firebaseapp.com",
-            projectId: "ptvip-teste",
-            storageBucket: "ptvip-teste.firebasestorage.app",
-            messagingSenderId: "407028833766",
-            appId: "1:407028833766:web:79d7dbf7ee968944248a27"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-
+        // Verifica se o usuário está logado na mesma sessão do index.html
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // Injeta o nome do usuário sem deslogar
+                // Usuário reconhecido! Injeta o nome na tela
                 document.getElementById("userEmail").innerHTML = user.email.split("@")[0];
             } else {
-                // Se não houver login ativo, volta para a tela de entrar
+                // Se perder o login por algum motivo, volta pro começo
                 window.location = "index.html";
             }
         });
 
+        // Função de Sair corrigida
         window.logout = async () => {
             try {
                 await signOut(auth);
                 window.location = "index.html";
             } catch (error) {
-                console.error("Erro ao sair da conta:", error);
+                console.error("Erro ao deslogar:", error);
             }
         };
     </script>
