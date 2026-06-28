@@ -17,10 +17,8 @@
 </head>
 <body class="text-white font-sans min-h-screen flex flex-col justify-center items-center px-4 select-none">
 
-    <!-- CARD PRINCIPAL DE DEPÓSITO -->
     <div class="w-full max-w-md glass-card border border-gray-800/80 rounded-3xl p-6 shadow-2xl relative">
         
-        <!-- HEADER DO CARD COM SETA PARA VOLTAR -->
         <div class="flex items-center justify-between mb-6">
             <button onclick="window.location.href='depositar-valor.html'" class="w-9 h-9 rounded-full bg-[#141b26] border border-gray-800 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
@@ -31,30 +29,24 @@
             <div class="w-9"></div>
         </div>
 
-        <!-- LOGO CENTRALIZADA EM DESTAQUE -->
         <div class="w-full flex justify-center mb-6">
             <img src="logo.png" alt="PTvip" class="h-14 object-contain">
         </div>
 
-        <!-- EXIBIÇÃO DO VALOR SELECIONADO -->
         <div class="bg-[#0d121a] border border-gray-800/80 rounded-xl px-4 py-3 flex justify-between items-center mb-6">
             <span class="text-xs font-bold text-gray-500 uppercase tracking-wider">Valor do Depósito:</span>
             <span id="valorExibido" class="text-base font-black text-amber-500">R$ --,--</span>
         </div>
 
-        <!-- BOX SELEÇÃO DO QR CODE / INSTRUÇÃO -->
         <div class="space-y-4 text-center">
             <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Escaneie o QR ou copie o código abaixo</p>
             
-            <!-- SIMULAÇÃO DO BOX QR CODE -->
             <div class="w-44 h-44 bg-white rounded-2xl mx-auto flex flex-col items-center justify-center border-4 border-amber-500/10 shadow-inner p-2">
-                <!-- Como não há API de QR Code externa, usamos um placeholder sutil integrado ao design -->
                 <div class="w-full h-full bg-[#141b26] rounded-xl flex items-center justify-center p-3 text-center">
                     <span class="text-[10px] font-black text-amber-500 uppercase tracking-widest">QR CODE DISPONÍVEL NO COPIA E COLA</span>
                 </div>
             </div>
 
-            <!-- CHAVE ALEATÓRIA EXIBIDA -->
             <div class="space-y-1 pt-2">
                 <p class="text-[11px] font-black uppercase tracking-wider text-amber-500/80">Chave PIX Aleatória para Teste</p>
                 <div class="w-full bg-[#0d121a] border border-gray-800 rounded-xl px-4 py-3 text-xs font-mono text-gray-400 break-all select-all">
@@ -62,19 +54,16 @@
                 </div>
             </div>
 
-            <!-- CÓDIGO COPIA E COLA -->
             <div class="space-y-1">
                 <p class="text-[11px] font-black uppercase tracking-wider text-gray-500">Código Copia e Cola:</p>
-                <div class="w-full bg-[#0d121a] border border-gray-800 rounded-xl px-4 py-3 text-[11px] font-mono text-gray-500 break-all max-h-20 overflow-y-auto" id="codigoCopiaCola">00020126360014BR.GOV.BCB.PIX0136bdfcfbfd-b673-4449-b46f-0787f76749045204000053039865802BR5915PT VIP DEPOSITO6012Itajai62070503***6304E9A3</div>
+                <div class="w-full bg-[#0d121a] border border-gray-800 rounded-xl px-4 py-3 text-[11px] font-mono text-gray-500 break-all max-h-20 overflow-y-auto" id="codigoCopiaCola">00020126760014BR.GOV.BCB.PIX0136bdfcfbfd-b673-4449-b46f-0787f76749040214deposito PTVIP5204000053039865802BR5925Miguel Eduardo Gomes Mont6009Sao Paulo62290525REC6A41AC6B0FB6F3083427686304A35F</div>
             </div>
 
-            <!-- SEÇÃO DE BOTÕES DE AÇÃO -->
             <div class="space-y-2 pt-2">
                 <button onclick="copiarPix()" class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-gray-950 rounded-xl font-black uppercase tracking-wider text-xs transition-all shadow-lg shadow-amber-950/20 active:scale-[0.99]">
                     Copiar Código PIX
                 </button>
 
-                <!-- AVISO DE COPIADO EM FLUTUAÇÃO -->
                 <div id="msgCopiado" class="hidden text-xs font-black text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 py-2 rounded-xl uppercase tracking-wider transition-all">
                     ✅ Código copiado com sucesso!
                 </div>
@@ -84,7 +73,6 @@
                 </button>
             </div>
 
-            <!-- NOTA DE PROCESSAMENTO -->
             <p class="text-[9px] text-center font-bold tracking-widest text-gray-600 uppercase pt-2">
                 O saldo será creditado automaticamente após a confirmação
             </p>
