@@ -1,3 +1,4 @@
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
@@ -12,6 +13,10 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Correção do erro: Agora salvamos o "auth" de forma global na memória do navegador (window)
-// para que o seu script.js consiga ler e destravar a tela de carregamento.
-window.auth = getAuth(app);
+// Criamos a instância do Auth
+const authInstance = getAuth(app);
+
+// Solução definitiva: Deixamos disponível tanto globalmente na tela (window) 
+// quanto por export para não quebrar nenhuma tela de login antiga!
+window.auth = authInstance;
+export const auth = authInstance;
