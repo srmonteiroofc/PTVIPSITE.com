@@ -61,7 +61,7 @@
         </div>
 
         <div class="rounded-3xl overflow-hidden shadow-xl">
-            <img src="logo.png" class="w-full h-auto display-block">
+            <img src="logo.png" class="w-full h-auto block">
         </div>
 
         <div onclick="window.location.href='promocoes.html'" class="glass rounded-3xl p-5 card cursor-pointer">
@@ -99,8 +99,8 @@
     </nav>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyAw_X2_5ntROLBDHj6TF_rFQj6Yra-ghxk",
@@ -116,16 +116,21 @@
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // Mantive o ID original 'userEmail' que o script procura
+                // Injeta o nome do usuário sem deslogar
                 document.getElementById("userEmail").innerHTML = user.email.split("@")[0];
             } else {
+                // Se não houver login ativo, volta para a tela de entrar
                 window.location = "index.html";
             }
         });
 
         window.logout = async () => {
-            await signOut(auth);
-            window.location = "index.html";
+            try {
+                await signOut(auth);
+                window.location = "index.html";
+            } catch (error) {
+                console.error("Erro ao sair da conta:", error);
+            }
         };
     </script>
 
