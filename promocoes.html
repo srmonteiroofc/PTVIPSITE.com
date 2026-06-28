@@ -1,5 +1,13 @@
-<!-- MANTENHA TODO O SEU HTML ATUAL -->
-<!-- SÓ TROQUE O <style> PELO ABAIXO -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Promoções</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 
@@ -7,302 +15,333 @@ body{
 background:
 linear-gradient(
 180deg,
-#08111b,
-#101a28,
-#08111b
+#08111c,
+#0c1825,
+#09131d
 );
+color:white;
+}
+
+.glow{
+box-shadow:
+0 0 25px rgba(255,190,40,.35);
 }
 
 .card{
-
 background:
-linear-gradient(
-180deg,
-rgba(22,31,44,.96),
-rgba(15,22,31,.96)
-);
-
-border:
-1px solid rgba(255,255,255,.06);
-
-backdrop-filter:
-blur(14px);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.35);
-
-transition:.25s;
-
-}
-
-.card:active{
-
-transform:
-scale(.985);
-
-}
-
-.modal{
-
-position:fixed;
-
-inset:0;
-
-display:flex;
-
-align-items:end;
-
-opacity:0;
-
-pointer-events:none;
-
-background:
-
-rgba(0,0,0,.2);
-
-backdrop-filter:
-
-blur(0px);
-
-transition:.35s;
-
-z-index:100;
-
-}
-
-.modal.show{
-
-opacity:1;
-
-pointer-events:auto;
+rgba(255,255,255,.05);
 
 backdrop-filter:
 blur(10px);
 
-}
-
-.sheet{
-
-width:100%;
-
-max-width:430px;
-
-margin:auto;
-
-padding:28px;
-
-border-radius:
-
-34px 34px 0 0;
-
-background:
-
-linear-gradient(
-180deg,
-#1b2737,
-#101722
-);
-
-border-top:
-
-1px solid rgba(255,180,0,.15);
-
-transform:
-
-translateY(100%);
-
-transition:.35s;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-.modal.show .sheet{
-
-transform:
-translateY(0);
-
-}
-
-.sheet::before{
-
-content:"";
-
-position:absolute;
-
-top:-140px;
-
-right:-80px;
-
-width:260px;
-
-height:260px;
-
-border-radius:999px;
-
-background:
-
-radial-gradient(
-circle,
-rgba(255,180,0,.18),
-transparent
-);
-
-}
-
-.drag{
-
-width:70px;
-
-height:6px;
-
-border-radius:999px;
-
-background:#3b4554;
-
-margin:auto;
-
-margin-bottom:24px;
-
-}
-
-.action{
-
-width:100%;
-
-padding:18px;
-
-border-radius:18px;
-
-font-weight:900;
-
-background:
-
-linear-gradient(
-135deg,
-#ffb000,
-#ff7900
-);
-
-color:black;
-
-box-shadow:
-
-0 15px 40px rgba(255,150,0,.2);
-
-}
-
-.action:active{
-
-transform:scale(.98);
-
-}
-
-.reward{
-
-padding:20px;
+border:
+1px solid rgba(255,255,255,.08);
 
 border-radius:22px;
-
-margin-top:20px;
-
-background:
-
-linear-gradient(
-135deg,
-#ffb000,
-#ff7300
-);
-
-color:black;
-
-font-weight:900;
-
 }
 
-.close{
+.gold{
+background:
+linear-gradient(
+90deg,
+#ffcb52,
+#ffea9d
+);
 
-margin-top:16px;
+-webkit-background-clip:text;
+color:transparent;
+}
 
-color:#8893a5;
+.carousel{
+overflow:hidden;
+position:relative;
+}
+
+.slides{
+display:flex;
+width:200%;
+animation:slide 10s infinite;
+}
+
+.slide{
+width:100%;
+flex-shrink:0;
+}
+
+@keyframes slide{
+
+0%{
+transform:
+translateX(0%);
+}
+
+45%{
+transform:
+translateX(0%);
+}
+
+50%{
+transform:
+translateX(-50%);
+}
+
+95%{
+transform:
+translateX(-50%);
+}
+
+100%{
+transform:
+translateX(0%);
+}
 
 }
 
 </style>
-<div id="bau" class="modal">
 
-<div class="sheet">
+</head>
 
-<div class="drag"></div>
+<body>
 
-<h2 class="text-3xl font-black">
+<div class="max-w-md mx-auto pb-28">
 
-🧰 Baú Diário
+<!-- TOPO -->
 
-</h2>
+<div class="pt-10 text-center">
 
-<p class="text-gray-400 mt-2">
+<img
+src="logo.png"
+class="w-28 mx-auto"
+>
 
-Abra um baú por dia e receba bônus.
+<h1
+class="
+text-4xl
+font-black
+gold
+mt-5
+">
+Promoções
+</h1>
 
+<p
+class="
+text-gray-400
+mt-2
+">
+Ofertas exclusivas para membros
 </p>
 
-<div class="reward">
-
-🎁 Recompensa disponível
-
-<div class="text-4xl mt-2">
-
-R$ 3,00
-
 </div>
 
-</div>
+<!-- BANNER -->
 
-<div class="mt-5">
-
-<div class="h-3 bg-black rounded-full">
+<div class="p-4">
 
 <div
 class="
-h-full
-w-[45%]
+card
+overflow-hidden
+glow
+">
 
-bg-gradient-to-r
+<img
+src="https://picsum.photos/900/500"
+class="w-full h-56 object-cover"
+>
 
-from-yellow-500
+<div class="p-5">
 
-to-orange-500">
+<h2
+class="
+text-2xl
+font-bold
+">
+🔥 Oferta Especial
+</h2>
+
+<p
+class="
+text-gray-400
+mt-2
+">
+Receba bônus exclusivos e participe das promoções VIP.
+</p>
+
+<button
+class="
+mt-5
+w-full
+bg-yellow-500
+text-black
+font-bold
+py-3
+rounded-xl
+">
+Participar
+</button>
 
 </div>
 
 </div>
 
-<p class="text-xs text-gray-500 mt-2">
+</div>
 
-45% para o próximo prêmio
+<!-- AREA VIP -->
 
+<div class="px-4">
+
+<div class="card p-5">
+
+<div class="text-3xl">
+👑
+</div>
+
+<h2
+class="
+text-xl
+font-bold
+mt-3
+">
+Área VIP
+</h2>
+
+<p
+class="
+text-gray-400
+mt-2
+">
+Desbloqueie benefícios e promoções exclusivas.
 </p>
 
 </div>
 
-<button class="action">
+</div>
 
-ABRIR BAÚ
+<!-- CRASH BACK -->
 
-</button>
+<div class="p-4">
+
+<div class="card p-5">
+
+<div class="text-3xl">
+💸
+</div>
+
+<h2
+class="
+text-xl
+font-bold
+mt-3
+">
+Crash Back
+</h2>
+
+<p
+class="
+text-gray-400
+mt-2
+">
+Receba parte do valor de volta em eventos especiais.
+</p>
+
+</div>
+
+</div>
+
+<!-- BAU -->
+
+<div class="px-4">
+
+<div class="card p-5">
+
+<div class="text-3xl">
+🎁
+</div>
+
+<h2
+class="
+text-xl
+font-bold
+mt-3
+">
+Baú por Indicação
+</h2>
+
+<p
+class="
+text-gray-400
+mt-2
+">
+Convide amigos e desbloqueie recompensas.
+</p>
 
 <button
-onclick="closeModal()"
-
-class="close">
-
-Fechar
-
+class="
+mt-4
+w-full
+bg-yellow-500
+text-black
+font-bold
+py-3
+rounded-xl
+">
+Abrir Baú
 </button>
 
 </div>
 
 </div>
+
+<!-- CARROSSEL -->
+
+<div class="p-4">
+
+<div class="carousel card">
+
+<div class="slides">
+
+<div class="slide">
+
+<img
+src="https://picsum.photos/900/450"
+class="w-full"
+>
+
+</div>
+
+<div class="slide">
+
+<img
+src="https://picsum.photos/901/450"
+class="w-full"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RODAPE -->
+
+<footer
+class="
+mt-8
+text-center
+text-gray-500
+text-sm
+pb-10
+">
+
+Promoções exclusivas • VIP 👑
+
+</footer>
+
+</div>
+
+</body>
+
+</html>
