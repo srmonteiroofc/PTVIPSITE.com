@@ -11,4 +11,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app); // O segredo está nesta linha
+
+// Correção do erro: Agora salvamos o "auth" de forma global na memória do navegador (window)
+// para que o seu script.js consiga ler e destravar a tela de carregamento.
+window.auth = getAuth(app);
