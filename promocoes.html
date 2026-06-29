@@ -6,23 +6,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Promoções</title>
+<title>Promoções • VIP</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
 background:
+radial-gradient(
+circle at top,
+rgba(255,195,0,.15),
+transparent 35%
+),
+
 linear-gradient(
 180deg,
-#1b2334,
-#141b2b
+#07111d,
+#101929,
+#070d16
 );
 
+min-height:100vh;
+
 color:white;
-font-family:sans-serif;
+
+font-family:
+Arial,
+sans-serif;
+
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+right:-200px;
+
+top:-100px;
+
+width:500px;
+
+height:500px;
+
+background:
+
+radial-gradient(
+circle,
+rgba(255,220,90,.12),
+transparent
+);
+
+filter:
+blur(80px);
+
+pointer-events:none;
+
 }
 
 .page{
@@ -50,11 +100,59 @@ translateY(0);
 
 }
 
+.logo{
+
+width:120px;
+
+filter:
+
+drop-shadow(
+0 0 20px
+rgba(255,210,80,.45)
+);
+
+}
+
 .card{
 
-background:#263148;
+background:
 
-border-radius:22px;
+linear-gradient(
+180deg,
+rgba(28,40,62,.96),
+rgba(18,28,44,.96)
+);
+
+border:
+
+1px solid
+rgba(255,214,110,.12);
+
+border-radius:28px;
+
+backdrop-filter:
+blur(18px);
+
+box-shadow:
+
+0 10px 40px
+rgba(0,0,0,.45);
+
+}
+
+.gold{
+
+background:
+
+linear-gradient(
+90deg,
+#fff4bf,
+#ffcf57
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
 
@@ -62,60 +160,73 @@ border-radius:22px;
 
 flex:1;
 
-padding:14px;
+padding:15px;
 
 border-radius:18px;
 
-background:#2d3952;
+background:
+
+rgba(255,255,255,.06);
+
+color:#d7dff0;
+
+font-weight:700;
+
+transition:.3s;
 
 }
 
 .active-tab{
 
 background:
+
 linear-gradient(
 90deg,
-#ffd55a,
-#ffb930
+#ffd75a,
+#ffb327
 );
 
 color:black;
 
-font-weight:700;
+box-shadow:
 
-}
-
-.gold{
-
-color:#ffd55c;
+0 0 25px
+rgba(255,213,100,.4);
 
 }
 
 .progress{
 
-height:12px;
+height:14px;
 
-background:#44506b;
+background:#24324d;
 
 border-radius:50px;
 
 overflow:hidden;
 
+margin-top:20px;
+
 }
 
 .progress div{
 
-height:100%;
+width:72%;
 
-width:0%;
+height:100%;
 
 background:
 
 linear-gradient(
 90deg,
-#ffd75c,
-#fff0b5
+#ffd455,
+#fff4c3
 );
+
+box-shadow:
+
+0 0 20px
+rgba(255,214,90,.5);
 
 }
 
@@ -124,22 +235,66 @@ linear-gradient(
 background:
 
 linear-gradient(
-145deg,
-#30405f,
-#283249
+180deg,
+#243654,
+#18263d
 );
 
-padding:16px;
+padding:18px;
 
-border-radius:18px;
+border-radius:20px;
+
+text-align:center;
+
+border:
+
+1px solid
+rgba(255,216,90,.08);
+
+transition:.3s;
+
+}
+
+.reward:hover{
+
+transform:
+translateY(-5px);
+
+}
+
+.button-premium{
+
+display:block;
+
+width:100%;
+
+padding:18px;
+
+border-radius:22px;
+
+font-weight:900;
+
+background:
+
+linear-gradient(
+90deg,
+#ffd55c,
+#ffb22b
+);
+
+color:black;
 
 text-align:center;
 
 }
 
-.qr{
+.subtitle{
 
-background:white;
+color:#bcc8dc;
+
+}
+
+.qr{
 
 width:180px;
 
@@ -147,14 +302,14 @@ height:180px;
 
 margin:auto;
 
-border-radius:20px;
+background:white;
+
+border-radius:22px;
 
 }
 
 button{
-
 border:none;
-
 }
 
 </style>
@@ -165,18 +320,16 @@ border:none;
 
 <div class="max-w-md mx-auto pb-32">
 
-<!-- VOLTAR -->
-
-<div class="p-4">
+<div class="p-5">
 
 <a
 href="home.html"
 class="
+card
 block
 text-center
-bg-black/30
-rounded-xl
-py-3
+py-4
+font-bold
 ">
 
 ← Voltar para Home
@@ -185,35 +338,45 @@ py-3
 
 </div>
 
-<!-- TOPO -->
-
 <div class="text-center">
 
 <img
 src="logo.png"
-class="w-28 mx-auto">
+class="
+logo
+mx-auto
+">
 
 <h1
 class="
 text-5xl
 font-black
 gold
-mt-4
+mt-5
 ">
 
-Promoções
+PROMOÇÕES
 
 </h1>
 
+<p class="subtitle mt-3">
+
+Área VIP Exclusiva
+
+</p>
+
 </div>
 
-<!-- MENU -->
-
-<div class="flex gap-2 p-4">
+<div class="flex gap-3 p-5">
 
 <button
-class="tab active-tab"
-onclick="show('vip',this)">
+class="
+tab
+active-tab
+"
+onclick="
+show('vip',this)
+">
 
 👑 VIP
 
@@ -221,7 +384,9 @@ onclick="show('vip',this)">
 
 <button
 class="tab"
-onclick="show('cash',this)">
+onclick="
+show('cash',this)
+">
 
 💸 Cashback
 
@@ -229,7 +394,9 @@ onclick="show('cash',this)">
 
 <button
 class="tab"
-onclick="show('bau',this)">
+onclick="
+show('bau',this)
+">
 
 🎁 Baú
 
@@ -237,65 +404,75 @@ onclick="show('bau',this)">
 
 </div>
 
-<!-- VIP -->
-
 <div
 id="vip"
-class="page active p-4">
+class="
+page
+active
+px-5
+">
 
-<div class="card p-5">
+<div class="card p-7">
 
-<p>Nível Atual</p>
+<div class="text-center">
+
+<div class="subtitle">
+
+NÍVEL ATUAL
+
+</div>
 
 <div
 class="
-text-6xl
-gold
+text-7xl
 font-black
+gold
 ">
 
 VIP 0
 
 </div>
 
-<div
-class="
-progress
-mt-5
-">
+</div>
+
+<div class="progress">
 
 <div></div>
 
 </div>
 
-<div class="mt-2">
+<div class="text-center mt-4">
 
-0 / 100%
+72 / 100%
 
 </div>
 
-<div class="mt-5">
+<div
+class="
+text-center
+mt-6
+subtitle
+">
 
-Aposte mais
-<b>R$200</b>
-para próximo nível
+Faltam
+<b class="gold">
+
+R$200
+
+</b>
+
+para subir de nível
 
 </div>
 
 <a
 href="home.html"
 class="
-block
-mt-6
-bg-yellow-400
-text-black
-font-bold
-text-center
-rounded-2xl
-py-4
+button-premium
+mt-8
 ">
 
-Fazer Upgrade
+FAZER UPGRADE
 
 </a>
 
@@ -304,15 +481,15 @@ Fazer Upgrade
 <div
 class="
 card
-mt-4
-p-5
+mt-5
+p-6
 ">
 
 <h2
 class="
-text-2xl
-gold
 text-center
+text-3xl
+gold
 ">
 
 Benefícios VIP
@@ -323,34 +500,35 @@ Benefícios VIP
 class="
 grid
 grid-cols-2
-gap-3
-mt-5
+gap-4
+mt-6
 ">
 
 <div class="reward">VIP1<br>R$10</div>
 <div class="reward">VIP2<br>R$25</div>
 <div class="reward">VIP3<br>R$50</div>
 <div class="reward">VIP4<br>R$100</div>
-<div class="reward">VIP5<br>R$200</div>
-<div class="reward">VIP6<br>R$500</div>
-<div class="reward">VIP7<br>R$700</div>
-<div class="reward">VIP8<br>R$1000</div>
-<div class="reward">VIP9<br>R$1500</div>
-<div class="reward">VIP10 👑<br>R$2000</div>
+<div class="reward">VIP5 ⭐<br>R$200</div>
+<div class="reward">VIP6 ⭐<br>R$500</div>
+<div class="reward">VIP7 👑<br>R$700</div>
+<div class="reward">VIP8 👑<br>R$1000</div>
+<div class="reward">VIP9 💎<br>R$1500</div>
+<div class="reward">VIP10 🏆<br>R$2000</div>
 
 </div>
 
 </div>
 
 </div>
-
-<!-- CASH -->
 
 <div
 id="cash"
-class="page p-4">
+class="
+page
+px-5
+">
 
-<div class="card p-5">
+<div class="card p-6">
 
 <h2
 class="
@@ -358,126 +536,113 @@ text-4xl
 gold
 ">
 
-💸 Crash Back
+💸 Cashback
 
 </h2>
 
-<p class="mt-4">
-
-Máximo:
-<b>10%</b>
-
-</p>
-
 <div
 class="
+space-y-4
 mt-6
-space-y-3
 ">
 
-<div class="reward">
-R$1–100 → 1%
-</div>
-
-<div class="reward">
-R$100–500 → 5%
-</div>
-
-<div class="reward">
-R$500–1000 → 6%
-</div>
-
-<div class="reward">
-R$1000–2000 → 8%
-</div>
-
-<div class="reward">
-R$2000–5000 → 10%
-</div>
+<div class="reward">R$1–100 → 1%</div>
+<div class="reward">R$100–500 → 5%</div>
+<div class="reward">R$500–1000 → 6%</div>
+<div class="reward">R$1000–2000 → 8%</div>
+<div class="reward">R$2000–5000 → 10%</div>
 
 </div>
 
 </div>
 
 </div>
-
-<!-- BAU -->
 
 <div
 id="bau"
-class="page p-4">
+class="
+page
+px-5
+">
 
-<div class="card p-5">
+<div class="card p-7">
 
 <h2
 class="
-text-4xl
 gold
+text-center
+text-4xl
 ">
 
-🎁 Baú
+🎁 Baú VIP
 
 </h2>
 
-<p class="mt-2">
+<p
+class="
+subtitle
+text-center
+mt-3
+">
 
-Convide amigos.
+Convide amigos
 
 </p>
 
 <button
 onclick="showInvite()"
 class="
-mt-6
-w-full
-bg-yellow-400
-text-black
-rounded-2xl
-py-4
-font-bold
+button-premium
+mt-8
 ">
 
-Convidar Amigos
+CONVIDAR
 
 </button>
 
 <div
 id="invite"
-style="display:none">
+style="
+display:none
+"
+
+class="
+mt-8
+"
+
+>
+
+<div class="qr"></div>
 
 <div
 class="
-qr
+text-center
 mt-6
 ">
+
+Código
 
 </div>
 
 <div
 class="
-mt-6
-text-center
-">
-
-Código:
-
-<div
-class="
 gold
-text-2xl
+text-center
+text-3xl
+font-black
+mt-2
 ">
 
 PTVIP001
 
 </div>
 
-</div>
-
 <div
 class="
-mt-5
 text-center
+mt-5
 break-all
+subtitle
 ">
 
 https://srmonteiroofc.github.io/PTVIPSITE.com/home.html
@@ -521,8 +686,7 @@ e.classList.remove(
 );
 
 btn
-.classList
-.add(
+.classList.add(
 "active-tab"
 );
 
@@ -530,11 +694,24 @@ btn
 
 function showInvite(){
 
+const x=
+
 document
 .getElementById(
 "invite"
-)
-.style.display=
+);
+
+x.style.display=
+
+x.style.display===
+"block"
+
+?
+
+"none"
+
+:
+
 "block";
 
 }
