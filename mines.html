@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>PTVIP • Mines</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(
+180deg,
+#07111d,
+#08182b,
+#09111b
+);
+
+color:white;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+.topo{
+
+display:flex;
+
+justify-content:
+space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+.logo{
+
+font-size:22px;
+
+font-weight:900;
+
+color:#ff6b3d;
+
+}
+
+.saldo{
+
+background:#020912;
+
+padding:14px;
+
+border-radius:18px;
+
+text-align:center;
+
+width:130px;
+
+}
+
+.saldo span{
+
+color:#27ff9a;
+
+font-weight:700;
+
+}
+
+.painel{
+
+background:
+
+linear-gradient(
+180deg,
+#0b1e35,
+#0a1625
+);
+
+border-radius:24px;
+
+padding:20px;
+
+}
+
+.controles{
+
+display:flex;
+
+gap:12px;
+
+margin-bottom:20px;
+
+}
+
+select{
+
+flex:1;
+
+background:#112846;
+
+color:white;
+
+border:none;
+
+height:46px;
+
+border-radius:14px;
+
+padding-left:14px;
+
+}
+
+.multi{
+
+width:130px;
+
+background:#ffbf00;
+
+color:black;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-weight:700;
+
+}
+
+.tabuleiro{
+
+display:grid;
+
+grid-template-columns:
+repeat(5,1fr);
+
+gap:10px;
+
+margin-top:20px;
+
+}
+
+.casa{
+
+aspect-ratio:1;
+
+background:
+
+linear-gradient(
+180deg,
+#163154,
+#0f2540
+);
+
+border-radius:16px;
+
+box-shadow:
+inset 0 4px 10px rgba(255,255,255,.05);
+
+}
+
+.casa:hover{
+
+transform:scale(.96);
+
+}
+
+.aposta{
+
+margin-top:28px;
+
+}
+
+.valor{
+
+background:#112846;
+
+height:54px;
+
+border-radius:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:22px;
+
+}
+
+.botao{
+
+margin-top:16px;
+
+width:100%;
+
+height:62px;
+
+border:none;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(
+90deg,
+#4db300,
+#68dd00
+);
+
+color:white;
+
+font-size:24px;
+
+font-weight:900;
+
+}
+
+.botao:active{
+
+transform:scale(.98);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="topo">
+
+<div class="logo">
+PTVIP
+</div>
+
+<div class="saldo">
+
+SALDO<br>
+
+<span>
+R$0,00
+</span>
+
+</div>
+
+</div>
+
+<div class="painel">
+
+<div class="controles">
+
+<select>
+
+<option>
+3 Minas
+</option>
+
+<option>
+5 Minas
+</option>
+
+<option>
+7 Minas
+</option>
+
+<option>
+10 Minas
+</option>
+
+</select>
+
+<div class="multi">
+
+1.10x
+
+</div>
+
+</div>
+
+<div class="tabuleiro">
+
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+<div class="casa"></div>
+
+</div>
+
+<div class="aposta">
+
+<div class="valor">
+
+R$1,00
+
+</div>
+
+<button
+class="botao">
+
+APOSTAR
+
+</button>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
