@@ -1,498 +1,282 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Promoções VIP</title><script src="https://cdn.tailwindcss.com"></script><style>
+<title>PTVIP • Promoções V6</title>
+<script src="https://cdn.tailwindcss.com"></script>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
+<style>
 body{
-
+margin:0;
+font-family:Arial;
+color:#fff;
 background:
-
-radial-gradient(
-circle at top,
-rgba(255,205,90,.22),
-transparent 35%
-),
-
-linear-gradient(
-180deg,
-#06111b,
-#101827,
-#071019
-);
-
-color:white;
-
-font-family:sans-serif;
-
-overflow-x:hidden;
-
+radial-gradient(circle at top,rgba(255,210,80,.18),transparent 30%),
+linear-gradient(180deg,#070f1a,#0d1828,#070f1a);
 }
 
-.page{
-display:none;
-animation:fade .45s;
-}
+.wrap{max-width:430px;margin:auto;padding-bottom:90px}
 
-.active{
-display:block;
-}
-
-@keyframes fade{
-
-from{
-opacity:0;
-transform:
-translateY(20px);
-}
-
-to{
-opacity:1;
-transform:
-translateY(0);
-}
-
-}
-
-@keyframes glow{
-
-0%{
-box-shadow:
-0 0 0 transparent;
-}
-
-50%{
-box-shadow:
-0 0 40px rgba(255,210,80,.25);
-}
-
-100%{
-box-shadow:
-0 0 0 transparent;
-}
-
+/* TOP */
+.banner{
+text-align:center;
+padding:28px 16px 10px;
 }
 
 .logo{
-
-width:180px;
-
-filter:
-
-drop-shadow(
-0 0 35px
-rgba(255,210,70,.7)
-);
-
-}
-
-.banner{
-
-padding:50px 20px;
-
-text-align:center;
-
+width:220px;
+filter:drop-shadow(0 0 30px rgba(255,210,80,.6));
 }
 
 .gold{
-
-background:
-
-linear-gradient(
-90deg,
-#fff5c0,
-#ffcf52
-);
-
+background:linear-gradient(90deg,#fff2b0,#ffcc4d);
 -webkit-background-clip:text;
-
 color:transparent;
-
 }
 
-.card{
-
-background:
-
-linear-gradient(
-180deg,
-rgba(30,42,63,.97),
-rgba(18,28,43,.97)
-);
-
-border:
-
-1px solid
-rgba(255,215,100,.12);
-
-border-radius:26px;
-
-padding:20px;
-
-box-shadow:
-
-0 20px 50px
-rgba(0,0,0,.45);
-
-}
+/* TABS */
+.tabs{display:flex;gap:10px;padding:0 16px}
 
 .tab{
-
 flex:1;
-
 padding:14px;
-
 border-radius:16px;
-
-background:#1f2a41;
-
-font-weight:700;
-
-transition:.25s;
-
-}
-
-.tab:hover{
-
-transform:
-translateY(-3px);
-
+background:#162235;
+border:1px solid rgba(255,215,90,.08);
+font-weight:800;
 }
 
 .active-tab{
-
-background:
-
-linear-gradient(
-90deg,
-#ffd65d,
-#ffb026
-);
-
-color:black;
-
+background:linear-gradient(90deg,#ffd75a,#ffb022);
+color:#111;
 }
 
-.button{
+/* CARD */
+.card{
+margin:16px;
+padding:18px;
+border-radius:26px;
+background:linear-gradient(180deg,#18263c,#0f1828);
+border:1px solid rgba(255,215,90,.12);
+box-shadow:0 20px 50px rgba(0,0,0,.4);
+}
 
+/* BUTTON */
+.btn{
 display:block;
-
-width:100%;
-
+text-align:center;
 padding:16px;
-
-border-radius:18px;
-
-background:
-
-linear-gradient(
-90deg,
-#ffd65d,
-#ffb026
-);
-
-color:black;
-
+border-radius:16px;
+background:linear-gradient(90deg,#ffd65a,#ffb020);
+color:#111;
 font-weight:900;
-
-transition:.3s;
-
-animation:
-glow 3s infinite;
-
+text-decoration:none;
 }
 
-.button:hover{
-
-transform:
-translateY(-4px)
-scale(1.02);
-
-}
-
+/* VIP */
 .progress{
-
 height:16px;
-
-background:#24314b;
-
-border-radius:40px;
-
+background:#23324a;
+border-radius:999px;
 overflow:hidden;
-
 }
 
 .fill{
-
 height:100%;
-
 width:0%;
-
-background:
-
-linear-gradient(
-90deg,
-#ffcb49,
-#fff6c2
-);
-
+background:linear-gradient(90deg,#ffd65a,#fff2c0);
 }
 
-.reward{
-
-padding:14px;
-
-border-radius:18px;
-
+/* CASHBACK */
+.hero{
+padding:18px;
+border-radius:22px;
 background:
+radial-gradient(circle at right,rgba(255,190,70,.18),transparent 50%),
+linear-gradient(180deg,#17263d,#0e1726);
+}
 
-linear-gradient(
-180deg,
-#24334d,
-#172132
-);
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
 
-font-size:14px;
-
+.box{
+padding:14px;
+border-radius:16px;
+background:#142033;
 text-align:center;
-
 }
 
-.small-card{
-
+/* INVITE */
+.invite{
+display:none;
+margin-top:14px;
 padding:14px;
-
-border-radius:18px;
-
-background:#182234;
-
+border-radius:14px;
+background:#111b2b;
+word-break:break-all;
 }
 
-.percent{
-
-font-size:26px;
-
-font-weight:900;
-
-color:#ffd55a;
-
-}
-
+/* SUPPORT */
 .support{
-
-margin-top:40px;
-
-padding:20px;
-
-text-align:center;
-
+margin:16px;
 }
 
-</style></head><body><div class="max-w-md mx-auto pb-32"><div class="banner"><img
-src="logo.png"
-class="logo mx-auto">
+</style>
+</head>
 
-<h1
-class="
-text-6xl
-font-black
-gold
-mt-5
-">PROMOÇÕES
+<body>
 
-</h1><p class="mt-3 text-gray-300">Benefícios Exclusivos
+<div class="wrap">
 
-</p></div><div class="flex gap-2 px-5"><button
-class="
-tab
-active-tab
-"
-onclick="
-show('vip',this)
-">
+<!-- TOP -->
+<div class="banner">
+<img src="logo.png" class="logo">
+<h1 class="gold text-5xl font-black mt-3">PROMOÇÕES</h1>
+<p style="opacity:.8">Área Premium PTVIP</p>
+</div>
 
-👑 VIP
+<!-- TABS -->
+<div class="tabs">
+<button class="tab active-tab" onclick="show('vip',this)">👑 VIP</button>
+<button class="tab" onclick="show('cash',this)">💸 Cashback</button>
+<button class="tab" onclick="show('invite',this)">🎁 Indique</button>
+</div>
 
-</button><button
-class="tab"
-onclick="
-show('cash',this)
-">
+<!-- VIP -->
+<div id="vip" class="card page active">
 
-💸 Cashback
+<div style="text-align:center">
+<div style="opacity:.7">Nível Atual</div>
+<div class="gold text-6xl font-black">VIP 0</div>
+<div style="opacity:.7">Novo usuário</div>
+</div>
 
-</button><button
-class="tab"
-onclick="
-show('bau',this)
-">
+<div class="progress mt-4">
+<div class="fill"></div>
+</div>
 
-🎁 Baú
+<div style="text-align:center;margin-top:10px">0%</div>
 
-</button></div><div
-id="vip"
-class="
-page
-active
-p-5
-"><div class="card"><div class="text-center"><div>Nível Atual</div><div
-class="
-text-7xl
-gold
-font-black
-">VIP 0
+<div class="card mt-4">
+<div style="text-align:center">
+Próximo nível: <b class="gold">VIP 1</b><br>
+Aposte R$200 para evoluir
+</div>
+</div>
 
-</div></div><div class="progress mt-6"><div
-class="fill"
-id="bar"></div></div><div class="text-center mt-3">0%
+<a class="btn mt-4" href="home.html">FAZER UPGRADE</a>
 
-</div><div
-class="
-text-center
-mt-5
-">Aposte para subir de nível
+<div class="card mt-4">
+<div class="gold text-center text-xl">Níveis VIP</div>
 
-</div><a
-href="home.html"
-class="
-button
-mt-6
-">
+<div class="grid mt-3">
+<div class="box">VIP1<br>R$10</div>
+<div class="box">VIP2<br>R$25</div>
+<div class="box">VIP3<br>R$50</div>
+<div class="box">VIP4<br>R$100</div>
+</div>
+</div>
 
-COMEÇAR
+</div>
 
-</a></div><div
-class="
-card
-mt-4
-"><h2
-class="
-gold
-text-center
-text-2xl
-">Níveis VIP
+<!-- CASHBACK -->
+<div id="cash" class="card page">
 
-</h2><div
-class="
-grid
-grid-cols-2
-gap-2
-mt-5
-"><div class="reward">VIP1<br>R$10</div>
-<div class="reward">VIP2<br>R$25</div>
-<div class="reward">VIP3<br>R$50</div>
-<div class="reward">VIP4<br>R$100</div>
-<div class="reward">VIP5<br>R$250</div>
-<div class="reward">VIP6<br>R$500</div>
-<div class="reward">VIP7<br>R$700</div>
-<div class="reward">VIP8<br>R$1000</div></div></div></div><div
-id="cash"
-class="
-page
-p-5
-"><div class="card"><div class="text-center"><div>Saldo disponível</div><div
-class="
-gold
-text-5xl
-font-black
-">R$0
+<div class="hero">
 
-</div></div><div
-class="
-small-card
-mt-5
-text-center
-"><span class="percent">10%
+<div style="font-weight:800;opacity:.8">CASHBACK PTVIP</div>
 
-</span><br>Máximo de retorno
+<h2 class="gold text-4xl font-black mt-2">
+Até 20% de volta
+</h2>
 
-</div><button
-class="
-button
-mt-5
-">
+<p style="opacity:.8;margin-top:6px">
+Receba cashback baseado nas suas apostas.
+</p>
 
-RESGATAR CASHBACK
+</div>
 
-</button></div></div><div
-id="bau"
-class="
-page
-p-5
-"><div class="card"><h2
-class="
-gold
-text-center
-text-3xl
-">🎁 Baú VIP
+<div class="grid mt-4">
 
-</h2><div
-class="
-grid
-gap-2
-mt-5
-"><div class="reward">Convide 1 amigo
+<div class="box">
+TIPO<br><b>Diário</b>
+</div>
 
-</div><div class="reward">Convide 3 amigos
+<div class="box">
+MÁX<br><b class="gold">20%</b>
+</div>
 
-</div><div class="reward">Convide 5 amigos
+<div class="box">
+MÍN<br><b>R$0,50</b>
+</div>
 
-</div></div><button
-class="
-button
-mt-6
-">
+<div class="box">
+LIMITE<br><b class="gold">R$5K</b>
+</div>
 
-ABRIR BAÚ
+</div>
 
-</button></div></div><div class="support"><a
+<a class="btn mt-4">RESGATAR CASHBACK</a>
 
-href="https://www.reclameaqui.com.br/empresa/ptvip/lista-reclamacoes/"
+</div>
 
-class="button"
+<!-- INDICAR -->
+<div id="invite" class="card page">
 
-«»
+<h2 class="gold text-center text-3xl font-black">
+🎁 INDIQUE E GANHE
+</h2>
 
-SUPORTE
+<p style="text-align:center;opacity:.8;margin-top:6px">
+Convide amigos e ganhe recompensas
+</p>
 
-</a></div></div><script>
+<div class="grid mt-4">
+<div class="box">1 amigo</div>
+<div class="box">3 amigos</div>
+<div class="box">5 amigos</div>
+<div class="box">10 amigos</div>
+</div>
+
+<a class="btn mt-4" onclick="toggleLink()">MOSTRAR LINK</a>
+
+<div id="link" class="invite">
+https://srmonteiroofc.github.io/PTVIPSITE.com/index.html
+</div>
+
+</div>
+
+<!-- SUPPORT -->
+<div class="support">
+<a class="btn"
+href="https://www.reclameaqui.com.br/empresa/ptvip/lista-reclamacoes/">
+🛟 SUPORTE
+</a>
+</div>
+
+</div>
+
+<script>
 
 function show(id,btn){
+document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+document.getElementById(id).classList.add('active');
 
-document
-.querySelectorAll(".page")
-.forEach(
-x=>
-x.classList.remove(
-"active"
-)
-);
-
-document
-.getElementById(id)
-.classList.add(
-"active"
-);
-
-document
-.querySelectorAll(".tab")
-.forEach(
-x=>
-x.classList.remove(
-"active-tab"
-)
-);
-
-btn.classList.add(
-"active-tab"
-);
-
+document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active-tab'));
+btn.classList.add('active-tab');
 }
 
-</script></body></html>
+function toggleLink(){
+let el=document.getElementById('link');
+el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+
+</script>
+
+</body>
+</html>
