@@ -4,9 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>PTVIP Mines</title>
+<meta name="viewport"
+content="width=device-width,initial-scale=1">
+
+<title>PTVIP • Mines</title>
 
 <style>
 
@@ -14,19 +16,22 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-background:linear-gradient(
+
+background:
+linear-gradient(
 180deg,
 #07111d,
-#020912
+#020a12
 );
 
-font-family:Arial;
 color:white;
 
-padding:20px;
+padding:18px;
+
 }
 
 .topo{
@@ -38,25 +43,25 @@ space-between;
 
 align-items:center;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
 .logo{
 
-font-size:24px;
+font-size:22px;
 
-font-weight:700;
+font-weight:900;
 
-color:#ff6d3d;
+color:#ff6435;
 
 }
 
 .saldo{
 
-background:#06101f;
+background:#050d18;
 
-padding:15px;
+padding:14px 18px;
 
 border-radius:18px;
 
@@ -64,21 +69,25 @@ text-align:center;
 
 }
 
-.saldo span{
+.saldo b{
 
-color:#00ff88;
+color:#00ff9d;
 
 font-size:34px;
-
-font-weight:bold;
 
 }
 
 .box{
 
-background:#07192e;
+background:
 
-padding:18px;
+linear-gradient(
+180deg,
+#081a30,
+#071422
+);
+
+padding:16px;
 
 border-radius:24px;
 
@@ -90,41 +99,39 @@ display:flex;
 
 gap:10px;
 
-margin-bottom:15px;
-
 }
 
 select{
 
 flex:1;
 
-height:58px;
+height:60px;
 
-background:#14325f;
-
-color:white;
+background:#14315f;
 
 border:none;
 
 border-radius:18px;
 
-padding-left:18px;
+color:white;
 
 font-size:20px;
+
+padding-left:18px;
 
 }
 
 .multi{
 
-width:130px;
+width:120px;
 
-background:#ffc700;
+background:#ffc400;
 
 color:black;
 
-font-weight:700;
+font-weight:900;
 
-border-radius:18px;
+font-size:24px;
 
 display:flex;
 
@@ -132,7 +139,7 @@ justify-content:center;
 
 align-items:center;
 
-font-size:22px;
+border-radius:18px;
 
 }
 
@@ -145,20 +152,22 @@ repeat(5,1fr);
 
 gap:10px;
 
+margin-top:16px;
+
 }
 
 .casa{
 
 aspect-ratio:1;
 
+border-radius:18px;
+
 background:
 linear-gradient(
 145deg,
-#173d72,
-#0d2445
+#173b70,
+#0d2447
 );
-
-border-radius:18px;
 
 display:flex;
 
@@ -166,59 +175,86 @@ align-items:center;
 
 justify-content:center;
 
-font-size:32px;
+font-size:34px;
 
-transition:.2s;
-
-}
-
-.casa:hover{
-
-transform:scale(.96);
+transition:.18s;
 
 }
 
-input{
+.casa:active{
 
-width:100%;
+transform:scale(.95);
+
+}
+
+.valor{
+
+margin-top:18px;
 
 height:60px;
 
-margin-top:16px;
-
-background:#0c2346;
+width:100%;
 
 border:none;
 
+background:#0d2344;
+
 border-radius:18px;
+
+text-align:center;
 
 color:white;
 
 font-size:26px;
 
-text-align:center;
-
 }
 
-button{
+.botao{
+
+margin-top:16px;
 
 width:100%;
 
 height:64px;
 
-margin-top:15px;
-
 border:none;
 
 border-radius:20px;
 
-background:#4fe000;
+background:
+linear-gradient(
+90deg,
+#46d500,
+#5df000
+);
+
+font-size:28px;
+
+font-weight:900;
 
 color:white;
 
-font-size:30px;
+}
+
+.botao2{
+
+margin-top:12px;
+
+width:100%;
+
+height:58px;
+
+border:none;
+
+border-radius:18px;
+
+background:#00c8ff;
+
+font-size:22px;
 
 font-weight:700;
+
+color:white;
 
 }
 
@@ -231,7 +267,9 @@ font-weight:700;
 <div class="topo">
 
 <div class="logo">
+
 PTVIP
+
 </div>
 
 <div class="saldo">
@@ -240,11 +278,11 @@ SALDO
 
 <br>
 
-<span>
+<b id="saldo">
 
 R$0,00
 
-</span>
+</b>
 
 </div>
 
@@ -256,21 +294,10 @@ R$0,00
 
 <select id="minas">
 
-<option value="3">
-3 Minas
-</option>
-
-<option value="5">
-5 Minas
-</option>
-
-<option value="7">
-7 Minas
-</option>
-
-<option value="10">
-10 Minas
-</option>
+<option value="3">3 Minas</option>
+<option value="5">5 Minas</option>
+<option value="7">7 Minas</option>
+<option value="10">10 Minas</option>
 
 </select>
 
@@ -291,12 +318,23 @@ id="tabuleiro">
 </div>
 
 <input
-value="R$1,00">
+class="valor"
+id="valor"
+value="1">
 
 <button
+class="botao"
 id="apostar">
 
 APOSTAR
+
+</button>
+
+<button
+class="botao2"
+id="sacar">
+
+SACAR
 
 </button>
 
