@@ -1,26 +1,31 @@
-const tabuleiro =
+const tabuleiro=
 document.getElementById(
 "tabuleiro"
 );
 
-const minasSelect =
-document.getElementById(
-"minas"
-);
-
-const botao =
+const apostar=
 document.getElementById(
 "apostar"
 );
 
-const multi =
+const sacar=
+document.getElementById(
+"sacar"
+);
+
+const select=
+document.getElementById(
+"minas"
+);
+
+const multi=
 document.getElementById(
 "multi"
 );
 
 let jogo=false;
 
-let minas=[];
+let bombas=[];
 
 let abertas=0;
 
@@ -36,23 +41,23 @@ i<25;
 i++
 ){
 
-const casa=
+const c=
 document.createElement(
 "div"
 );
 
-casa.className=
+c.className=
 "casa";
 
-casa.onclick=
-()=>clicar(
-casa,
+c.onclick=
+()=>abrir(
+c,
 i
 );
 
 tabuleiro
 .appendChild(
-casa
+c
 );
 
 }
@@ -61,12 +66,12 @@ casa
 
 function gerar(){
 
-minas=[];
+bombas=[];
 
 while(
-minas.length<
+bombas.length<
 Number(
-minasSelect.value
+select.value
 )
 ){
 
@@ -76,12 +81,12 @@ Math.random()*25
 );
 
 if(
-!minas.includes(
+!bombas.includes(
 n
 )
 ){
 
-minas.push(
+bombas.push(
 n
 );
 
@@ -108,9 +113,9 @@ gerar();
 
 }
 
-function clicar(
+function abrir(
 casa,
-id
+i
 ){
 
 if(
@@ -123,8 +128,8 @@ casa.innerHTML
 return;
 
 if(
-minas.includes(
-id
+bombas.includes(
+i
 )
 ){
 
@@ -132,14 +137,14 @@ casa.innerHTML=
 "💣";
 
 casa.style.background=
-"#ff3434";
+"#ff3737";
 
 jogo=false;
 
 setTimeout(()=>{
 
 alert(
-"VOCÊ PERDEU"
+"PERDEU"
 );
 
 },300);
@@ -161,11 +166,29 @@ casa.innerHTML=
 "💎";
 
 casa.style.background=
-"#00d4ff";
+"#00c8ff";
 
 }
 
-botao.onclick=
+apostar.onclick=
 iniciar;
+
+sacar.onclick=
+()=>{
+
+if(
+!jogo
+)return;
+
+alert(
+"Ganho: "+
+multiplicador
+.toFixed(2)
++"x"
+);
+
+jogo=false;
+
+};
 
 criar();
