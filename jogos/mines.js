@@ -1,78 +1,51 @@
-const tabuleiro=
-document.getElementById(
-"tabuleiro"
-);
+<script>
 
-const apostar=
-document.getElementById(
-"apostar"
-);
+const tab =
+document.getElementById("tabuleiro");
 
-const sacar=
-document.getElementById(
-"sacar"
-);
+const botao =
+document.getElementById("apostar");
 
-const select=
-document.getElementById(
-"minas"
-);
+const multi =
+document.getElementById("multi");
 
-const multi=
-document.getElementById(
-"multi"
-);
+const minas =
+document.getElementById("minas");
 
-let jogo=false;
+const status =
+document.getElementById("status");
 
 let bombas=[];
+let ativo=false;
+let abertas=[];
+let multiplicador=1.10;
 
-let abertas=0;
-
-let multiplicador=1;
-
-function criar(){
-
-tabuleiro.innerHTML="";
-
-for(
-let i=0;
-i<25;
-i++
-){
+for(let i=0;i<25;i++){
 
 const c=
-document.createElement(
-"div"
-);
+document.createElement("div");
 
-c.className=
-"casa";
+c.className="casa";
+
+c.dataset.id=i;
 
 c.onclick=
-()=>abrir(
-c,
-i
-);
+()=>abrir(i);
 
-tabuleiro
-.appendChild(
-c
-);
+tab.appendChild(c);
 
 }
 
-}
+const casas=
+document.querySelectorAll(".casa");
 
-function gerar(){
+function gerarBombas(){
 
 bombas=[];
 
 while(
 bombas.length<
-Number(
-select.value
-)
+Number(minas.value)
 ){
 
 let n=
@@ -81,14 +54,10 @@ Math.random()*25
 );
 
 if(
-!bombas.includes(
-n
-)
+!bombas.includes(n)
 ){
 
-bombas.push(
-n
-);
+bombas.push(n);
 
 }
 
@@ -98,97 +67,149 @@ n
 
 function iniciar(){
 
-jogo=true;
+ativo=true;
 
-abertas=0;
+abertas=[];
 
-multiplicador=1;
+multiplicador=1.10;
 
-multi.innerHTML=
-"1.00x";
+multi.innerHTML="1.10x";
 
-criar();
+status.innerHTML=
+"💎 ESCOLHA UMA CASA";
 
-gerar();
+botao.innerHTML=
+"SACAR";
+
+botao.style.background=
+"linear-gradient(90deg,#ffbf00,#ff6b00)";
+
+minas.disabled=true;
+
+casas.forEach(c=>{
+
+c.innerHTML="";
+
+c.className="casa";
+
+});
+
+gerarBombas();
 
 }
 
-function abrir(
-casa,
-i
-){
+function revelarTudo(){
 
-if(
-!jogo
-)return;
+bombas.forEach(i=>{
 
-if(
-casa.innerHTML
-)
-return;
-
-if(
-bombas.includes(
-i
-)
-){
-
-casa.innerHTML=
+casas[i]
+.innerHTML=
 "💣";
 
-casa.style.background=
-"#ff3737";
+casas[i]
+.classList
+.add(
+"bomba"
+);
 
-jogo=false;
+});
+
+}
+
+function abrir(i){
+
+if(!ativo)return;
+
+if(
+abertas.includes(i)
+)return;
+
+abertas.push(i);
+
+if(
+bombas.includes(i)
+){
+
+revelarTudo();
+
+status.innerHTML=
+"💣 VOCÊ PERDEU";
 
 setTimeout(()=>{
 
-alert(
-"PERDEU"
-);
+finalizar();
 
-},300);
+},1200);
 
 return;
 
 }
 
-abertas++;
+casas[i]
+.innerHTML=
+"💎";
 
-multiplicador+=0.25;
+casas[i]
+.classList
+.add(
+"aberta"
+);
+
+multiplicador+=0.20;
 
 multi.innerHTML=
+
 multiplicador
 .toFixed(2)
 +"x";
 
-casa.innerHTML=
-"💎";
+status.innerHTML=
 
-casa.style.background=
-"#00c8ff";
+"🔥 "
++
+abertas.length
++
+" ACERTOS";
 
 }
 
-apostar.onclick=
-iniciar;
+function finalizar(){
 
-sacar.onclick=
-()=>{
+ativo=false;
 
-if(
-!jogo
-)return;
+minas.disabled=false;
 
-alert(
-"Ganho: "+
-multiplicador
-.toFixed(2)
-+"x"
-);
+botao.innerHTML=
+"APOSTAR";
 
-jogo=false;
+botao.style.background=
+"linear-gradient(90deg,#36d100,#14ff77)";
+
+}
+
+botao.onclick=()=>{
+
+if(!ativo){
+
+iniciar();
+
+return;
+
+}
+
+status.innerHTML=
+
+"🎉 SACADO "
++
+
+multi.innerHTML;
+
+setTimeout(()=>{
+
+finalizar();
+
+},800);
 
 };
 
-criar();
+</script>
