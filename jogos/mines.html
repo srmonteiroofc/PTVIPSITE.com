@@ -4,60 +4,135 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>PTVIP Mines</title>
 
 <style>
 
-body{
-
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-padding:20px;
-
-background:#07111d;
+body{
+background:linear-gradient(
+180deg,
+#07111d,
+#020912
+);
 
 font-family:Arial;
-
 color:white;
+
+padding:20px;
+}
+
+.topo{
+
+display:flex;
+
+justify-content:
+space-between;
+
+align-items:center;
+
+margin-bottom:20px;
 
 }
 
-select,
-button{
+.logo{
 
-width:100%;
+font-size:24px;
 
-height:60px;
+font-weight:700;
 
-border:none;
+color:#ff6d3d;
 
-border-radius:14px;
+}
+
+.saldo{
+
+background:#06101f;
+
+padding:15px;
+
+border-radius:18px;
+
+text-align:center;
+
+}
+
+.saldo span{
+
+color:#00ff88;
+
+font-size:34px;
+
+font-weight:bold;
+
+}
+
+.box{
+
+background:#07192e;
+
+padding:18px;
+
+border-radius:24px;
+
+}
+
+.linha{
+
+display:flex;
+
+gap:10px;
 
 margin-bottom:15px;
-
-font-size:20px;
 
 }
 
 select{
 
-background:#163867;
+flex:1;
+
+height:58px;
+
+background:#14325f;
 
 color:white;
+
+border:none;
+
+border-radius:18px;
+
+padding-left:18px;
+
+font-size:20px;
 
 }
 
-button{
+.multi{
 
-background:#4fc400;
+width:130px;
 
-color:white;
+background:#ffc700;
 
-font-weight:bold;
+color:black;
+
+font-weight:700;
+
+border-radius:18px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:22px;
 
 }
 
@@ -68,7 +143,7 @@ display:grid;
 grid-template-columns:
 repeat(5,1fr);
 
-gap:8px;
+gap:10px;
 
 }
 
@@ -76,41 +151,74 @@ gap:8px;
 
 aspect-ratio:1;
 
-background:#163867;
+background:
+linear-gradient(
+145deg,
+#173d72,
+#0d2445
+);
 
-border-radius:12px;
+border-radius:18px;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
 
-font-size:28px;
+justify-content:center;
+
+font-size:32px;
+
+transition:.2s;
 
 }
 
-.multi{
+.casa:hover{
+
+transform:scale(.96);
+
+}
+
+input{
+
+width:100%;
 
 height:60px;
 
-background:#ffc400;
+margin-top:16px;
 
-color:black;
+background:#0c2346;
 
-display:flex;
+border:none;
 
-align-items:center;
+border-radius:18px;
 
-justify-content:center;
+color:white;
 
-border-radius:14px;
+font-size:26px;
 
-margin-bottom:15px;
+text-align:center;
 
-font-size:24px;
+}
 
-font-weight:bold;
+button{
+
+width:100%;
+
+height:64px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:20px;
+
+background:#4fe000;
+
+color:white;
+
+font-size:30px;
+
+font-weight:700;
 
 }
 
@@ -119,6 +227,32 @@ font-weight:bold;
 </head>
 
 <body>
+
+<div class="topo">
+
+<div class="logo">
+PTVIP
+</div>
+
+<div class="saldo">
+
+SALDO
+
+<br>
+
+<span>
+
+R$0,00
+
+</span>
+
+</div>
+
+</div>
+
+<div class="box">
+
+<div class="linha">
 
 <select id="minas">
 
@@ -144,9 +278,20 @@ font-weight:bold;
 class="multi"
 id="multi">
 
-1.10x
+1.00x
 
 </div>
+
+</div>
+
+<div
+class="tabuleiro"
+id="tabuleiro">
+
+</div>
+
+<input
+value="R$1,00">
 
 <button
 id="apostar">
@@ -155,202 +300,9 @@ APOSTAR
 
 </button>
 
-<div
-class="tabuleiro"
-id="tabuleiro">
-
 </div>
 
-<script>
-
-const tab=
-document.getElementById(
-"tabuleiro"
-);
-
-const botao=
-document.getElementById(
-"apostar"
-);
-
-const multi=
-document.getElementById(
-"multi"
-);
-
-const minasInput=
-document.getElementById(
-"minas"
-);
-
-let bombas=[];
-
-let ativo=false;
-
-let multiplicador=1.10;
-
-tab.innerHTML="";
-
-for(
-let i=0;
-i<25;
-i++
-){
-
-const c=
-document
-.createElement(
-"div"
-);
-
-c.className=
-"casa";
-
-c.dataset.id=i;
-
-tab.appendChild(c);
-
-}
-
-const casas=
-document
-.querySelectorAll(
-".casa"
-);
-
-function gerarBombas(){
-
-bombas=[];
-
-let qtd=
-Number(
-minasInput.value
-);
-
-while(
-bombas.length
-<qtd
-){
-
-let n=
-Math.floor(
-Math.random()*25
-);
-
-if(
-!bombas.includes(n)
-){
-
-bombas.push(n);
-
-}
-
-}
-
-}
-
-function iniciar(){
-
-ativo=true;
-
-multiplicador=1.10;
-
-multi.innerHTML=
-"1.10x";
-
-casas.forEach(c=>{
-
-c.innerHTML="";
-
-});
-
-gerarBombas();
-
-botao.innerHTML=
-"SACAR";
-
-}
-
-function parar(){
-
-ativo=false;
-
-botao.innerHTML=
-"APOSTAR";
-
-}
-
-function abrir(i){
-
-if(
-!ativo
-)return;
-
-if(
-casas[i]
-.innerHTML
-!=""
-
-)return;
-
-if(
-bombas.includes(i)
-){
-
-casas[i]
-.innerHTML=
-"💣";
-
-parar();
-
-return;
-
-}
-
-casas[i]
-.innerHTML=
-"💎";
-
-multiplicador+=0.15;
-
-multi.innerHTML=
-
-multiplicador
-.toFixed(2)
-
-+"x";
-
-}
-
-casas.forEach(
-
-(c,i)=>{
-
-c.onclick=
-()=>abrir(i);
-
-}
-
-);
-
-botao.onclick=
-()=>{
-
-if(
-ativo
-){
-
-parar();
-
-}else{
-
-iniciar();
-
-}
-
-};
-
-</script>
+<script src="mines.js"></script>
 
 </body>
 
